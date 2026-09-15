@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { useAuth } from '@/lib/auth-context';
 
 const NAV_ITEMS = [
-  { href: '/dashboard', label: 'Dashboard', permission: null },
+  { href: '/dashboard', label: 'Dashboard', permission: 'reports.read' },
   { href: '/contacts', label: 'Contacts', permission: 'contacts.read' },
   { href: '/calendar', label: 'Calendar', permission: null },
   { href: '/staff', label: 'Staff', permission: 'staff.manage' },

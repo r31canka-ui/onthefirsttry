@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState, ReactNode, useCallback 
 import { useRouter } from 'next/navigation';
 import { api } from './api';
 import { CurrentUser } from './types';
+import { getDefaultRoute } from './routes';
 
 interface AuthContextValue {
   user: CurrentUser | null;
@@ -20,10 +21,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const fetchMe = useCallback(async () => {
+  const fetchMe = useCallback(async (): Promise<CurrentUser | null> => {
     try {
       const me = await api.get<CurrentUser>('/auth/me');
       setUser(me);
+      return me;
     } catch {
       setUser(null);
       try {
@@ -31,6 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       } catch {
         // ignore
       }
+      return null;
     } finally {
       setLoading(false);
     }
@@ -48,8 +51,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = useCallback(
     async (accessToken: string) => {
       localStorage.setItem('accessToken', accessToken);
-      await fetchMe();
-      router.push('/dashboard');
+      const me = await fetchMe();
+      router.push(me ? getDefaultRoute(me) : '/login');
     },
     [fetchMe, router],
   );

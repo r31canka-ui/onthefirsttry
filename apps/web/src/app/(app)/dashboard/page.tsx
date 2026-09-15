@@ -13,7 +13,21 @@ export default function DashboardPage() {
   });
 
   if (isLoading) return <p className="text-sm text-gray-500">Loading dashboard...</p>;
-  if (error) return <p className="text-sm text-red-600">Failed to load dashboard.</p>;
+  if (error) {
+    return (
+      <p className="text-sm text-gray-500">
+        You don&apos;t have access to reports. Try{' '}
+        <Link href="/contacts" className="text-blue-600 hover:underline">
+          Contacts
+        </Link>{' '}
+        or{' '}
+        <Link href="/calendar" className="text-blue-600 hover:underline">
+          Calendar
+        </Link>{' '}
+        instead.
+      </p>
+    );
+  }
   if (!data) return null;
 
   const appts = data.appointmentsThisWeek;
