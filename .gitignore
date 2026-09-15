@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# env files - never commit secrets
+.env
+.env.local
+!.env.example
+!.env.local.example
+
+# build output
+apps/api/dist/
+apps/web/.next/
+apps/web/out/
+
+# logs
+*.log
+npm-debug.log*
+
+# misc
+.DS_Store
+*.tsbuildinfo
+
+# test coverage
+coverage/

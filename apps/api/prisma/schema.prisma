@@ -1,0 +1,340 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [citext, pg_trgm]
+}
+
+// =========================================================
+// Organizations & Locations
+// =========================================================
+
+model Organization {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  countryCode   String   @map("country_code") @db.Char(2)
+  defaultLocale String   @default("en") @map("default_locale")
+  timezone      String   @default("Europe/Tirane")
+  isActive      Boolean  @default(true) @map("is_active")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  locations         Location[]
+  users             User[]
+  roles             Role[]
+  userRoles         UserRole[]
+  pipelineStages    PipelineStage[]
+  contacts          Contact[]
+  tags              Tag[]
+  contactActivities ContactActivity[]
+  services          Service[]
+  appointments      Appointment[]
+  auditLogs         AuditLog[]
+
+  @@map("organizations")
+}
+
+model Location {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  name           String
+  address        String?
+  city           String?
+  countryCode    String?  @map("country_code") @db.Char(2)
+  timezone       String
+  phone          String?
+  isActive       Boolean  @default(true) @map("is_active")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization   Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  staffLocations StaffLocation[]
+  contacts       Contact[]
+  appointments   Appointment[]
+
+  @@index([organizationId])
+  @@map("locations")
+}
+
+// =========================================================
+// Users, RBAC
+// =========================================================
+
+model User {
+  id               String    @id @default(uuid())
+  organizationId   String    @map("organization_id")
+  email            String    @unique @db.Citext
+  passwordHash     String?   @map("password_hash")
+  fullName         String    @map("full_name")
+  phone            String?
+  status           String    @default("invited") // invited | active | disabled
+  twoFactorEnabled Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret  String?   @map("two_factor_secret")
+  lastLoginAt      DateTime? @map("last_login_at") @db.Timestamptz(3)
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization         Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  staffLocations       StaffLocation[]
+  userRoles            UserRole[]
+  assignedContacts     Contact[]         @relation("ContactAssignee")
+  authoredActivities   ContactActivity[] @relation("ActivityAuthor")
+  providedAppointments Appointment[]     @relation("AppointmentProvider")
+  createdAppointments  Appointment[]     @relation("AppointmentCreatedBy")
+  auditLogs            AuditLog[]
+  magicLinkTokens      MagicLinkToken[]
+
+  @@index([organizationId])
+  @@map("users")
+}
+
+model StaffLocation {
+  userId     String @map("user_id")
+  locationId String @map("location_id")
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@id([userId, locationId])
+  @@map("staff_locations")
+}
+
+model Permission {
+  id          String @id @default(uuid())
+  key         String @unique
+  description String
+
+  rolePermissions RolePermission[]
+
+  @@map("permissions")
+}
+
+model Role {
+  id              String   @id @default(uuid())
+  organizationId  String?  @map("organization_id") // null = system default template
+  name            String
+  isSystemDefault Boolean  @default(false) @map("is_system_default")
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization    Organization?    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  rolePermissions RolePermission[]
+  userRoles       UserRole[]
+
+  @@map("roles")
+}
+
+model RolePermission {
+  roleId       String @map("role_id")
+  permissionId String @map("permission_id")
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model UserRole {
+  userId         String @map("user_id")
+  roleId         String @map("role_id")
+  organizationId String @map("organization_id")
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role         Role         @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model MagicLinkToken {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(3)
+  usedAt    DateTime? @map("used_at") @db.Timestamptz(3)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("magic_link_tokens")
+}
+
+// =========================================================
+// Contacts (leads + patients, unified)
+// =========================================================
+
+model PipelineStage {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  name           String
+  position       Int
+  isWonStage     Boolean  @default(false) @map("is_won_stage")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  contacts     Contact[]
+
+  @@unique([organizationId, position])
+  @@map("pipeline_stages")
+}
+
+model Contact {
+  id                String    @id @default(uuid())
+  organizationId    String    @map("organization_id")
+  primaryLocationId String?   @map("primary_location_id")
+  firstName         String    @map("first_name")
+  lastName          String?   @map("last_name")
+  email             String?   @db.Citext
+  phone             String?
+  status            String    @default("lead") // lead | active_patient | inactive
+  source            String?
+  pipelineStageId   String?   @map("pipeline_stage_id")
+  assignedToUserId  String?   @map("assigned_to_user_id")
+  customFields      Json      @default("{}") @map("custom_fields")
+  consentRecordedAt DateTime? @map("consent_recorded_at") @db.Timestamptz(3)
+  consentNotes      String?   @map("consent_notes")
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt         DateTime? @map("deleted_at") @db.Timestamptz(3)
+
+  organization    Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  primaryLocation Location?         @relation(fields: [primaryLocationId], references: [id])
+  pipelineStage   PipelineStage?    @relation(fields: [pipelineStageId], references: [id])
+  assignedTo      User?             @relation("ContactAssignee", fields: [assignedToUserId], references: [id])
+  tags            ContactTag[]
+  activities      ContactActivity[]
+  appointments    Appointment[]
+
+  @@index([organizationId, status])
+  @@index([organizationId, pipelineStageId])
+  @@map("contacts")
+}
+
+model Tag {
+  id             String  @id @default(uuid())
+  organizationId String  @map("organization_id")
+  name           String
+  color          String?
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  contactTags  ContactTag[]
+
+  @@unique([organizationId, name])
+  @@map("tags")
+}
+
+model ContactTag {
+  contactId String @map("contact_id")
+  tagId     String @map("tag_id")
+
+  contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([contactId, tagId])
+  @@map("contact_tags")
+}
+
+model ContactActivity {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  contactId      String   @map("contact_id")
+  authorUserId   String?  @map("author_user_id")
+  type           String // note | stage_change | system
+  body           String?
+  isClinical     Boolean  @default(false) @map("is_clinical")
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  contact      Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  author       User?        @relation("ActivityAuthor", fields: [authorUserId], references: [id])
+
+  @@index([organizationId, contactId, createdAt(sort: Desc)])
+  @@map("contact_activities")
+}
+
+// =========================================================
+// Services & Appointments
+// =========================================================
+
+model Service {
+  id              String   @id @default(uuid())
+  organizationId  String   @map("organization_id")
+  name            String
+  category        String?
+  durationMinutes Int      @map("duration_minutes")
+  priceCents      Int      @default(0) @map("price_cents")
+  currency        String   @default("EUR") @db.Char(3)
+  isActive        Boolean  @default(true) @map("is_active")
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  appointments Appointment[]
+
+  @@map("services")
+}
+
+model Appointment {
+  id                 String   @id @default(uuid())
+  organizationId     String   @map("organization_id")
+  locationId         String   @map("location_id")
+  contactId          String   @map("contact_id")
+  providerUserId     String   @map("provider_user_id")
+  serviceId          String   @map("service_id")
+  status             String   @default("scheduled") // scheduled | completed | cancelled | no_show
+  startsAt           DateTime @map("starts_at") @db.Timestamptz(3)
+  endsAt             DateTime @map("ends_at") @db.Timestamptz(3)
+  createdByUserId    String?  @map("created_by_user_id")
+  cancellationReason String?  @map("cancellation_reason")
+  schedulingNote     String?  @map("scheduling_note")
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  location     Location     @relation(fields: [locationId], references: [id])
+  // Cascades on contact erasure (GDPR right to erasure, Phase 1 scope).
+  // Revisit in Phase 2: once invoices/payments reference appointments,
+  // GDPR's own legal/tax-obligation exception means erasure should
+  // anonymize the appointment (strip contactId) rather than delete a
+  // record a paid invoice still needs for accounting retention.
+  contact      Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  provider     User         @relation("AppointmentProvider", fields: [providerUserId], references: [id])
+  service      Service      @relation(fields: [serviceId], references: [id])
+  createdBy    User?        @relation("AppointmentCreatedBy", fields: [createdByUserId], references: [id])
+
+  @@index([organizationId, locationId, startsAt])
+  @@index([organizationId, providerUserId, startsAt])
+  @@index([organizationId, contactId])
+  @@map("appointments")
+}
+
+// =========================================================
+// Audit log
+// =========================================================
+
+model AuditLog {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  actorUserId    String?  @map("actor_user_id")
+  action         String // view | create | update | delete | export
+  entityType     String   @map("entity_type")
+  entityId       String?  @map("entity_id")
+  metadata       Json     @default("{}")
+  ipAddress      String?  @map("ip_address")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actor        User?        @relation(fields: [actorUserId], references: [id])
+
+  @@index([organizationId, entityType, entityId])
+  @@map("audit_log")
+}

@@ -1,6 +1,6 @@
 # Phase 1 — Database Schema & API Contract (Proposal)
 
-Status: **DRAFT — awaiting confirmation before any implementation code is written**, per the agreed workflow (propose → confirm → build).
+Status: **CONFIRMED — implementation in progress.** Decisions locked in: NestJS + Prisma, Postgres RLS + app-layer tenant isolation (both layers, not app-layer-only), GDPR/EU-only compliance scope for now (HIPAA/US revisited if a US clinic signs).
 
 This covers Phase 1 only (Core CRM): org/location setup, staff + RBAC, contact management, appointment scheduling, basic dashboard, search. Communications, billing, subscriptions, and multi-location reporting are intentionally out of scope here — they get their own schema/API proposals when Phase 1 ships.
 
@@ -31,7 +31,9 @@ Every tenant-scoped table gets:
 2. `ENABLE ROW LEVEL SECURITY` + a policy: `organization_id = current_setting('app.current_org_id')::uuid`.
 3. The app sets `SET LOCAL app.current_org_id = '<uuid>'` at the start of every request transaction, derived from the authenticated JWT — never from a client-supplied param.
 4. A Prisma middleware that *also* injects `organization_id` into every `where` clause, as a second, independent layer — so a mistake in one layer doesn't equal a breach.
-5. The Postgres role the app connects as has **no** `BYPASSRLS` privilege, and there is no code path that uses a superuser/admin connection for normal request handling. A separate, explicitly-audited "admin" connection (used only by the Phase 3 super-admin panel) is the sole exception, and every use of it is written to `audit_log`.
+5. The Postgres role the app connects as has **no** `BYPASSRLS` privilege, and there is no code path that uses a superuser/admin connection for normal request handling. There are exactly two narrow, documented exceptions to that, both implemented (see `prisma/roles.sql`):
+   - `clinic_crm_auth`: a second, tightly-scoped `BYPASSRLS` role used *only* by `AuthService`, for the one place tenant scoping is structurally impossible — resolving a user's `organization_id` from their email during login/magic-link/registration, before any org context exists. It has grants on `organizations`/`users`/`roles`/`user_roles`/`magic_link_tokens` only — no grant at all on `contacts`, `appointments`, `contact_activities`, or `audit_log`, so a bug in the auth path cannot leak clinical data.
+   - A future Phase 3 super-admin connection, not yet implemented, which will log every use to `audit_log`.
 
 **Concrete leak patterns to watch for during code review** (calling these out per your instruction 9.4):
 - A report/aggregate query that does a `GROUP BY` or `JOIN` across `contacts`/`appointments` without an `organization_id` filter on *every* joined table (RLS covers this even if the filter is missing, but don't rely on RLS alone as an excuse to be sloppy).
@@ -160,7 +162,10 @@ CREATE TABLE contacts (
 );
 CREATE INDEX ON contacts (organization_id, status);
 CREATE INDEX ON contacts (organization_id, pipeline_stage_id);
-CREATE INDEX ON contacts USING gin (to_tsvector('simple', coalesce(first_name,'') || ' ' || coalesce(last_name,'') || ' ' || coalesce(email,'') || ' ' || coalesce(phone,'')));
+-- pg_trgm, not tsvector: contact search needs to match partial phone
+-- numbers/emails ("0692...", "@gmail"), which token-based tsvector
+-- search handles poorly; trigram similarity/ILIKE fits this better.
+CREATE INDEX ON contacts USING gin ((coalesce(first_name,'') || ' ' || coalesce(last_name,'') || ' ' || coalesce(email,'') || ' ' || coalesce(phone,'')) gin_trgm_ops);
 
 CREATE TABLE tags (
   id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
