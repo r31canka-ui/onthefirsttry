@@ -27,7 +27,7 @@ Product description template (sq), adapt per tier:
 - Për kë është: kreatorë dhe freelancers që duan të fitojnë nga content-i; pronarë biznesesh të vegjël në Shqipëri që duan klientë nga Instagram/TikTok; marketerë që duan portofolin e parë me rezultate.
 - Për kë NUK është: kërkon para të shpejta pa punë; nuk je gati të publikosh; do vetëm certifikatë; kërkon kurs të avancuar reklamash.
 - Koha: 5–7 orë në javë për 6 javë.
-- Garancia 14-ditore e veprimit: nëse brenda 14 ditëve nga fillimi ke parë videot e javëve 1–2, ke dorëzuar 2 detyrat dhe mendon se programi nuk të vlen, të kthejmë 100% të parave. Pas ditës 14 nuk ka rimbursim, por mund të kalosh 1 herë falas në kohortën e ardhshme. VIP: rimbursim i plotë para seancës së parë 1:1, pas saj proporcional.
+- NO guarantee and NO refund promise anywhere. Do not write any money-back text.
 - Do NOT promise income. Write "objektivi: shitjet e para", never "garantojmë të ardhura".
 
 ## 3. Course app
@@ -155,4 +155,4 @@ Welcome message sent on purchase (sq), short:
 Also add a Whop checkout field or post-purchase form asking: WhatsApp number, city (Tiranë / jashtë Tiranës), and "Cili të përshkruan më mirë? A) Kreator/freelancer B) Pronar biznesi C) Marketer".
 
 ## 7. Store page
-Hero: tagline + "53 video · 6 javë · 6 workshope live në Tiranë". Show the 3 public products side by side, Hybrid highlighted. Add sections: "Çfarë do kesh pas 6 javësh" (3 reels + 1 carousel në javë, profil që konverton, lead magnet live + 50 kontakte, ofertë me faqe shitjeje, 10 biseda shitëse, 1 case study me numra), the guarantee, and an FAQ (koha, pagesa me këste, a funksionon për nishën time, çfarë ndodh nëse s'jam në Tiranë).
+Hero: tagline + "53 video · 6 javë · 6 workshope live në Tiranë". Show the 3 public products side by side, Hybrid highlighted. Add sections: "Çfarë do kesh pas 6 javësh" (3 reels + 1 carousel në javë, profil që konverton, lead magnet live + 50 kontakte, ofertë me faqe shitjeje, 10 biseda shitëse, 1 case study me numra), and an FAQ (koha, pagesa me këste, a funksionon për nishën time, çfarë ndodh nëse s'jam në Tiranë).
