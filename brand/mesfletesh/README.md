@@ -1,5 +1,6 @@
 # mes fletësh: brand book v1
 
+- `logo-concepts.html`: logo v2, 4 koncepte më «cute» (në pritje të zgjedhjes)
 - `brand-book.html`: brand book-u i plotë (strategjia, pozicionimi, logo, ngjyrat, tipografia, zëri, social media, 30 Reels, formate virale, konkurrenca, aplikimet, mini brand book, drejtimet kreative). Hapet në shfletues.
 - `assets/`
   - `profile-picture-1080.png`: foto profili për IG/TikTok (vula «mf»)

@@ -1,0 +1,183 @@
+<title>mes fletësh logo v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Kalnia:wght@200..500&family=Grandstander:wght@700;800&family=Sacramento&family=Caveat:wght@500;600&family=Courier+Prime&display=swap">
+<style>
+/* Layout: one column of concept "boards"; each board = big mark + in-context tests. Single warm-paper theme by choice. */
+:root{
+  --bg:#F7EFE3; --card:#FFFAF2; --ink:#3B2A20; --muted:#7A6A5E; --line:#E6D8C4;
+  --rose:#E8B4B0; --butter:#F6E7C1; --leather:#7A4E36; --choc:#3B2A20; --coral:#D9735B; --sage:#A9B79B; --wax:#B5473A;
+  --soft:"Fraunces", Georgia, serif; --elegant:"Kalnia", Didot, Georgia, serif; --round:"Grandstander", "Trebuchet MS", sans-serif;
+  --script:"Sacramento", "Brush Script MT", cursive; --hand:"Caveat", "Comic Sans MS", cursive; --mono:"Courier Prime", ui-monospace, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--soft);font-weight:380;font-variation-settings:"SOFT" 50;font-size:17px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:40px 64px}
+h1{font-family:var(--soft);font-weight:400;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:clamp(34px,5vw,52px);line-height:1.05;margin:0 0 10px;text-wrap:balance}
+h2{font-weight:500;font-size:28px;margin:0;line-height:1.15;font-variation-settings:"SOFT" 100,"WONK" 1}
+h3{font-weight:500;font-size:19px;margin:18px 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--leather)}
+.intro{margin-bottom:28px}
+.read{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:18px 0 8px}
+.read div{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:14px;min-width:0}
+.read b{font-weight:600}
+.board{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,30px);margin-top:28px}
+.bh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px}
+.num{font-family:var(--mono);color:var(--coral);font-size:14px}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+.pill.rec{background:var(--coral);border-color:var(--coral);color:#fff}
+.stage{border-radius:16px;min-height:260px;display:flex;align-items:center;justify-content:center;padding:28px 16px;overflow:hidden;text-align:center}
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:14px;margin-top:14px}
+.test{display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;min-width:0}
+.circle{width:128px;height:128px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--line)}
+.circle,.tiny,.sticker{text-transform:none;letter-spacing:normal}
+.tiny{height:128px;display:flex;align-items:center;justify-content:center;width:100%;border-radius:12px;border:1px solid var(--line)}
+.sticker{height:128px;display:flex;align-items:center;justify-content:center;width:100%;border-radius:12px;background:#C9A57E}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:6px 32px;margin-top:10px}
+.two>div{min-width:0}
+ul{padding-left:18px;margin:0 0 10px}
+li{margin-bottom:4px}
+.pal{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.pal span{display:flex;flex-direction:column;align-items:flex-start;font-family:var(--mono);font-size:11px;color:var(--muted);gap:4px}
+.pal i{display:block;width:56px;height:36px;border-radius:8px;border:1px solid var(--line)}
+code{font-family:var(--mono);font-size:13px}
+
+/* ---------- Concept 1: soft serif ---------- */
+.c1{font-family:var(--soft);font-weight:430;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144;color:var(--choc);letter-spacing:-.02em;line-height:1;white-space:nowrap;position:relative;display:inline-block}
+.c1 .e{position:relative;display:inline-block}
+.c1 .e svg{position:absolute;left:50%;transform:translateX(-50%);top:.2em;width:.46em;height:.18em;overflow:visible}
+.c1-tag{display:block;font-family:var(--hand);font-weight:500;color:var(--coral);font-size:.3em;letter-spacing:0;margin-top:.5em}
+
+/* ---------- Concept 2: sticker ---------- */
+.c2{position:relative;display:inline-block;line-height:.95;white-space:nowrap}
+.c2 .caps{font-family:var(--round);font-weight:800;color:var(--butter);text-transform:uppercase;letter-spacing:.02em;display:block}
+.c2 .scr{font-family:var(--script);color:var(--coral);position:absolute;left:50%;top:50%;transform:translate(-8%,-42%) rotate(-8deg);font-size:1.15em;white-space:nowrap;text-transform:none}
+
+/* ---------- Concept 3: elegant ---------- */
+.c3{font-family:var(--elegant);font-weight:260;color:#1f1813;line-height:1;white-space:nowrap;display:inline-flex;align-items:center;gap:.22em;letter-spacing:.01em}
+.c3 .mid{font-family:var(--script);font-size:.62em;color:var(--leather);transform:translateY(.08em)}
+.c3-sub{display:block;font-family:var(--mono);font-size:.13em;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-top:1.1em}
+</style>
+
+<div class="wrap">
+<header class="intro">
+ <p class="eyebrow">mes fletësh · logo v2 · 4 koncepte</p>
+ <h1>Më e ëmbël, më e ngrohtë, më e lezetshme</h1>
+ <p>Nga dy shembujt që më dërgove, këto janë gjërat që funksionojnë dhe gjërat që duhen shmangur. Secili koncept tregohet në madhësi të madhe, si foto profili dhe në madhësinë 32 px, sepse një logo që s'lexohet e vogël nuk vlen për Instagram.</p>
+ <div class="read">
+  <div><b>Një libër & një bisedë.</b> Funksionon: germat e rrumbullakëta, ku «shop» me script kalon përmes titullit, dhe ilustrimi i vajzës pa fytyrë. Rreziku: jeshilja, germat e trasha dhe ilustrimi i vajzës janë tashmë të tyret. Nëse i marrim, dukemi si dega e tyre.</div>
+  <div><b>Laps & Letër.</b> Funksionon: serif i hollë me kontrast të madh dhe germa me pak «karakter», elegant mbi letër. Rreziku: pa ngjyrë dhe pa simbol, në 32 px bëhet një vijë e hollë e zezë.</div>
+  <div><b>Çfarë ndryshoi nga v1.</b> Germat janë më të buta dhe të rrumbullakëta, dhe ka një shenjë dore (script) si aksent. Paleta tani ka rozë pluhuri, gjalpë dhe koral, jo vetëm kafe. E kuqja e dyllit mbetet te vula.</div>
+ </div>
+</header>
+
+<!-- ============ 1 ============ -->
+<section class="board" id="k1">
+ <div class="bh"><span class="num">01</span><h2>E ëmbël</h2><span class="pill rec">rekomandimi</span><span class="pill">serif i butë + dorë</span></div>
+ <div class="stage" style="background:var(--butter)">
+  <span class="c1" style="font-size:clamp(56px,10vw,110px)">mes flet<span class="e">e<svg viewBox="0 0 50 20" aria-hidden="true"><path d="M13 16 C4 9 7 2 13 6 C19 2 22 9 13 16Z" fill="#D9735B"/><path d="M37 16 C28 9 31 2 37 6 C43 2 46 9 37 16Z" fill="#D9735B"/></svg></span>sh<span class="c1-tag">ditarë që vijnë me një letër për ty</span></span>
+ </div>
+ <div class="tests">
+  <div class="test"><div class="circle" style="background:var(--butter)"><span class="c1" style="font-size:25px">mes flet<span class="e">e<svg viewBox="0 0 50 20"><path d="M13 16 C4 9 7 2 13 6 C19 2 22 9 13 16Z" fill="#D9735B"/><path d="M37 16 C28 9 31 2 37 6 C43 2 46 9 37 16Z" fill="#D9735B"/></svg></span>sh</span></div>foto profili</div>
+  <div class="test"><div class="circle" style="background:var(--rose)"><span class="c1" style="font-size:62px;letter-spacing:-.04em">mf</span></div>monogram</div>
+  <div class="test"><div class="tiny" style="background:var(--card)"><span class="c1" style="font-size:18px">mes fletësh</span></div>e vogël · lexohet</div>
+  <div class="test"><div class="sticker"><span class="c1" style="font-size:24px;background:var(--butter);padding:8px 14px;border-radius:99px">mes fletësh</span></div>në pako kraft</div>
+ </div>
+ <div class="two">
+  <div>
+   <h3>Pse funksionon</h3>
+   <ul>
+    <li>Fraunces me «SOFT» dhe «WONK» ka skaje të rrumbullakëta dhe germa pak të «çuditshme». Del «cute» pa u bërë fëmijërore, dhe lexohet edhe në 32 px.</li>
+    <li>Pikat e ë-së janë bërë dy zemra të vogla koral. Detaji i vetëm «cute» është aty ku askush nuk e pret, dhe është shqip.</li>
+        <li>Rreshti me shkrim dore («ditarë që vijnë me një letër për ty») jep ndjesinë e letrës. Më vonë mund të zëvendësohet me shkrimin e vërtetë të vajzës.</li>
+   </ul>
+  </div>
+  <div>
+   <h3>Specifikimet</h3>
+   <ul>
+    <li>Wordmark: <code>Fraunces 430 · SOFT 100 · WONK 1 · opsz 144</code>, germa të vogla.</li>
+    <li>Rreshti i dorës: <code>Caveat 500</code> (ose shkrimi i saj i skanuar).</li>
+    <li>Monogram «mf» për foto profili alternative, vula dhe stickers.</li>
+   </ul>
+   <div class="pal"><span><i style="background:#F6E7C1"></i>Gjalpë</span><span><i style="background:#3B2A20"></i>Çokollatë</span><span><i style="background:#D9735B"></i>Koral</span><span><i style="background:#E8B4B0"></i>Rozë pluhuri</span><span><i style="background:#B5473A"></i>Dyll</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="board" id="k2">
+ <div class="bh"><span class="num">02</span><h2>Stiker</h2><span class="pill">germa të rrumbullakëta + script</span></div>
+ <div class="stage" style="background:var(--leather)">
+  <span class="c2" style="font-size:clamp(48px,9vw,96px)"><span class="caps">mes</span><span class="caps">fletësh</span><span class="scr">ditarë</span></span>
+ </div>
+ <div class="tests">
+  <div class="test"><div class="circle" style="background:var(--leather)"><span class="c2" style="font-size:27px"><span class="caps">mes</span><span class="caps">fletësh</span><span class="scr">ditarë</span></span></div>foto profili</div>
+  <div class="test"><div class="tiny" style="background:var(--leather)"><span class="c2" style="font-size:18px"><span class="caps">mes fletësh</span></span></div>e vogël · lexohet</div>
+  <div class="test"><div class="sticker"><span class="c2" style="font-size:22px;background:var(--rose);padding:10px 14px;border-radius:14px"><span class="caps" style="color:var(--choc)">mes fletësh</span></span></div>stiker</div>
+ </div>
+ <div class="two">
+  <div><h3>Pse funksionon</h3><ul><li>Energjia më e afërt me shembullin «Një libër & një bisedë»: miqësore, e ngrohtë, bie në sy në feed.</li><li>Script-i koral «ditarë» kalon përmes titullit, si «shop» te shembulli.</li></ul></div>
+  <div><h3>Rreziku</h3><ul><li>Duket shumë si ata. Këtë e ndryshova vetëm me kafe në vend të jeshiles, që nuk mjafton për t'u dalluar.</li><li>Germat e trasha i shkojnë një bookshop-i më shumë se një ditari privat, dhe vjetrohen më shpejt.</li></ul>
+  <div class="pal"><span><i style="background:#7A4E36"></i>Lëkurë</span><span><i style="background:#F6E7C1"></i>Gjalpë</span><span><i style="background:#E8B4B0"></i>Rozë pluhuri</span></div></div>
+ </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="board" id="k3">
+ <div class="bh"><span class="num">03</span><h2>Elegante</h2><span class="pill">serif me kontrast · si «Laps & Letër»</span></div>
+ <div class="stage" style="background:#F4F1EC">
+  <span style="display:inline-block;font-size:clamp(50px,9vw,100px)"><span class="c3"><span class="mid">mes</span>Fletësh</span><span class="c3-sub">ditarë me letër</span></span>
+ </div>
+ <div class="tests">
+  <div class="test"><div class="circle" style="background:#F4F1EC"><span class="c3" style="font-size:28px;flex-direction:column;gap:0;line-height:1.05">Mes<br>Fletësh</span></div>foto profili</div>
+  <div class="test"><div class="tiny" style="background:#F4F1EC"><span class="c3" style="font-size:18px">Mes Fletësh</span></div>e vogël · e hollë</div>
+  <div class="test"><div class="sticker"><span class="c3" style="font-size:22px;background:#F4F1EC;padding:8px 14px">Mes Fletësh</span></div>në pako kraft</div>
+ </div>
+ <div class="two">
+  <div><h3>Pse funksionon</h3><ul><li>Premium dhe «aesthetic». E njëjta ndjesi si «Laps & Letër», me germat e çuditshme të Kalnia.</li><li>«mes» me script të dorës para «Fletësh»: dy zëra, si letra dhe ditari.</li></ul></div>
+  <div><h3>Rreziku</h3><ul><li>Kjo nuk është «cute», është elegante. Nuk e jep atë që kërkove.</li><li>Në 32 px vijat e holla zhduken, dhe «Laps & Letër» e ka tashmë këtë pozicion.</li></ul>
+  <div class="pal"><span><i style="background:#F4F1EC"></i>Letër e bardhë</span><span><i style="background:#1F1813"></i>Bojë</span><span><i style="background:#7A4E36"></i>Lëkurë</span></div></div>
+ </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="board" id="k4">
+ <div class="bh"><span class="num">04</span><h2>Badge me ilustrim</h2><span class="pill rec">shoqëruesi i 01</span><span class="pill">vulë + ditar i vizatuar</span></div>
+ <div class="stage" style="background:var(--rose)">
+  <svg viewBox="0 0 240 240" width="260" height="260" role="img" aria-label="badge mes fletësh">
+   <defs><path id="ring" d="M120 120 m-88 0 a88 88 0 1 1 176 0 a88 88 0 1 1 -176 0"/></defs>
+   <circle cx="120" cy="120" r="112" fill="#FFFAF2"/>
+   <circle cx="120" cy="120" r="104" fill="none" stroke="#3B2A20" stroke-width="1.2" stroke-dasharray="2 4"/>
+   <text font-family="Fraunces, Georgia, serif" font-size="17" letter-spacing="3.2" fill="#3B2A20" style="font-variation-settings:'SOFT' 100,'WONK' 1"><textPath href="#ring" startOffset="0">MES FLETËSH ✿ DITARË ME LETËR PËR TY ✿</textPath></text>
+   <!-- diary -->
+   <g transform="translate(120 124) rotate(-8) translate(-120 -124)">
+    <rect x="82" y="80" width="76" height="92" rx="10" fill="#7A4E36"/>
+    <rect x="86" y="84" width="68" height="84" rx="8" fill="none" stroke="#9A6A4E" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <rect x="150" y="116" width="18" height="16" rx="5" fill="#5E3B28"/>
+    <circle cx="160" cy="124" r="3" fill="#F6E7C1"/>
+    <path d="M112 168 H124 V194 L118 188 L112 194 Z" fill="#B5473A"/>
+    <path d="M120 116 C111 106 100 116 120 132 C140 116 129 106 120 116Z" fill="#E8B4B0"/>
+   </g>
+   <!-- sparkles -->
+   <path d="M64 92 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#D9735B"/>
+   <path d="M178 170 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#D9735B"/>
+  </svg>
+ </div>
+ <div class="tests">
+  <div class="test"><div class="circle" style="background:var(--rose)"><svg viewBox="0 0 240 240" width="118" height="118"><circle cx="120" cy="120" r="112" fill="#FFFAF2"/><g transform="translate(120 124) rotate(-8) translate(-120 -124)"><rect x="70" y="66" width="100" height="120" rx="13" fill="#7A4E36"/><rect x="162" y="112" width="22" height="20" rx="6" fill="#5E3B28"/><path d="M112 184 H128 V214 L120 206 L112 214 Z" fill="#B5473A"/><path d="M120 110 C108 96 94 110 120 132 C146 110 132 96 120 110Z" fill="#E8B4B0"/></g></svg></div>foto profili (pa tekst)</div>
+  <div class="test"><div class="tiny" style="background:var(--card)"><svg viewBox="0 0 240 240" width="32" height="32"><circle cx="120" cy="120" r="112" fill="#E8B4B0"/><rect x="70" y="66" width="100" height="120" rx="13" fill="#7A4E36" transform="rotate(-8 120 124)"/><path d="M120 110 C108 96 94 110 120 132 C146 110 132 96 120 110Z" fill="#FFFAF2" transform="rotate(-8 120 124)"/></svg></div>32 px · dallohet</div>
+  <div class="test"><div class="sticker"><svg viewBox="0 0 240 240" width="104" height="104"><circle cx="120" cy="120" r="112" fill="#FFFAF2"/><circle cx="120" cy="120" r="104" fill="none" stroke="#3B2A20" stroke-width="1.2" stroke-dasharray="2 4"/><g transform="translate(120 124) rotate(-8) translate(-120 -124)"><rect x="82" y="80" width="76" height="92" rx="10" fill="#7A4E36"/><rect x="150" y="116" width="18" height="16" rx="5" fill="#5E3B28"/><path d="M112 168 H124 V194 L118 188 L112 194 Z" fill="#B5473A"/><path d="M120 116 C111 106 100 116 120 132 C140 116 129 106 120 116Z" fill="#E8B4B0"/></g></svg></div>stiker mbi pako</div>
+ </div>
+ <div class="two">
+  <div><h3>Pse funksionon</h3><ul><li>Foto profili më e fortë nga të katra: ditari me rrip, zemër dhe shirit dallohet edhe në 32 px.</li><li>Bëhet stiker që mbyll pakon kraft, dhe shoqërohet me vulën e dyllit.</li><li>Ilustrimi është objekt (ditari), jo vajzë, që mos të ngjajmë me «Një libër & një bisedë».</li></ul></div>
+  <div><h3>Si përdoret</h3><ul><li>Badge i plotë (me tekst rrethor): stickers, poster, highlight kryesor.</li><li>Vetëm ditari në rreth rozë: foto profili, favicon.</li><li>Ilustrimi final duhet vizatuar nga një ilustrator; ky është drejtimi. Kosto e përafërt: 30–80 €.</li></ul></div>
+ </div>
+</section>
+
+<section class="board">
+ <h2>Rekomandimi</h2>
+ <p style="margin-top:10px"><b>01 «E ëmbël» si logo kryesore + 04 «Badge» si foto profili dhe stiker.</b> Bashkë japin atë që kërkove: të lezetshme dhe të ngrohta. Në 32 px lexohen, dhe nuk ngjajnë me asnjërin nga shembujt. 02 është më afër shembullit të parë, por pikërisht për këtë ju ngatërron me ta. 03 është e bukur, por elegante, jo «cute».</p>
+ <p>Më thuaj cilin zgjedh, ose çfarë të ndryshoj (ngjyrën, zemrat, fontin), dhe e përditësoj gjithë brand book-un dhe asetet PNG sipas tij.</p>
+</section>
+</div>
