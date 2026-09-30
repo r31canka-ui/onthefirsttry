@@ -1,0 +1,687 @@
+<title>mes fletësh brand book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Libre+Caslon+Display&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>/* Layout: a notebook — sticky contents rail on the left, one reading column, wide blocks for grids. Single paper theme by choice. */
+:root{
+  --paper:#F1E9DA; --candle:#FAF6EE; --ink:#231B17; --graphite:#5E554E;
+  --wax:#A63A2E; --leather:#6F4A33; --kraft:#C9A97E; --zana:#55603F; --dusk:#6D6386;
+  --rule:#DCCFB9;
+  --display:"Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --text:"Newsreader", Georgia, "Times New Roman", serif;
+  --mono:"Courier Prime", "Courier New", ui-monospace, monospace;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;margin:0}
+.page{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:0 48px;display:grid;grid-template-columns:1fr;gap:0 48px}
+@media (min-width:1100px){.page{grid-template-columns:220px minmax(0,1fr)}.hero,.foot{grid-column:1 / -1}}
+h2,h3,h4{font-weight:400;text-wrap:balance;margin:0}
+h2{font-family:var(--display);font-size:clamp(32px,4.2vw,48px);line-height:1.05;letter-spacing:-.01em}
+h3{font-family:var(--display);font-size:24px;line-height:1.2;margin-top:28px;margin-bottom:10px}
+h4{font-family:var(--text);font-weight:500;font-size:18px;line-height:1.3}
+p{margin:0 0 12px}
+strong,b{font-weight:500}
+code{font-family:var(--mono);font-size:13px}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--wax);outline-offset:2px}
+.small{font-size:14px;color:var(--graphite)}
+.center{text-align:center}
+.tag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--leather);margin-bottom:6px}
+.lead{font-size:19px;max-width:68ch;color:var(--ink)}
+.big{font-family:var(--display);font-size:26px;line-height:1.25}
+.note{font-size:15px;color:var(--graphite);border-left:2px solid var(--kraft);padding-left:14px;max-width:75ch;margin-top:20px}
+.rec{background:var(--candle);border-left:3px solid var(--wax);padding:14px 18px;margin-top:18px;max-width:80ch}
+
+/* wordmark */
+.wm{font-family:var(--display);letter-spacing:-.005em;line-height:1;white-space:nowrap;color:var(--ink);display:inline-block}
+.wm .ed{position:relative;display:inline-block}
+.wm .ed::before,.wm .ed::after{content:"";position:absolute;width:.105em;height:.105em;border-radius:50%;background:var(--dot,var(--wax));top:var(--dt,.235em)}
+.wm .ed::before{left:var(--dl1,.078em)}
+.wm .ed::after{left:var(--dl2,.24em)}
+.wm.wh{font-size:clamp(56px,11vw,132px)}
+.wm.xl{font-size:clamp(48px,9vw,104px)}
+.wm.md{font-size:40px}
+.wm.sm{font-size:28px}
+.wm.xs{font-size:15px}
+
+/* hero */
+.hero{padding-block:56px 40px;border-bottom:1px solid var(--rule);margin-bottom:8px;position:relative;
+}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--leather)}
+.hero-line{font-family:var(--text);font-style:italic;font-size:clamp(20px,2.6vw,28px);margin-top:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12.5px;color:var(--graphite);text-transform:uppercase;letter-spacing:.06em;margin-top:22px}
+.hero-meta b{color:var(--ink);font-weight:700}
+.hero-marks{display:flex;gap:18px;align-items:center;margin-top:24px}
+@media (min-width:900px){.hero-marks{position:absolute;right:0;top:56px;margin:0}}
+
+/* toc */
+.toc{display:flex;gap:6px;overflow-x:auto;padding-block:12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);z-index:5;border-bottom:1px solid var(--rule);scrollbar-width:thin}
+.toc a{text-decoration:none;font-size:14px;white-space:nowrap;padding:4px 8px;color:var(--graphite)}
+.toc a span{font-family:var(--mono);font-size:11px;color:var(--leather);margin-right:6px}
+.toc a:hover{color:var(--ink)}
+@media (min-width:1100px){.toc{flex-direction:column;align-self:start;top:calc(env(safe-area-inset-top,0px) + 16px);border-bottom:0;padding-top:32px;overflow:visible}.toc a{white-space:normal;padding:5px 0}}
+main{min-width:0}
+
+/* sections */
+section{padding-block:48px 24px;border-bottom:1px solid var(--rule);scroll-margin-top:64px}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+.sn{font-family:var(--mono);font-size:14px;color:var(--wax)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px 40px}
+.two>*{min-width:0}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:20px}
+.card{background:var(--candle);padding:18px 20px;border:1px solid var(--rule)}
+.bio{font-family:var(--text);line-height:1.5}
+
+ul,ol{padding-left:20px;margin:0 0 12px}
+li{margin-bottom:6px}
+.dl{display:grid;grid-template-columns:minmax(110px,150px) minmax(0,1fr);gap:8px 18px;margin:0 0 12px}
+.dl dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--leather);padding-top:4px}
+.dl dd{margin:0;min-width:0}
+.dl.wide{grid-template-columns:minmax(120px,220px) minmax(0,1fr);border-top:1px solid var(--rule);padding-top:14px}
+.dl.wide dt,.dl.wide dd{padding-bottom:8px;border-bottom:1px dashed var(--rule)}
+@media (max-width:520px){.dl,.dl.wide{grid-template-columns:1fr;gap:2px}.dl dd{margin-bottom:10px}}
+
+.keywords{display:flex;flex-wrap:wrap;gap:8px}
+.keywords span{font-family:var(--mono);font-size:13px;border:1px solid var(--leather);padding:3px 10px;color:var(--ink)}
+.keywords.no span{border-color:var(--wax);color:var(--wax);text-decoration:line-through;text-decoration-thickness:1px}
+
+/* 00 */
+.warn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.warn{background:var(--candle);border:1px solid var(--rule);border-top:3px solid var(--wax);padding:20px 22px;min-width:0}
+.warn h3{margin-top:0}
+.warn p{font-size:16px}
+.fix{border-top:1px dashed var(--rule);padding-top:10px}
+
+/* persona */
+.persona{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;margin-bottom:10px}
+.p-main,.p-sec{padding:18px 20px;border:1px solid var(--rule);min-width:0}
+.p-main{background:var(--ink);color:var(--paper)}
+.p-main .tag{color:var(--kraft)}
+.p-main h4{font-family:var(--display);font-size:24px;margin-bottom:8px}
+.p-sec h4{margin-top:8px;margin-bottom:4px}
+
+/* price scale */
+.scale{display:grid;gap:6px;margin-bottom:10px}
+.sc-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--rule);padding:6px 0;font-size:15px}
+.sc-row b{font-family:var(--mono);font-weight:400}
+.sc-row.me{border-bottom:2px solid var(--wax)}
+.sc-row.me span{font-family:var(--display);font-size:20px}
+.sc-row.me b{color:var(--wax);font-weight:700}
+
+/* tables */
+.tw{overflow-x:auto;margin:6px 0 12px}
+.tbl{width:100%;min-width:560px;border-collapse:collapse;font-size:15px}
+.tbl thead,.tbl tbody{display:table;width:100%;min-width:560px;border-collapse:collapse}
+.tbl thead{display:table-header-group}.tbl tbody{display:table-row-group}
+.tbl th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--leather);text-align:left;font-weight:400;border-bottom:1px solid var(--ink);padding:8px 10px 8px 0}
+.tbl td{border-bottom:1px dashed var(--rule);padding:9px 12px 9px 0;vertical-align:top}
+
+/* logo */
+.logo-hero{background:var(--candle);border:1px solid var(--rule);padding:clamp(28px,6vw,64px) 20px;text-align:center;margin:16px 0}
+.logo-hero .tagline{font-style:italic;color:var(--graphite);margin-top:14px;font-size:18px}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px;margin:18px 0 8px}
+.logo-grid figure{margin:0;min-width:0}
+.lg-box{height:180px;display:flex;align-items:center;justify-content:center;background:var(--candle);border:1px solid var(--rule);overflow:hidden;gap:14px;padding:12px}
+.lg-box.stack{flex-direction:column;gap:0;align-items:center}
+.lg-box.stack .wm{line-height:1.05}
+.ed-line{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leather);margin-top:10px}
+.lg-box.vert{flex-direction:column;gap:10px}
+.lg-box.bw-dark{background:var(--ink)}
+.lg-box.bw-dark .wm{color:var(--paper)}
+.lg-box.pp{background:#E6DCCB}
+.pp-circle{width:150px;height:150px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pp-circle svg{width:78%;height:78%}
+figcaption{font-size:14px;color:var(--graphite);margin-top:8px;line-height:1.45}
+figcaption b{color:var(--ink)}
+
+/* colors */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px;margin:16px 0}
+.sw{border:1px solid var(--rule);background:var(--candle);min-width:0}
+.sw-chip{height:108px;display:flex;align-items:flex-end;padding:10px 12px;color:var(--paper)}
+.sw-chip.lt{color:var(--ink);border-bottom:1px solid var(--rule)}
+.sw-chip span{font-family:var(--display);font-size:24px}
+.sw-meta{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px}
+.sw-meta code{color:var(--ink)}
+.sw-meta p{font-size:14px;color:var(--graphite);margin-top:6px;margin-bottom:0}
+.bar{display:flex;height:18px;border:1px solid var(--rule);margin:8px 0 12px;max-width:520px}
+.rule{margin-top:10px}
+
+/* type */
+.type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px;margin:16px 0}
+.tf{background:var(--candle);border:1px solid var(--rule);padding:18px;min-width:0}
+.spec-d{font-family:var(--display);font-size:30px;line-height:1.1}
+.spec-t{font-family:var(--text);font-size:26px;line-height:1.1}
+.spec-u{font-family:var(--mono);font-size:22px;line-height:1.1}
+.spec-sample{border-top:1px dashed var(--rule);padding-top:10px;margin-top:10px}
+.spec-sample.d{font-family:var(--display);font-size:24px;line-height:1.2}
+.spec-sample.t{font-size:19px}
+.spec-sample.u{font-family:var(--mono);font-size:14px;letter-spacing:.06em}
+
+/* voice lists */
+.lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:8px 36px;margin-top:16px}
+.lists>div{min-width:0}
+.nl{padding-left:0;list-style:none;counter-reset:n}
+.nl li{counter-increment:n;display:grid;grid-template-columns:28px 1fr;gap:4px;border-bottom:1px dashed var(--rule);padding:6px 0;margin:0;font-size:16px}
+.nl li::before{content:counter(n,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--wax);padding-top:4px}
+
+/* social */
+.ig-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:28px;align-items:start;margin:16px 0}
+.ig-wrap>*{min-width:0}
+.ig{background:#fff;border:1px solid var(--rule);padding:16px;max-width:420px;color:#1b1b1b}
+.ig-top{display:flex;gap:14px;align-items:center}
+.ig-pp{width:84px;height:84px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
+.ig-stats{display:flex;flex-direction:column;font-size:13px;line-height:1.4;min-width:0}
+.ig-stats b{font-family:system-ui,sans-serif;font-weight:600;font-size:14px}
+.ig-stats span{font-family:system-ui,sans-serif}
+.ig-hl{display:flex;gap:10px;overflow-x:auto;padding:14px 0 12px}
+.hl{display:flex;flex-direction:column;align-items:center;gap:4px;font-family:system-ui,sans-serif;font-size:11px;flex:none}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tile{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;max-width:100%}
+.tile span{font-size:10px;line-height:1.3}
+.tile.photo{background:linear-gradient(160deg,#7a5238,#3b2a1f);color:#e9dccb}
+.tile.photo2{background:linear-gradient(160deg,#cdb89a,#8e7258);color:#2a1f18}
+.tile.photo span,.tile.photo2 span{font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;font-size:8.5px}
+.tile.type{background:var(--paper);color:var(--ink)}
+.tile.type span{font-family:var(--display);font-size:13px}
+.tile.type2{background:var(--ink);color:var(--paper)}
+.tile.type2 span{font-family:var(--display);font-size:14px}
+.tile.num{background:var(--paper)}
+.tile.num span{font-family:var(--mono);font-size:20px;color:var(--wax)}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px;margin:10px 0 18px}
+.pl{border-top:2px solid var(--ink);padding-top:10px;min-width:0}
+.pl b{font-family:var(--mono);color:var(--wax);font-weight:400}
+.pl h4{font-family:var(--display);font-size:21px;margin:4px 0 6px}
+.pl p{font-size:15px;color:var(--graphite)}
+
+/* reels + formats */
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:16px;margin-top:12px}
+.reel,.fmt,.comp{background:var(--candle);border:1px solid var(--rule);padding:16px 18px;min-width:0}
+.reel header,.fmt header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-bottom:10px;border-bottom:1px solid var(--rule);padding-bottom:8px}
+.rn{font-family:var(--mono);font-size:13px;color:var(--wax)}
+.reel h4,.fmt h4,.comp h4{font-family:var(--display);font-size:21px}
+.pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--leather);border:1px solid var(--kraft);padding:1px 7px;margin-left:auto}
+.dl.rd{grid-template-columns:92px minmax(0,1fr);gap:5px 12px;font-size:15px;line-height:1.5}
+.dl.rd dt{font-size:10.5px;padding-top:3px}
+.src{font-family:var(--mono);font-size:12px;color:var(--graphite)}
+
+/* competitors */
+.comps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:16px}
+.comp header{margin-bottom:10px;border-bottom:1px solid var(--rule);padding-bottom:8px;display:flex;flex-direction:column}
+.comp.tmpl{background:transparent;border-style:dashed}
+.blank{color:var(--kraft);letter-spacing:.1em}
+.white{margin-top:24px}
+.map{position:relative;height:300px;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:12px 0 8px;max-width:640px;background:var(--candle)}
+.ax{position:absolute;font-family:var(--mono);font-size:11px;color:var(--graphite);text-transform:uppercase;letter-spacing:.06em}
+.ax-y{left:8px;top:6px}.ax-x{right:8px;bottom:6px}
+.dot{position:absolute;font-size:13px;padding-left:14px;white-space:nowrap}
+.dot::before{content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;border-radius:50%;background:var(--graphite)}
+.d1{left:6%;top:62%}.d2{left:14%;top:30%}.d3{left:62%;top:72%}.d4{left:40%;top:84%}.d5{left:52%;top:46%}
+.dot.me{left:62%;top:12%;font-family:var(--display);font-size:20px;color:var(--wax)}
+.dot.me::before{background:var(--wax);width:12px;height:12px;top:.35em}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;margin:10px 0 12px}
+.app-mock{min-width:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.card-front,.card-back{width:min(100%,300px);aspect-ratio:85/55;background:var(--candle);border:1px solid var(--rule);box-shadow:0 1px 0 var(--rule)}
+.card-front{display:flex;align-items:center;justify-content:center;gap:14px}
+.card-back{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 20px;font-family:var(--mono);font-size:12px}
+.cb-ed{letter-spacing:.1em;color:var(--leather)}
+.cb-nr{font-size:20px}
+.cb-nr u{color:var(--wax);text-decoration-color:var(--wax)}
+.cb-line{color:var(--graphite);font-size:11px}
+.cover916{width:min(100%,220px);aspect-ratio:9/16;background:linear-gradient(170deg,#6d4a33,#241a14);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;color:var(--paper)}
+.cover916::after{content:"";position:absolute;left:0;right:0;top:calc(50% - 61.9%/2);height:61.9%;border:1px dashed rgba(241,233,218,.55);pointer-events:none}
+.c-ser{font-family:var(--mono);font-size:10px;letter-spacing:.14em}
+.c-t{font-family:var(--display);font-size:22px;line-height:1.15}
+.safe{position:absolute;bottom:22%;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;opacity:.7;text-transform:uppercase}
+.layers{counter-reset:l;list-style:none;padding:0;max-width:720px}
+.layers li{counter-increment:l;display:grid;grid-template-columns:34px 1fr;border-bottom:1px dashed var(--rule);padding:7px 0;margin:0}
+.layers li::before{content:counter(l,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--wax);padding-top:3px}
+.script li{margin-bottom:8px;font-style:italic}
+.letter{background:var(--candle);border:1px solid var(--rule);padding:18px 20px;font-size:17px;line-height:1.7;margin-top:12px}
+
+/* mini brand book */
+.mb{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+.mb-i{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 16px;min-width:0}
+.mb-n{font-family:var(--mono);font-size:11px;color:var(--wax)}
+.mb-i h4{font-family:var(--display);font-size:19px;margin:2px 0 6px}
+.mb-i p{font-size:15px;margin:0}
+.mb-i.dd{grid-column:1 / -1}
+.dd-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 28px}
+.yes,.nope{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.yes{color:var(--zana)}.nope{color:var(--wax)}
+.dd-g ul{font-size:15px}
+
+/* directions */
+.dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.dir{border:1px solid var(--rule);padding:18px;min-width:0;background:var(--candle)}
+.dir h3{margin-top:0}
+.dir-demo{height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:10px 0 14px;text-align:center;padding:12px}
+.dA .dir-demo{background:var(--paper);border:1px solid var(--rule)}
+.dA-sub{font-style:italic;color:var(--graphite)}
+.dB .dir-demo{background:var(--paper);border:1px solid var(--rule)}
+.dB-big{font-family:var(--display);font-size:26px;line-height:1.3}
+.dB-big s{text-decoration-color:var(--wax);text-decoration-thickness:2px}
+.circ{border:2px solid var(--wax);border-radius:50%;padding:0 10px}
+.dC .dir-demo{background:linear-gradient(170deg,var(--dusk),#2c2638);color:var(--paper)}
+.dC-ed{font-family:var(--mono);font-size:11px;letter-spacing:.16em}
+.dC-t{font-family:var(--display);font-size:34px}
+.dC-sub{font-style:italic;font-size:15px;opacity:.9}
+
+.foot{display:flex;gap:14px;align-items:center;padding-block:28px;color:var(--graphite);font-size:14px}
+.foot p{margin:0}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+<div class="page">
+<header class="hero">
+ <p class="eyebrow">Brand Book · v1 · Shtator 2026</p>
+ <span class="wm wh">mes flet<span class="ed">e</span>sh</span>
+ <p class="hero-line">Ditari që vjen si letër.</p>
+ <div class="hero-meta"><span>Tregu <b>Shqipëri</b></span><span>Gjuha <b>shqip</b></span><span>Shitja <b>Instagram DM</b></span><span>Çmimi <b>22 €</b></span><span>Stoku <b>10 · Edicioni 00</b></span></div>
+ <div class="hero-marks"><svg class="" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="simboli mes fletësh"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></svg><svg class="" viewBox="-2 -2 68 68" width="72" height="72" role="img" aria-label="vula mf"><path d="M64.15 32.00 L64.55 33.14 L64.54 34.28 L64.09 35.37 L63.29 36.40 L62.30 37.34 L61.33 38.23 L60.54 39.12 L60.03 40.04 L59.81 41.03 L59.77 42.11 L59.77 43.22 L59.65 44.31 L59.30 45.31 L58.66 46.18 L57.80 46.90 L56.81 47.51 L55.84 48.08 L54.97 48.69 L54.29 49.41 L53.77 50.27 L53.35 51.23 L52.96 52.24 L52.51 53.24 L51.97 54.18 L51.33 55.04 L50.65 55.86 L49.95 56.71 L49.28 57.62 L48.64 58.62 L47.97 59.67 L47.23 60.65 L46.36 61.43 L45.30 61.88 L44.08 61.89 L42.73 61.49 L41.35 60.77 L40.01 59.92 L38.77 59.15 L37.67 58.66 L36.68 58.57 L35.78 58.88 L34.89 59.52 L33.98 60.32 L33.02 61.09 L32.00 61.70 L30.95 62.08 L29.89 62.22 L28.82 62.21 L27.76 62.14 L26.69 62.10 L25.60 62.10 L24.49 62.11 L23.38 62.07 L22.29 61.87 L21.28 61.46 L20.35 60.83 L19.51 60.05 L18.73 59.21 L17.94 58.44 L17.10 57.80 L16.17 57.34 L15.15 56.98 L14.11 56.63 L13.13 56.15 L12.32 55.45 L11.75 54.49 L11.42 53.32 L11.27 52.02 L11.18 50.75 L10.99 49.63 L10.57 48.74 L9.83 48.11 L8.78 47.67 L7.48 47.32 L6.10 46.96 L4.77 46.48 L3.65 45.83 L2.79 45.01 L2.19 44.05 L1.79 42.99 L1.53 41.90 L1.33 40.79 L1.19 39.68 L1.12 38.56 L1.20 37.43 L1.49 36.29 L2.00 35.15 L2.70 34.05 L3.47 33.00 L4.15 32.00 L4.59 31.04 L4.68 30.09 L4.42 29.10 L3.87 28.05 L3.22 26.92 L2.64 25.76 L2.32 24.60 L2.36 23.50 L2.74 22.49 L3.39 21.59 L4.14 20.74 L4.84 19.91 L5.37 19.01 L5.69 18.01 L5.84 16.90 L5.93 15.71 L6.09 14.53 L6.43 13.42 L7.01 12.47 L7.80 11.70 L8.76 11.08 L9.80 10.56 L10.83 10.08 L11.82 9.59 L12.77 9.08 L13.71 8.58 L14.68 8.17 L15.73 7.88 L16.84 7.74 L17.97 7.71 L19.07 7.68 L20.05 7.51 L20.90 7.06 L21.60 6.26 L22.21 5.11 L22.81 3.71 L23.47 2.25 L24.25 0.93 L25.19 -0.03 L26.27 -0.52 L27.43 -0.53 L28.62 -0.15 L29.79 0.46 L30.92 1.13 L32.00 1.70 L33.04 2.11 L34.07 2.37 L35.10 2.54 L36.11 2.73 L37.11 3.01 L38.08 3.41 L39.01 3.90 L39.92 4.39 L40.84 4.81 L41.80 5.08 L42.83 5.20 L43.92 5.23 L45.03 5.28 L46.11 5.46 L47.10 5.84 L47.96 6.45 L48.70 7.24 L49.38 8.08 L50.07 8.87 L50.89 9.49 L51.89 9.91 L53.10 10.16 L54.43 10.34 L55.77 10.60 L56.96 11.06 L57.85 11.80 L58.37 12.84 L58.52 14.11 L58.37 15.53 L58.06 16.96 L57.75 18.31 L57.58 19.53 L57.60 20.60 L57.82 21.57 L58.18 22.47 L58.59 23.36 L59.01 24.25 L59.41 25.17 L59.81 26.09 L60.29 27.01 L60.90 27.94 L61.68 28.88 L62.56 29.86 L63.43 30.90 Z" fill="#A63A2E"/><circle cx="32" cy="32" r="22.5" fill="none" stroke="#C9695C" stroke-width="1.1"/><text x="32" y="38.6" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="19.5" fill="#F1E9DA">mf</text></svg></div>
+</header>
+<nav class="toc" aria-label="Përmbajtja"><a href="#lexo"><span>00</span>Lexo këtë së pari</a><a href="#strategjia"><span>01</span>Strategjia e brandit</a><a href="#pozicionimi"><span>02</span>Brand positioning</a><a href="#logo"><span>03</span>Logo & identiteti vizual</a><a href="#ngjyrat"><span>04</span>Ngjyrat</a><a href="#tipografia"><span>05</span>Tipografia</a><a href="#zeri"><span>06</span>Brand voice & messaging</a><a href="#social"><span>07</span>Identiteti në Instagram & TikTok</a><a href="#content"><span>08</span>Content strategy</a><a href="#virale"><span>09</span>Formate virale për t'u përshtatur</a><a href="#konkurrenca"><span>10</span>Analiza e konkurrencës</a><a href="#aplikimet"><span>11</span>Aplikimet e brandit</a><a href="#brandbook"><span>12</span>Mini brand book</a><a href="#drejtimet"><span>13</span>Tre drejtime kreative</a></nav>
+<main><section id="lexo"><header class="sh"><span class="sn">00</span><h2>Lexo këtë së pari</h2></header>
+<div class="warn-grid">
+ <article class="warn">
+  <span class="tag">vendim kritik 1</span>
+  <h3>Mos e quani «handmade» nëse s'e keni bërë ju</h3>
+  <p>Ditarët vijnë nga Temu. Nëse bio ose një caption thotë «punuar me dorë nga ne», mjafton një koment me screenshot nga Temu dhe besimi shembet. Vajzat 20+ blejnë në Temu dhe do ta gjejnë. Për më tepër, sipas legjislacionit shqiptar për mbrojtjen e konsumatorit kjo quhet praktikë mashtruese.</p>
+  <p>Verifikoni edhe <strong>lëkurën</strong>. Shumica e produkteve «leather» në Temu janë PU (lëkurë artificiale). Kontrolloni përshkrimin e saktë të produktit, erën dhe skajet e prera. Derisa të jeni të sigurt, shkruani «ditar me kapak lëkure eko» ose thjesht «ditar».</p>
+  <p class="fix"><strong>Zgjidhja.</strong> Vlera e mes fletësh nuk qëndron te objekti, sepse objektin mund ta gjejë kushdo. Qëndron te gjërat që Temu nuk i dërgon dot: letra e shkruar me dorë, surpriza, paketimi, vula e dyllit dhe numri i edicionit. Pra «me dorë» i përket ritualit, jo ditarit. Formula e saktë: <em>«i zgjedhur, i përgatitur dhe i mbyllur me dorë.»</em></p>
+  <p class="fix"><strong>Shtresa që e bën tuajin.</strong> (1) Një vulë metalike për stampim në lëkurë me simbolin, me kosto një herë 15–30 €. (2) Një kartelë edicioni e numëruar. (3) Një rrip letre (belly band) me emrin e edicionit. Pas këtyre, ditari juaj nuk është më identik me atë në Temu.</p>
+  <p class="fix"><strong>Nëse dikush pyet «a është nga Temu?»</strong>, mos gënjeni: <em>«Ditarin e zgjedhim nga furnitorë jashtë vendit. Letrën, paketimin, vulën dhe edicionin i bëjmë ne këtu, me dorë, për çdo porosi.»</em></p>
+ </article>
+ <article class="warn">
+  <span class="tag">vendim kritik 2</span>
+  <h3>Winx → mitologjia shqiptare</h3>
+  <p>Winx është pronë intelektuale e një kompanie tjetër. Edicione me emrat ose personazhet e tyre sjellin rrezik ligjor dhe duken si fan-merch. Megjithatë ideja pas tyre, <strong>edicionet si personalitete</strong>, është ideja më e mirë që keni.</p>
+  <p class="fix">Mitologjia shqiptare është e lirë për përdorim dhe krejtësisht e juaja: <strong>Zana</strong>, <strong>Shtojzovalle</strong>, <strong>Ora</strong>, <strong>E Bukura e Dheut</strong>, <strong>E Bukura e Detit</strong>. Asnjë brand ditaresh në Shqipëri nuk e ka marrë këtë terren. Kjo bëhet diferencuesi juaj kryesor.</p>
+ </article>
+ <article class="warn">
+  <span class="tag">vendim kritik 3</span>
+  <h3>Një çmim, jo një diapazon</h3>
+  <p>«20–24 €» në DM hap negociatë. Vendosni <strong>22 €</strong>, dhe shkruani transportin qartë (p.sh. «+ transporti · pagesa në dorëzim»).</p>
+  <p class="fix">10 copët kafe që keni bëhen <strong>Edicioni 00</strong>, numëruar 01/10 deri 10/10. Mungesa është e vërtetë, jo e shpikur, ndaj përdoreni. Personalizimin me emër (gati për rreth 4 javë) mbajeni për më vonë si «porosi e veçantë».</p>
+ </article>
+</div>
+<p class="note">Shënim për konkurrencën: nuk munda të hapja @njeliberenjebisedeshop dhe @plannables_, sepse Instagram është i bllokuar në mjedisin ku punoj. Analizën e bëra mbi llogaritë nga videot që më dërgove dhe mbi kategorinë. Për këto dy llogari ka një shabllon në seksionin 10. Më dërgo 3–4 screenshots dhe e plotësoj.</p>
+</section><section id="strategjia"><header class="sh"><span class="sn">01</span><h2>Strategjia e brandit</h2></header>
+<div class="two">
+ <div>
+  <h3>Çfarë është</h3>
+  <p><strong>mes fletësh</strong> («between pages») është një brand ditaresh për vajzat 20+ në Shqipëri që e mbajnë jetën e tyre private. Ofron një ditar lëkure me dy seksione (faqe me vija për të shkruar, faqe bosh për skica), xhepa për kartela dhe një zarf plastik për gjërat e vogla. Dërgohet si letër: me një letër të shkruar me dorë për blerësen, një surprizë dhe vulë dylli.</p>
+  <h3>Misioni</h3>
+  <p class="big">T'i japim çdo vajze një vend për gjërat që nuk i poston.</p>
+  <h3>Vizioni</h3>
+  <p>Të jemi emri i parë që i vjen ndër mend dikujt në Shqipëri kur kërkon një dhuratë personale, dhe brandi që i ktheu personazhet e mitologjisë shqiptare në objekte të përditshme.</p>
+  <h3>Qëllimi kryesor (90 ditët e ardhshme)</h3>
+  <p>Shitja e 10 copëve të Edicionit 00 brenda 14 ditëve nga lansimi, dhe ngritja e sistemit (DM, paketim, content) për edicionet Zana dhe Shtojzovalle.</p>
+ </div>
+ <div>
+  <h3>Vlerat, si sjellje</h3>
+  <dl class="dl"><dt>Privatësia</dt><dd>Nuk publikojmë asnjëherë letrat ose faqet e klienteve pa leje të shkruar.</dd><dt>E vërteta</dt><dd>Themi saktësisht çfarë është produkti dhe nga vjen.</dd><dt>Kujdesi</dt><dd>Çdo porosi ka letër të shkruar me dorë, asnjëherë shabllon.</dd><dt>Rrënjët</dt><dd>Edicionet vijnë nga mitologjia dhe letërsia shqipe.</dd><dt>Ngadalësia</dt><dd>Asgjë nuk niset me nxitim. Rituali kërkon kohë.</dd></dl>
+  <h3>3–5 fjalë kyçe</h3>
+  <p class="keywords"><span>private</span><span>ritual</span><span>letrare</span><span>shqiptare</span><span>e shkruar me dorë</span></p>
+ </div>
+</div>
+
+<h3>Target audience</h3>
+<div class="persona">
+ <div class="p-main">
+  <span class="tag">primare</span>
+  <h4>«Vajza e jetës private», 20–27 vjeç</h4>
+  <p>Tiranë, Durrës, Shkodër, Vlorë dhe qytetet universitare. Studente ose në punën e parë, blen me paratë e veta. Lexon, ose do të donte të lexonte më shumë. Shkon vetëm në kafene, ruan bileta, kartolina dhe foto polaroid. Ndjek bookstagram dhe llogari aesthetic në TikTok. Nuk poston gjithçka; ka listë «close friends». Një herë në muaj shpenzon 20–25 € për diçka që e bën të ndihet mirë.</p>
+ </div>
+ <div class="p-sec">
+  <span class="tag">sekondare</span>
+  <h4>Shoqja që kërkon dhuratë</h4>
+  <p>Do një dhuratë ditëlindjeje që nuk duket e blerë në minutën e fundit. Letra personale për shoqen e saj është pikërisht ajo që kërkon.</p>
+  <h4>I dashuri, «djali i Netëve të bardha»</h4>
+  <p>Nuk di çfarë t'i blejë. Paguan pa u menduar shumë nëse ia bën të lehtë. Komunikimi i drejtohet gjithmonë <em>asaj</em>; atij i flasim vetëm në Reels specifike.</p>
+ </div>
+</div>
+
+<div class="two">
+ <div>
+  <h3>Problemi që zgjidh</h3>
+  <ol class=""><li>Jeta e saj është e ekspozuar gjatë gjithë kohës (story, grupe, mesazhe) dhe nuk ka një vend që është vetëm i saj.</li><li>Ditarët në librari janë ose të zakonshëm, ose të huaj dhe të shtrenjtë. Ata të Temu vijnë pa shpirt, në qese plastike.</li><li>Dhuratat personale janë të vështira për t'u gjetur; shumica duken gjenerike.</li></ol>
+  <h3>Pse duhet të ekzistojë</h3>
+  <p>Në Shqipëri shiten fletore dhe shiten libra, por askush nuk shet <strong>ritualin</strong>: momentin kur hap një pako, gjen një letër për veten dhe nis faqen e parë.</p>
+ </div>
+ <div>
+  <h3>Çfarë e diferencon</h3>
+  <ul class=""><li><strong>Letër e shkruar me dorë</strong> për çdo blerëse. Asnjë konkurrent lokal nuk e bën.</li><li><strong>Edicione sipas mitologjisë shqiptare</strong>, si personalitete: «cila je ti?».</li><li><strong>Surpriza</strong>: kuriozitet para blerjes, content pas saj, sepse çdo unboxing është ndryshe.</li><li><strong>Toni letrar dhe ironik</strong>, jo rozë dhe «girly».</li><li><strong>Numërimi</strong>: çdo ditar ka numrin e vet në edicion.</li></ul>
+ </div>
+</div>
+
+<div class="two">
+ <div>
+  <h3>Pozicionimi në treg</h3>
+  <div class="scale" aria-label="shkalla e çmimit">
+   <div class="sc-row"><span>Temu / rishitës</span><b>5–10 €</b></div>
+   <div class="sc-row"><span>Fletore librarie</span><b>3–12 €</b></div>
+   <div class="sc-row me"><span>mes fletësh</span><b>22 €</b></div>
+   <div class="sc-row"><span>Moleskine, Paperblanks + transport</span><b>25–45 €</b></div>
+  </div>
+  <p class="small">Premium, por e arritshme. Mbi librarinë dhe Temu, nën brandet e huaja, dhe e vetmja që ofron personalizim emocional. Çmimet e konkurrentëve janë përafërsisht; verifikojini në treg.</p>
+ </div>
+ <div>
+  <h3>Personaliteti</h3>
+  <p class="big">«Vajza që lexon në kafene dhe nuk të kthen mesazh menjëherë.»</p>
+  <p>E qetë, e sigurt, me humor të thatë. Letrare pa qenë pretencioze. E ngrohtë me të afërmit, e ftohtë me dramën.</p>
+  <h3>Si duhet të perceptohet</h3>
+  <p>«Ata që të dërgojnë një letër.» Ja si duhet ta përshkruajë dikush në kafe: <em>«E ke parë mes fletësh? Të shkruajnë një letër për ty dhe ta fusin brenda ditarit.»</em></p>
+ </div>
+</div>
+</section><section id="pozicionimi"><header class="sh"><span class="sn">02</span><h2>Brand positioning</h2></header>
+<dl class="dl wide"><dt>Who we are</dt><dd>Një brand i vogël shqiptar ditaresh, i drejtuar nga një vajzë që e shkruan vetë me dorë çdo letër.</dd><dt>Who we serve</dt><dd>Vajzat 20+ që e mbajnë jetën private, dhe ata që duan t'u dhurojnë diçka personale.</dd><dt>What we do</dt><dd>Ditarë lëkure në edicione të numëruara, secili me letër personale, surprizë dhe vulë dylli.</dd><dt>Why us</dt><dd>Ditarin mund ta gjesh kudo. Letrën për ty, jo.</dd><dt>Unique value proposition</dt><dd><strong>Ditari i vetëm në Shqipëri që vjen me një letër të shkruar vetëm për ty.</strong></dd><dt>Brand promise</dt><dd>Çdo porosi hapet si letër, jo si pako.</dd><dt>Tagline</dt><dd><strong>Gjithçka e rëndësishme ndodh mes fletësh.</strong></dd><dt>One-liner (5 sekonda)</dt><dd>Ditarë lëkure që vijnë me një letër të shkruar me dorë për ty.</dd></dl>
+<div class="three">
+ <div class="card"><span class="tag">instagram bio</span><p class="bio">ditarë që vijnë si letër<br>letër me dorë + surprizë në çdo porosi<br>edicioni 00 · 10 copë<br>porosit në DM ↓</p></div>
+ <div class="card"><span class="tag">website</span><p>mes fletësh bën ditarë për jetën tënde private. Secili vjen i mbështjellë me dorë, me një surprizë dhe me një letër të shkruar vetëm për ty. Edicione të limituara, të frymëzuara nga mitologjia shqiptare.</p></div>
+ <div class="card"><span class="tag">pitch</span><p>mes fletësh nuk shet vetëm ditarin, shet ritualin rreth tij. Vajzat 20+ në Shqipëri paguajnë 22 € për një ditar me letër personale, surprizë dhe numër edicioni, diçka që as libraritë as Temu nuk e ofrojnë. Edicionet sipas mitologjisë shqiptare e kthejnë blerjen në identitet, dhe çdo unboxing në content.</p></div>
+</div>
+<h3>Alternativa për tagline</h3>
+<div class="tw"><table class="tbl"><thead><tr><th>Tagline</th><th>Pse funksionon</th><th>Ku përdoret</th></tr></thead><tbody>
+<tr><td><strong>Gjithçka e rëndësishme ndodh mes fletësh.</strong></td><td>Emri bëhet fjali: sa herë thuhet slogani, thuhet edhe emri.</td><td>Tagline kryesor, paketim, bio</td></tr>
+<tr><td>Ditari që vjen si letër.</td><td>Shpjegon produktin dhe diferencuesin njëkohësisht.</td><td>Reklama, one-liner, website</td></tr>
+<tr><td>Për gjërat që nuk i poston.</td><td>Kontrast me kulturën e story-ve; i flet direkt «jetës private».</td><td>Linjë contenti, highlight</td></tr>
+<tr><td>Zanë apo Shtojzovalle?</td><td>Nuk është tagline i përhershëm, por hook edicionesh që sjell DM dhe komente.</td><td>Lansimi i edicioneve</td></tr>
+</tbody></table></div>
+<p class="rec">Rekomandimi: <strong>«Gjithçka e rëndësishme ndodh mes fletësh»</strong> si tagline i brandit, <strong>«Ditari që vjen si letër»</strong> si linjë reklamash.</p>
+</section><section id="logo"><header class="sh"><span class="sn">03</span><h2>Logo & identiteti vizual</h2></header>
+<p class="lead">Koncepti: <strong>shiriti mes fletësh</strong>. Shiriti shënues midis faqeve është vetë emri i brandit. Dy pikat e <em>ë</em>-së janë me ngjyrë dylli: dy seksionet e ditarit (fjalët dhe skicat), ose dy njerëzit e letrës (ai që e shkruan dhe ajo që e lexon).</p>
+<div class="logo-hero">
+ <span class="wm xl">mes flet<span class="ed">e</span>sh</span>
+ <p class="tagline">gjithçka e rëndësishme ndodh mes fletësh</p>
+</div>
+<div class="logo-grid">
+ <figure><div class="lg-box"><span class="wm md">mes flet<span class="ed">e</span>sh</span></div><figcaption><b>Logo principale</b> · wordmark me germa të vogla, Libre Caslon Display, pikat e ë-së në Dyll. Për header, paketim, kartela.</figcaption></figure>
+ <figure><div class="lg-box stack"><span class="wm md">mes</span><span class="wm md">flet<span class="ed">e</span>sh</span><span class="ed-line">edicioni 00</span></div><figcaption><b>Logo alternative (vertikale)</b> · «mes» sipër «fletësh», me rreshtin e edicionit në Courier Prime. Për rripin e ditarit dhe postera.</figcaption></figure>
+ <figure><div class="lg-box"><svg class="" viewBox="0 0 64 64" width="96" height="96" role="img" aria-label="simboli mes fletësh"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></svg></div><figcaption><b>Ikona / simboli</b> · libër i hapur me shiritin që del poshtë. Për stampim në lëkurë, favicon, stickers.</figcaption></figure>
+ <figure><div class="lg-box"><svg class="" viewBox="-2 -2 68 68" width="110" height="110" role="img" aria-label="vula mf"><path d="M64.15 32.00 L64.55 33.14 L64.54 34.28 L64.09 35.37 L63.29 36.40 L62.30 37.34 L61.33 38.23 L60.54 39.12 L60.03 40.04 L59.81 41.03 L59.77 42.11 L59.77 43.22 L59.65 44.31 L59.30 45.31 L58.66 46.18 L57.80 46.90 L56.81 47.51 L55.84 48.08 L54.97 48.69 L54.29 49.41 L53.77 50.27 L53.35 51.23 L52.96 52.24 L52.51 53.24 L51.97 54.18 L51.33 55.04 L50.65 55.86 L49.95 56.71 L49.28 57.62 L48.64 58.62 L47.97 59.67 L47.23 60.65 L46.36 61.43 L45.30 61.88 L44.08 61.89 L42.73 61.49 L41.35 60.77 L40.01 59.92 L38.77 59.15 L37.67 58.66 L36.68 58.57 L35.78 58.88 L34.89 59.52 L33.98 60.32 L33.02 61.09 L32.00 61.70 L30.95 62.08 L29.89 62.22 L28.82 62.21 L27.76 62.14 L26.69 62.10 L25.60 62.10 L24.49 62.11 L23.38 62.07 L22.29 61.87 L21.28 61.46 L20.35 60.83 L19.51 60.05 L18.73 59.21 L17.94 58.44 L17.10 57.80 L16.17 57.34 L15.15 56.98 L14.11 56.63 L13.13 56.15 L12.32 55.45 L11.75 54.49 L11.42 53.32 L11.27 52.02 L11.18 50.75 L10.99 49.63 L10.57 48.74 L9.83 48.11 L8.78 47.67 L7.48 47.32 L6.10 46.96 L4.77 46.48 L3.65 45.83 L2.79 45.01 L2.19 44.05 L1.79 42.99 L1.53 41.90 L1.33 40.79 L1.19 39.68 L1.12 38.56 L1.20 37.43 L1.49 36.29 L2.00 35.15 L2.70 34.05 L3.47 33.00 L4.15 32.00 L4.59 31.04 L4.68 30.09 L4.42 29.10 L3.87 28.05 L3.22 26.92 L2.64 25.76 L2.32 24.60 L2.36 23.50 L2.74 22.49 L3.39 21.59 L4.14 20.74 L4.84 19.91 L5.37 19.01 L5.69 18.01 L5.84 16.90 L5.93 15.71 L6.09 14.53 L6.43 13.42 L7.01 12.47 L7.80 11.70 L8.76 11.08 L9.80 10.56 L10.83 10.08 L11.82 9.59 L12.77 9.08 L13.71 8.58 L14.68 8.17 L15.73 7.88 L16.84 7.74 L17.97 7.71 L19.07 7.68 L20.05 7.51 L20.90 7.06 L21.60 6.26 L22.21 5.11 L22.81 3.71 L23.47 2.25 L24.25 0.93 L25.19 -0.03 L26.27 -0.52 L27.43 -0.53 L28.62 -0.15 L29.79 0.46 L30.92 1.13 L32.00 1.70 L33.04 2.11 L34.07 2.37 L35.10 2.54 L36.11 2.73 L37.11 3.01 L38.08 3.41 L39.01 3.90 L39.92 4.39 L40.84 4.81 L41.80 5.08 L42.83 5.20 L43.92 5.23 L45.03 5.28 L46.11 5.46 L47.10 5.84 L47.96 6.45 L48.70 7.24 L49.38 8.08 L50.07 8.87 L50.89 9.49 L51.89 9.91 L53.10 10.16 L54.43 10.34 L55.77 10.60 L56.96 11.06 L57.85 11.80 L58.37 12.84 L58.52 14.11 L58.37 15.53 L58.06 16.96 L57.75 18.31 L57.58 19.53 L57.60 20.60 L57.82 21.57 L58.18 22.47 L58.59 23.36 L59.01 24.25 L59.41 25.17 L59.81 26.09 L60.29 27.01 L60.90 27.94 L61.68 28.88 L62.56 29.86 L63.43 30.90 Z" fill="#A63A2E"/><circle cx="32" cy="32" r="22.5" fill="none" stroke="#C9695C" stroke-width="1.1"/><text x="32" y="38.6" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="19.5" fill="#F1E9DA">mf</text></svg></div><figcaption><b>Monogrami</b> · «mf» brenda vulës së dyllit. Mbyll çdo letër, dhe bëhet foto e profilit.</figcaption></figure>
+ <figure><div class="lg-box horiz"><svg class="" viewBox="0 0 64 64" width="54" height="54" role="img" aria-label="simboli mes fletësh"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></svg><span class="wm sm">mes flet<span class="ed">e</span>sh</span></div><figcaption><b>Horizontal</b> · simboli + wordmark. Për website, dokumente, email.</figcaption></figure>
+ <figure><div class="lg-box vert"><svg class="" viewBox="0 0 64 64" width="60" height="60" role="img" aria-label="simboli mes fletësh"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></svg><span class="wm sm">mes flet<span class="ed">e</span>sh</span></div><figcaption><b>Vertikal</b> · simboli sipër wordmark-ut. Për tote bag, poster, kartelë.</figcaption></figure>
+ <figure><div class="lg-box bw-light"><span class="wm md" style="--dot:#231B17">mes flet<span class="ed">e</span>sh</span></div><figcaption><b>Bardh e zi</b> · e gjitha në Bojë, edhe pikat. Për fotokopje, faturë, gravurë.</figcaption></figure>
+ <figure><div class="lg-box bw-dark"><span class="wm md" style="--dot:#F1E9DA">mes flet<span class="ed">e</span>sh</span></div><figcaption><b>Negativ</b> · Letër mbi Bojë. Për video të errëta dhe story nate.</figcaption></figure>
+ <figure><div class="lg-box pp"><div class="pp-circle"><svg class="" viewBox="-2 -2 68 68" width="150" height="150" role="img" aria-label="vula mf"><path d="M64.15 32.00 L64.55 33.14 L64.54 34.28 L64.09 35.37 L63.29 36.40 L62.30 37.34 L61.33 38.23 L60.54 39.12 L60.03 40.04 L59.81 41.03 L59.77 42.11 L59.77 43.22 L59.65 44.31 L59.30 45.31 L58.66 46.18 L57.80 46.90 L56.81 47.51 L55.84 48.08 L54.97 48.69 L54.29 49.41 L53.77 50.27 L53.35 51.23 L52.96 52.24 L52.51 53.24 L51.97 54.18 L51.33 55.04 L50.65 55.86 L49.95 56.71 L49.28 57.62 L48.64 58.62 L47.97 59.67 L47.23 60.65 L46.36 61.43 L45.30 61.88 L44.08 61.89 L42.73 61.49 L41.35 60.77 L40.01 59.92 L38.77 59.15 L37.67 58.66 L36.68 58.57 L35.78 58.88 L34.89 59.52 L33.98 60.32 L33.02 61.09 L32.00 61.70 L30.95 62.08 L29.89 62.22 L28.82 62.21 L27.76 62.14 L26.69 62.10 L25.60 62.10 L24.49 62.11 L23.38 62.07 L22.29 61.87 L21.28 61.46 L20.35 60.83 L19.51 60.05 L18.73 59.21 L17.94 58.44 L17.10 57.80 L16.17 57.34 L15.15 56.98 L14.11 56.63 L13.13 56.15 L12.32 55.45 L11.75 54.49 L11.42 53.32 L11.27 52.02 L11.18 50.75 L10.99 49.63 L10.57 48.74 L9.83 48.11 L8.78 47.67 L7.48 47.32 L6.10 46.96 L4.77 46.48 L3.65 45.83 L2.79 45.01 L2.19 44.05 L1.79 42.99 L1.53 41.90 L1.33 40.79 L1.19 39.68 L1.12 38.56 L1.20 37.43 L1.49 36.29 L2.00 35.15 L2.70 34.05 L3.47 33.00 L4.15 32.00 L4.59 31.04 L4.68 30.09 L4.42 29.10 L3.87 28.05 L3.22 26.92 L2.64 25.76 L2.32 24.60 L2.36 23.50 L2.74 22.49 L3.39 21.59 L4.14 20.74 L4.84 19.91 L5.37 19.01 L5.69 18.01 L5.84 16.90 L5.93 15.71 L6.09 14.53 L6.43 13.42 L7.01 12.47 L7.80 11.70 L8.76 11.08 L9.80 10.56 L10.83 10.08 L11.82 9.59 L12.77 9.08 L13.71 8.58 L14.68 8.17 L15.73 7.88 L16.84 7.74 L17.97 7.71 L19.07 7.68 L20.05 7.51 L20.90 7.06 L21.60 6.26 L22.21 5.11 L22.81 3.71 L23.47 2.25 L24.25 0.93 L25.19 -0.03 L26.27 -0.52 L27.43 -0.53 L28.62 -0.15 L29.79 0.46 L30.92 1.13 L32.00 1.70 L33.04 2.11 L34.07 2.37 L35.10 2.54 L36.11 2.73 L37.11 3.01 L38.08 3.41 L39.01 3.90 L39.92 4.39 L40.84 4.81 L41.80 5.08 L42.83 5.20 L43.92 5.23 L45.03 5.28 L46.11 5.46 L47.10 5.84 L47.96 6.45 L48.70 7.24 L49.38 8.08 L50.07 8.87 L50.89 9.49 L51.89 9.91 L53.10 10.16 L54.43 10.34 L55.77 10.60 L56.96 11.06 L57.85 11.80 L58.37 12.84 L58.52 14.11 L58.37 15.53 L58.06 16.96 L57.75 18.31 L57.58 19.53 L57.60 20.60 L57.82 21.57 L58.18 22.47 L58.59 23.36 L59.01 24.25 L59.41 25.17 L59.81 26.09 L60.29 27.01 L60.90 27.94 L61.68 28.88 L62.56 29.86 L63.43 30.90 Z" fill="#A63A2E"/><circle cx="32" cy="32" r="22.5" fill="none" stroke="#C9695C" stroke-width="1.1"/><text x="32" y="38.6" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="19.5" fill="#F1E9DA">mf</text></svg></div></div><figcaption><b>Foto profili Instagram / TikTok</b> · vula në Dyll mbi Letër. Kur ta keni vulën reale, zëvendësojeni me foto të vërtetë të saj.</figcaption></figure>
+</div>
+<div class="two">
+ <div>
+  <h3>Përdorimi sipas vendit</h3>
+  <dl class="dl"><dt>Instagram / TikTok</dt><dd>Vula «mf» si foto profili. Wordmark vetëm në cover-at e serive.</dd><dt>Website</dt><dd>Horizontal në header; simboli si favicon (16–32 px).</dd><dt>Merchandise</dt><dd>Simboli vetëm, i stampuar në lëkurë ose i qëndisur në tote. Wordmark i vogël, asnjëherë i madh.</dd><dt>Paketim</dt><dd>Vula e dyllit mbi spango + wordmark në kartelën e edicionit.</dd></dl>
+  <h3>Rregulla teknike</h3>
+  <ul class=""><li>Hapësira e lirë rreth logos: sa lartësia e germës «m».</li><li>Madhësia minimale: wordmark 80 px (digjital) / 25 mm (print); simboli 16 px / 6 mm.</li><li>Pikat e ë-së: vetëm Dyll ose e njëjta ngjyrë si pjesa tjetër e wordmark-ut.</li><li>Për printim, designer-i e kthen tekstin në vija (outline) në Figma ose Illustrator.</li></ul>
+ </div>
+ <div>
+  <h3>Si duhet të duket</h3>
+  <p>E hollë, e qetë, si shpina e një libri klasik. Shumë hapësirë bosh përreth. Gjithmonë më e vogël nga sa mendon. Duhet të duket njësoj e drejtë pas 10 vjetësh.</p>
+  <h3>Çfarë duhet shmangur</h3>
+  <ul class=""><li>Fonte script ose të dorës për logon: duken të lira dhe nuk lexohen në 110 px.</li><li>Pupla, zemra, kurora, flutura, hëna me yje.</li><li>Gradient, rozë, ari metalik digjital.</li><li>Logo e madhe mbi ditar. Produkti nuk është billboard.</li><li>Shtrëngim, rrotullim, hije, kontur.</li><li>Heqja e ë-së. Handle-i mbetet @mesfletesh, por logoja shkruhet shqip: <em>mes fletësh</em>.</li></ul>
+ </div>
+</div>
+</section><section id="ngjyrat"><header class="sh"><span class="sn">04</span><h2>Ngjyrat</h2></header>
+<p class="lead">Paleta vjen drejtpërdrejt nga referencat e tua: tavolina druri, letra e verdhë, kafeja, qiriri, lapsi i kuq i mësuesit dhe letra vjollcë e paketimit. Emrat janë shqip, që ekipi t'i thotë me zë: «bëje në Dyll», jo «bëje #A63A2E».</p>
+<div class="sw-grid"><div class="sw"><div class="sw-chip" style="background:#A63A2E"><span>Dyll</span></div><div class="sw-meta"><span class="tag">Primary</span><code>HEX #A63A2E</code><code>RGB 166, 58, 46</code><code>CMYK 0 · 65 · 72 · 35</code><p>Vula, foto profili, pikat e ë-së, një fjalë e rrethuar ose e nënvizuar, çmimi ose CTA. Asnjëherë si sfond i madh.</p></div></div><div class="sw"><div class="sw-chip" style="background:#231B17"><span>Bojë</span></div><div class="sw-meta"><span class="tag">Secondary</span><code>HEX #231B17</code><code>RGB 35, 27, 23</code><code>CMYK 0 · 23 · 34 · 86</code><p>Logo, tituj, tekst kryesor, sfond për story nate.</p></div></div><div class="sw"><div class="sw-chip" style="background:#6F4A33"><span>Lëkurë</span></div><div class="sw-meta"><span class="tag">Secondary</span><code>HEX #6F4A33</code><code>RGB 111, 74, 51</code><code>CMYK 0 · 33 · 54 · 56</code><p>Edicioni 00, elemente dytësore, ikona, ndarës.</p></div></div><div class="sw"><div class="sw-chip lt" style="background:#C9A97E"><span>Kraft</span></div><div class="sw-meta"><span class="tag">Secondary</span><code>HEX #C9A97E</code><code>RGB 201, 169, 126</code><code>CMYK 0 · 16 · 37 · 21</code><p>Paketim, sfond për highlight dhe cover, vija të holla.</p></div></div><div class="sw"><div class="sw-chip lt" style="background:#F1E9DA"><span>Letër</span></div><div class="sw-meta"><span class="tag">Background</span><code>HEX #F1E9DA</code><code>RGB 241, 233, 218</code><code>CMYK 0 · 3 · 10 · 5</code><p>Sfondi kryesor: poste, kartela, website.</p></div></div><div class="sw"><div class="sw-chip lt" style="background:#FAF6EE"><span>Qiri</span></div><div class="sw-meta"><span class="tag">Background</span><code>HEX #FAF6EE</code><code>RGB 250, 246, 238</code><code>CMYK 0 · 2 · 5 · 2</code><p>Sfond i dytë, më i çelët, për tekst të gjatë dhe letra.</p></div></div><div class="sw"><div class="sw-chip" style="background:#5E554E"><span>Grafit</span></div><div class="sw-meta"><span class="tag">Text</span><code>HEX #5E554E</code><code>RGB 94, 85, 78</code><code>CMYK 0 · 10 · 17 · 63</code><p>Tekst dytësor, captions, shënime.</p></div></div><div class="sw"><div class="sw-chip" style="background:#55603F"><span>Zana</span></div><div class="sw-meta"><span class="tag">Accent i edicionit</span><code>HEX #55603F</code><code>RGB 85, 96, 63</code><code>CMYK 11 · 0 · 34 · 62</code><p>Vetëm për edicionin Zana: rrip, kartelë, content.</p></div></div><div class="sw"><div class="sw-chip" style="background:#6D6386"><span>Shtojzovalle</span></div><div class="sw-meta"><span class="tag">Accent i edicionit</span><code>HEX #6D6386</code><code>RGB 109, 99, 134</code><code>CMYK 19 · 26 · 0 · 47</code><p>Vetëm për edicionin Shtojzovalle.</p></div></div></div>
+<div class="rule">
+ <h3>Rregulli 60 · 30 · 9 · 1</h3>
+ <div class="bar" aria-hidden="true"><span style="flex:60;background:#F1E9DA"></span><span style="flex:30;background:#231B17"></span><span style="flex:9;background:#C9A97E"></span><span style="flex:1;background:#A63A2E"></span></div>
+ <ul class=""><li><strong>60%</strong> Letër / Qiri, sfondi.</li><li><strong>30%</strong> Bojë / Lëkurë, teksti dhe objektet.</li><li><strong>9%</strong> Kraft ose ngjyra e edicionit.</li><li><strong>1%</strong> Dyll. Nëse e kuqja zë më shumë vend se një vulë, është tepër.</li><li>Ngjyrat e edicioneve (Zana, Shtojzovalle) nuk përzihen kurrë në të njëjtin post, përveç Reels krahasuese.</li><li>CMYK-ja është konvertim fillestar. Para printimit kërkoni një provë nga shtypshkronja.</li></ul>
+</div>
+</section><section id="tipografia"><header class="sh"><span class="sn">05</span><h2>Tipografia</h2></header>
+<p class="lead">Tre fonte falas nga Google Fonts, të gjitha me ë dhe ç. Të gjitha gjenden edhe në Canva (nëse Newsreader mungon, përdorni EB Garamond).</p>
+<div class="type-grid">
+ <div class="tf"><span class="tag">primary / display</span><p class="spec-d">Libre Caslon Display</p><p class="spec-sample d">Ç'shkruan kur s'të sheh askush?</p><p class="small">Logo, tituj, cover-a, çmimi në poste. Klasik, me kontrast, si kopertinat e klasikëve. Vetëm një peshë (Regular) dhe s'ka italic, prandaj asnjëherë bold.</p></div>
+ <div class="tf"><span class="tag">secondary / tekst</span><p class="spec-t">Newsreader</p><p class="spec-sample t">Faqja e parë është letra jonë. <em>Të tjerat janë të tuat.</em></p><p class="small">Tekst i gjatë, website, nëntituj në italic, pjesët e printuara të letrave.</p></div>
+ <div class="tf"><span class="tag">utility</span><p class="spec-u">Courier Prime</p><p class="spec-sample u">EDICIONI 00 · NR. 03/10 · 22 €</p><p class="small">Numra edicioni, çmime, data, etiketa, CTA. Ndjesi makine shkrimi dhe bilete.</p></div>
+ <div class="tf"><span class="tag">dora</span><p class="spec-t">Shkrimi i vërtetë i vajzës</p><p class="small">Skanoni shkrimin e saj (fjalë të veçanta, «faleminderit», «për ty») dhe përdoreni si imazh PNG. <strong>Asnjëherë një font handwriting</strong>, sepse do ta dallonin menjëherë si të rremë.</p></div>
+</div>
+<h3>Shkalla</h3>
+<div class="tw"><table class="tbl"><thead><tr><th>Roli</th><th>Font</th><th>Website</th><th>Grafikë 1080 px</th><th>Rregull</th></tr></thead><tbody>
+<tr><td>Headings</td><td>Libre Caslon Display</td><td>44–56 px / 1.05</td><td>88–110 px</td><td>Germa të vogla, maksimumi 6 fjalë</td></tr>
+<tr><td>Subheadings</td><td>Newsreader Italic</td><td>20–24 px / 1.3</td><td>44 px</td><td>Një rresht, ton bisede</td></tr>
+<tr><td>Body</td><td>Newsreader</td><td>17–18 px / 1.6</td><td>34–38 px</td><td>Maksimumi 65 karaktere për rresht</td></tr>
+<tr><td>Captions</td><td>Courier Prime</td><td>12–13 px, hapësirë +0.08em</td><td>26 px</td><td>ME GERMA TË MËDHA</td></tr>
+<tr><td>CTA</td><td>Courier Prime</td><td>14 px, nënvizim në Dyll</td><td>30 px</td><td>«POROSIT NË DM →»</td></tr>
+</tbody></table></div>
+<div class="two">
+ <div>
+  <h3>Social media</h3>
+  <ul class=""><li><strong>Brenda aplikacionit</strong> (story, Reels): zgjidhni fontin serif të aplikacionit, me germa të vogla, ngjyrë të bardhë ose Letër, me hije të butë. Kështu duket edhe teksti në referencat e tua.</li><li><strong>CapCut / Canva</strong>: ngarkoni Libre Caslon Display dhe Courier Prime për cover-a dhe seri.</li><li>Maksimumi 2 rreshta tekst në ekran, në të tretën e sipërme (jashtë butonave të TikTok-ut).</li></ul>
+ </div>
+ <div>
+  <h3>Website</h3>
+  <p>Libre Caslon Display për titujt, Newsreader për tekstin, Courier Prime për çmime dhe etiketa, të gjitha përmes Google Fonts. Tani për tani nuk ju duhet website; kur t'ju duhet, mjafton një faqe e vetme.</p>
+ </div>
+</div>
+</section><section id="zeri"><header class="sh"><span class="sn">06</span><h2>Brand voice & messaging</h2></header>
+<div class="two">
+ <div>
+  <h3>Si flet</h3>
+  <p>Si shoqja që lexon shumë: me pak fjalë, me «ti», me germa të vogla në caption, me referenca letrare dhe humor të thatë. <em>«s'po të kthej mesazh, po shkruaj.»</em></p>
+  <h3>Si nuk flet</h3>
+  <p>Si guru motivues. Si dyqan me «OFERTË!!!». Si «mbretëresha 👑». Si Tumblr i trishtë i 2014-ës.</p>
+  <h3>Tonaliteti</h3>
+  <div class="bar" aria-hidden="true"><span style="flex:70;background:#231B17"></span><span style="flex:20;background:#6F4A33"></span><span style="flex:10;background:#A63A2E"></span></div>
+  <p class="small">70% i qetë dhe i sigurt · 20% ironik · 10% i ngrohtë (vetëm në letra dhe DM)</p>
+  <dl class="dl"><dt>Humori</dt><dd>I thatë, vetëironik, letrar (Dostojevski, Kadare, Camus). Kurrë tallje me klientet ose me vajza të tjera.</dd><dt>Formaliteti</dt><dd>Joformal, gjithmonë «ti». Drejtshkrim korrekt me ë dhe ç: shqipja e pastër është pjesë e brandit.</dd><dt>Emotional triggers</dt><dd>Privatësia («diçka vetëm e imja») · të qenit e parë (letra) · kurioziteti (surpriza) · përkatësia (Zanë apo Shtojzovalle) · mungesa (10 copë, të numëruara) · nostalgjia (letra, dylli).</dd></dl>
+ </div>
+ <div>
+  <h3>Fjalët që përdorim</h3>
+  <p class="keywords"><span>faqe</span><span>letër</span><span>fletë</span><span>ruaj</span><span>e jotja</span><span>vetëm për ty</span><span>edicion</span><span>numër</span><span>dyll</span><span>mbrëmje</span><span>kafe</span><span>shkruaj</span><span>heshtje</span></p>
+  <h3>Fjalët që shmangim</h3>
+  <p class="keywords no"><span>mbretëreshë</span><span>girlboss</span><span>self-love</span><span>shëroje shpirtin</span><span>vibes</span><span>super ofertë</span><span>kualitet premium</span><span>më i miri në treg</span><span>ekskluzive</span><span>handmade (për ditarin)</span><span>emoji në çdo rresht</span><span>mure me hashtag</span></p>
+ </div>
+</div>
+<div class="lists">
+ <div><h3>10 tagline</h3><ol class="nl"><li>Gjithçka e rëndësishme ndodh mes fletësh.</li><li>Ditari që vjen si letër.</li><li>Për gjërat që nuk i poston.</li><li>Jetë private, e lidhur në lëkurë.</li><li>Ne shkruam faqen e parë. Të tjerat janë të tuat.</li><li>Mbaje për vete.</li><li>Jo gjithçka është për story.</li><li>Një ditar, një numër, një letër.</li><li>Zanë apo Shtojzovalle? Ditari e di.</li><li>Ruaje këtu.</li></ol></div>
+ <div><h3>10 hooks</h3><ol class="nl"><li>Ky ditar vjen me një letër për ty. Dhe s'e ke shkruar ti.</li><li>Nëse s'i kthen mesazh askujt, ky është për ty.</li><li>Kam shkruar 10 letra për 10 vajza që s'i njoh.</li><li>Zanë apo Shtojzovalle? Mos u mendo, zgjidh.</li><li>Ajo ishte vajzë «Prilli i thyer». Ai ishte djalë «Netët e bardha».</li><li>Gjërat që i shkruaj vetëm këtu:</li><li>Porosia 03. Ajo s'e di çfarë surprize ka brenda.</li><li>Djem, kjo është dhurata. S'ka nevojë të na falënderoni.</li><li>Çfarë fut në xhepat e ditarit një vajzë që s'hedh asgjë:</li><li>Unë kur më thonë «poste ndonjë story»:</li></ol></div>
+ <div><h3>10 CTA</h3><ol class="nl"><li>Shkruaj «letër» në DM.</li><li>Porosit në DM. Kanë mbetur [x] nga 10.</li><li>Zanë apo Shtojzovalle? Shkruaje në koment.</li><li>Dërgoja shoqes që ka ditëlindje këtë muaj.</li><li>Ruaje për kur të kërkosh dhuratë.</li><li>Na trego çfarë libri po lexon. Mund të dalë në letrën tënde.</li><li>DM «zanë» ose «shtojzovalle» për listën e pritjes.</li><li>Tago atë që do ta hapte me kujdes.</li><li>Hape profilin për edicionin tjetër.</li><li>Na shkruaj. Ne të kthejmë një letër.</li></ol></div>
+ <div><h3>10 mesazhe të shkurtra</h3><ol class="nl"><li>Çdo ditar vjen me një letër të shkruar me dorë. Asnjë nuk është e njëjtë.</li><li>Ne shkruajmë vetëm faqen e parë. Të tjerat janë të tuat.</li><li>Surpriza nuk tregohet. Prandaj quhet surprizë.</li><li>Edicioni 00: 10 copë, 10 numra, 10 letra.</li><li>Dy seksione: një për fjalët, një për gjërat që s'kanë fjalë.</li><li>Xhepat janë për biletat që nuk i hedh dot.</li><li>E mbyllim me dyll, sepse disa gjëra duhen hapur ngadalë.</li><li>Letrën tënde nuk e postojmë. Kurrë.</li><li>Porosite për veten, ose për atë që ka nevojë të shkruajë.</li><li>Brand i vogël. Letra të gjata.</li></ol></div>
+ <div><h3>5 bio për Instagram</h3><ol class="nl"><li>ditarë që vijnë si letër<br>letër me dorë + surprizë në çdo porosi<br>edicioni 00 · 10 copë<br>porosit në DM ↓</li><li>për gjërat që nuk i poston<br>ditar + letër për ty + surprizë<br>22 € · pagesa në dorëzim · DM</li><li>gjithçka e rëndësishme ndodh mes fletësh<br>zanë apo shtojzovalle? së shpejti<br>porositë në DM</li><li>ne shkruajmë faqen e parë.<br>të tjerat janë të tuat.<br>ditarë të numëruar · Shqipëri</li><li>jetë private, e lidhur në lëkurë<br>çdo ditar ka një numër dhe një letër<br>edicioni 00 → DM</li></ol></div>
+ <div><h3>5 headline për website</h3><ol class="nl"><li>Ditari që vjen si letër.</li><li>Për gjërat që nuk i poston.</li><li>Ne shkruajmë faqen e parë.</li><li>Jeta jote private ka nevojë për një vend.</li><li>Zanë apo Shtojzovalle? Zgjidh ditarin tënd.</li></ol></div>
+</div>
+</section><section id="social"><header class="sh"><span class="sn">07</span><h2>Identiteti në Instagram & TikTok</h2></header>
+<div class="ig-wrap">
+ <div class="ig">
+  <div class="ig-top"><div class="ig-pp"><svg class="" viewBox="-2 -2 68 68" width="78" height="78" role="img" aria-label="vula mf"><path d="M64.15 32.00 L64.55 33.14 L64.54 34.28 L64.09 35.37 L63.29 36.40 L62.30 37.34 L61.33 38.23 L60.54 39.12 L60.03 40.04 L59.81 41.03 L59.77 42.11 L59.77 43.22 L59.65 44.31 L59.30 45.31 L58.66 46.18 L57.80 46.90 L56.81 47.51 L55.84 48.08 L54.97 48.69 L54.29 49.41 L53.77 50.27 L53.35 51.23 L52.96 52.24 L52.51 53.24 L51.97 54.18 L51.33 55.04 L50.65 55.86 L49.95 56.71 L49.28 57.62 L48.64 58.62 L47.97 59.67 L47.23 60.65 L46.36 61.43 L45.30 61.88 L44.08 61.89 L42.73 61.49 L41.35 60.77 L40.01 59.92 L38.77 59.15 L37.67 58.66 L36.68 58.57 L35.78 58.88 L34.89 59.52 L33.98 60.32 L33.02 61.09 L32.00 61.70 L30.95 62.08 L29.89 62.22 L28.82 62.21 L27.76 62.14 L26.69 62.10 L25.60 62.10 L24.49 62.11 L23.38 62.07 L22.29 61.87 L21.28 61.46 L20.35 60.83 L19.51 60.05 L18.73 59.21 L17.94 58.44 L17.10 57.80 L16.17 57.34 L15.15 56.98 L14.11 56.63 L13.13 56.15 L12.32 55.45 L11.75 54.49 L11.42 53.32 L11.27 52.02 L11.18 50.75 L10.99 49.63 L10.57 48.74 L9.83 48.11 L8.78 47.67 L7.48 47.32 L6.10 46.96 L4.77 46.48 L3.65 45.83 L2.79 45.01 L2.19 44.05 L1.79 42.99 L1.53 41.90 L1.33 40.79 L1.19 39.68 L1.12 38.56 L1.20 37.43 L1.49 36.29 L2.00 35.15 L2.70 34.05 L3.47 33.00 L4.15 32.00 L4.59 31.04 L4.68 30.09 L4.42 29.10 L3.87 28.05 L3.22 26.92 L2.64 25.76 L2.32 24.60 L2.36 23.50 L2.74 22.49 L3.39 21.59 L4.14 20.74 L4.84 19.91 L5.37 19.01 L5.69 18.01 L5.84 16.90 L5.93 15.71 L6.09 14.53 L6.43 13.42 L7.01 12.47 L7.80 11.70 L8.76 11.08 L9.80 10.56 L10.83 10.08 L11.82 9.59 L12.77 9.08 L13.71 8.58 L14.68 8.17 L15.73 7.88 L16.84 7.74 L17.97 7.71 L19.07 7.68 L20.05 7.51 L20.90 7.06 L21.60 6.26 L22.21 5.11 L22.81 3.71 L23.47 2.25 L24.25 0.93 L25.19 -0.03 L26.27 -0.52 L27.43 -0.53 L28.62 -0.15 L29.79 0.46 L30.92 1.13 L32.00 1.70 L33.04 2.11 L34.07 2.37 L35.10 2.54 L36.11 2.73 L37.11 3.01 L38.08 3.41 L39.01 3.90 L39.92 4.39 L40.84 4.81 L41.80 5.08 L42.83 5.20 L43.92 5.23 L45.03 5.28 L46.11 5.46 L47.10 5.84 L47.96 6.45 L48.70 7.24 L49.38 8.08 L50.07 8.87 L50.89 9.49 L51.89 9.91 L53.10 10.16 L54.43 10.34 L55.77 10.60 L56.96 11.06 L57.85 11.80 L58.37 12.84 L58.52 14.11 L58.37 15.53 L58.06 16.96 L57.75 18.31 L57.58 19.53 L57.60 20.60 L57.82 21.57 L58.18 22.47 L58.59 23.36 L59.01 24.25 L59.41 25.17 L59.81 26.09 L60.29 27.01 L60.90 27.94 L61.68 28.88 L62.56 29.86 L63.43 30.90 Z" fill="#A63A2E"/><circle cx="32" cy="32" r="22.5" fill="none" stroke="#C9695C" stroke-width="1.1"/><text x="32" y="38.6" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="19.5" fill="#F1E9DA">mf</text></svg></div><div class="ig-stats"><b>mesfletesh</b><span>ditarë që vijnë si letër<br>letër me dorë + surprizë në çdo porosi<br>edicioni 00 · 10 copë<br>porosit në DM ↓</span></div></div>
+  <div class="ig-hl"><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Porosit"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><rect x="12" y="20" width="40" height="26" rx="1.5" fill="none" stroke="#231B17" stroke-width="2.2"/><path d="M12 21.5 L32 36 L52 21.5" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><circle cx="32" cy="36" r="3.2" fill="#A63A2E"/></g></svg><span>Porosit</span></div><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Edicionet"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></g></svg><span>Edicionet</span></div><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Letrat"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><rect x="14" y="12" width="36" height="42" rx="1.5" fill="none" stroke="#231B17" stroke-width="2.2"/><path d="M21 22 H43 M21 29 H43 M21 36 H35" stroke="#231B17" stroke-width="2" stroke-linecap="round"/><circle cx="41" cy="45" r="6" fill="#A63A2E"/></g></svg><span>Letrat</span></div><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Dhuratë"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><rect x="15" y="26" width="34" height="24" rx="1.5" fill="none" stroke="#231B17" stroke-width="2.2"/><path d="M32 26 V50 M15 37 H49" stroke="#231B17" stroke-width="2"/><path d="M32 26 C26 16 18 20 25 26 M32 26 C38 16 46 20 39 26" fill="none" stroke="#A63A2E" stroke-width="2.2" stroke-linecap="round"/></g></svg><span>Dhuratë</span></div><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Ju"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><text x="32" y="50" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="46" fill="#231B17">“</text><circle cx="32" cy="50" r="3" fill="#A63A2E"/></g></svg><span>Ju</span></div><div class="hl"><svg viewBox="0 0 64 64" width="62" height="62" role="img" aria-label="Pyetje"><circle cx="32" cy="32" r="30" fill="#F1E9DA"/><circle cx="32" cy="32" r="27.5" fill="none" stroke="#C9A97E" stroke-width="0.8"/><g transform="translate(32 32) scale(0.62) translate(-32 -32)"><text x="32" y="46" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="38" fill="#231B17">?</text><circle cx="32" cy="53" r="2.8" fill="#A63A2E"/></g></svg><span>Pyetje</span></div></div>
+  <div class="ig-grid"><div class="tile photo"><span>top-down: ditari mbi dru</span></div><div class="tile type"><span>gjithçka e rëndësishme ndodh mes fletësh</span></div><div class="tile photo2"><span>duar + dylli</span></div><div class="tile type2"><span>zanë apo<br>shtojzovalle?</span></div><div class="tile photo"><span>kafene, mermer, pako</span></div><div class="tile num"><span>03/10</span></div><div class="tile photo2"><span>vajza në bar, ditari</span></div><div class="tile type"><span>për gjërat që nuk i poston</span></div><div class="tile photo"><span>qiri, 22:40</span></div></div>
+  <p class="small center">Mockup i profilit. Katrorët «foto» tregojnë ku shkojnë fotot reale.</p>
+ </div>
+ <div class="ig-rules">
+  <dl class="dl"><dt>Profile picture</dt><dd>Vula «mf» në Dyll mbi Letër. Më vonë, foto reale e vulës suaj prej dylli.</dd><dt>Feed style</dt><dd>Ritëm prej 3 llojesh: (1) top-down mbi dru ose mermer, (2) duar me produktin, (3) post tipografik në Letër. Kontrast i ulët, i ngrohtë, grain i lehtë. Pa sfonde të bardha furnitori.</dd><dt>Reels style</dt><dd>7–15 sekonda, një ide për Reel. Teksti del në 0.5 sekondat e para. Serif me germa të vogla. Pa talking head, përveç serisë së historive.</dd><dt>Stories</dt><dd>3–5 në ditë: paketim, sondazhe («Zanë apo Shtojzovalle»), countdown për drop-et, «03/10 u nis», DM të klienteve me leje dhe me emrin të fshehur.</dd><dt>Highlight covers</dt><dd>6 ikona me vijë në Bojë mbi Letër, me një pikë Dylli: Porosit · Edicionet · Letrat · Dhuratë · Ju · Pyetje.</dd><dt>Covers / thumbnails</dt><dd>Një kuadër nga video + 2–4 fjalë në Libre Caslon, me germa të vogla, brenda zonës 4:5 në qendër (që të mos pritet në grid). Etiketa e serisë sipër, me Courier.</dd><dt>Typography overlays</dt><dd>E bardhë ose Letër, hije 20%, 2 rreshta maksimumi, në të tretën e sipërme.</dd><dt>Caption style</dt><dd>Me germa të vogla, 1–3 rreshta. Rreshti i parë vazhdon hook-un, i fundit është CTA. Maksimumi 3 hashtag (#mesfletesh + 1–2).</dd><dt>Ngjyrat në video</dt><dd>Grade i ngrohtë (temperatura +8), highlights të ulura, të zezat pak të ngritura, saturimi −10. E kuqja vjen vetëm nga objekte reale: dylli, lapsi i kuq.</dd></dl>
+ </div>
+</div>
+<div class="two">
+ <div>
+  <dl class="dl"><dt>Editing</dt><dd>Prerje të forta në beat, match cuts (faqe → faqe), grain 5–10%, rrallë një flash në të zezë. Pa efekte «zoom blur» ose tranzicione CapCut. Pa 2 sekonda me logo në fund, sepse ulin retention.</dd><dt>Tranzicione</dt><dd>Kthimi i faqes, dora që kalon para lentes, match cut objektesh, jump cut.</dd><dt>Kamera</dt><dd>Telefoni në 4K, 24 fps për kinematografik dhe 30 fps për ASMR. Top-down me stativ dore. Zoom 1x ose 2x për close-up, asnjëherë 0.5x.</dd></dl>
+ </div>
+ <div>
+  <dl class="dl"><dt>Ndriçimi</dt><dd>Dritë natyrale dritareje nga anash (mëngjes / golden hour). Natën: qiri + llambë e verdhë. Kurrë ring light nga përpara.</dd><dt>Vendndodhje</dt><dd>Kafene me tavolina mermeri ose druri, parku me bar (si te @erisxbrat), dhomë me qiri, tavolinë druri në shtëpi, bibliotekë, stol buzë liqenit ose detit.</dd><dt>Props</dt><dd>Espresso, freddo, moka, qiri, libra shqip (Kadare, Migjeni, Poradeci) dhe të përkthyer (Dostojevski, Camus), stilolaps i zi, laps i kuq, polaroid, bileta, lule të thata, letër kraft, spango, dyll, unaza argjendi, kufje me tel. <strong>Jo:</strong> plastikë rozë, glitter, stickers të tepërt.</dd></dl>
+ </div>
+</div>
+<h3>5 drejtime vizuale për testim</h3>
+<div class="tw"><table class="tbl"><thead><tr><th>Drejtimi</th><th>Si duket</th><th>Referenca</th><th>Çfarë teston</th></tr></thead><tbody>
+<tr><td><strong>Tavolina</strong></td><td>Top-down, dru i errët, objekte me etiketa</td><td>@dearmelonyc</td><td>Saves</td></tr>
+<tr><td><strong>Kafeneja</strong></td><td>Duar, mermer, kafe me akull, paketim</td><td>@lolas.hiddenpages</td><td>DM</td></tr>
+<tr><td><strong>Bari</strong></td><td>Vajza në park, lifestyle, tekst meme</td><td>@erisxbrat</td><td>Reach dhe shares</td></tr>
+<tr><td><strong>Qiri</strong></td><td>Natë, dritë qiriri, shkrim ASMR</td><td>@ahlam_bookshop</td><td>Watch time</td></tr>
+<tr><td><strong>Laps i kuq</strong></td><td>Letër close-up, rrathë të kuq, memes tipografike</td><td>@d4kyxx</td><td>Shares</td></tr>
+</tbody></table></div>
+<p class="small">Metoda: 2 Reels për çdo drejtim në 3 javët e para. Krahasoni shares, saves dhe DM për 1 000 views, jo likes. Mbani 2 drejtimet më të mira.</p>
+</section><section id="content"><header class="sh"><span class="sn">08</span><h2>Content strategy</h2></header>
+<div class="pillars">
+ <div class="pl"><b>25%</b><h4>Jeta private</h4><p>Solo dates, rreth i vogël, mbrëmje pa telefon. Identiteti që ajo do të tregojë.</p></div>
+ <div class="pl"><b>25%</b><h4>Letra & rituali</h4><p>Letrat, paketimi, dylli, surpriza, porositë e numëruara. Ku ndodh shitja.</p></div>
+ <div class="pl"><b>20%</b><h4>Letërsi & ironi</h4><p>Memes me Dostojevskin, Kadarenë, Camus-in. Motori i reach-it.</p></div>
+ <div class="pl"><b>15%</b><h4>Mes fletësh</h4><p>Si përdoret ditari: seksionet, xhepat, faqja e parë, ide për shkrim. Edukative.</p></div>
+ <div class="pl"><b>15%</b><h4>Edicionet</h4><p>Zana, Shtojzovallet, mitologjia, quiz, listat e pritjes. Identitet dhe koleksion.</p></div>
+</div>
+<div class="two">
+ <div>
+  <h3>Çfarë postojmë</h3>
+  <dl class="dl"><dt>Educational</dt><dd>Si ta nisësh ditarin, si t'i përdorësh dy seksionet, çfarë të ruash në xhepa, ide mujore për shkrim.</dd><dt>Entertaining</dt><dd>Memes letrare, «unë kur…», tipet e vajzave, Zanë vs Shtojzovalle.</dd><dt>Authority</dt><dd>Për një brand të ri, autoriteti vjen nga numri i letrave të shkruara, reagimet reale, sold-out-et dhe njohuria për mitologjinë dhe letërsinë.</dd><dt>Storytelling</dt><dd>Seria «Letra nr. X» (pa detaje private) dhe historia e vërtetë e vajzës pse e nisi.</dd><dt>Behind the scenes</dt><dd>Paketimi, shkrimi i letrave, dylli, zgjedhja e surprizave, dorëzimi te korrieri.</dd><dt>Product</dt><dd>Close-up, seksionet, xhepat, edicionet, «kanë mbetur 4».</dd></dl>
+ </div>
+ <div>
+  <h3>Çfarë nuk postojmë</h3>
+  <ul class=""><li>Foto produkti me flash ose foto furnitori.</li><li>Foto stock, quotes motivuese, «mbretëresha».</li><li>Letra ose faqe klientesh pa leje të shkruar.</li><li>«Ofertë», zbritje, «vetëm sot» (e ulin çmimin mendor të 22 €).</li><li>Krahasime direkte me konkurrentë.</li><li>Video të gjata talking head pa hook.</li><li>Pretendime të paverifikuara (lëkurë e vërtetë, «handmade» për ditarin).</li></ul>
+  <h3>Frekuenca</h3>
+  <p>5 Reels në javë (të njëjtat në IG dhe TikTok), story çdo ditë, 1 carousel në javë. Xhirojini 5 Reels në një seancë 2-orëshe në javë.</p>
+ </div>
+</div>
+<h3>Plani i lansimit: Edicioni 00 (10 copë)</h3>
+<div class="tw"><table class="tbl"><thead><tr><th>Kur</th><th>Çfarë</th><th>Qëllimi</th></tr></thead><tbody>
+<tr><td>Dita −7 → −1</td><td>Reels 04, 07, 02, 15, 05 · story me sondazhe · countdown në story</td><td>Ndjekës + kuriozitet</td></tr>
+<tr><td>Dita 0</td><td>Carousel «Edicioni 00 · 10 copë · 22 €» + Reel 06 · hapen DM-të</td><td>Porositë e para</td></tr>
+<tr><td>Dita 1 → 14</td><td>1 Reel në ditë · story «kanë mbetur X» · Reel 27 kur të mbeten 2</td><td>Sold out</td></tr>
+<tr><td>Pas sold out</td><td>Post «10/10» + lista e pritjes për Zana / Shtojzovalle · porositni stokun e ri</td><td>Provë sociale</td></tr>
+</tbody></table></div>
+<p class="small"><strong>KPI:</strong> 10/10 të shitura në 14 ditë · ≥25 DM · saves ≥3% e views në Reels produkti · ≥2 video unboxing nga klientet. <strong>Nëse deri në ditën 7 janë shitur më pak se 5:</strong> problemi është besimi ose oferta, jo sasia e contentit. Tregoni fytyrën e vajzës në më shumë video, dhe i dhuroni 1 ditar një bookstagrammer-e shqiptare me 2–10 mijë ndjekës për një unboxing të sinqertë.</p>
+<h3>30 ide për Reels</h3>
+<div class="reels"><article class="reel"><header><span class="rn">01</span><h4>Ajo ishte / Ai ishte</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«Ajo ishte vajzë:» / «Ai ishte djalë:»</dd><dt>Koncepti</dt><dd>Meme-ja e stolit buzë detit, por djali nuk ka libër: ka ditarin që do t&#x27;ia dhurojë asaj.</dd><dt>Çfarë ndodh</dt><dd>Kuadër statik: dy persona në stol, larg njëri-tjetrit. Mbi vajzën del kopertina e «Prilli i thyer». Pas 2 sekondash mbi djalin del ditari mes fletësh i mbështjellë në kraft.</dd><dt>Teksti</dt><dd>«Ajo ishte vajzë: Prilli i thyer» → «Ai ishte djalë: e di çfarë t&#x27;i blej»</dd><dt>Shots</dt><dd>1 plan i gjerë statik (stol buzë liqenit ose detit, 2 miq tuaj); insert i ditarit në dorën e djalit.</dd><dt>Editing</dt><dd>Zoom shumë i ngadaltë 5%, tekst që del me tingull faqeje. Pa tranzicione.</dd><dt>CTA</dt><dd><strong>tago djalin që duhet ta shohë këtë.</strong></dd></dl></article><article class="reel"><header><span class="rn">02</span><h4>Letra nr. 01</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«Po i shkruaj një letër një vajze që s&#x27;e kam parë kurrë.»</dd><dt>Koncepti</dt><dd>Prapaskena e letrës personale, pa zbuluar asnjë të dhënë të klientes.</dd><dt>Çfarë ndodh</dt><dd>Dora shkruan (fjalët janë jashtë fokusit), e palos letrën në tre, e fut në zarf, derdh dyllin, vendos vulën «mf».</dd><dt>Teksti</dt><dd>«ajo më tregoi 3 gjëra: një libër, një këngë, një muaj të vështirë.» → «tani ka një letër.»</dd><dt>Shots</dt><dd>Macro e majës së stilolapsit; top-down e tavolinës; dylli që shkrin; vula që ngrihet.</dd><dt>Editing</dt><dd>ASMR, pa muzikë ose piano shumë e ulët. Prerje të forta në çdo veprim.</dd><dt>CTA</dt><dd><strong>porosit në DM. letra jote është në radhë.</strong></dd></dl></article><article class="reel"><header><span class="rn">03</span><h4>Zanë apo Shtojzovalle?</h4><span class="pill">Edicionet</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«Zanë apo Shtojzovalle? Ke 5 sekonda.»</dd><dt>Koncepti</dt><dd>Quiz personaliteti që prezanton dy edicionet e ardhshme dhe mbledh komente.</dd><dt>Çfarë ndodh</dt><dd>Ekran i ndarë. Majtas bota e Zanës (mal, mëngjes, e gjelbër). Djathtas bota e Shtojzovalles (natë, qiri, vjollcë). Pyetje të shpejta: «kafe në 7 / çaj në 1 të natës», «ia thua në sy / e shkruan në ditar».</dd><dt>Teksti</dt><dd>4 pyetje, pastaj: «numëro sa herë zgjodhe majtas.»</dd><dt>Shots</dt><dd>B-roll për secilën botë; ditari në ngjyrën e secilit edicion (ose mockup derisa të vijnë).</dd><dt>Editing</dt><dd>Një pyetje çdo 1.5 sekonda, prerje në ritëm.</dd><dt>CTA</dt><dd><strong>shkruaje në koment: zanë apo shtojzovalle.</strong></dd></dl></article><article class="reel"><header><span class="rn">04</span><h4>Etiketat e tavolinës</h4><span class="pill">Jeta private</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«jetë private, shkurt:»</dd><dt>Koncepti</dt><dd>Formati «objekte me etiketa» nga @dearmelonyc, i kthyer në shqip dhe me ditarin si pikë fundore.</dd><dt>Çfarë ndodh</dt><dd>Top-down mbi tavolinë druri. Etiketat dalin një nga një: kafe → «takim me veten», qiri → «pa drama», libër → «Kadare», telefon me ekran poshtë → «s&#x27;po përgjigjem», ditari → «gjithçka tjetër». Në fund një dorë e hap ditarin.</dd><dt>Teksti</dt><dd>Vetëm etiketat. Asnjë fjali tjetër.</dd><dt>Shots</dt><dd>1 kuadër top-down statik 10 sekonda + dora në fund.</dd><dt>Editing</dt><dd>Etiketat dalin në ritmin e këngës; në fund zbehje në të zezë.</dd><dt>CTA</dt><dd><strong>ruaje nëse je ti.</strong></dd></dl></article><article class="reel"><header><span class="rn">05</span><h4>Unë kur s&#x27;të kthej mesazh</h4><span class="pill">Jeta private</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«unë kur s&#x27;të kthej mesazh:»</dd><dt>Koncepti</dt><dd>Formati i @erisxbrat: vajza në bar, e qetë, pa të keq. Shton ditarin si arsyen.</dd><dt>Çfarë ndodh</dt><dd>Vajza e brandit ulur në bar shkruan në ditar dhe luan me flokët. Telefoni pranë saj dridhet, ajo nuk e shikon. Në fund ngre kokën dhe buzëqesh te kamera.</dd><dt>Teksti</dt><dd>«unë kur s&#x27;të kthej mesazh:» → fund: «po shkruaj për ty. ndoshta.»</dd><dt>Shots</dt><dd>Plan mesatar statik nga poshtë; insert i njoftimit në telefon; insert i faqes.</dd><dt>Editing</dt><dd>Shpejtësi 90%, audio trend e qetë, grain i lehtë.</dd><dt>CTA</dt><dd><strong>dërgoja atij që pret përgjigje.</strong></dd></dl></article><article class="reel"><header><span class="rn">06</span><h4>Porosia 03 nga 10</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«porosia 03 nga 10. ajo s&#x27;e di çfarë surprize ka brenda.»</dd><dt>Koncepti</dt><dd>Paketimi si ritual (si @lolas.hiddenpages), me numrin e edicionit si provë mungese.</dd><dt>Çfarë ndodh</dt><dd>Në kafene, mbi mermer: ditari, surpriza (e mbuluar me dorë), letra, letra kraft, spango, dylli, kartela «03/10».</dd><dt>Teksti</dt><dd>Hapat me Courier: «01 ditari / 02 surpriza (s&#x27;e tregojmë) / 03 letra / 04 dylli»</dd><dt>Shots</dt><dd>Top-down; close-up i kartelës së numëruar; dora që fsheh surprizën.</dd><dt>Editing</dt><dd>ASMR me zhurmën e letrës, prerje në çdo hap.</dd><dt>CTA</dt><dd><strong>kanë mbetur 7. DM.</strong></dd></dl></article><article class="reel"><header><span class="rn">07</span><h4>Çfarë ka brenda</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«ky ditar ka vend për gjithçka që s&#x27;e hedh dot.»</dd><dt>Koncepti</dt><dd>Prezantimi i produktit pa asnjë fjalë reklame.</dd><dt>Çfarë ndodh</dt><dd>Hapet ditari: faqet me vija («për fjalët»), faqet bosh («për ato që s&#x27;kanë fjalë»), xhepat e kartelave (biletë kinemaje, polaroid), zarfi i madh (para, lule e thatë).</dd><dt>Teksti</dt><dd>Një etiketë për çdo pjesë.</dd><dt>Shots</dt><dd>Top-down, dorë, 4 inserte.</dd><dt>Editing</dt><dd>Një prerje e pastër për çdo seksion, zhurmë faqesh.</dd><dt>CTA</dt><dd><strong>22 €. porosit në DM.</strong></dd></dl></article><article class="reel"><header><span class="rn">08</span><h4>Djem, kjo është dhurata</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«djem. ajo ka ditëlindje dhe ju s&#x27;keni ide.»</dd><dt>Koncepti</dt><dd>Flet me blerësin sekondar (të dashurin), por kamera mbetet te vajza.</dd><dt>Çfarë ndodh</dt><dd>Zë jashtë kamerës: «çfarë t&#x27;i blej?». Përgjigjja: pako në kraft. Një shoqe e vërtetë e hap, lexon letrën dhe qesh ose preket.</dd><dt>Teksti</dt><dd>«ju: çfarë t&#x27;i blej?» → «ne: ditar + letër për të + surprizë. ju na tregoni vetëm 3 gjëra për të.»</dd><dt>Shots</dt><dd>POV e hapjes së pakos; reagim i vërtetë, jo i luajtur.</dd><dt>Editing</dt><dd>Ritëm i shpejtë, pastaj heshtje kur lexon letrën.</dd><dt>CTA</dt><dd><strong>dërgoja shokut që s&#x27;di ç&#x27;të blejë.</strong></dd></dl></article><article class="reel"><header><span class="rn">09</span><h4>Vetëm këtu</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«gjërat që i shkruaj vetëm në ditar:»</dd><dt>Koncepti</dt><dd>Intimitet pa ekspozim: rreshta të shkurtër që njerëzit i njohin te vetja.</dd><dt>Çfarë ndodh</dt><dd>Faqe me fjali të shkurtra, gjysma të mbuluara me shirit letre: «pse ika pa thënë asgjë», «njerëzit që i kam falur pa ua thënë», «çfarë do t&#x27;i thosha vetes 16 vjeç».</dd><dt>Teksti</dt><dd>Çdo rresht shfaqet si titull.</dd><dt>Shots</dt><dd>Macro e faqeve, dora që shkruan, dora që e mbyll.</dd><dt>Editing</dt><dd>Tekst që shfaqet si makinë shkrimi; fund me zhurmën e ditarit që mbyllet.</dd><dt>CTA</dt><dd><strong>ruaje për mbrëmjen kur do ta nisësh.</strong></dd></dl></article><article class="reel"><header><span class="rn">10</span><h4>«E njoh mirë atë» / Ajo:</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«&quot;e njoh mirë atë.&quot; / ajo:»</dd><dt>Koncepti</dt><dd>Formati «i can fix her / Her:» nga @ahlam_bookshop. Në vend të librave, shtresat e një ditari të mbushur.</dd><dt>Çfarë ndodh</dt><dd>Ditari hapet dhe faqet kthehen shpejt: faqe të mbushura, skica, bileta, lule, letra të palosura.</dd><dt>Teksti</dt><dd>«&quot;e njoh mirë atë.&quot;» / «ajo:»</dd><dt>Shots</dt><dd>Top-down mbi batanije me tekstura, buzëkuq, kufje me tel (si në referencë).</dd><dt>Editing</dt><dd>Faqet kthehen në beat; fund në të errët.</dd><dt>CTA</dt><dd><strong>tago shoqen me 3 ditarë të mbushur.</strong></dd></dl></article><article class="reel"><header><span class="rn">11</span><h4>Mesazhi → faqja</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>Screenshot i errët: «pra, ç&#x27;jemi ne?»</dd><dt>Koncepti</dt><dd>Formati «chat → letër» nga @d4kyxx. Kontrasti mes asaj që thua dhe asaj që shkruan.</dd><dt>Çfarë ndodh</dt><dd>Ekran mesazhesh (i krijuar nga ju): «ç&#x27;jemi ne?» — «s&#x27;e di» — «atëherë ç&#x27;do?». Prerje te ditari, ku ajo ka shkruar 3 faqe. Një fjalë rrethohet me laps të kuq.</dd><dt>Teksti</dt><dd>«në mesazh: s&#x27;e di.» → «në ditar: 3 faqe.»</dd><dt>Shots</dt><dd>Screen record i errët; macro e faqeve; lapsi i kuq që rrethon.</dd><dt>Editing</dt><dd>Match cut nga ekrani te letra, grain.</dd><dt>CTA</dt><dd><strong>dërgoja asaj që përgjigjet «ok» por shkruan romane.</strong></dd></dl></article><article class="reel"><header><span class="rn">12</span><h4>Faqja e parë</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«faqja e parë është më e vështira. ja 3 mënyra.»</dd><dt>Koncepti</dt><dd>Edukativ: heq frikën e faqes bosh, pra heq edhe arsyen për të mos blerë.</dd><dt>Çfarë ndodh</dt><dd>1) data + 3 gjëra që pe sot. 2) ngjit biletën e fundit dhe shkruaj pse e ruajte. 3) vizato tavolinën ku je ulur (seksioni i skicave).</dd><dt>Teksti</dt><dd>«01 / 02 / 03» me Courier, një rresht secili.</dd><dt>Shots</dt><dd>Dora që bën secilin hap.</dd><dt>Editing</dt><dd>Numra të mëdhenj në ekran, 3 sekonda për hap.</dd><dt>CTA</dt><dd><strong>ruaje. provoje sonte.</strong></dd></dl></article><article class="reel"><header><span class="rn">13</span><h4>Kush ishin Zanat</h4><span class="pill">Edicionet</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«Zanat nuk ishin princesha. ishin zanat e maleve.»</dd><dt>Koncepti</dt><dd>Autoritet përmes dijes: mitologjia shqiptare e treguar shkurt, pastaj edicioni.</dd><dt>Çfarë ndodh</dt><dd>Zëri i vajzës mbi b-roll mali dhe burimi uji: Zanat jetonin në male pranë burimeve dhe u jepnin forcë kreshnikëve (Muji në Këngët e Kreshnikëve). Në fund ditari Zana mbi një gur.</dd><dt>Teksti</dt><dd>3 rreshta, një për çdo fakt. Kontrollojini faktet para publikimit.</dd><dt>Shots</dt><dd>Peizazh mali ose pylli, dora me ditarin, skicë Zane në faqe.</dd><dt>Editing</dt><dd>24fps, kinematografik, muzikë instrumentale e ulët.</dd><dt>CTA</dt><dd><strong>edicioni Zana vjen së shpejti. DM «zanë» për listën.</strong></dd></dl></article><article class="reel"><header><span class="rn">14</span><h4>Kush ishin Shtojzovallet</h4><span class="pill">Edicionet</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«nëse i dëgjon duke kënduar natën, mos i shqetëso.»</dd><dt>Koncepti</dt><dd>Çifti i Reel-it të Zanave, për botën e natës.</dd><dt>Çfarë ndodh</dt><dd>Zë mbi b-roll nate: livadh, qiri, mjegull. Shtojzovallet vallëzojnë natën dhe nuk duan të shqetësohen. Në fund ditari Shtojzovalle pranë qirit.</dd><dt>Teksti</dt><dd>3 rreshta. Kontrollojini faktet para publikimit.</dd><dt>Shots</dt><dd>Qiri, dritë hëne ose llambë, duar, faqe me skicë.</dd><dt>Editing</dt><dd>I errët, grain i fortë, flash i shkurtër në të bardhë në fund.</dd><dt>CTA</dt><dd><strong>DM «shtojzovalle» për listën e pritjes.</strong></dd></dl></article><article class="reel"><header><span class="rn">15</span><h4>Surpriza</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«çdo ditar ka një surprizë. s&#x27;ta themi.»</dd><dt>Koncepti</dt><dd>Kuriozitet i pastër. Mekanizmi i surprizës bëhet content.</dd><dt>Çfarë ndodh</dt><dd>3 pako identike mbi mermer. Dora i ngre një nga një, i tund, i vendos poshtë. Mbi secilën del «?».</dd><dt>Teksti</dt><dd>«mund të jetë shënues. mund të jetë diçka tjetër. s&#x27;ta themi. kjo është e bukura.»</dd><dt>Shots</dt><dd>Kuadër statik, 3 pako.</dd><dt>Editing</dt><dd>Suspansë, zhurmë letre ose tik-tak.</dd><dt>CTA</dt><dd><strong>komento çfarë mendon që kishte nr. 01.</strong></dd></dl></article><article class="reel"><header><span class="rn">16</span><h4>Ajo e hapi</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«ajo e hapi. ne s&#x27;e dinim si do të reagonte.»</dd><dt>Koncepti</dt><dd>UGC (video e klientes), vetëm me leje të shkruar. Fillon pas shitjeve të para.</dd><dt>Çfarë ndodh</dt><dd>Video e klientes duke hapur pakon, me reagimin e brandit në një dritare të vogël në qoshe.</dd><dt>Teksti</dt><dd>«porosia 05/10» + një rresht nga reagimi i saj.</dd><dt>Shots</dt><dd>Video e saj + 1 kuadër juaj që lexoni DM-në e saj.</dd><dt>Editing</dt><dd>Minimal, lëre videon e saj të flasë.</dd><dt>CTA</dt><dd><strong>na tago kur ta hapësh.</strong></dd></dl></article><article class="reel"><header><span class="rn">17</span><h4>Vajza Zanë vs vajza Shtojzovalle</h4><span class="pill">Edicionet</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«vajza zanë vs vajza shtojzovalle:»</dd><dt>Koncepti</dt><dd>«Types of girls», por me personazhe shqiptare dhe produktin brenda.</dd><dt>Çfarë ndodh</dt><dd>Ekran i ndarë, e njëjta vajzë në dy stile: mëngjes / natë; espresso / verë; shkruan lista / shkruan poezi; ecje në mal / vallëzim në dhomë.</dd><dt>Teksti</dt><dd>Etiketa e çdo çifti.</dd><dt>Shots</dt><dd>4 çifte kuadrosh.</dd><dt>Editing</dt><dd>Ndarje 50/50, prerje sinkrone.</dd><dt>CTA</dt><dd><strong>cila je? në koment.</strong></dd></dl></article><article class="reel"><header><span class="rn">18</span><h4>Takim me veten</h4><span class="pill">Jeta private</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«takim me veten. e shtunë, 10:00.»</dd><dt>Koncepti</dt><dd>Vlog pa fytyrë i një solo date, me ditarin në mes.</dd><dt>Çfarë ndodh</dt><dd>Ecje për në kafene, porosia, libri dhe ditari, shkrim, dritarja, largimi.</dd><dt>Teksti</dt><dd>Orët me Courier: «10:00 kafe / 10:20 kapitulli 4 / 10:45 dy faqe / 11:30 asnjë mesazh».</dd><dt>Shots</dt><dd>POV hapash, dora me kafe, overhead e tavolinës, dritare.</dd><dt>Editing</dt><dd>1–1.5 sekonda për kuadër, muzikë indie, grain.</dd><dt>CTA</dt><dd><strong>ruaje për të shtunën.</strong></dd></dl></article><article class="reel"><header><span class="rn">19</span><h4>Gjëra që s&#x27;i hedh dot</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«gjëra që s&#x27;i hedh dot:»</dd><dt>Koncepti</dt><dd>Tregon xhepat e ditarit përmes objekteve që kanë histori.</dd><dt>Çfarë ndodh</dt><dd>Nga xhepat dalin një nga një: biletë koncerti, polaroid, shënim nga gjyshja, gjethe, faturë e kafes së parë me dikë.</dd><dt>Teksti</dt><dd>Një rresht për objektin: «bileta: s&#x27;e mbaj mend koncertin. mbaj mend me kë isha.»</dd><dt>Shots</dt><dd>Macro, dorë.</dd><dt>Editing</dt><dd>2 sekonda për objekt, zë i ulët.</dd><dt>CTA</dt><dd><strong>ti çfarë ruan? komento një objekt.</strong></dd></dl></article><article class="reel"><header><span class="rn">20</span><h4>Pse e nisa</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«e nisa këtë brand për shkak të ___.» (historia e vërtetë e vajzës)</dd><dt>Koncepti</dt><dd>Storytelling i themelueses. Mos e shpikni: përdorni vetëm një histori të vërtetë të saj.</dd><dt>Çfarë ndodh</dt><dd>Vajza flet para kamerës me pjesë të shkurtra, mes tyre inserte me letra, ditarë të vjetër, fotografi.</dd><dt>Teksti</dt><dd>Maksimumi 4 fjali. Pa «ëndrra» dhe «pasion».</dd><dt>Shots</dt><dd>Plan mesatar në dritë dritareje; inserte.</dd><dt>Editing</dt><dd>Jump cuts, titra me germa të vogla.</dd><dt>CTA</dt><dd><strong>ndiqe. letra tjetër mund të jetë e jotja.</strong></dd></dl></article><article class="reel"><header><span class="rn">21</span><h4>Dylli</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>Pa tekst në sekondën e parë, vetëm tingulli. Pastaj: «mbyllet si letër.»</dd><dt>Koncepti</dt><dd>ASMR i pastër: aseti më i fotografueshëm i brandit.</dd><dt>Çfarë ndodh</dt><dd>Dylli shkrin, derdhet, vula shtypet dhe ngrihet, close-up i «mf».</dd><dt>Teksti</dt><dd>«mbyllet si letër.»</dd><dt>Shots</dt><dd>Macro në dritë qiriri.</dd><dt>Editing</dt><dd>Slow motion 50%, audio ASMR e pastër.</dd><dt>CTA</dt><dd><strong>porositë e javës nisen të martën. DM.</strong></dd></dl></article><article class="reel"><header><span class="rn">22</span><h4>Kadare në ditar</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«nëse të pëlqen Kadareja, e ke këtë problem:»</dd><dt>Koncepti</dt><dd>Lidh leximin me ditarin: vendi ku shkojnë fjalitë e nënvizuara.</dd><dt>Çfarë ndodh</dt><dd>Vajza lexon dhe nënvizon, pastaj kopjon fjalinë në ditar dhe vizaton një kullë («Prilli i thyer») në seksionin e skicave.</dd><dt>Teksti</dt><dd>«nënvizon aq shumë sa libri s&#x27;ka më vend.» → «ja vendi.»</dd><dt>Shots</dt><dd>Macro e librit, dora, ditari.</dd><dt>Editing</dt><dd>Prerje të thjeshta, zhurmë faqesh.</dd><dt>CTA</dt><dd><strong>cila fjali e Kadaresë do shkonte në faqen e parë? komento.</strong></dd></dl></article><article class="reel"><header><span class="rn">23</span><h4>Si e mban ditarin</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«më trego si e mban ditarin dhe të them kush je.»</dd><dt>Koncepti</dt><dd>Tipologji humoristike me 4 mënyra të mbajtjes së ditarit.</dd><dt>Çfarë ndodh</dt><dd>4 faqe, secila me një përshkrim: «lista: ke plan për planin», «skica: flet më pak nga ç&#x27;duhet», «bileta: s&#x27;hedh asgjë, as ish-in», «poezi: shkruan për njerëz që s&#x27;e dinë».</dd><dt>Teksti</dt><dd>Përshkrimet si më sipër.</dd><dt>Shots</dt><dd>4 top-down faqesh.</dd><dt>Editing</dt><dd>3 sekonda për tip, prerje në beat.</dd><dt>CTA</dt><dd><strong>tago veten.</strong></dd></dl></article><article class="reel"><header><span class="rn">24</span><h4>Nga DM te letra</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«nga një DM te një letër, në 20 sekonda.»</dd><dt>Koncepti</dt><dd>Tregon procesin e porosisë. Largon frikën «si porosis?».</dd><dt>Çfarë ndodh</dt><dd>Screen record i një DM-je (anonime, me leje): «dua një për shoqen, e do Migjenin, ka ditëlindje më 12» → shkruhet letra → paketohet → i jepet korrierit.</dd><dt>Teksti</dt><dd>4 hapa me Courier.</dd><dt>Shots</dt><dd>Screen record, top-down, dorëzimi te korrieri.</dd><dt>Editing</dt><dd>Timelapse + prerje.</dd><dt>CTA</dt><dd><strong>provoje: DM «letër».</strong></dd></dl></article><article class="reel"><header><span class="rn">25</span><h4>Faqet e para</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«si e nisën faqen e parë 5 vajza që porositën.»</dd><dt>Koncepti</dt><dd>Prova sociale pa ekspozim: faqe të mjegulluara, vetëm me leje.</dd><dt>Çfarë ndodh</dt><dd>5 faqe të para, të mjegulluara përveç një fjale secila.</dd><dt>Teksti</dt><dd>Fjala e padukur dhe numri i porosisë.</dd><dt>Shots</dt><dd>Fotot që ju dërgojnë ato, ose ju i fotografoni në takim.</dd><dt>Editing</dt><dd>Blur + zoom në fjalën e dukshme.</dd><dt>CTA</dt><dd><strong>dërgona faqen tënde të parë (të mjegulluar) në DM.</strong></dd></dl></article><article class="reel"><header><span class="rn">26</span><h4>Pse s&#x27;është rozë</h4><span class="pill">Jeta private</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«na pyesin pse ditarët tanë s&#x27;janë rozë.»</dd><dt>Koncepti</dt><dd>Deklaratë brandi që filtron audiencën (dhe është e diskutueshme, pra merr komente).</dd><dt>Çfarë ndodh</dt><dd>Zëri i vajzës ndërsa rregullon ditarët: «sepse jeta private s&#x27;ka ngjyrë kukulle. ka ngjyrë lëkure, kafeje, nate.»</dd><dt>Teksti</dt><dd>Fjalia e mësipërme, e ndarë në 3 ekrane.</dd><dt>Shots</dt><dd>Flatlay me ngjyrat e brandit: lëkurë, kafe, qiri, letër kraft.</dd><dt>Editing</dt><dd>I qetë, pa efekte.</dd><dt>CTA</dt><dd><strong>cilën ngjyrë do zgjidhje për edicionin e ardhshëm?</strong></dd></dl></article><article class="reel"><header><span class="rn">27</span><h4>Kanë mbetur 2</h4><span class="pill">Letra &amp; rituali</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«10 ditarë. 10 letra. kanë mbetur 2.»</dd><dt>Koncepti</dt><dd>Mungesa e vërtetë e bërë vizuale.</dd><dt>Çfarë ndodh</dt><dd>10 kartela me numra mbi tavolinë. Dora heq ato të shitura, një nga një. Mbeten 2.</dd><dt>Teksti</dt><dd>Hook-u + «01 → 08: u nisën.»</dd><dt>Shots</dt><dd>Top-down statik.</dd><dt>Editing</dt><dd>Çdo kartelë hiqet në beat.</dd><dt>CTA</dt><dd><strong>DM tani. pastaj pret edicionin tjetër.</strong></dd></dl></article><article class="reel"><header><span class="rn">28</span><h4>22:40</h4><span class="pill">Jeta private</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«22:40. telefoni në modalitetin avion.»</dd><dt>Koncepti</dt><dd>Rutina e mbrëmjes: ditari si ritual para gjumit.</dd><dt>Çfarë ndodh</dt><dd>Fiket drita, ndizet qiriri, hapet ditari, shkruhet, mbyllet, drita fiket.</dd><dt>Teksti</dt><dd>Ora + «asnjë njoftim. vetëm faqe.»</dd><dt>Shots</dt><dd>Close-up e qirit, e duarve, e faqes.</dd><dt>Editing</dt><dd>Ritëm i ngadaltë, ASMR.</dd><dt>CTA</dt><dd><strong>ruaje për sonte.</strong></dd></dl></article><article class="reel"><header><span class="rn">29</span><h4>Letra jonë vs mesazhi i tij</h4><span class="pill">Letërsi &amp; ironi</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«letra jonë vs mesazhi i tij:»</dd><dt>Koncepti</dt><dd>Humor i thatë me kontrast vizual.</dd><dt>Çfarë ndodh</dt><dd>Ekran i ndarë. Majtas: letra e gjatë me dorë dhe dylli. Djathtas: ekran telefoni me «ok 👍».</dd><dt>Teksti</dt><dd>Hook-u, pastaj asgjë.</dd><dt>Shots</dt><dd>2 kuadro statike.</dd><dt>Editing</dt><dd>4 sekonda gjithsej, loop.</dd><dt>CTA</dt><dd><strong>dërgoja shoqes që meriton letra.</strong></dd></dl></article><article class="reel"><header><span class="rn">30</span><h4>3 pyetjet e DM-ve</h4><span class="pill">Mes fletësh</span></header>
+<dl class="dl rd"><dt>Hook</dt><dd>«3 pyetjet që na bëni më shpesh në DM:»</dd><dt>Koncepti</dt><dd>FAQ që heq pengesat e blerjes me përgjigje të sakta.</dd><dt>Çfarë ndodh</dt><dd>1) «a është lëkurë?» (përgjigje e saktë pas verifikimit). 2) «çfarë shkruani në letër?» (ti na tregon 3 gjëra). 3) «sa zgjat?» (2–4 ditë, pagesa në dorëzim).</dd><dt>Teksti</dt><dd>Pyetje dhe përgjigje, një ekran për secilën.</dd><dt>Shots</dt><dd>B-roll paketimi.</dd><dt>Editing</dt><dd>Tekst mbi b-roll, 3 sekonda për ekran.</dd><dt>CTA</dt><dd><strong>ke një pyetje tjetër? DM.</strong></dd></dl></article></div>
+</section><section id="virale"><header class="sh"><span class="sn">09</span><h2>Formate virale për t'u përshtatur</h2></header>
+<p class="lead">Të gjitha mund të xhirohen me një telefon, një stativ dhe 1–2 persona. Rregulli: merrni <em>strukturën</em>, jo vizualin. Çdo format duhet të ketë ditarin, një detaj shqiptar dhe një element të brandit (dylli, lapsi i kuq, numri i edicionit).</p>
+<div class="reels"><article class="fmt"><header><span class="rn">01</span><h4>«Ajo ishte një: / Ai ishte një:»</h4></header><p class="src">Burimi: Fotoja që më dërgove (meme Dostojevski)</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Njerëzit e njohin menjëherë. Hyn në kulturën «book girl» dhe të bën të tagosh dikë.</dd><dt>Përshtatja</dt><dd>Libri i saj mbetet libër (shqip: Kadare, Migjeni, Poradeci). Libri i tij zëvendësohet me ditarin mes fletësh si dhuratë.</dd><dt>Si bëhet origjinal</dt><dd>Xhirojeni vetë me njerëz tuaj në një vend shqiptar (Liqeni, Durrësi), jo me imazhin e filmit.</dd><dt>Hook</dt><dd><strong>Ajo ishte vajzë: Prilli i thyer</strong></dd><dt>Struktura</dt><dd>0–2 s: stoli + teksti i saj → 2–4 s: teksti i tij + ditari → 4–6 s: ajo kthen kokën.</dd></dl></article><article class="fmt"><header><span class="rn">02</span><h4>«I can fix her» / «Her:»</h4></header><p class="src">Burimi: @ahlam_bookshop</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Kontrast humoristik mes pritjes dhe realitetit. Produkti bëhet punch line.</dd><dt>Përshtatja</dt><dd>«&quot;e njoh mirë atë.&quot; / ajo:» dhe pastaj një ditar i mbushur plot shtresa.</dd><dt>Si bëhet origjinal</dt><dd>Në shqip, me objektet e ditarit (bileta, lule, letra), jo me libra.</dd><dt>Hook</dt><dd><strong>&quot;e njoh mirë atë.&quot; / ajo:</strong></dd><dt>Struktura</dt><dd>0–1 s: teksti → 1–7 s: faqet kthehen në beat → 7–8 s: mbyllet.</dd></dl></article><article class="fmt"><header><span class="rn">03</span><h4>Objekte me etiketa (flatlay)</h4></header><p class="src">Burimi: @dearmelonyc</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Deklaratë identiteti. Njerëzit e ruajnë sepse «jam unë».</dd><dt>Përshtatja</dt><dd>Etiketa shqip që përshkruajnë jetën private. Objekti i fundit është gjithmonë ditari.</dd><dt>Si bëhet origjinal</dt><dd>Tavolina juaj, objektet tuaja (moka shqiptare, libra shqip), etiketat me Courier Prime.</dd><dt>Hook</dt><dd><strong>jetë private, shkurt:</strong></dd><dt>Struktura</dt><dd>0–8 s: etiketat një nga një → 8–10 s: dora hap ditarin.</dd></dl></article><article class="fmt"><header><span class="rn">04</span><h4>«Literally me when…»</h4></header><p class="src">Burimi: @erisxbrat</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Vetë-ironi, relatable, performancë e ulët. Vajza nuk shet, thjesht ekziston.</dd><dt>Përshtatja</dt><dd>«unë kur s&#x27;të kthej mesazh:» me vajzën e brandit që shkruan në ditar.</dd><dt>Si bëhet origjinal</dt><dd>Vendndodhje shqiptare, ditari në kuadër në çdo sekondë, fundi me një rresht shtesë.</dd><dt>Hook</dt><dd><strong>unë kur s&#x27;të kthej mesazh:</strong></dd><dt>Struktura</dt><dd>Plan i vetëm 6–8 s, teksti fiks, buzëqeshja në fund.</dd></dl></article><article class="fmt"><header><span class="rn">05</span><h4>Chat → letër (match cut)</h4></header><p class="src">Burimi: @d4kyxx</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Tension emocional në sekondën e parë (mesazh romantik), pastaj zgjidhje vizuale.</dd><dt>Përshtatja</dt><dd>Mesazhi i shkurtër i djalit → faqet e gjata në ditar, një fjalë e rrethuar me laps të kuq.</dd><dt>Si bëhet origjinal</dt><dd>Lapsi i kuq bëhet shenjë e brandit; bisedat i shkruani vetë, asnjëherë screenshots të vërteta të të tjerëve.</dd><dt>Hook</dt><dd><strong>pra, ç&#x27;jemi ne?</strong></dd><dt>Struktura</dt><dd>0–3 s: chat → 3–4 s: match cut → 4–9 s: faqe + laps i kuq.</dd></dl></article><article class="fmt"><header><span class="rn">06</span><h4>Mbështjellja si ritual</h4></header><p class="src">Burimi: @lolas.hiddenpages</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>ASMR + kuriozitet + «dua ta marr edhe unë kështu».</dd><dt>Përshtatja</dt><dd>Paketimi i porosisë së numëruar me letër kraft, spango dhe dyll.</dd><dt>Si bëhet origjinal</dt><dd>Pa stickers të tepërt; vula e dyllit dhe kartela e numëruar janë nënshkrimi juaj.</dd><dt>Hook</dt><dd><strong>porosia 03 nga 10.</strong></dd><dt>Struktura</dt><dd>4 hapa × 2–3 s, fundi me vulën.</dd></dl></article><article class="fmt"><header><span class="rn">07</span><h4>ASMR unboxing pa muzikë</h4></header><p class="src">Burimi: Format i përgjithshëm në TikTok</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Watch time i lartë; tingulli i letrës kënaq.</dd><dt>Përshtatja</dt><dd>Hapja e pakos mes fletësh nga klientja ose nga vajza e brandit.</dd><dt>Si bëhet origjinal</dt><dd>Letra lexohet në heshtje dhe nuk tregohet kurrë, ruhet misteri.</dd><dt>Hook</dt><dd><strong>(pa tekst, vetëm tingull)</strong></dd><dt>Struktura</dt><dd>0–10 s: spango, dylli, letra kraft → 10–14 s: ditari → fund: letra e palosur.</dd></dl></article><article class="fmt"><header><span class="rn">08</span><h4>«Types of girls» me ekran të ndarë</h4></header><p class="src">Burimi: Format i përgjithshëm</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Njerëzit identifikohen dhe komentojnë «unë jam kjo».</dd><dt>Përshtatja</dt><dd>Vajza Zanë vs vajza Shtojzovalle.</dd><dt>Si bëhet origjinal</dt><dd>Personazhe nga mitologjia shqiptare, jo arketipe të huaja («clean girl», «coquette»).</dd><dt>Hook</dt><dd><strong>vajza zanë vs vajza shtojzovalle:</strong></dd><dt>Struktura</dt><dd>4 çifte × 2 s, split 50/50.</dd></dl></article><article class="fmt"><header><span class="rn">09</span><h4>Quiz «ke 5 sekonda»</h4></header><p class="src">Burimi: Format i përgjithshëm</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Pyetjet mbajnë njerëzit deri në fund; komentet rrisin shpërndarjen.</dd><dt>Përshtatja</dt><dd>4 pyetje që të çojnë te Zana ose te Shtojzovallja.</dd><dt>Si bëhet origjinal</dt><dd>Përgjigjet lidhen me mënyrën si shkruan në ditar.</dd><dt>Hook</dt><dd><strong>Zanë apo Shtojzovalle? Ke 5 sekonda.</strong></dd><dt>Struktura</dt><dd>4 pyetje × 1.5 s + rezultati.</dd></dl></article><article class="fmt"><header><span class="rn">10</span><h4>Listë me rreshta të mbuluar</h4></header><p class="src">Burimi: «Things I only…»</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Intimitet dhe relatability; njerëzit ndalen të lexojnë.</dd><dt>Përshtatja</dt><dd>«gjërat që i shkruaj vetëm në ditar».</dd><dt>Si bëhet origjinal</dt><dd>Rreshtat gjysmë të mbuluar me shirit letre, jo emoji.</dd><dt>Hook</dt><dd><strong>gjërat që i shkruaj vetëm në ditar:</strong></dd><dt>Struktura</dt><dd>5 rreshta × 1.5 s, fundi me mbylljen e ditarit.</dd></dl></article><article class="fmt"><header><span class="rn">11</span><h4>Numërimi mbrapsht i stokut</h4></header><p class="src">Burimi: Drops të limituara</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Mungesë e vërtetë + progres vizual.</dd><dt>Përshtatja</dt><dd>10 kartela me numra; heqim ato të shitura.</dd><dt>Si bëhet origjinal</dt><dd>Kartelat janë vetë kartat e edicionit që shkojnë në pako.</dd><dt>Hook</dt><dd><strong>10 ditarë. kanë mbetur 2.</strong></dd><dt>Struktura</dt><dd>0–6 s: kartelat hiqen → 6–8 s: 2 të mbetura + CTA.</dd></dl></article><article class="fmt"><header><span class="rn">12</span><h4>Vlog «solo date» pa fytyrë</h4></header><p class="src">Burimi: Format i përgjithshëm</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Aspirational por i arritshëm; lidhet me «jetën private».</dd><dt>Përshtatja</dt><dd>E shtuna me libër dhe ditar.</dd><dt>Si bëhet origjinal</dt><dd>Orari me Courier, vendndodhje shqiptare.</dd><dt>Hook</dt><dd><strong>takim me veten. e shtunë, 10:00.</strong></dd><dt>Struktura</dt><dd>8–10 kuadro × 1.2 s.</dd></dl></article><article class="fmt"><header><span class="rn">13</span><h4>Përgjigje video ndaj komentit</h4></header><p class="src">Burimi: Veçori TikTok/IG</p>
+<dl class="dl rd"><dt>Pse funksionon</dt><dd>Algoritmi e shpërndan te ata që panë videon e parë; tregon që brandi dëgjon.</dd><dt>Përshtatja</dt><dd>Përgjigje ndaj «a vlen 22 €?» ose «çfarë shkruani në letër?».</dd><dt>Si bëhet origjinal</dt><dd>Përgjigjuni duke shkruar me dorë në një kartelë, jo duke folur.</dd><dt>Hook</dt><dd><strong>(screenshot i komentit)</strong></dd><dt>Struktura</dt><dd>Komenti → 3–4 kuadro me përgjigjen e shkruar me dorë.</dd></dl></article></div>
+</section><section id="konkurrenca"><header class="sh"><span class="sn">10</span><h2>Analiza e konkurrencës</h2></header>
+<div class="comps"><article class="comp"><header><h4>@ahlam_bookshop</h4><span class="small">Librari në Instagram (e parë në videot e tua)</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Flatlay mbi batanije ose tapet, dritë e ngrohtë e natës, buzëkuq dhe kufje si props, tekst serif i bardhë.</dd><dt>Positioning</dt><dd>Libra letrarë për vajza që lexojnë «libra me vuajtje».</dd><dt>Content</dt><dd>Meme mbi produkt («i can fix her / Her:»).</dd><dt>Tone</dt><dd>Ironik, letrar.</dd><dt>Strengths</dt><dd>E fut produktin brenda meme-s. Nuk duket si reklamë.</dd><dt>Weaknesses</dt><dd>Produkti (libri) është i njëjtë kudo, nuk ka arsye pse të blesh prej tyre.</dd><dt>Çfarë mësojmë</dt><dd>Meme mbi produkt, tekst i shkurtër në dy rreshta.</dd><dt>Çfarë shmangim</dt><dd>Të varesh vetëm nga meme; pa ofertë të dallueshme, shitja nuk ndodh.</dd></dl></article><article class="comp"><header><h4>@lolas.hiddenpages</h4><span class="small">Libra + «book &amp; coffee date» (e parë në videot e tua)</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Kafene, mermer, duar, paketim me letër të palosur dhe spango, stickers.</dd><dt>Positioning</dt><dd>Libra të mbështjellë si surprizë.</dd><dt>Content</dt><dd>Paketim ASMR në kafene.</dd><dt>Tone</dt><dd>I ngrohtë, lozonjar.</dd><dt>Strengths</dt><dd>Rituali i paketimit është contenti; të bën ta duash pakon para produktit.</dd><dt>Weaknesses</dt><dd>Stickers dhe tema sezonale (Halloween) e bëjnë vizualisht kaotik dhe të ndërrueshëm.</dd><dt>Çfarë mësojmë</dt><dd>Paketimi si show; duart në kuadër; kafeneja si studio falas.</dd><dt>Çfarë shmangim</dt><dd>Stickers të tepërt dhe tema sezonale që e prishin identitetin.</dd></dl></article><article class="comp"><header><h4>@dearmelonyc</h4><span class="small">Llogari lifestyle (e parë në videot e tua)</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Top-down, dru, kafe, qiri, moka, libër, ditar me foto film-strip.</dd><dt>Positioning</dt><dd>Estetika e jetës private.</dd><dt>Content</dt><dd>Deklarata identiteti me etiketa.</dd><dt>Tone</dt><dd>I ftohtë, i sigurt.</dd><dt>Strengths</dt><dd>Mesazh identiteti që ruhet dhe shpërndahet.</dd><dt>Weaknesses</dt><dd>Nuk është e qartë çfarë shet.</dd><dt>Çfarë mësojmë</dt><dd>Jeta private si identitet, jo si trishtim.</dd><dt>Çfarë shmangim</dt><dd>Estetikë pa ofertë: çdo post i yni duhet të përfundojë te ditari.</dd></dl></article><article class="comp"><header><h4>Rishitësit e Temu/Shein në Instagram</h4><span class="small">Arketip, kërcënimi yt më i madh</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Foto produkti nga furnitori, sfond i bardhë, çmim në foto.</dd><dt>Positioning</dt><dd>Më lirë.</dd><dt>Content</dt><dd>Katalog.</dd><dt>Tone</dt><dd>«OFERTË», «stok i limituar», emoji.</dd><dt>Strengths</dt><dd>Çmim i ulët, shpejtësi.</dd><dt>Weaknesses</dt><dd>Zero identitet, zero besim; blerësja mund të gjejë të njëjtin produkt në Temu.</dd><dt>Çfarë mësojmë</dt><dd>Asgjë vizualisht. Mëso që çmimi nuk është fusha jote e betejës.</dd><dt>Çfarë shmangim</dt><dd>Foto furnitori, çmime në foto, gjuhë ofertash. Nëse dukesh si ata, gjykohesh si ata.</dd></dl></article><article class="comp"><header><h4>Libraritë e mëdha në Shqipëri</h4><span class="small">Arketip (fletore dhe ditarë në raft)</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Korporativ, foto katalogu.</dd><dt>Positioning</dt><dd>Gjithçka për të gjithë.</dd><dt>Content</dt><dd>Njoftime për libra të rinj dhe ulje çmimesh.</dd><dt>Tone</dt><dd>Neutral.</dd><dt>Strengths</dt><dd>Besim, vendndodhje fizike, gamë e gjerë.</dd><dt>Weaknesses</dt><dd>Asnjë personalitet, asnjë personalizim, asnjë ritual.</dd><dt>Çfarë mësojmë</dt><dd>Besueshmëria vjen nga qartësia: çmimi, dorëzimi, kthimi.</dd><dt>Çfarë shmangim</dt><dd>Të shesësh «fletore»; ti shet ditarin e dikujt.</dd></dl></article><article class="comp"><header><h4>Traveler&#x27;s Company (Japoni)</h4><span class="small">Ndërkombëtar, forma më e afërt me produktin tënd</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Lëkurë që vjetrohet, foto të ditarëve të përdorur, bileta dhe udhëtime.</dd><dt>Positioning</dt><dd>Ditari që plaket me ty.</dd><dt>Content</dt><dd>Komuniteti tregon ditarët e vet të mbushur.</dd><dt>Tone</dt><dd>I qetë, nostalgjik.</dd><dt>Strengths</dt><dd>Kult komuniteti, UGC, lëkura që «bëhet e jotja».</dd><dt>Weaknesses</dt><dd>E shtrenjtë, e huaj, pa lidhje emocionale me Shqipërinë.</dd><dt>Çfarë mësojmë</dt><dd>Shfaqni ditarët e mbushur dhe të vjetruar, jo vetëm të rinjtë.</dd><dt>Çfarë shmangim</dt><dd>Estetikën e udhëtarit mashkull 35 vjeç.</dd></dl></article><article class="comp"><header><h4>Moleskine / Paperblanks</h4><span class="small">Ndërkombëtar, standardi «premium»</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd>Moleskine: minimal, i zi. Paperblanks: kopertina të zbukuruara, barok.</dd><dt>Positioning</dt><dd>Trashëgimi (Hemingway, Picasso) / art dekorativ.</dd><dt>Content</dt><dd>Katalog produktesh, bashkëpunime.</dd><dt>Tone</dt><dd>Korporativ.</dd><dt>Strengths</dt><dd>Njohje e brandit, cilësi e qëndrueshme.</dd><dt>Weaknesses</dt><dd>Të ftohtë, pa personalizim; Paperblanks duket si dhuratë për tezen.</dd><dt>Çfarë mësojmë</dt><dd>Një histori e thjeshtë e përsëritur për vite bëhet trashëgimi.</dd><dt>Çfarë shmangim</dt><dd>Dekorim barok; gjuhë trashëgimie që nuk e keni fituar ende.</dd></dl></article><article class="comp tmpl"><header><h4>@njeliberenjebisedeshop</h4><span class="small">Referencë e zgjedhur nga ju · për t'u plotësuar</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd><span class='blank'>____________</span></dd><dt>Positioning</dt><dd><span class='blank'>____________</span></dd><dt>Content</dt><dd><span class='blank'>____________</span></dd><dt>Tone</dt><dd><span class='blank'>____________</span></dd><dt>Strengths</dt><dd><span class='blank'>____________</span></dd><dt>Weaknesses</dt><dd><span class='blank'>____________</span></dd><dt>Çfarë mësojmë</dt><dd><span class='blank'>____________</span></dd><dt>Çfarë shmangim</dt><dd><span class='blank'>____________</span></dd></dl></article><article class="comp tmpl"><header><h4>@plannables_</h4><span class="small">Referencë e zgjedhur nga ju · për t'u plotësuar</span></header>
+<dl class="dl rd"><dt>Visual identity</dt><dd><span class='blank'>____________</span></dd><dt>Positioning</dt><dd><span class='blank'>____________</span></dd><dt>Content</dt><dd><span class='blank'>____________</span></dd><dt>Tone</dt><dd><span class='blank'>____________</span></dd><dt>Strengths</dt><dd><span class='blank'>____________</span></dd><dt>Weaknesses</dt><dd><span class='blank'>____________</span></dd><dt>Çfarë mësojmë</dt><dd><span class='blank'>____________</span></dd><dt>Çfarë shmangim</dt><dd><span class='blank'>____________</span></dd></dl></article></div>
+<div class="white">
+ <h3>White space: ku nuk është askush</h3>
+ <p>Në Shqipëri, libraritë shesin <strong>libra</strong>, rishitësit shesin <strong>objekte</strong>, dhe brandet e huaja shesin <strong>trashëgimi</strong>. Askush nuk shet <strong>ritualin e jetës private</strong>, në shqip, me mitologji shqiptare dhe me një letër personale. Aty qëndron mes fletësh.</p>
+ <div class="map" role="img" aria-label="Harta e pozicionimit">
+  <span class="ax ax-y">personal ↑</span><span class="ax ax-x">global → shqiptar</span>
+  <span class="dot d1">Moleskine</span><span class="dot d2">Traveler's</span><span class="dot d3">Libraritë</span><span class="dot d4">Rishitësit Temu</span><span class="dot d5">Bookshops IG</span><span class="dot me">mes fletësh</span>
+ </div>
+ <p class="small">Harta është skematike. Pozicionet janë gjykim strategjik, jo të dhëna të matura.</p>
+</div>
+</section><section id="aplikimet"><header class="sh"><span class="sn">11</span><h2>Aplikimet e brandit</h2></header>
+<div class="apps">
+ <div class="app-mock">
+  <div class="card-front"><svg class="" viewBox="-2 -2 68 68" width="64" height="64" role="img" aria-label="vula mf"><path d="M64.15 32.00 L64.55 33.14 L64.54 34.28 L64.09 35.37 L63.29 36.40 L62.30 37.34 L61.33 38.23 L60.54 39.12 L60.03 40.04 L59.81 41.03 L59.77 42.11 L59.77 43.22 L59.65 44.31 L59.30 45.31 L58.66 46.18 L57.80 46.90 L56.81 47.51 L55.84 48.08 L54.97 48.69 L54.29 49.41 L53.77 50.27 L53.35 51.23 L52.96 52.24 L52.51 53.24 L51.97 54.18 L51.33 55.04 L50.65 55.86 L49.95 56.71 L49.28 57.62 L48.64 58.62 L47.97 59.67 L47.23 60.65 L46.36 61.43 L45.30 61.88 L44.08 61.89 L42.73 61.49 L41.35 60.77 L40.01 59.92 L38.77 59.15 L37.67 58.66 L36.68 58.57 L35.78 58.88 L34.89 59.52 L33.98 60.32 L33.02 61.09 L32.00 61.70 L30.95 62.08 L29.89 62.22 L28.82 62.21 L27.76 62.14 L26.69 62.10 L25.60 62.10 L24.49 62.11 L23.38 62.07 L22.29 61.87 L21.28 61.46 L20.35 60.83 L19.51 60.05 L18.73 59.21 L17.94 58.44 L17.10 57.80 L16.17 57.34 L15.15 56.98 L14.11 56.63 L13.13 56.15 L12.32 55.45 L11.75 54.49 L11.42 53.32 L11.27 52.02 L11.18 50.75 L10.99 49.63 L10.57 48.74 L9.83 48.11 L8.78 47.67 L7.48 47.32 L6.10 46.96 L4.77 46.48 L3.65 45.83 L2.79 45.01 L2.19 44.05 L1.79 42.99 L1.53 41.90 L1.33 40.79 L1.19 39.68 L1.12 38.56 L1.20 37.43 L1.49 36.29 L2.00 35.15 L2.70 34.05 L3.47 33.00 L4.15 32.00 L4.59 31.04 L4.68 30.09 L4.42 29.10 L3.87 28.05 L3.22 26.92 L2.64 25.76 L2.32 24.60 L2.36 23.50 L2.74 22.49 L3.39 21.59 L4.14 20.74 L4.84 19.91 L5.37 19.01 L5.69 18.01 L5.84 16.90 L5.93 15.71 L6.09 14.53 L6.43 13.42 L7.01 12.47 L7.80 11.70 L8.76 11.08 L9.80 10.56 L10.83 10.08 L11.82 9.59 L12.77 9.08 L13.71 8.58 L14.68 8.17 L15.73 7.88 L16.84 7.74 L17.97 7.71 L19.07 7.68 L20.05 7.51 L20.90 7.06 L21.60 6.26 L22.21 5.11 L22.81 3.71 L23.47 2.25 L24.25 0.93 L25.19 -0.03 L26.27 -0.52 L27.43 -0.53 L28.62 -0.15 L29.79 0.46 L30.92 1.13 L32.00 1.70 L33.04 2.11 L34.07 2.37 L35.10 2.54 L36.11 2.73 L37.11 3.01 L38.08 3.41 L39.01 3.90 L39.92 4.39 L40.84 4.81 L41.80 5.08 L42.83 5.20 L43.92 5.23 L45.03 5.28 L46.11 5.46 L47.10 5.84 L47.96 6.45 L48.70 7.24 L49.38 8.08 L50.07 8.87 L50.89 9.49 L51.89 9.91 L53.10 10.16 L54.43 10.34 L55.77 10.60 L56.96 11.06 L57.85 11.80 L58.37 12.84 L58.52 14.11 L58.37 15.53 L58.06 16.96 L57.75 18.31 L57.58 19.53 L57.60 20.60 L57.82 21.57 L58.18 22.47 L58.59 23.36 L59.01 24.25 L59.41 25.17 L59.81 26.09 L60.29 27.01 L60.90 27.94 L61.68 28.88 L62.56 29.86 L63.43 30.90 Z" fill="#A63A2E"/><circle cx="32" cy="32" r="22.5" fill="none" stroke="#C9695C" stroke-width="1.1"/><text x="32" y="38.6" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="19.5" fill="#F1E9DA">mf</text></svg><span class="cf-l"><span class="wm xs">mes flet<span class="ed">e</span>sh</span></span></div>
+  <div class="card-back"><span class="cb-ed">EDICIONI 00 · LËKURË</span><span class="cb-nr">Nr. <u>03</u> / 10</span><span class="cb-line">shkruar për: ______________</span><span class="cb-line">nga: mes fletësh · @mesfletesh</span></div>
+  <p class="small center">Kartela e edicionit (85 × 55 mm, letër krem 350 g). Ajo është edhe kartëvizita.</p>
+ </div>
+ <div class="app-mock">
+  <div class="cover916"><span class="c-ser">LETRA NR. 01</span><span class="c-t">po i shkruaj një vajze që s'e njoh</span><span class="safe">zona e sigurt 4:5</span></div>
+  <p class="small center">Cover i Reel-it: 9:16, titulli brenda zonës 4:5.</p>
+ </div>
+</div>
+<h3>Paketimi, shtresë pas shtrese</h3>
+<ol class="layers">
+ <li><b>Letër kraft</b> 60–80 g, e palosur si zarf (si te @lolas.hiddenpages).</li>
+ <li><b>Spango jute natyrale</b>, një lidhje, pa fjongo.</li>
+ <li><b>Vula e dyllit</b> «mf» në Dyll, mbi kryqëzimin e spangos.</li>
+ <li><b>Kartela e edicionit</b> e numëruar, nën spango.</li>
+ <li>Brenda: <b>zarf krem</b> me emrin e saj të shkruar me dorë, dhe letra A5 e palosur në tre.</li>
+ <li><b>Surpriza</b> e mbështjellë veçmas në letër mëndafshi.</li>
+ <li><b>Ditari</b> me rripin e edicionit dhe simbolin e stampuar.</li>
+</ol>
+<p class="small">Kosto e përafërt e paketimit: 1.5–2 € për porosi (surpriza përfshirë). Llogariteni saktë me çmimet tuaja; marzhi duhet të mbetet i qartë pas transportit.</p>
+<dl class="dl wide"><dt>Instagram</dt><dd>Shih seksionin 07: vula si foto profili, 6 highlights, grid me 3 lloje postimesh.</dd><dt>Website</dt><dd>Nuk ju duhet tani. Kur t'ju duhet: një faqe në Letër me headline-in «Ditari që vjen si letër», 3 foto, edicionet dhe butonin «Porosit në Instagram».</dd><dt>Business cards</dt><dd>Kartela e edicionit është kartëvizita. Për takime (kafene, pop-up) mjafton ana e parë me vulën dhe @mesfletesh.</dd><dt>Documents</dt><dd>Fatura dhe konfirmimi i porosisë në Courier Prime, mbi Letër, me simbolin lart majtas.</dd><dt>Presentations</dt><dd>Sfond Letër, tituj Libre Caslon, një foto për slide, numrat me Courier. Pa template Canva me forma.</dd><dt>Merchandise</dt><dd>Tote kraft me simbolin, shënues lëkure me simbol të stampuar, stickers (vula + shiriti). Merch-i shkon vetëm si surprizë, jo si produkt më vete, derisa të keni 1 000+ klientë.</dd><dt>Ads</dt><dd>Mos bëni reklama me pagesë para se të shiten 10 copët organikisht. Pastaj: Reels 9:16 me hook në sekondën e parë, Reels 06 dhe 08 si krijues fillestarë, 3–5 €/ditë, vetëm Shqipëri, 20–30 vjeç.</dd><dt>Reels</dt><dd>Shih 07–09. Çdo Reel mbyllet me ditarin në kuadër, jo me logo.</dd><dt>Posters</dt><dd>A3 në Letër për pop-up në kafene: wordmark i madh, «ditari që vjen si letër», QR drejt Instagramit, vula e vërtetë e dyllit e ngjitur në poster.</dd><dt>Email</dt><dd>Jo tani. Më vonë: një email në muaj, «Letra e muajit», i shkruar si letër, me tekst të thjeshtë dhe firmë në shkrimin e saj.</dd><dt>Profile pictures</dt><dd>Vula në Dyll mbi Letër (PNG 1080 × 1080 në dosjen e aseteve). E njëjta në IG dhe TikTok.</dd></dl>
+<div class="two">
+ <div>
+  <h3>Skripti i DM-së (porosia)</h3>
+  <ol class="script">
+   <li>«faleminderit që na shkrove. edicioni 00 kushton 22 € + transporti, pagesa në dorëzim, 2–4 ditë.»</li>
+   <li>«për letrën na trego 3 gjëra: 1) emrin që do në zarf 2) një libër ose këngë që të përshkruan 3) (opsionale) çfarë po kalon këtë muaj.»</li>
+   <li>Për dhuratë: «kujt i shkon? na trego 3 fjalë për të dhe nga kush është.»</li>
+   <li>«adresa, qyteti dhe numri i telefonit për korrierin.»</li>
+   <li>«u shënua: je nr. __/10. do të të shkruajmë kur të niset.»</li>
+  </ol>
+ </div>
+ <div>
+  <h3>Rregullat e letrës</h3>
+  <ul class=""><li>E shkruar me dorë, 120–180 fjalë, me stilolaps të zi mbi letër krem.</li><li>Përmend të paktën 1 gjë nga ajo që tregoi ajo (libri, kënga, muaji).</li><li>Pa klishe: pa «je e fortë», pa «mbretëreshë», pa «besoji vetes».</li><li>Mbyllet me: «— nga mes fletësh» + numri i edicionit.</li><li>Mbyllet me vulë dylli. Asnjëherë nuk postohet pa leje.</li></ul>
+  <p class="letter"><em>«Hana, na the që po lexon "Netët e bardha" dhe që ky muaj ka qenë i gjatë. Dostojevski e shkroi atë libër për katër netë, pra edhe një muaj i gjatë mbaron. Këtë ditar mos e mbaj për ditë të mira. Mbaje për netët që s'ia tregon dot askujt. Faqja e parë është e jona. Të tjerat janë të tuat. — nga mes fletësh, 03/10»</em></p>
+  <p class="small">Shembull ilustrues; emri dhe detajet janë të shpikura.</p>
+ </div>
+</div>
+</section><section id="brandbook"><header class="sh"><span class="sn">12</span><h2>Mini brand book</h2></header>
+<p class="lead">Faqja që printohet dhe ngjitet në mur. Detajet janë në seksionet 01–11.</p>
+<div class="mb"><div class="mb-i"><span class="mb-n">01</span><h4>Brand essence</h4><p>Ritual privat.</p></div><div class="mb-i"><span class="mb-n">02</span><h4>Mission</h4><p>T&#x27;i japim çdo vajze një vend për gjërat që nuk i poston.</p></div><div class="mb-i"><span class="mb-n">03</span><h4>Vision</h4><p>Dhurata personale nr. 1 në Shqipëri; mitologjia shqiptare në objekte të përditshme.</p></div><div class="mb-i"><span class="mb-n">04</span><h4>Values</h4><p>Privatësia · E vërteta · Kujdesi · Rrënjët · Ngadalësia.</p></div><div class="mb-i"><span class="mb-n">05</span><h4>Positioning</h4><p>Ditari i vetëm në Shqipëri që vjen me një letër të shkruar vetëm për ty. 22 €.</p></div><div class="mb-i"><span class="mb-n">06</span><h4>Target audience</h4><p>Vajza 20–27, qytete shqiptare, blen vetë; sekondare: shoqet dhe të dashurit që kërkojnë dhuratë.</p></div><div class="mb-i"><span class="mb-n">07</span><h4>Brand personality</h4><p>Vajza që lexon në kafene dhe nuk të kthen mesazh menjëherë.</p></div><div class="mb-i"><span class="mb-n">08</span><h4>Logo system</h4><p>Wordmark «mes fletësh» (pikat e ë-së në Dyll) · simboli i shiritit · vula «mf».</p></div><div class="mb-i"><span class="mb-n">09</span><h4>Color palette</h4><p>Dyll #A63A2E · Bojë #231B17 · Lëkurë #6F4A33 · Kraft #C9A97E · Letër #F1E9DA · Qiri #FAF6EE · Grafit #5E554E · Zana #55603F · Shtojzovalle #6D6386.</p></div><div class="mb-i"><span class="mb-n">10</span><h4>Typography</h4><p>Libre Caslon Display · Newsreader · Courier Prime · shkrimi i saj real.</p></div><div class="mb-i"><span class="mb-n">11</span><h4>Imagery</h4><p>Top-down mbi dru ose mermer, duar, dritë dritareje ose qiriri, grain, e ngrohtë, pa flash.</p></div><div class="mb-i"><span class="mb-n">12</span><h4>Graphic elements</h4><p>Vula e dyllit, rrathët dhe nënvizimet me laps të kuq, numrat e edicionit në Courier, spango, letër kraft.</p></div><div class="mb-i"><span class="mb-n">13</span><h4>Brand voice</h4><p>E qetë, e sigurt, ironike, letrare; «ti», germa të vogla, shqip korrekt.</p></div><div class="mb-i"><span class="mb-n">14</span><h4>Messaging</h4><p>Tagline: «Gjithçka e rëndësishme ndodh mes fletësh.» Reklamë: «Ditari që vjen si letër.»</p></div><div class="mb-i"><span class="mb-n">15</span><h4>Social media guidelines</h4><p>Vula si foto profili · 6 highlights · 5 Reels/javë · story çdo ditë · 3 hashtag maksimumi.</p></div><div class="mb-i"><span class="mb-n">16</span><h4>Content pillars</h4><p>Jeta private 25 · Letra &amp; rituali 25 · Letërsi &amp; ironi 20 · Mes fletësh 15 · Edicionet 15.</p></div><div class="mb-i"><span class="mb-n">17</span><h4>Reel formats</h4><p>Ajo ishte/Ai ishte · «e njoh mirë atë»/ajo · etiketat e tavolinës · unë kur… · chat → letër · paketimi · ASMR · quiz Zanë/Shtojzovalle.</p></div>
+<div class="mb-i dd"><span class="mb-n">18</span><h4>Do's & Don'ts</h4><div class="dd-g"><div><b class="yes">Po</b><ul class=""><li>Shkruaj çdo letër me dorë.</li><li>Numëro çdo ditar.</li><li>Mbaje të kuqen sa një vulë.</li><li>Trego duart, objektet dhe dritën reale.</li><li>Thuaj saktë çfarë është produkti.</li><li>Shkruaj shqip me ë dhe ç.</li></ul></div><div><b class="nope">Jo</b><ul class=""><li>«Handmade» për ditarin e blerë.</li><li>Winx ose personazhe të huaja me pronar.</li><li>Rozë, glitter, stickers të tepërt.</li><li>Foto furnitori ose sfond i bardhë.</li><li>Oferta, zbritje, «vetëm sot».</li><li>Postimi i letrave pa leje.</li></ul></div></div></div></div>
+</section><section id="drejtimet"><header class="sh"><span class="sn">13</span><h2>Tre drejtime kreative</h2></header>
+<div class="dirs">
+ <article class="dir dA">
+  <span class="tag">Direction A · Premium / Minimal</span><h3>Letër & Lëkurë</h3>
+  <div class="dir-demo"><span class="wm sm">mes flet<span class="ed">e</span>sh</span><span class="dA-sub">ditari që vjen si letër</span></div>
+  <dl class="dl rd"><dt>Visual style</dt><dd>Flatlay i qetë, shumë hapësirë, një objekt për kuadër, dritë dritareje.</dd><dt>Colors</dt><dd>Letër, Bojë, Lëkurë; Dyll vetëm te vula.</dd><dt>Fonts</dt><dd>Libre Caslon Display + Newsreader.</dd><dt>Logo direction</dt><dd>Wordmark i hollë; simboli vetëm në produkt.</dd><dt>Content style</dt><dd>Paketim ASMR, produkt, letra, rutina e mbrëmjes.</dd><dt>Rreziku</dt><dd>Reach i ngadaltë; pa fytyrë mund të duket i ftohtë.</dd></dl>
+ </article>
+ <article class="dir dB">
+  <span class="tag">Direction B · Bold / Modern</span><h3>Laps i Kuq</h3>
+  <div class="dir-demo"><span class="dB-big">në mesazh: <s>s'e di</s><br>në ditar: <span class="circ">3 faqe</span></span></div>
+  <dl class="dl rd"><dt>Visual style</dt><dd>Tipografi e madhe mbi letër, rrathë dhe nënvizime me laps të kuq, memes, screenshots.</dd><dt>Colors</dt><dd>Letër + Bojë + Dyll më i dukshëm (deri në 10–15%).</dd><dt>Fonts</dt><dd>Libre Caslon Display shumë e madhe + Courier Prime.</dd><dt>Logo direction</dt><dd>Vula si stamp në qoshen e çdo posti.</dd><dt>Content style</dt><dd>Memes letrare, split screens, «unë kur…», chat → letër.</dd><dt>Rreziku</dt><dd>Bëhet meme page dhe produkti humbet. Çdo meme duhet të përfundojë te ditari.</dd></dl>
+ </article>
+ <article class="dir dC">
+  <span class="tag">Direction C · Distinctive / Experimental</span><h3>Mitologji</h3>
+  <div class="dir-demo"><span class="dC-ed">EDICIONI 02</span><span class="dC-t">Shtojzovalle</span><span class="dC-sub">për ato që shkruajnë natën</span></div>
+  <dl class="dl rd"><dt>Visual style</dt><dd>Natë, qiri, peizazhe malesh, ilustrime me vijë të Zanave dhe Shtojzovalleve, grain i fortë, flash.</dd><dt>Colors</dt><dd>Shtojzovalle + Zana + Bojë, me Letër vetëm për tekstin.</dd><dt>Fonts</dt><dd>Libre Caslon Display (tituj edicionesh) + Courier Prime.</dd><dt>Logo direction</dt><dd>Simboli vetëm + emri i edicionit si titull.</dd><dt>Content style</dt><dd>Storytelling mitologjie, quiz, drop-e me countdown, lista pritjeje.</dd><dt>Rreziku</dt><dd>Kërkon ilustrator (rreth 50–150 € për ilustrim) dhe prodhim më të vështirë. Nëse ekzekutohet keq, duket fantasy për fëmijë.</dd></dl>
+ </article>
+</div>
+<h3>Ndryshimi, sipas funksionit</h3>
+<div class="tw"><table class="tbl"><thead><tr><th></th><th>A · Letër & Lëkurë</th><th>B · Laps i Kuq</th><th>C · Mitologji</th></tr></thead><tbody>
+<tr><td>Çfarë shet</td><td>Besim (konvertim)</td><td>Vëmendje (reach)</td><td>Identitet (koleksion, besnikëri)</td></tr>
+<tr><td>Metrika kryesore</td><td>DM dhe porosi</td><td>Shares dhe ndjekës</td><td>Lista e pritjes dhe komente</td></tr>
+<tr><td>Kosto prodhimi</td><td>E ulët</td><td>Shumë e ulët</td><td>Mesatare (ilustrime, lokacione)</td></tr>
+<tr><td>Jetëgjatësia</td><td>Vite</td><td>Muaj (memes vjetrohen)</td><td>Për edicion</td></tr>
+<tr><td>Rreziku</td><td>I mërzitshëm</td><td>Humb produktin</td><td>Duket fëmijëror</td></tr>
+</tbody></table></div>
+<p class="rec"><strong>Rekomandimi:</strong> nuk keni pse të zgjidhni vetëm një. <strong>A</strong> është sistemi bazë (paketim, profil, highlights, website). <strong>B</strong> zë rreth 40% të Reels në 60 ditët e para, sepse ju duhet reach. <strong>C</strong> përdoret vetëm për lansimin e edicioneve Zana dhe Shtojzovalle, pasi të shiten 10 copët e para.</p>
+</section></main>
+<footer class="foot"><svg class="" viewBox="0 0 64 64" width="36" height="36" role="img" aria-label="simboli mes fletësh"><path d="M32 20 C27 15 17 15 7 19 V47 C17 43 27 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M32 20 C37 15 47 15 57 19 V47 C47 43 37 43 32 48 Z" fill="none" stroke="#231B17" stroke-width="2.2" stroke-linejoin="round"/><path d="M29.6 17 H34.4 V60 L32 55.5 L29.6 60 Z" fill="#A63A2E"/></svg><p>mes fletësh · brand book v1 · asetet PNG gjenden në <code>brand/mesfletesh/assets/</code></p></footer>
+</div>
