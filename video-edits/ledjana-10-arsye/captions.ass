@@ -1,0 +1,96 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Quicksand Light Medium,66,&H0000C4EC,&H0000C4EC,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,0,2,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.01,0:00:00.50,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Do ju listoj
+Dialogue: 0,0:00:00.50,0:00:01.21,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}10 arsye se
+Dialogue: 0,0:00:01.21,0:00:01.84,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}përse ia vlen
+Dialogue: 0,0:00:01.84,0:00:02.51,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}të merrni pjesë
+Dialogue: 0,0:00:02.51,0:00:02.98,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në grupet e
+Dialogue: 0,0:00:02.98,0:00:03.67,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dobësimit me
+Dialogue: 0,0:00:03.67,0:00:04.22,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Ledjanën
+Dialogue: 0,0:00:04.22,0:00:04.84,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}E para është
+Dialogue: 0,0:00:04.84,0:00:05.54,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}eksperienca
+Dialogue: 0,0:00:05.54,0:00:06.06,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Unë kam mbi
+Dialogue: 0,0:00:06.06,0:00:06.64,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}6 vite që
+Dialogue: 0,0:00:06.64,0:00:07.20,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}bëj trajnime
+Dialogue: 0,0:00:07.20,0:00:07.58,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}online
+Dialogue: 0,0:00:07.58,0:00:08.18,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dhe këtë vit
+Dialogue: 0,0:00:08.18,0:00:08.79,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}bëj 5 vite
+Dialogue: 0,0:00:08.79,0:00:09.32,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}me grupe
+Dialogue: 0,0:00:09.32,0:00:10.06,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dobësimi
+Dialogue: 0,0:00:10.06,0:00:10.42,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}E dyta
+Dialogue: 0,0:00:10.42,0:00:11.06,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}humbisni deri
+Dialogue: 0,0:00:11.06,0:00:11.90,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në 8 kilogramë
+Dialogue: 0,0:00:11.90,0:00:12.64,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}brenda muajit
+Dialogue: 0,0:00:12.64,0:00:13.24,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}E treta
+Dialogue: 0,0:00:13.24,0:00:13.88,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në grup ju
+Dialogue: 0,0:00:13.88,0:00:15.52,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}paguani 50% më
+Dialogue: 0,0:00:15.52,0:00:16.01,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}lirë
+Dialogue: 0,0:00:16.01,0:00:16.67,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Pra çmimet e
+Dialogue: 0,0:00:16.67,0:00:17.61,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}grupeve janë
+Dialogue: 0,0:00:17.61,0:00:18.16,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}ekstremisht
+Dialogue: 0,0:00:18.16,0:00:18.51,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}super
+Dialogue: 0,0:00:18.51,0:00:19.40,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}ekonomike
+Dialogue: 0,0:00:19.40,0:00:19.96,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Gjithashtu
+Dialogue: 0,0:00:19.96,0:00:20.67,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}grupi ndiqet
+Dialogue: 0,0:00:20.67,0:00:21.50,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}vetëm nga unë
+Dialogue: 0,0:00:21.50,0:00:22.04,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}nuk ka staf
+Dialogue: 0,0:00:22.04,0:00:22.76,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}për trajnimet
+Dialogue: 0,0:00:22.76,0:00:23.56,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}por gjithçka e
+Dialogue: 0,0:00:23.56,0:00:24.06,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}nis dhe e
+Dialogue: 0,0:00:24.06,0:00:25.15,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}përfundoj vetë
+Dialogue: 0,0:00:25.15,0:00:25.89,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Grupi përbëhet
+Dialogue: 0,0:00:25.89,0:00:26.50,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}nga një numër
+Dialogue: 0,0:00:26.50,0:00:27.18,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}i limituar
+Dialogue: 0,0:00:27.18,0:00:27.66,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}vajzash dhe
+Dialogue: 0,0:00:27.66,0:00:27.91,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}grash
+Dialogue: 0,0:00:27.91,0:00:28.37,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}që të kem
+Dialogue: 0,0:00:28.37,0:00:29.00,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}mundësi t'i
+Dialogue: 0,0:00:29.00,0:00:29.66,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}ndjek të gjitha
+Dialogue: 0,0:00:29.66,0:00:30.19,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}mesazhet
+Dialogue: 0,0:00:30.19,0:00:30.69,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Grupi ka
+Dialogue: 0,0:00:30.69,0:00:31.68,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}llogaridhënie
+Dialogue: 0,0:00:31.68,0:00:32.43,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}çdo ditë ju
+Dialogue: 0,0:00:32.43,0:00:33.09,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}më dërgoni
+Dialogue: 0,0:00:33.09,0:00:33.93,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}vaktet me foto
+Dialogue: 0,0:00:33.93,0:00:34.92,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}edhe hapat tuaj
+Dialogue: 0,0:00:34.92,0:00:35.48,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}ditorë
+Dialogue: 0,0:00:35.48,0:00:35.99,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Grupi përfshin
+Dialogue: 0,0:00:35.99,0:00:36.32,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}seanca
+Dialogue: 0,0:00:36.32,0:00:36.96,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}stërvitore që
+Dialogue: 0,0:00:36.96,0:00:37.54,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}mund t'i kryeni
+Dialogue: 0,0:00:37.54,0:00:38.25,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në shtëpi ose
+Dialogue: 0,0:00:38.25,0:00:38.72,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në palestër
+Dialogue: 0,0:00:38.72,0:00:39.39,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}me video të
+Dialogue: 0,0:00:39.39,0:00:40.07,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}regjistruara
+Dialogue: 0,0:00:40.07,0:00:40.45,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}në çdo shtet
+Dialogue: 0,0:00:40.45,0:00:40.88,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}të botës
+Dialogue: 0,0:00:40.88,0:00:41.72,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Ekziston vetëm
+Dialogue: 0,0:00:41.72,0:00:42.42,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}një problem me
+Dialogue: 0,0:00:42.42,0:00:43.24,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}grupet tona të
+Dialogue: 0,0:00:43.24,0:00:44.25,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dobësimit
+Dialogue: 0,0:00:44.25,0:00:45.05,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}ju vini vetëm
+Dialogue: 0,0:00:45.05,0:00:45.78,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}për një qëllim
+Dialogue: 0,0:00:45.78,0:00:46.89,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dhe dilni akoma
+Dialogue: 0,0:00:46.89,0:00:47.57,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}më mirë se
+Dialogue: 0,0:00:47.57,0:00:48.36,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}sa e kishit
+Dialogue: 0,0:00:48.36,0:00:48.93,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}menduar
+Dialogue: 0,0:00:48.93,0:00:49.28,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}Brenda një
+Dialogue: 0,0:00:49.28,0:00:49.79,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}muaji do ta
+Dialogue: 0,0:00:49.79,0:00:50.13,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}shihni që
+Dialogue: 0,0:00:50.13,0:00:50.68,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}grupet tona të
+Dialogue: 0,0:00:50.68,0:00:51.20,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dobësimit
+Dialogue: 0,0:00:51.20,0:00:51.88,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}funksionojnë
+Dialogue: 0,0:00:51.88,0:00:52.45,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}dhe do doni
+Dialogue: 0,0:00:52.45,0:00:53.21,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}të bëheni pjesë
+Dialogue: 0,0:00:53.21,0:00:54.04,Cap,,0,0,0,,{\pos(540,960)\fad(70,170)\blur0.6}e jona përjetë
