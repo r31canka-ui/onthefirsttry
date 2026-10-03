@@ -1,0 +1,1886 @@
+<title>Umano Felice Brand Playbook</title>
+<meta name="description" content="Brand guideline dhe content playbook për Instagram-in e Umano Felice – Klinika Italiane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Montserrat:wght@700;800&display=swap">
+<style>
+/* Layout: a printed brand book. Cypress cover band with a Roman-arch motif, sticky chapter index on wide screens, one reading column of ~70ch with wider breakout blocks for tables, swatches and frame mock-ups. */
+:root{
+  /* Brand colours (fixed, the same in both themes: they ARE the brand) */
+  --b-cipresso:#23463F; --b-salvia:#A9BFAE; --b-cielo:#C9DCE6; --b-albicocca:#F29E6D;
+  --b-albicocca-chiaro:#FCE6D8; --b-marmo:#F4F5F1; --b-carta:#FFFFFF; --b-inchiostro:#1B2623; --b-ulivo:#5C6B66;
+
+  /* Page theme tokens (light) */
+  --bg:#F4F5F1; --surface:#FFFFFF; --surface-2:#EAEEE8; --line:#D6DDD6; --line-strong:#B9C5BC;
+  --fg:#1B2623; --muted:#5C6B66; --primary:#23463F; --primary-ink:#FFFFFF;
+  --accent:#F29E6D; --accent-soft:#FCE6D8; --accent-ink:#8A3F17; --sky-soft:#E4EEF3; --sage-soft:#E3EBE4;
+  --ok:#2F6B4F; --no:#A2412B; --no-soft:#F7E2DC; --ok-soft:#DDEDE3;
+  --cover-bg:#23463F; --cover-fg:#F4F5F1; --cover-muted:#B9CDC4;
+
+  --f-display:"Bodoni Moda", "Libre Bodoni", "Didot", Georgia, serif;
+  --f-body:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-caption:"Montserrat", "Arial Black", system-ui, sans-serif;
+
+  --step--1:.84rem; --step-0:1rem; --step-1:1.2rem; --step-2:1.5rem; --step-3:2.1rem; --step-4:clamp(2.4rem,5vw,3.4rem); --step-5:clamp(3rem,8vw,5.6rem);
+  --r-sm:10px; --r-md:18px; --r-lg:28px;
+  --measure:70ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111A18; --surface:#18241F; --surface-2:#1F2E29; --line:#2C3D37; --line-strong:#3E544C;
+    --fg:#E8EEEA; --muted:#9FB2AA; --primary:#9CCBB8; --primary-ink:#0F1A17;
+    --accent:#F4A77B; --accent-soft:#3A2A20; --accent-ink:#F8C4A4; --sky-soft:#1C2A30; --sage-soft:#1C2B25;
+    --ok:#8FD1AE; --no:#F0A08C; --no-soft:#3A2420; --ok-soft:#1C3328;
+    --cover-bg:#172F2A; --cover-fg:#EEF3EF; --cover-muted:#A9C2B7;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111A18; --surface:#18241F; --surface-2:#1F2E29; --line:#2C3D37; --line-strong:#3E544C;
+  --fg:#E8EEEA; --muted:#9FB2AA; --primary:#9CCBB8; --primary-ink:#0F1A17;
+  --accent:#F4A77B; --accent-soft:#3A2A20; --accent-ink:#F8C4A4; --sky-soft:#1C2A30; --sage-soft:#1C2B25;
+  --ok:#8FD1AE; --no:#F0A08C; --no-soft:#3A2420; --ok-soft:#1C3328;
+  --cover-bg:#172F2A; --cover-fg:#EEF3EF; --cover-muted:#A9C2B7;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:var(--step-0);line-height:1.65;margin:0}
+a{color:var(--primary);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:500;line-height:1.1;text-wrap:balance;margin:0}
+h3{font-size:var(--step-2);font-weight:600}
+h4{font-family:var(--f-body);font-size:var(--step-0);font-weight:700;line-height:1.35}
+p{margin:0}
+em.it{font-family:var(--f-display);font-style:italic;font-weight:500}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:var(--step--1)}
+.stack{display:flex;flex-direction:column;gap:1rem}
+.stack-lg{display:flex;flex-direction:column;gap:2rem}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- Cover ---------- */
+.cover{background:var(--cover-bg);color:var(--cover-fg);padding-inline:16px;overflow:hidden}
+.cover-in{max-width:1180px;margin:0 auto;padding-block:3.5rem 3rem;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr);gap:2.5rem;align-items:end}
+.cover .eyebrow{color:var(--cover-muted)}
+.cover h1{font-size:var(--step-5);font-weight:500;letter-spacing:-.01em;margin-top:1.2rem}
+.cover h1 i{font-style:italic;color:var(--b-albicocca)}
+.cover .lede{font-size:var(--step-1);max-width:34ch;margin-top:1.4rem;color:var(--cover-fg)}
+.cover .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:2.2rem;font-size:var(--step--1);color:var(--cover-muted)}
+.cover .meta b{color:var(--cover-fg);font-weight:600}
+.arch-art{position:relative;aspect-ratio:3/4;max-width:340px;width:100%;justify-self:end}
+.arch-art .a1{position:absolute;inset:0;border-radius:999px 999px 0 0;background:linear-gradient(180deg,var(--b-cielo) 0%,var(--b-salvia) 100%)}
+.arch-art .a2{position:absolute;left:14%;right:14%;top:22%;bottom:0;border-radius:999px 999px 0 0;background:var(--b-marmo)}
+.arch-art .sun{position:absolute;width:26%;aspect-ratio:1;border-radius:50%;background:var(--b-albicocca);right:-6%;top:6%}
+.arch-art .cap{position:absolute;left:14%;right:14%;bottom:12%;text-align:center;color:var(--b-cipresso);font-family:var(--f-display);font-style:italic;font-size:clamp(1.1rem,2.4vw,1.5rem);line-height:1.25;padding:0 .8rem}
+.cover-quote{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.18);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline}
+.cover-quote q{font-family:var(--f-display);font-style:italic;font-size:var(--step-2);quotes:"“" "”"}
+@media (max-width:760px){.cover-in{grid-template-columns:1fr}.arch-art{justify-self:start;max-width:220px;order:-1}}
+
+/* ---------- Shell ---------- */
+.shell{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:2rem 5rem;display:grid;grid-template-columns:220px minmax(0,1fr);gap:3.5rem}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 1.2rem);align-self:start;max-height:calc(100vh - 2.4rem);overflow:auto;padding-block:1rem}
+.toc ol{list-style:none;margin:.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.15rem;counter-reset:t}
+.toc a{display:grid;grid-template-columns:2rem 1fr;align-items:baseline;text-decoration:none;color:var(--muted);font-size:.86rem;padding:.3rem .5rem;border-radius:8px;line-height:1.3}
+.toc a span{font-family:var(--f-display);font-style:italic;color:var(--accent-ink)}
+.toc a:hover,.toc a.on{background:var(--surface-2);color:var(--fg)}
+main{min-width:0}
+@media (max-width:1060px){.shell{grid-template-columns:minmax(0,1fr)}.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);padding:1rem 1.1rem}.toc ol{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}}
+
+/* ---------- Sections ---------- */
+section.ch{padding-block:4.5rem 1rem;border-top:1px solid var(--line);scroll-margin-top:1rem}
+section.ch:first-of-type{border-top:0;padding-top:1rem}
+.ch-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.2rem 1.4rem;align-items:end;margin-bottom:2.2rem}
+.ch-num{font-family:var(--f-display);font-style:italic;font-size:clamp(3rem,7vw,4.6rem);line-height:.85;color:var(--accent)}
+.ch-head h2{font-size:var(--step-4)}
+.ch-head p{grid-column:1/-1;max-width:var(--measure);color:var(--muted);margin-top:.8rem;font-size:var(--step-1);line-height:1.5}
+.prose{max-width:var(--measure)}
+.prose p+p{margin-top:.9rem}
+.sub{margin-top:3rem;display:flex;flex-direction:column;gap:1.1rem}
+.sub>h3{display:flex;gap:.7rem;align-items:baseline}
+.sub>h3 small{font-family:var(--f-body);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:1.3rem 1.4rem}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media (max-width:820px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid-2,.grid-3{grid-template-columns:minmax(0,1fr)}}
+ul.clean{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+ul.clean li{padding-left:1.2rem;position:relative}
+ul.clean li::before{content:"";position:absolute;left:0;top:.68em;width:.45rem;height:.45rem;border-radius:50%;background:var(--b-salvia)}
+ul.dash li::before{border-radius:2px;width:.55rem;height:2px;top:.8em;background:var(--accent)}
+
+/* statement */
+.statement{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:2rem clamp(1.2rem,4vw,2.6rem);position:relative;overflow:hidden}
+.statement p.big{font-family:var(--f-display);font-size:clamp(1.35rem,2.7vw,1.9rem);line-height:1.35;max-width:36ch;text-wrap:pretty}
+.statement p.big b{font-weight:600;color:var(--primary)}
+.statement::after{content:"";position:absolute;right:-60px;bottom:-60px;width:180px;height:220px;border-radius:999px 999px 0 0;background:var(--sage-soft)}
+.statement>*{position:relative;z-index:1}
+
+/* TBC badge */
+.tbc{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-ink);padding:.12rem .5rem;border-radius:999px;vertical-align:.1em}
+.callout{border-radius:var(--r-md);padding:1.2rem 1.4rem;background:var(--accent-soft);color:var(--fg)}
+.callout h4{color:var(--accent-ink);margin-bottom:.5rem}
+.callout.sky{background:var(--sky-soft)}
+.callout.sky h4{color:var(--primary)}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface-2)}
+td:first-child{font-weight:600}
+table.wide{min-width:760px}
+
+/* voice sliders */
+.sliders{display:grid;gap:1.1rem}
+.slider{display:grid;grid-template-columns:8.5rem minmax(0,1fr) 8.5rem;gap:.8rem;align-items:center;font-size:.88rem}
+.slider .r{text-align:right}
+.track{height:8px;border-radius:99px;background:var(--surface-2);position:relative}
+.track i{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--primary);border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line-strong);transform:translate(-50%,-50%)}
+@media (max-width:560px){.slider{grid-template-columns:1fr 1fr}.slider .track{grid-column:1/-1;order:3}}
+
+/* say / don't say */
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.vs>div{padding:1.1rem 1.3rem;display:flex;flex-direction:column;gap:.75rem}
+.vs .yes{background:var(--ok-soft)}
+.vs .no{background:var(--no-soft)}
+.vs h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.vs .yes h4{color:var(--ok)} .vs .no h4{color:var(--no)}
+.vs p{font-size:.95rem}
+.vs .yes p::before{content:"✓  ";color:var(--ok);font-weight:700}
+.vs .no p::before{content:"✕  ";color:var(--no);font-weight:700}
+@media (max-width:600px){.vs{grid-template-columns:1fr}}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem}
+@media (max-width:820px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column}
+.sw .chip{aspect-ratio:4/3;max-width:100%;padding:.9rem;display:flex;flex-direction:column;justify-content:space-between;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.sw .chip b{font-family:var(--f-display);font-size:1.45rem;letter-spacing:0;text-transform:none;font-weight:500;font-style:italic}
+.sw .info{padding:.8rem .9rem 1rem;font-size:.84rem;line-height:1.45;display:flex;flex-direction:column;gap:.35rem}
+.sw button.hex{all:unset;cursor:pointer;font-weight:700;font-variant-numeric:tabular-nums;font-size:.9rem;display:inline-flex;gap:.4rem;align-items:center;width:max-content}
+.sw button.hex:hover{color:var(--accent-ink)}
+.sw button.hex:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ratio{display:flex;height:46px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;padding-left:.7rem;font-size:.75rem;font-weight:700;white-space:nowrap;overflow:hidden}
+
+/* type specimens */
+.spec{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1.6rem;align-items:start}
+@media (max-width:700px){.spec{grid-template-columns:1fr}}
+.spec .sample-h{font-family:var(--f-display);font-size:clamp(2rem,4.6vw,3rem);line-height:1.05;font-weight:500}
+.spec .sample-h i{color:var(--accent-ink)}
+.spec .sample-b{font-family:var(--f-body);font-size:1.05rem;line-height:1.6;margin-top:.8rem}
+.spec .sample-c{font-family:var(--f-caption);font-weight:800;font-size:1.25rem;line-height:1.25;display:inline-block;background:var(--b-cipresso);color:#fff;padding:.4rem .7rem;border-radius:10px}
+.spec .sample-c span{color:var(--b-albicocca)}
+dl.kv{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.45rem 1rem;margin:0;font-size:.9rem}
+dl.kv dt{color:var(--muted);font-weight:600}
+dl.kv dd{margin:0;min-width:0;overflow-wrap:break-word}
+@media (max-width:480px){dl.kv{grid-template-columns:1fr}dl.kv dt{margin-top:.4rem}}
+
+/* frame mock-ups (brand colours on purpose) */
+.frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;align-items:start}
+@media (max-width:760px){.frames{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.frames{grid-template-columns:minmax(0,1fr)}}
+.frame{display:flex;flex-direction:column;gap:.6rem}
+.frame figcaption{font-size:.8rem;color:var(--muted)}
+.fx{position:relative;max-width:100%;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.08),0 10px 30px -12px rgba(20,40,35,.35)}
+.fx.r916{aspect-ratio:9/16}.fx.r45{aspect-ratio:4/5}
+.mk-reel{background:var(--b-cipresso);color:#fff}
+.mk-reel .photo{position:absolute;left:10%;right:10%;top:9%;height:52%;border-radius:999px 999px 14px 14px;background:linear-gradient(160deg,#c9dce6 0%,#a9bfae 70%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:10%}
+.mk-reel .photo span{font-size:.62rem;color:var(--b-cipresso);letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,.7);padding:.2rem .5rem;border-radius:99px}
+.mk-reel .t{position:absolute;left:10%;right:10%;top:65%;font-family:var(--f-display);font-size:clamp(1.15rem,2.3vw,1.6rem);line-height:1.08}
+.mk-reel .t i{color:var(--b-albicocca)}
+.mk-reel .tag{position:absolute;left:10%;bottom:6%;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--b-salvia)}
+.mk-car{background:var(--b-marmo);color:var(--b-inchiostro);padding:9%;display:flex;flex-direction:column;justify-content:space-between}
+.mk-car .n{font-family:var(--f-display);font-style:italic;font-size:2.6rem;line-height:1;color:var(--b-albicocca)}
+.mk-car .h{font-family:var(--f-display);font-size:clamp(1.1rem,2.2vw,1.5rem);line-height:1.1;color:var(--b-cipresso)}
+.mk-car .bd{font-size:.72rem;line-height:1.45;color:var(--b-ulivo)}
+.mk-car .ft{display:flex;justify-content:space-between;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b-cipresso)}
+.mk-story{background:var(--b-cielo);color:var(--b-inchiostro);padding:10% 9%;display:flex;flex-direction:column;gap:7%}
+.mk-story .q{font-family:var(--f-display);font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.15;color:var(--b-cipresso)}
+.mk-story .poll{background:#fff;border-radius:14px;padding:.6rem;display:flex;flex-direction:column;gap:.4rem;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.mk-story .poll div{border-radius:9px;background:var(--b-marmo);padding:.45rem .6rem;font-size:.68rem;font-weight:700;color:var(--b-cipresso)}
+.mk-story .poll div:first-child{background:var(--b-albicocca-chiaro)}
+.mk-story .who{margin-top:auto;display:flex;gap:.5rem;align-items:center;font-size:.62rem;font-weight:600;color:var(--b-cipresso)}
+.mk-story .who i{width:22px;height:22px;border-radius:50%;background:var(--b-salvia);display:block}
+
+.highlights{display:flex;flex-wrap:wrap;gap:1.1rem 1.3rem}
+.hl{display:flex;flex-direction:column;align-items:center;gap:.4rem;font-size:.76rem;width:66px;text-align:center;line-height:1.2}
+.hl .c{width:62px;height:62px;border-radius:50%;background:var(--b-cipresso);display:grid;place-items:center;box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--line-strong)}
+.hl svg{width:28px;height:28px;stroke:var(--b-marmo);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hl:nth-child(4) .c,.hl:nth-child(7) .c{background:var(--b-salvia)}
+.hl:nth-child(4) svg,.hl:nth-child(7) svg{stroke:var(--b-cipresso)}
+.hl:nth-child(1) .c{background:var(--b-albicocca)}
+.hl:nth-child(1) svg{stroke:var(--b-inchiostro)}
+
+.rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.9rem}
+.rule{border-top:2px solid var(--primary);padding-top:.8rem;display:flex;flex-direction:column;gap:.35rem}
+.rule h4{font-size:.95rem}
+.rule p{font-size:.9rem;color:var(--muted)}
+</style>
+
+<header class="cover" id="top">
+  <div class="cover-in">
+    <div>
+      <p class="eyebrow">Brand Guideline &amp; Content Playbook · Instagram</p>
+      <h1>Umano <i>Felice</i></h1>
+      <p class="lede">Si flet, si duket dhe si publikon klinika italiane për zhvillimin e fëmijës, muaj pas muaji.</p>
+      <div class="meta">
+        <span>Përgatitur nga <b>Rritje Sade</b></span>
+        <span>Bazuar në: <b>Auditimin, Tetor 2026</b></span>
+        <span>Paketa: <b>8 Reels · 4 Karusele · Stories</b></span>
+        <span>Versioni <b>1.0</b></span>
+      </div>
+    </div>
+    <div class="arch-art" aria-hidden="true">
+      <div class="a1"></div><div class="a2"></div><div class="sun"></div>
+      <div class="cap">Roma · Tiranë · Elbasan</div>
+    </div>
+    <div class="cover-quote">
+      <span class="eyebrow">Mesazhi kryesor</span>
+      <q>Standardi italian i vlerësimit të fëmijës, tani në Tiranë dhe Elbasan.</q>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+<nav class="toc" aria-label="Kapitujt">
+  <p class="eyebrow">Përmbajtja</p>
+  <ol>
+    <li><a href="#perdorimi"><span>00</span>Para se të nisni</a></li>
+    <li><a href="#themeli"><span>01</span>Themeli i brandit</a></li>
+    <li><a href="#vizuali"><span>02</span>Identiteti vizual</a></li>
+    <li><a href="#shtyllat"><span>03</span>Shtyllat e përmbajtjes</a></li>
+    <li><a href="#reels"><span>04</span>Reels playbook</a></li>
+    <li><a href="#karuselet"><span>05</span>Karusel playbook</a></li>
+    <li><a href="#stories"><span>06</span>Stories playbook</a></li>
+    <li><a href="#hooks"><span>07</span>Libraria e hook-eve</a></li>
+    <li><a href="#cta"><span>08</span>Libraria e CTA-ve</a></li>
+    <li><a href="#prodhimi"><span>09</span>Sistemi i prodhimit</a></li>
+    <li><a href="#kalendari"><span>10</span>Kalendari 30-ditor</a></li>
+    <li><a href="#kontrolli"><span>11</span>Kontrolli i cilësisë</a></li>
+    <li><a href="#doDont"><span>12</span>Do / Don't</a></li>
+    <li><a href="#cheatsheet"><span>13</span>Cheat sheet</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 00 -->
+<section class="ch" id="perdorimi">
+  <div class="ch-head">
+    <span class="ch-num">00</span>
+    <h2>Para se të nisni</h2>
+    <p>Ky dokument është manuali i punës për strategun, videografin, editorin, dizajnerin dhe social media manager-in. Çdo vendim këtu buron nga auditimi i Tetorit 2026. Kudo që shihni <span class="tbc">Konfirmo</span>, informacioni mungon dhe duhet marrë nga klinika para përdorimit. Nuk e kemi shpikur.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card stack">
+      <p class="eyebrow">Për t'u konfirmuar para muajit të parë</p>
+      <ul class="clean small">
+        <li><b>Logoja dhe ngjyrat ekzistuese.</b> Paleta më poshtë është propozim. Nëse logoja ka ngjyra të tjera, primare bëhet ngjyra e logos dhe pjesa tjetër përshtatet.</li>
+        <li><b>Emri zyrtar.</b> Propozimi i auditimit: <i>Umano Felice – Klinika Italiane</i>. Duhet miratim para postimit të parë.</li>
+        <li><b>Numri kryesor i WhatsApp-it</b> për rezervime, dhe numri i secilës qendër.</li>
+        <li><b>Adresa e qendrës në Elbasan</b> dhe oraret e të dyja qendrave (auditimi përmend E Hënë–E Shtunë).</li>
+        <li><b>Kush del në kamerë.</b> Të paktën 2 specialistë (p.sh. Serxhio Pecaku, Loreta Boçi), mundësisht 3.</li>
+        <li><b>Datat e ditëve të vlerësimit</b> me stafin nga Roma për 3 muajt e ardhshëm.</li>
+        <li><b>Emrat e testeve</b> të protokollit italian dhe çfarë përfshin saktësisht një vlerësim (kohëzgjatja, raporti me shkrim, plani).</li>
+        <li><b>Konfirmim me shkrim</b> që bashkëpunimi me Don Orione mund të quhet publikisht “ekskluziv”.</li>
+        <li><b>Formulari i pëlqimit me shkrim</b> për filmimin e fëmijëve dhe për dëshmitë e prindërve.</li>
+        <li><b>Paketa e zgjedhur.</b> Shih shënimin 1 djathtas.</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <div class="callout">
+        <h4>Shënimi 1 · Funnel-i “UDHËZUES” varet nga paketa</h4>
+        <p class="small">PDF-ja falas dhe automatizimi i DM-ve janë vetëm te paketa <b>Rritje + Reklama</b>. Nëse klinika ka zgjedhur <b>Rritje</b> (8 reels + 4 karusele), CTA-ja “Shkruani UDHËZUES në komente” nuk funksionon. Në atë rast, çdo CTA konvertimi shkon te WhatsApp. Në këtë dokument, çdo CTA me fjalë kyçe ka edhe alternativën me WhatsApp.</p>
+      </div>
+      <div class="callout sky">
+        <h4>Shënimi 2 · Shtylla “Dëshmi” nuk nis dot pa pëlqime</h4>
+        <p class="small">Në muajin e parë nuk ka dëshmi të gatshme me pëlqim me shkrim. Prandaj kjo shtyllë jeton vetëm në Stories (vlerësime Google, mesazhe me leje). Mbledhja e pëlqimeve nis në javën e parë që Reels me dëshmi të dalin nga muaji i dytë.</p>
+      </div>
+      <div class="callout sky">
+        <h4>Shënimi 3 · Rreziku më i madh i prodhimit</h4>
+        <p class="small">Plani mbështetet te specialistët që flasin në kamerë. Nëse vetëm një person pranon, 6 nga 8 reels kanë të njëjtën fytyrë dhe llogaria duket si profil personal. Kërkoni të paktën 2 specialistë para ditës së filmimit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="ch" id="themeli">
+  <div class="ch-head">
+    <span class="ch-num">01</span>
+    <h2>Themeli i brandit</h2>
+    <p>Umano Felice nuk konkurron me fjalë si “profesionalizëm” apo “përkushtim”. I ka faktet që konkurrentët nuk i kanë. Brandi ekziston që t'i bëjë ato fakte të dukshme për një prind të shqetësuar.</p>
+  </div>
+
+  <div class="statement stack">
+    <p class="eyebrow">Pozicionimi</p>
+    <p class="big">Për prindërit në Tiranë dhe Elbasan që kanë një shqetësim për zhvillimin e fëmijës dhe nuk dinë kujt t'i besojnë, Umano Felice është <b>klinika italiane për zhvillimin e fëmijës</b>: vlerësim sipas protokollit italian, specialistë me emër e fytyrë dhe lidhje e drejtpërdrejtë me Don Orione në Romë.</p>
+    <p class="muted small">Shërbimet e tjera (fizioterapia e të rriturve, laboratori, imazheria, farmacia në Elbasan) mbeten pjesë e komunikimit, por si shtylla dytësore. Kur klinika flet për 15 shërbime njëherësh, prindi nuk mban mend asnjërin.</p>
+  </div>
+
+  <div class="sub">
+    <h3>Audienca <small>Kë po flasim</small></h3>
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Audienca kryesore</p>
+        <h4>Nëna 25–45 vjeç me një fëmijë rreth 1,5–8 vjeç</h4>
+        <p class="small">Jeton në Tiranë, Elbasan ose rrethinat. Ka vënë re diçka: fëmija flet pak, nuk qëndron dot në vend, ka shpërthime të forta ose ecën ndryshe nga të tjerët. Shpesh e ka dëgjuar shqetësimin edhe nga kopshti. Kërkon në internet natën vonë, lexon shumë dhe ndihet e pasigurt. Para se të shkruajë, i duhet besim.</p>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Audiencat dytësore</p>
+        <ul class="clean small">
+          <li><b>Partneri dhe gjyshërit</b> që marrin pjesë në vendim dhe shpesh thonë “prit, do flasë”.</li>
+          <li><b>Edukatoret dhe mësueset</b> e kopshteve dhe shkollave partnere (Bashkia Tiranë). Ato janë burim referimi.</li>
+          <li><b>Pediatrit</b> që mund të referojnë.</li>
+          <li><b>Familjet shqiptare në Itali</b>: hipotezë nga numri +39. <span class="tbc">Konfirmo</span> nëse vijnë pacientë nga diaspora.</li>
+          <li><b>Të rriturit</b> për fizioterapi dhe laborator, kryesisht në Elbasan.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Problemet dhe dëshirat <small>Çfarë ndjen prindi</small></h3>
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Shqetësimet</p>
+        <ul class="clean dash small">
+          <li>“A po e teproj, apo ka vërtet diçka?”</li>
+          <li>Këshilla që kundërshtojnë njëra-tjetrën nga familja: “edhe babai yt foli vonë”.</li>
+          <li>Frika nga një diagnozë ose “etiketë” që i ngjitet fëmijës.</li>
+          <li>Faji: “mos është nga ekranet, mos është faji im?”</li>
+          <li>Stigma: “çfarë do thonë të tjerët nëse e çoj te psikologu?”</li>
+          <li>Nuk e di kë specialist të takojë: logoped, psikolog apo neuropediatër.</li>
+          <li>Mosbesim te klinikat vendase. Ndjesia që cilësia e vërtetë është vetëm jashtë vendit.</li>
+          <li>Kosto dhe kohë: frika nga një terapi pa fund dhe pa progres të matshëm.</li>
+        </ul>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Dëshirat</p>
+        <ul class="clean small">
+          <li>Një përgjigje të qartë: ku është fëmija sot dhe çfarë duhet bërë.</li>
+          <li>Një plan me hapa, jo “ejani javën tjetër dhe shohim”.</li>
+          <li>Të dëgjohet pa u gjykuar.</li>
+          <li>Të shohë progres që mund ta matë.</li>
+          <li>Që fëmija të ndihet mirë dhe i sigurt në klinikë.</li>
+          <li>Standard evropian pa udhëtuar në Itali.</li>
+          <li>Gjëra praktike që mund t'i bëjë vetë në shtëpi.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Personaliteti dhe zëri <small>Si tingëllon brandi</small></h3>
+    <div class="prose"><p><b>Personaliteti në një fjali:</b> specialisti i qetë që ulet në karrigen e vogël pranë prindit dhe i flet si njeri. Ai di shumë, por nuk mburret. Ka standarde italiane, por nuk është snob. Është i ngrohtë, por nuk premton atë që nuk varet prej tij.</p></div>
+    <div class="grid-3">
+      <div class="rule"><h4>I qetë</h4><p>Ul ankthin e prindit. Nuk krijon urgjencë artificiale dhe nuk tremb.</p></div>
+      <div class="rule"><h4>I qartë</h4><p>Një ide për postim. Fjalë të thjeshta. Termi mjekësor shpjegohet menjëherë.</p></div>
+      <div class="rule"><h4>I saktë</h4><p>Flet me fakte: mosha, shenja, teste, numra. Asnjë mbiemër bosh.</p></div>
+      <div class="rule"><h4>I ngrohtë</h4><p>Njeh ndjenjat e prindit përpara se të japë informacion.</p></div>
+      <div class="rule"><h4>Me rrënjë italiane</h4><p>Elegancë dhe metodë, pa e kthyer Italinë në dekor me flamuj.</p></div>
+      <div class="rule"><h4>I sinqertë</h4><p>Flet për procesin, jo për garanci. E thotë kur diçka është normale dhe nuk ka nevojë për vizitë.</p></div>
+    </div>
+
+    <div class="card sliders" aria-label="Dimensionet e zërit">
+      <p class="eyebrow">Ku qëndron zëri</p>
+      <div class="slider"><span>I ngrohtë</span><div class="track"><i style="left:28%"></i></div><span class="r">Klinik</span></div>
+      <div class="slider"><span>I thjeshtë</span><div class="track"><i style="left:22%"></i></div><span class="r">Teknik</span></div>
+      <div class="slider"><span>I qetë</span><div class="track"><i style="left:15%"></i></div><span class="r">Urgjent</span></div>
+      <div class="slider"><span>Modest</span><div class="track"><i style="left:58%"></i></div><span class="r">Krenar për faktet</span></div>
+      <div class="slider"><span>Serioz</span><div class="track"><i style="left:35%"></i></div><span class="r">Lozonjar</span></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Stili i komunikimit</p>
+        <ul class="clean small">
+          <li>I drejtohet prindit me <b>“ju”</b>. Në Reels, specialisti mund të thotë “mami, babi” me ngrohtësi.</li>
+          <li>Fjali të shkurtra. Maksimumi 2 rreshta tekst në ekran.</li>
+          <li>Njeh ndjenjën, pastaj jep informacionin, pastaj hapin e radhës.</li>
+          <li>Çdo postim edukativ mbyllet me: <i>“Çdo fëmijë është ndryshe. Për një vlerësim të saktë, konsultohuni me specialist.”</i></li>
+          <li>Shqip standard dhe i saktë, me ë dhe ç gjithmonë. Italishtja përdoret vetëm si element brandi (emri, “Benvenuti” në hyrje), jo si gjuhë komunikimi.</li>
+          <li>Asnjë anglicizëm në copy: jo “book now”, “DM us”, “partner with”.</li>
+        </ul>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Për çfarë duhet të njihet klinika</p>
+        <p class="sample-b" style="font-family:var(--f-display);font-size:1.3rem;line-height:1.35">“Vendi ku merr një përgjigje të qartë për zhvillimin e fëmijës, sipas standardit italian, nga njerëz që i njeh me emër.”</p>
+        <p class="eyebrow" style="margin-top:.6rem">Diferencuesit që mund të provohen</p>
+        <ul class="clean small">
+          <li>Bashkëpunimi me Don Orione, Romë <span class="tbc">Konfirmo “ekskluziv”</span></li>
+          <li>Teste vlerësimi sipas protokollit italian, të standardizuara për Shqipërinë</li>
+          <li>Mjekë italianë konsulentë dhe ditë vlerësimi me stafin nga Roma</li>
+          <li>1200+ pacientë të diagnostikuar dhe trajtuar</li>
+          <li>Specialistë me emër dhe formim: Serxhio Pecaku (logoped, master në Neurologji, Cattolica Romë), Msc. Loreta Boçi (psikologe klinike)</li>
+          <li>Partneritete me Bashkinë Tiranë, kopshte, shkolla dhe Federatën e Futbollit Elbasan</li>
+          <li>Dy qendra: Tiranë dhe Elbasan</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:.5rem">Si duhet të tingëllojë, si nuk duhet të tingëllojë</p>
+    <div class="vs">
+      <div class="yes">
+        <h4>Po, kështu</h4>
+        <p>“Shumë fëmijë 2 vjeç thonë ‘mama’ dhe ‘jo’, por jo më shumë. Ja kur ia vlen ta kontrolloni.”</p>
+        <p>“Vlerësimi bëhet me teste të standardizuara, të njëjtat që përdoren në Itali.”</p>
+        <p>“Nuk është faji juaj. Dhe pyetja që po bëni është pikërisht pyetja e duhur.”</p>
+        <p>“Ky është një orientim, jo diagnozë. Çdo fëmijë është ndryshe.”</p>
+        <p>“Shkruani në WhatsApp moshën e fëmijës dhe çfarë ju shqetëson. Ju përgjigjemi brenda ditës.”</p>
+      </div>
+      <div class="no">
+        <h4>Jo, kështu</h4>
+        <p>“Fëmija juaj ka çrregullim të të folurit? Na kontaktoni SOT!!!”</p>
+        <p>“Profesionalizëm, cilësi dhe përkushtim maksimal.”</p>
+        <p>“Mos humbni kohë, çdo ditë që kalon është një ditë e humbur.”</p>
+        <p>“Garantojmë që fëmija do flasë brenda 3 muajsh.”</p>
+        <p>“Book now! Drop us a DM 👇🔥”</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Vlerat dhe ndjesitë <small>Çfarë mbetet pas postimit</small></h3>
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Vlerat thelbësore</p>
+        <dl class="kv">
+          <dt>Saktësi</dt><dd>Matim, nuk hamendësojmë. E njëjta gjë vlen edhe për përmbajtjen.</dd>
+          <dt>Ngrohtësi</dt><dd>Fëmija është fëmijë para se të jetë pacient.</dd>
+          <dt>Transparencë</dt><dd>Prindi di çfarë ndodh, pse ndodh dhe çfarë vjen më pas.</dd>
+          <dt>Privatësi</dt><dd>Asnjë fëmijë dhe asnjë histori nuk publikohet pa pëlqim me shkrim.</dd>
+          <dt>Durim</dt><dd>Zhvillimi është proces. Nuk shesim mrekulli.</dd>
+        </dl>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Ndjesitë që duam të lërë brandi</p>
+        <ul class="clean small">
+          <li><b>Qetësi:</b> “Më në fund dikush që më dëgjon pa më trembur.”</li>
+          <li><b>Qartësi:</b> “Tani e di çfarë duhet të bëj.”</li>
+          <li><b>Besim:</b> “Këta e dinë çfarë bëjnë, dhe e kanë provuar.”</li>
+          <li><b>Shpresë realiste:</b> “Ka një rrugë, edhe nëse do kohë.”</li>
+          <li><b>Krenari:</b> “Ky standard ekziston këtu, në Shqipëri.”</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="ch" id="vizuali">
+  <div class="ch-head">
+    <span class="ch-num">02</span>
+    <h2>Identiteti vizual</h2>
+    <p>Ideja vizuale: <b>harku romak</b>. Është forma e Romës, por edhe forma e një dere që të pret. E përdorim si kornizë për foto dhe video, si element grafik dhe si kopertinë. Ngjyrat vijnë nga Roma pa flamuj: selvia, ulliri, qielli dhe kajsia.</p>
+  </div>
+
+  <div class="callout"><h4>Propozim deri në konfirmimin e logos</h4><p class="small">Nuk kishim akses në logon dhe profilin aktual. Nëse logoja ka ngjyrë kryesore tjetër, ajo zë vendin e <i>Verde Cipresso</i>. Rregullat e përdorimit, raportet dhe tipografia mbeten të njëjta.</p></div>
+
+  <div class="sub">
+    <h3>Ngjyrat <small>Klikoni HEX-in për ta kopjuar</small></h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#23463F;color:#F4F5F1"><span>Primare</span><b>Verde Cipresso</b></div><div class="info"><button class="hex" data-copy="#23463F">#23463F</button><span class="muted">Ngjyra e brandit. Sfond i kopertinave të Reels, tituj, logo, highlights. Selvia romake: e qetë, e rritur, jo e ftohtë si bluja spitalore.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#A9BFAE;color:#1B2623"><span>Dytësore</span><b>Salvia</b></div><div class="info"><button class="hex" data-copy="#A9BFAE">#A9BFAE</button><span class="muted">Sfond i serisë “Vizita e parë”, ikona, ndarës, gradienti brenda harkut.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C9DCE6;color:#1B2623"><span>Dytësore</span><b>Cielo Romano</b></div><div class="info"><button class="hex" data-copy="#C9DCE6">#C9DCE6</button><span class="muted">Sfond i Stories dhe i serisë “Specialistët”. Qetësi, ajër, fëmijëri pa ngjyra “bebe”.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F29E6D;color:#1B2623"><span>Theks</span><b>Albicocca</b></div><div class="info"><button class="hex" data-copy="#F29E6D">#F29E6D</button><span class="muted">Vetëm CTA, një fjalë e theksuar për titull, numrat e slide-ve. Maksimumi 10% e kornizës.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FCE6D8;color:#1B2623"><span>Theks i butë</span><b>Albicocca Chiaro</b></div><div class="info"><button class="hex" data-copy="#FCE6D8">#FCE6D8</button><span class="muted">Sfond i serisë “Dëshmi” dhe i kutive “Kujdes / Shënim”.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F4F5F1;color:#23463F;border-bottom:1px solid var(--line)"><span>Sfond</span><b>Marmo</b></div><div class="info"><button class="hex" data-copy="#F4F5F1">#F4F5F1</button><span class="muted">Sfondi kryesor i karuseleve edukative dhe i kartave. Mermer, jo krem.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#1B2623;color:#F4F5F1"><span>Tekst</span><b>Inchiostro</b></div><div class="info"><button class="hex" data-copy="#1B2623">#1B2623</button><span class="muted">Teksti kryesor mbi sfonde të çelura. Kurrë e zezë e pastër #000.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5C6B66;color:#F4F5F1"><span>Tekst dytësor</span><b>Grigio Ulivo</b></div><div class="info"><button class="hex" data-copy="#5C6B66">#5C6B66</button><span class="muted">Burime, shënime, disclaimer, nëntituj. E bardha #FFFFFF përdoret si tekst mbi Cipresso.</span></div></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:.8rem">Raporti në çdo kornizë · 60 / 25 / 10 / 5</p>
+    <div class="ratio" role="img" aria-label="60 për qind sfond, 25 për qind primare, 10 për qind dytësore, 5 për qind theks">
+      <div style="flex:60;background:#F4F5F1;color:#23463F">60% Sfond (Marmo / Cielo)</div>
+      <div style="flex:25;background:#23463F;color:#F4F5F1">25% Cipresso</div>
+      <div style="flex:10;background:#A9BFAE;color:#1B2623">10%</div>
+      <div style="flex:5;background:#F29E6D;color:#1B2623">5%</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Hierarkia: një ngjyrë sfondi për çdo shtyllë</p>
+        <p class="small">Kjo e bën grid-in të lexueshëm. Ndjekësi e njeh serinë para se të lexojë titullin.</p>
+        <dl class="kv">
+          <dt>Edukim</dt><dd>Marmo + tituj Cipresso</dd>
+          <dt>Specialistët</dt><dd>Cielo Romano</dd>
+          <dt>Lidhja italiane</dt><dd>Verde Cipresso + tekst i bardhë</dd>
+          <dt>Vizita e parë</dt><dd>Salvia</dd>
+          <dt>Dëshmi</dt><dd>Albicocca Chiaro</dd>
+        </dl>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Rregullat e kontrastit (lexueshmëria në telefon)</p>
+        <ul class="clean small">
+          <li><b>Albicocca nuk përdoret kurrë si tekst i vogël mbi të bardhë ose Marmo.</b> Kontrasti nuk mjafton. Si tekst, vetëm mbi Cipresso dhe në madhësi titulli.</li>
+          <li>Butonat CTA: sfond Albicocca, tekst Inchiostro.</li>
+          <li>Mbi Salvia dhe Cielo: tekst gjithmonë Inchiostro ose Cipresso, kurrë i bardhë.</li>
+          <li>Mbi video: tekst i bardhë në kuti Cipresso me 85% opacitet, kurrë tekst pa sfond mbi pamje me lëvizje.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Tipografia <small>Tre fonte, rol i qartë për secilin</small></h3>
+
+    <div class="card spec">
+      <div>
+        <p class="eyebrow">Fonti i titujve · Bodoni Moda</p>
+        <p class="sample-h">Fëmija 2 vjeç <i>nuk flet</i> ende?</p>
+        <p class="small muted" style="margin-top:.6rem">Titull shembull. Fjala e theksuar në <i>italic</i>, ngjyrë Albicocca mbi Cipresso.</p>
+      </div>
+      <dl class="kv">
+        <dt>Pse</dt><dd>Bodoni është krijuar në Parma, Itali. Është lidhja italiane e shkruar me shkronja: elegante dhe e saktë, pa flamuj. Në madhësi të mëdha duket premium dhe njerëzore njëkohësisht.</dd>
+        <dt>Ku</dt><dd>Tituj kopertinash, hook-u i slide-it 1, citate specialistësh, numra të mëdhenj (1200+).</dd>
+        <dt>Rregull</dt><dd>Minimumi 56 px në kanavacë 1080 px. Kurrë për titra ose tekst trupi: vijat e holla zhduken në telefon.</dd>
+        <dt>Ku gjendet</dt><dd>Google Fonts (falas). Në Canva ngarkohet te Brand Kit, në CapCut desktop si font i ngarkuar. Rezervë nëse nuk ngarkohet: <b>Playfair Display</b>.</dd>
+      </dl>
+    </div>
+
+    <div class="card spec">
+      <div>
+        <p class="eyebrow">Fonti i trupit · Plus Jakarta Sans</p>
+        <p class="sample-b"><b style="font-weight:700">Shenja 1: nuk reagon kur e thërrisni në emër.</b><br>Nëse ndodh shpesh, edhe kur nuk ka zhurmë përreth, tregojani specialistit. Nuk do të thotë që ka diçka “të gabuar”. Do të thotë që ia vlen një vlerësim.</p>
+      </div>
+      <dl class="kv">
+        <dt>Pse</dt><dd>Shkronja të hapura dhe pak të rrumbullakëta: miqësore pa qenë fëminore. E lexueshme në madhësi të vogla dhe me ë/ç të pastra.</dd>
+        <dt>Ku</dt><dd>Teksti i karuseleve, Stories, nëntituj, emri dhe roli i specialistit (lower third), caption-e grafike.</dd>
+        <dt>Pesha</dt><dd>Regular 400 për tekst, Bold 700 për fjalët kyçe, ExtraBold 800 për CTA.</dd>
+        <dt>Ku gjendet</dt><dd>Google Fonts, Canva (në listë), Adobe Express. CapCut: ngarkohet.</dd>
+      </dl>
+    </div>
+
+    <div class="card spec">
+      <div>
+        <p class="eyebrow">Fonti i titrave në video · Montserrat ExtraBold</p>
+        <p><span class="sample-c">Nëse fëmija <span>nuk bashkon</span><br>dy fjalë në 2 vjeç…</span></p>
+      </div>
+      <dl class="kv">
+        <dt>Pse</dt><dd>Gjendet në çdo version të CapCut-it dhe ka trashësi të mjaftueshme për t'u lexuar me zë të fikur, në lëvizje.</dd>
+        <dt>Ku</dt><dd>Vetëm titrat e Reels dhe teksti i shpejtë mbi video.</dd>
+        <dt>Stil</dt><dd>E bardhë, kuti Cipresso 85%, qoshe 10 px. Fjala kyçe në Albicocca. Maksimumi 2 rreshta dhe 6–7 fjalë në ekran.</dd>
+      </dl>
+    </div>
+
+    <div class="card spec">
+      <div>
+        <p class="eyebrow">Fonti i CTA-së · Plus Jakarta Sans ExtraBold</p>
+        <p><span style="display:inline-block;background:#F29E6D;color:#1B2623;font-weight:800;padding:.6rem 1.2rem;border-radius:999px;letter-spacing:.02em">Rezervo në WhatsApp →</span></p>
+      </div>
+      <dl class="kv">
+        <dt>Pse</dt><dd>CTA-ja nuk ka nevojë për font të katërt. E njëjta familje, peshë më e rëndë, në formë butoni.</dd>
+        <dt>Ku</dt><dd>Slide-i i fundit i karuselit, korniza e fundit e Reels, sticker-at e Stories.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Sistemi i dizajnit <small>Si duket çdo kornizë</small></h3>
+
+    <div class="frames">
+      <figure class="frame" style="margin:0">
+        <div class="fx r916 mk-reel">
+          <div class="photo"><span>Foto · Serxhio, plan mesatar</span></div>
+          <div class="t">Fëmija 2 vjeç <i>nuk flet</i> ende?</div>
+          <div class="tag">Edukim · Logopedi</div>
+        </div>
+        <figcaption>Kopertinë Reel · 1080×1920. Titulli brenda zonës qendrore 1080×1440 që të mos pritet në grid-in 3:4.</figcaption>
+      </figure>
+      <figure class="frame" style="margin:0">
+        <div class="fx r45 mk-car">
+          <div class="ft"><span>Umano Felice</span><span>1 / 7</span></div>
+          <div><div class="n">2 vjeç</div><div class="h">Bashkon dy fjalë: “jep ujë”, “mami ik”.</div></div>
+          <div class="bd">Burimi: CDC, “Learn the Signs. Act Early.” (2022). Rishikuar nga logopedi i klinikës.</div>
+        </div>
+        <figcaption>Slide karuseli · 1080×1350. Numri në Bodoni italic, titulli në Cipresso, burimi në Ulivo.</figcaption>
+      </figure>
+      <figure class="frame" style="margin:0">
+        <div class="fx r916 mk-story">
+          <div class="q">Sa fjalë thotë fëmija juaj në 18 muaj?</div>
+          <div class="poll"><div>Më pak se 3</div><div>3–10</div><div>Më shumë se 10</div></div>
+          <div class="who"><i></i>Serxhio Pecaku · Logoped</div>
+        </div>
+        <figcaption>Story me sondazh · 1080×1920. Sfond Cielo, pyetja në Bodoni, sticker brenda zonës së sigurt.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:22%">Elementi</th><th>Rregulli</th></tr></thead>
+        <tbody>
+          <tr><td>Qoshet (border radius)</td><td>Karta dhe kuti teksti: 24 px në kanavacë 1080. Titrat: 10 px. Butonat CTA: plotësisht të rrumbullakët. Fotot në hark: pjesa e sipërme gjysmërreth, poshtë 24 px.</td></tr>
+          <tr><td>Kartat</td><td>Sfond Marmo ose i bardhë, pa kornizë dhe pa hije. Ndahen nga sfondi me ngjyrë, jo me vija. Një kartë = një ide.</td></tr>
+          <tr><td>Ikonat</td><td>Me vijë (outline), trashësi 1,5–2 px, qoshe të rrumbullakëta, një ngjyrë (Cipresso ose Marmo). Pa ikona 3D, pa emoji si ikona, pa clipart mjekësor.</td></tr>
+          <tr><td>Fotografia</td><td>Dritë natyrale nga dritarja, ngjyra të vërteta dhe pak të ngrohta. Kamera në lartësinë e fëmijës (rreth 1 m) për pamjet në dhomën e terapisë. Duar, lodra, materiale testimi, karrige të vogla. Specialistët me uniformën e tyre reale. <b>Pa foto stock.</b></td></tr>
+          <tr><td>Stili grafik</td><td>Harku si kornizë dhe si formë dekorative. Rrathë të vegjël Albicocca si “dielli” (maks. 1 për kornizë). Shumë hapësirë bosh. Pa forma organike “blob”, pa konfeti, pa vizatime fëminore.</td></tr>
+          <tr><td>Vendosja e tekstit</td><td>Majtas, kurrë e qendërzuar për blloqe mbi 2 rreshta. Zona e sigurt për Reels: 250 px lart, 420 px poshtë, 140 px djathtas të lira (UI i Instagram-it). Logo gjithmonë në të njëjtin vend: lart majtas në karusele, poshtë majtas në Stories.</td></tr>
+          <tr><td>Hapësira</td><td>Margjina 96 px në kanavacë 1080. Rrjet 8 px. Titulli dhe teksti ndahen me 32 px, blloqet me 64 px.</td></tr>
+          <tr><td>Hijet</td><td>Asnjë hije në grafika. Përjashtim: sticker-at në Stories, hije shumë e butë (8% opacitet).</td></tr>
+          <tr><td>Vijat (borders)</td><td>Vetëm vija ndarëse 1 px në Salvia. Pa korniza rreth fotove.</td></tr>
+          <tr><td>Sfondi</td><td>Ngjyrë e plotë sipas shtyllës. Në video: ambienti i vërtetë i klinikës, i rregulluar dhe pa rrëmujë (pa kabllo, pa letra, pa shishe uji në kadër).</td></tr>
+          <tr><td>Gradientet</td><td>Vetëm një: Cielo → Salvia, vertikal, brenda harkut kur nuk ka foto. Pa gradiente vjollcë/blu, pa gradiente në tekst.</td></tr>
+          <tr><td>Imazhet mjekësore</td><td>Materiale reale të testimit dhe terapisë: karta figurash, lodra, pasqyra logopedie, tapete fizioterapie. Pa shiringa, pa gjak, pa stetoskopë si dekor, pa imazhe truri 3D.</td></tr>
+          <tr><td>Njerëzit dhe pacientët</td><td><b>Parazgjedhja: asnjë fytyrë fëmije.</b> Filmojmë duar, këpucë, lodra dhe shpinën. Fëmija shfaqet vetëm me pëlqim me shkrim të prindit, dhe kurrë me emër, diagnozë apo detaj identifikues. Prindërit në dëshmi: me zë, me duar, ose me fytyrë vetëm nëse e kërkojnë vetë dhe e nënshkruajnë.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card stack">
+      <p class="eyebrow">Kopertinat e Highlights · një ikonë me vijë mbi rreth me ngjyrë brandi</p>
+      <div class="highlights">
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M10 15l1.5 1.5L15 13"/></svg></span>Rezervo</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><path d="M6 21V10a6 6 0 0 1 12 0v11"/><path d="M4 21h16M14 15v1"/></svg></span>Vizita e parë</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></span>Shërbimet</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5"/></svg></span>Ekipi</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><path d="M3 21V11a9 9 0 0 1 18 0v10"/><path d="M8 21v-8a4 4 0 0 1 8 0v8M2 21h20"/></svg></span>Don Orione</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>Prindërit</div>
+        <div class="hl"><span class="c"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></span>Tiranë / Elbasan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="ch" id="shtyllat">
+  <div class="ch-head">
+    <span class="ch-num">03</span>
+    <h2>Shtyllat e përmbajtjes</h2>
+    <p>Pesë shtylla, me peshat nga auditimi. Rreth 75% e përmbajtjes nuk shet asgjë drejtpërdrejt. Ajo ndërton besimin që e bën shitjen të lehtë kur prindi është gati.</p>
+  </div>
+
+  <div class="tw">
+    <table class="wide">
+      <thead><tr><th>Shtylla</th><th>Pesha</th><th>Roli në funnel</th><th>Në muajin 1</th></tr></thead>
+      <tbody>
+        <tr><td>Edukim për prindërit</td><td class="tnum">35%</td><td>Zbulim (reach te jo-ndjekësit) + ruajtje</td><td class="tnum">3 Reels · 1 Karusel</td></tr>
+        <tr><td>Specialistët</td><td class="tnum">25%</td><td>Besim, fytyra që njihen</td><td class="tnum">2 Reels · 1 Karusel</td></tr>
+        <tr><td>Lidhja italiane</td><td class="tnum">15%</td><td>Diferencim, autoritet</td><td class="tnum">2 Reels</td></tr>
+        <tr><td>Vizita e parë &amp; shërbimet</td><td class="tnum">15%</td><td>Ul frikën para rezervimit, konvertim</td><td class="tnum">1 Reel · 2 Karusele</td></tr>
+        <tr><td>Dëshmi dhe rrugëtime</td><td class="tnum">10%</td><td>Prova sociale</td><td>Vetëm Stories (shih Shënimin 2)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stack-lg" style="margin-top:2rem">
+    <article class="card stack">
+      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline"><h3>1 · Edukim për prindërit</h3><span class="eyebrow">Sfond: Marmo</span></div>
+      <dl class="kv">
+        <dt>Qëllimi</dt><dd>Prindi na gjen kur kërkon për shqetësimin e vet dhe largohet me diçka që mund ta përdorë. Kjo e bën të na ndjekë dhe ta ruajë postimin.</dd>
+        <dt>Problemi</dt><dd>“Nuk e di nëse është normale.” Informacion i shpërndarë, kontradiktor dhe shpesh në anglisht.</dd>
+        <dt>Lloji</dt><dd>Shenja sipas moshës, mite, gabime të zakonshme, ushtrime për në shtëpi, sqarime termash.</dd>
+        <dt>Reels</dt><dd>“Fëmija 2 vjeç nuk bashkon dy fjalë”, “Belbëzimi në 3 vjeç: fazë apo jo?”, “Dy gjuhë në shtëpi e vonojnë të folurin? (Mit)”</dd>
+        <dt>Karusele</dt><dd>“Fjalët e para sipas moshës”, “5 lojëra 10-minutëshe që nxisin të folurin”, “Ekranet dhe të folurit: çfarë thotë kërkimi”</dd>
+        <dt>Stories</dt><dd>Kuiz “Normale apo jo?”, sondazh sipas moshës, kutia e pyetjeve “Pyet logopedin”.</dd>
+        <dt>CTA</dt><dd>Ruaje · Dërgoja dikujt · Shkruaj “UDHËZUES” (ose WhatsApp) · Na ndiq.</dd>
+      </dl>
+    </article>
+    <article class="card stack">
+      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline"><h3>2 · Specialistët</h3><span class="eyebrow">Sfond: Cielo Romano</span></div>
+      <dl class="kv">
+        <dt>Qëllimi</dt><dd>Prindi e njeh specialistin para se të vijë. Kur hyn në klinikë, ndjen se e njeh tashmë.</dd>
+        <dt>Problemi</dt><dd>Frika nga i panjohuri. Klinika pa fytyrë ngjan me të gjitha klinikat e tjera.</dd>
+        <dt>Lloji</dt><dd>Specialisti flet në kamerë, përgjigjet e pyetjeve reale, “një ditë me…”, pse e zgjodhi këtë profesion.</dd>
+        <dt>Reels</dt><dd>“Loreta përgjigjet: tantrumet çdo ditë”, “Serxhio: çfarë mësova në Romë”, “Pyetëm specialistët: çfarë do t'u thonit prindërve?”</dd>
+        <dt>Karusele</dt><dd>“5 pyetje që duhet t'i bëni çdo klinike”, “Njihuni me ekipin” (1 slide për specialist, me formimin).</dd>
+        <dt>Stories</dt><dd>“Specialisti i javës”, përgjigje me video ndaj pyetjeve nga kutia, prapaskenë nga dita e punës.</dd>
+        <dt>CTA</dt><dd>Bëj një pyetje · Na ndiq · Shiko highlight-in “Ekipi”.</dd>
+      </dl>
+    </article>
+    <article class="card stack">
+      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline"><h3>3 · Lidhja italiane</h3><span class="eyebrow">Sfond: Verde Cipresso</span></div>
+      <dl class="kv">
+        <dt>Qëllimi</dt><dd>Diferencimi. Ta kthejë “klinikë italiane” nga etiketë në diçka konkrete dhe të provueshme.</dd>
+        <dt>Problemi</dt><dd>“Cilësia e vërtetë është jashtë vendit.” Mosbesim te sistemi vendas.</dd>
+        <dt>Lloji</dt><dd>Protokolli i shpjeguar, prapaskenë nga ditët e vlerësimit, mjekët konsulentë, historia e bashkëpunimit me Don Orione.</dd>
+        <dt>Reels</dt><dd>“Çfarë do të thotë ‘protokolli italian’”, “Një ditë vlerësimi me stafin nga Roma”, “Çfarë sollëm nga Don Orione”</dd>
+        <dt>Karusele</dt><dd>“Si funksionon një ditë vlerësimi”, “Nga Roma në Tiranë: historia e Umano Felice”</dd>
+        <dt>Stories</dt><dd>Numërim mbrapsht për ditën e vlerësimit, live-update nga dita, “Pyesni mjekun italian” (me përkthim).</dd>
+        <dt>CTA</dt><dd>Rezervo për ditën e vlerësimit · Shiko highlight-in “Don Orione”.</dd>
+      </dl>
+    </article>
+    <article class="card stack">
+      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline"><h3>4 · Vizita e parë &amp; shërbimet</h3><span class="eyebrow">Sfond: Salvia</span></div>
+      <dl class="kv">
+        <dt>Qëllimi</dt><dd>Të heqë pengesën e fundit para rezervimit: frikën nga e panjohura. Edhe shërbimet dytësore hyjnë këtu (fizioterapi, laborator, farmaci në Elbasan).</dd>
+        <dt>Problemi</dt><dd>“Çfarë do t'i bëjnë fëmijës? Sa zgjat? Kë takoj?”</dd>
+        <dt>Lloji</dt><dd>Turi i klinikës, hap pas hapi, cilin specialist të zgjidhni, si rezervohet, çfarë të sillni.</dd>
+        <dt>Reels</dt><dd>“Vizita e parë: ja çfarë ndodh”, “Klinika parë nga lartësia e një fëmije 3 vjeç”, “Fizioterapia pediatrike: si duket një seancë”</dd>
+        <dt>Karusele</dt><dd>“Logoped, psikolog apo neuropediatër?”, “Vizita e parë, hap pas hapi”</dd>
+        <dt>Stories</dt><dd>Oraret e javës, “si rezervohet në 2 minuta”, FAQ me sticker pyetjesh.</dd>
+        <dt>CTA</dt><dd>Rezervo në WhatsApp · Na shkruaj moshën dhe shqetësimin · Na vizito.</dd>
+      </dl>
+    </article>
+    <article class="card stack">
+      <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline"><h3>5 · Dëshmi dhe rrugëtime</h3><span class="eyebrow">Sfond: Albicocca Chiaro</span></div>
+      <dl class="kv">
+        <dt>Qëllimi</dt><dd>Prova sociale nga njerëz si ata, me rrugëtim real dhe pa premtime.</dd>
+        <dt>Problemi</dt><dd>“A ia vlen? A ka ndihmuar dikë tjetër?” Sot klinika ka vetëm 1 vlerësim në Facebook.</dd>
+        <dt>Lloji</dt><dd>Prindi tregon rrugëtimin me zë ose me duar në kadër. Vlerësime Google. Partneritetet (kopshte, Bashkia, FF Elbasan).</dd>
+        <dt>Reels</dt><dd>Nga muaji 2: “Nëna e A. tregon si e jetoi pritjen”, “Çfarë na tha një gjysh nga Elbasani”</dd>
+        <dt>Karusele</dt><dd>“Çfarë na shkruajnë prindërit” (mesazhe me leje, pa emra), “Një vit me kopshtet e Tiranës”</dd>
+        <dt>Stories</dt><dd>Screenshot vlerësimesh Google, falënderime, foto nga aktivitetet me shkollat.</dd>
+        <dt>CTA</dt><dd>Lexo më shumë te highlight-i “Prindërit” · Rezervo.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<style>
+.fmt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media (max-width:760px){.fmt-grid{grid-template-columns:minmax(0,1fr)}}
+.fmt{display:flex;flex-direction:column;gap:.8rem}
+.fmt header{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.fmt h4{font-family:var(--f-display);font-size:1.3rem;font-weight:600}
+.fmt dl.kv{font-size:.86rem;grid-template-columns:6.6rem minmax(0,1fr)}
+@media (max-width:480px){.fmt dl.kv{grid-template-columns:minmax(0,1fr)}}
+.pill{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:.15rem .55rem;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.pill.easy{background:var(--ok-soft);color:var(--ok)}
+.pill.med{background:var(--sky-soft);color:var(--primary)}
+.pill.hard{background:var(--accent-soft);color:var(--accent-ink)}
+.reel{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.reel-top{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:1.4rem;padding:1.5rem 1.6rem;border-bottom:1px solid var(--line)}
+@media (max-width:640px){.reel-top{grid-template-columns:minmax(0,1fr)}.reel-top .fx{max-width:170px}}
+.reel-top h3{font-size:var(--step-3);margin-top:.35rem}
+.reel-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.hook{margin-top:1rem;font-family:var(--f-display);font-style:italic;font-size:1.2rem;line-height:1.4;padding-left:1rem;border-left:3px solid var(--accent)}
+.reel-body{padding:1.4rem 1.6rem 1.6rem;display:flex;flex-direction:column;gap:1.2rem}
+.script{display:grid;grid-template-columns:4.6rem minmax(0,1fr);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;font-size:.9rem}
+.script>div{padding:.65rem .9rem;border-bottom:1px solid var(--line)}
+.script>div:nth-last-child(-n+2){border-bottom:0}
+.script .tc{background:var(--surface-2);font-variant-numeric:tabular-nums;font-weight:700;font-size:.78rem;color:var(--muted)}
+.script q{quotes:"“" "”"}
+.script .dir{display:block;font-size:.8rem;color:var(--muted);margin-top:.2rem}
+.mini-cover{font-size:.66rem}
+.mini-cover .t{font-size:1.05rem!important}
+.cols-4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.6rem}
+@media (max-width:640px){.cols-4{grid-template-columns:minmax(0,1fr)}}
+.cols-4 h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.cols-4 p,.cols-4 li{font-size:.9rem}
+</style>
+
+<!-- 04 -->
+<section class="ch" id="reels">
+  <div class="ch-head">
+    <span class="ch-num">04</span>
+    <h2>Reels playbook</h2>
+    <p>Formati që funksionon më mirë për klinikat: specialisti flet direkt në kamerë, me titra shqip, 30–60 sekonda, për një pyetje që prindërit e kërkojnë realisht. Dhjetë formate, të gjitha të filmueshme me telefon brenda klinikës.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card stack">
+      <p class="eyebrow">Pajisjet minimale</p>
+      <ul class="clean small">
+        <li>Telefon me 4K/30fps (iPhone 13+ ose ekuivalent), lente kryesore 1×, kurrë zoom digjital.</li>
+        <li>2 mikrofona wireless lavalier (p.sh. DJI Mic ose Rode Wireless GO).</li>
+        <li>1 dritë LED me softbox + dritarja si dritë kryesore.</li>
+        <li>Trekëmbësh me mbajtëse telefoni + gimbal i thjeshtë për pamjet POV.</li>
+        <li>Aplikacion teleprompteri vetëm me pikat kryesore. Teksti i lexuar fjalë për fjalë duket i ngurtë.</li>
+      </ul>
+    </div>
+    <div class="card stack">
+      <p class="eyebrow">Rregullat e çdo Reel-i</p>
+      <ul class="clean small">
+        <li>Hook-u (fjalë + tekst në ekran) brenda 1,5 sekondave të para. Pa logo, pa “Përshëndetje, unë jam…” në fillim.</li>
+        <li>Titra shqip në çdo fjalë. 80% e shikimeve janë pa zë.</li>
+        <li>Prerje çdo 2–4 sekonda (punch-in 110%, B-roll ose ndryshim teksti).</li>
+        <li>Emri dhe roli i specialistit në lower third në sekondat 3–6.</li>
+        <li>Disclaimer-i në kornizën e fundit kur përmbajtja është mjekësore.</li>
+        <li>Muzikë instrumentale e qetë në −25 dB nën zë. Pa muzikë trendi mbi tema të ndjeshme.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Dhjetë formate të përsëritshme</h3>
+    <div class="fmt-grid">
+
+      <article class="card fmt">
+        <header><h4>A · Specialisti përgjigjet</h4><span class="pill">Edukim · Doktor në kamerë</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Reach te prindër të rinj + autoritet. Shtylla e Edukimit.</dd>
+          <dt>Hook</dt><dd>Kushti specifik i prindit: “Nëse fëmija juaj [mosha] [sjellja]…”</dd>
+          <dt>Struktura</dt><dd>Hook → “Shumë fëmijë… por” → 3 shenja ose hapa → çfarë të bëni → disclaimer → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>35–55 s</dd>
+          <dt>Kamera</dt><dd>Trekëmbësh, lartësia e syve, plan mesatar (nga mesi lart), dritarja 45° në anë.</dd>
+          <dt>Pamjet</dt><dd>Plan mesatar + punch-in 115% për çdo shenjë.</dd>
+          <dt>B-roll</dt><dd>Duar me karta figurash, lodra, karrigia e vogël.</dd>
+          <dt>Editimi</dt><dd>Prerje të shpejta, pa efekte tranzicioni. Numri i shenjës del me Bodoni.</dd>
+          <dt>Teksti</dt><dd>Hook-u lart (2 rreshta), titrat poshtë, “1 / 2 / 3” në Albicocca.</dd>
+          <dt>CTA</dt><dd>Ruaje + “UDHËZUES” ose WhatsApp.</dd>
+          <dt>Tema</dt><dd>Vonesa në të folur, vëmendja, belbëzimi, ecja në majë të gishtave.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>B · Mit apo fakt</h4><span class="pill">Edukim</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Shpërndarje (share). Thyen besime që vonojnë vizitën.</dd>
+          <dt>Hook</dt><dd>Fraza që prindi e ka dëgjuar nga familja, në thonjëza: “‘Djemtë flasin më vonë.’”</dd>
+          <dt>Struktura</dt><dd>Miti (tekst) → specialisti: “Pjesërisht/Jo” → shpjegim 10 s → miti tjetër (2–3 gjithsej) → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>30–45 s</dd>
+          <dt>Kamera</dt><dd>Si A. Specialisti mban dy karta: MIT / FAKT.</dd>
+          <dt>Pamjet</dt><dd>Plan mesatar, close-up i kartës kur kthehet.</dd>
+          <dt>B-roll</dt><dd>Minimal. Fokusi te specialisti.</dd>
+          <dt>Editimi</dt><dd>Etiketa “MIT” (Salvia) dhe “FAKT” (Albicocca) me efekt të thjeshtë pop.</dd>
+          <dt>Teksti</dt><dd>Miti i plotë në ekran gjatë gjithë shpjegimit.</dd>
+          <dt>CTA</dt><dd>“Dërgojani atij që ju tha këtë.”</dd>
+          <dt>Tema</dt><dd>Djemtë dhe të folurit, dy gjuhët, “do i ngjitet etiketa”, “është dembel”.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>C · Pyetja e prindit</h4><span class="pill">FAQ</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Komente dhe DM. Tregon që klinika dëgjon.</dd>
+          <dt>Hook</dt><dd>Pyetja e vërtetë në ekran si mesazh (anonimizuar): “Fëmija im 4 vjeç…”</dd>
+          <dt>Struktura</dt><dd>Screenshot i rikrijuar → specialisti lexon pyetjen → përgjigje në 3 pjesë → “Na shkruani pyetjen tuaj”</dd>
+          <dt>Kohëzgjatja</dt><dd>40–60 s</dd>
+          <dt>Kamera</dt><dd>Si A, ose specialisti ulur në tavolinë.</dd>
+          <dt>Pamjet</dt><dd>Plan mesatar + close-up.</dd>
+          <dt>B-roll</dt><dd>Telefon në duar, mesazhi në ekran.</dd>
+          <dt>Editimi</dt><dd>Mesazhi animohet në ekran si bubble WhatsApp (ngjyrat e brandit).</dd>
+          <dt>Teksti</dt><dd>Pyetja lart gjatë 3 s, pastaj titrat.</dd>
+          <dt>CTA</dt><dd>“Shkruani pyetjen në komente. Përgjigjemi me video.”</dd>
+          <dt>Tema</dt><dd>Tantrumet, gjumi dhe sjellja, kur të nisë kopshtin, ekranet.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>D · Shenja → çfarë të bëni</h4><span class="pill">Problem → zgjidhje</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Konvertim i butë: prindi njeh situatën dhe sheh hapin tjetër.</dd>
+          <dt>Hook</dt><dd>Skenë që prindi e jeton: “Fëmija kupton gjithçka, por nuk flet?”</dd>
+          <dt>Struktura</dt><dd>Skena (B-roll) → pse ndodh (1 fjali) → 2 gjëra për në shtëpi → kur të kërkoni vlerësim → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>40–60 s</dd>
+          <dt>Kamera</dt><dd>Hapja me B-roll në lartësinë e fëmijës, pastaj specialisti.</dd>
+          <dt>Pamjet</dt><dd>B-roll, plan mesatar, demonstrim me duar.</dd>
+          <dt>B-roll</dt><dd>Lojë me kuba, libër me figura, duar prindi dhe fëmije (pa fytyrë).</dd>
+          <dt>Editimi</dt><dd>Zë mbi B-roll në hapje, pastaj në kamerë.</dd>
+          <dt>Teksti</dt><dd>“Në shtëpi:” dhe “Kur të vini:” si dy blloqe.</dd>
+          <dt>CTA</dt><dd>WhatsApp me moshën dhe shqetësimin.</dd>
+          <dt>Tema</dt><dd>Kupton por nuk flet, nuk luan me fëmijët e tjerë, nuk ndjek udhëzime.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>E · Gabime me qëllim të mirë</h4><span class="pill">Gabimet</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Ruajtje dhe shpërndarje. Këshillë praktike pa e fajësuar prindin.</dd>
+          <dt>Hook</dt><dd>“Këto 3 gjëra i bëjnë pothuajse të gjithë prindërit, me qëllimin më të mirë.”</dd>
+          <dt>Struktura</dt><dd>Hook → gabimi 1 + çfarë të bëni në vend → 2 → 3 → “Nuk është faji juaj” → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>40–55 s</dd>
+          <dt>Kamera</dt><dd>Si A. Demonstrimi me duar në tavolinë.</dd>
+          <dt>Pamjet</dt><dd>Plan mesatar + pamje nga lart (top-down) e duarve.</dd>
+          <dt>B-roll</dt><dd>Gota uji, lodra, libër.</dd>
+          <dt>Editimi</dt><dd>“✕ Në vend të…” / “✓ Provoni…” me ngjyrat semantike.</dd>
+          <dt>Teksti</dt><dd>Çdo gabim si një rresht i shkurtër.</dd>
+          <dt>CTA</dt><dd>Ruaje · Dërgoja partnerit.</dd>
+          <dt>Tema</dt><dd>Të folurit, tantrumet, gjumi, ushqimi selektiv.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>F · Ditët italiane</h4><span class="pill">Prapaskenë</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Diferencim + konvertim për ditën e ardhshme të vlerësimit.</dd>
+          <dt>Hook</dt><dd>“Sot në Tiranë kemi specialistët e Don Orione nga Roma. Ja si duket dita.”</dd>
+          <dt>Struktura</dt><dd>Mbërritja → përgatitja → 2–3 momente (pa fytyra fëmijësh) → 1 fjali nga mjeku italian (me titra) → data e radhës → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>30–45 s</dd>
+          <dt>Kamera</dt><dd>Me dorë/gimbal, stil vlog, dritë natyrale.</dd>
+          <dt>Pamjet</dt><dd>Hyrja, takimi i ekipit, materialet, dosjet, kafeja e mëngjesit.</dd>
+          <dt>B-roll</dt><dd>Dokumentet e protokollit, logoja Don Orione (me leje), korridori.</dd>
+          <dt>Editimi</dt><dd>Ritëm i shpejtë, muzikë e lehtë italiane instrumentale, titra italisht → shqip.</dd>
+          <dt>Teksti</dt><dd>Ora në cep (“08:30”, “10:15”) si strukturë.</dd>
+          <dt>CTA</dt><dd>“Dita e ardhshme: [data]. Rezervoni në WhatsApp.”</dd>
+          <dt>Tema</dt><dd>Çdo ditë vlerësimi. <span class="tbc">Konfirmo datat</span></dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>G · Ekipi</h4><span class="pill">Klinika/ekipi</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Lidhje njerëzore. Klinika si grup njerëzish, jo si ndërtesë.</dd>
+          <dt>Hook</dt><dd>Pyetje e njëjtë për të gjithë: “Çfarë do t'u thonit prindërve që po presin?”</dd>
+          <dt>Struktura</dt><dd>4–6 specialistë, një fjali secili, emri + roli → mbyllje me ekipin bashkë</dd>
+          <dt>Kohëzgjatja</dt><dd>25–40 s</dd>
+          <dt>Kamera</dt><dd>E njëjta kornizë dhe dritë për të gjithë, në të njëjtin kënd të klinikës.</dd>
+          <dt>Pamjet</dt><dd>Plan mesatar për secilin, një pamje e gjerë në fund.</dd>
+          <dt>B-roll</dt><dd>Duar në punë, ekipi në kafe.</dd>
+          <dt>Editimi</dt><dd>Prerje në ritmin e muzikës, lower third për secilin.</dd>
+          <dt>Teksti</dt><dd>Pyetja lart gjatë gjithë videos.</dd>
+          <dt>CTA</dt><dd>“Njihuni me ekipin te highlight-i ‘Ekipi’.”</dd>
+          <dt>Tema</dt><dd>“Pse e zgjodha këtë punë”, “Momenti më i bukur i javës”.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>H · Si duket një seancë</h4><span class="pill">Shërbimi i shpjeguar</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Ul frikën. Prindi sheh çfarë do t'i ndodhë fëmijës.</dd>
+          <dt>Hook</dt><dd>“Ja si duket 1 orë me një logoped, parë nga lartësia e një fëmije 3 vjeç.”</dd>
+          <dt>Struktura</dt><dd>POV hyrja → materialet → 3 aktivitete (duar) → çfarë merr prindi në fund → CTA</dd>
+          <dt>Kohëzgjatja</dt><dd>30–45 s</dd>
+          <dt>Kamera</dt><dd>Gimbal në lartësi 1 m, lëvizje të ngadalta.</dd>
+          <dt>Pamjet</dt><dd>POV, close-up duarsh, top-down i tavolinës.</dd>
+          <dt>B-roll</dt><dd>Pasqyra, kartat, lodrat, tapeti i fizioterapisë.</dd>
+          <dt>Editimi</dt><dd>Zë mbi B-roll nga specialisti, tingujt e ambientit të ruajtur.</dd>
+          <dt>Teksti</dt><dd>Etiketa të vogla për çdo aktivitet: “Loja me figura: kuptimi i fjalëve”.</dd>
+          <dt>CTA</dt><dd>Rezervo · Shiko highlight-in “Vizita e parë”.</dd>
+          <dt>Tema</dt><dd>Logopedi, fizioterapi pediatrike, vlerësim psikologjik, vizitë neuropediatrike.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>I · Rrugëtimi</h4><span class="pill">Në vend të “para/pas”</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Prova sociale e përgjegjshme. Për fëmijët nuk publikojmë “para/pas” vizuale.</dd>
+          <dt>Hook</dt><dd>Fjalia e prindit: “Kisha frikë se po e teproja.”</dd>
+          <dt>Struktura</dt><dd>Prindi (zë/duar) → si e kuptoi → vizita e parë → çfarë ndryshoi në mënyrën si e ndihmon fëmijën → mesazh për prindërit e tjerë</dd>
+          <dt>Kohëzgjatja</dt><dd>45–75 s</dd>
+          <dt>Kamera</dt><dd>Prindi nga shpina ose duart. Zë i regjistruar me lavalier.</dd>
+          <dt>Pamjet</dt><dd>Duar, dritare, rruga për në klinikë.</dd>
+          <dt>B-roll</dt><dd>Objekte personale (me leje), klinika.</dd>
+          <dt>Editimi</dt><dd>I ngadaltë, pa muzikë dramatike.</dd>
+          <dt>Teksti</dt><dd>Titra + “Çdo fëmijë është ndryshe. Rezultatet ndryshojnë.”</dd>
+          <dt>CTA</dt><dd>E butë: “Nëse e njihni veten këtu, na shkruani.”</dd>
+          <dt>Tema</dt><dd>Nga muaji 2, vetëm me pëlqim me shkrim.</dd>
+        </dl>
+      </article>
+
+      <article class="card fmt">
+        <header><h4>J · Trend i përshtatur</h4><span class="pill">Trend</span></header>
+        <dl class="kv">
+          <dt>Objektivi</dt><dd>Reach dhe njerëzim. Maksimumi 1 në muaj.</dd>
+          <dt>Hook</dt><dd>Formati i trendit, me përmbajtje të klinikës.</dd>
+          <dt>Struktura</dt><dd>Sipas trendit. Filtri: a e kupton prindi diçka të vlefshme në fund?</dd>
+          <dt>Kohëzgjatja</dt><dd>7–20 s</dd>
+          <dt>Kamera</dt><dd>Telefon me dorë.</dd>
+          <dt>Pamjet</dt><dd>Stafi, ambienti.</dd>
+          <dt>B-roll</dt><dd>Sipas trendit.</dd>
+          <dt>Editimi</dt><dd>Audio e trendit, prerje në ritëm.</dd>
+          <dt>Teksti</dt><dd>1 rresht humor i ngrohtë: “Logopedi kur fëmija thotë fjalën e parë në seancë”.</dd>
+          <dt>CTA</dt><dd>Na ndiq.</dd>
+          <dt>Kufiri</dt><dd>Pa humor për diagnoza, pa tallje me fëmijë apo prindër, pa vallëzime në uniformë që ulin autoritetin.</dd>
+        </dl>
+      </article>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>8 Reels për muajin e parë <small>Kampanja: “Standardi italian, hap pas hapi”</small></h3>
+    <p class="prose muted">Rendi ndjek një hark: java 1 <b>njih shenjat</b>, java 2 <b>kush jemi dhe si vlerësojmë</b>, java 3 <b>hiq frikën nga vizita</b>, java 4 <b>rezervo</b>. Çdo pretendim mjekësor i shënuar me <span class="tbc">Konfirmo</span> e miraton specialisti përpara filmimit.</p>
+
+    <div class="stack-lg">
+
+<!-- R1 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 1 · E Martë 3 Nëntor · Format A</p>
+      <h3>Fëmija 2 vjeç nuk bashkon dy fjalë</h3>
+      <div class="reel-meta"><span class="pill">Edukim</span><span class="pill">Serxhio Pecaku</span><span class="pill">45–55 s</span><span class="pill easy">E lehtë</span></div>
+      <p class="hook">“Nëse fëmija juaj ka mbushur 2 vjeç dhe ende nuk bashkon dy fjalë, si ‘jep ujë’ apo ‘mami ik’, dëgjoni 40 sekonda.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Serxhio</span></div><div class="t">2 vjeç dhe <i>nuk bashkon</i> dy fjalë?</div><div class="tag">Edukim</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Pikënisja e kampanjës. Prindi njeh shqetësimin e vet, merr 3 shenja konkrete dhe kupton që një vlerësim nuk do të thotë “ka diçka të keqe”.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Nëse fëmija juaj ka mbushur 2 vjeç dhe ende nuk bashkon dy fjalë… dëgjoni 40 sekonda.</q><span class="dir">Plan mesatar, punch-in te “dy fjalë”. Lower third: Serxhio Pecaku · Logoped, MSc Neurologji (Cattolica, Romë).</span></div>
+      <div class="tc">0:05</div><div><q>Së pari, qetësohuni. Fëmijët zhvillohen me ritmin e tyre. Por ka tre shenja që nuk ia vlen t'i lini “të presin”.</q></div>
+      <div class="tc">0:14</div><div><q>Një: nuk kthehet kur e thërrisni në emër, edhe kur s'ka zhurmë.</q><span class="dir">B-roll: duar që tundin një lodër. Tekst “1”.</span></div>
+      <div class="tc">0:22</div><div><q>Dy: nuk ju tregon me gisht atë që do ose atë që sheh.</q><span class="dir">B-roll: gisht i vogël mbi një libër me figura (pa fytyrë).</span></div>
+      <div class="tc">0:30</div><div><q>Tre: ka humbur fjalë që i thoshte më parë. Kjo vlen në çdo moshë.</q><span class="dir">Punch-in. <span class="tbc">Konfirmo</span></span></div>
+      <div class="tc">0:38</div><div><q>Nëse njihni njërën prej tyre, nuk do të thotë që ka diçka “të gabuar”. Do të thotë që ia vlen një vlerësim, sa më herët aq më mirë.</q></div>
+      <div class="tc">0:47</div><div><q>Shkruani “UDHËZUES” në komente dhe ju dërgojmë shenjat e zhvillimit sipas moshës, 0–6 vjeç.</q><span class="dir">Alternativa pa automatizim: “Ruajeni videon dhe na shkruani në WhatsApp moshën e fëmijës.” Korniza e fundit: disclaimer.</span></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Plan mesatar në dhomën e terapisë, dritarja në anë. 2 punch-in. Mbyllje me buzëqeshje.</p></div>
+      <div><h4>B-roll</h4><p>Lodër që tundet, libër me figura, karrigia e vogël, kartat e logopedisë.</p></div>
+      <div><h4>Teksti në ekran</h4><p>Lart: “2 vjeç dhe nuk bashkon dy fjalë?” · “1 / 2 / 3” · Fund: “Çdo fëmijë është ndryshe. Ky nuk është diagnozë.”</p></div>
+      <div><h4>Caption</h4><p>Hap me ndjenjën (“Nëse po e lexoni natën vonë…”), përsërit 3 shenjat si listë, mbyll me CTA dhe disclaimer. 3–5 hashtag lokale (#logopedtirane #zhvillimifemijes).</p></div>
+      <div><h4>CTA</h4><p>Koment “UDHËZUES” / WhatsApp + Ruaje.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>2 vjeç dhe <i>nuk bashkon</i> dy fjalë?</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R2 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 2 · E Premte 6 Nëntor · Format E</p>
+      <h3>3 gjëra me qëllim të mirë që e ngadalësojnë të folurin</h3>
+      <div class="reel-meta"><span class="pill">Edukim</span><span class="pill">Serxhio Pecaku</span><span class="pill">45–55 s</span><span class="pill easy">E lehtë</span></div>
+      <p class="hook">“Këto 3 gjëra i bëjnë pothuajse të gjithë prindërit. Me qëllimin më të mirë.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Duar + gotë</span></div><div class="t">3 gjëra <i>me qëllim të mirë</i></div><div class="tag">Edukim</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Këshillë praktike për në shtëpi, pa e fajësuar prindin. Çdo “gabim” vjen me alternativën.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Këto 3 gjëra i bëjnë pothuajse të gjithë prindërit. Me qëllimin më të mirë.</q></div>
+      <div class="tc">0:05</div><div><q>Një: ia jepni gjënë para se ta kërkojë. Ai shikon gotën, ju ia jepni. Provoni të prisni 5 sekonda. I jepni rast të përpiqet: me zë, me gjest, me një fjalë.</q><span class="dir">Top-down: dora e të rriturit mban gotën, pret. Tekst “✕ ia jep menjëherë / ✓ prit 5 sekonda”.</span></div>
+      <div class="tc">0:18</div><div><q>Dy: “Thuaj ‘ujë’. Thuaj ‘ujë’.” Presioni e mbyll. Thoni ju fjalën, natyrshëm, ndërsa ia jepni: “Ujë. Ja ujët.”</q></div>
+      <div class="tc">0:30</div><div><q>Tre: presim sepse “do flasë vetë”. Shpesh po, por pritja nuk duhet të zëvendësojë një kontroll kur ka shenja.</q><span class="dir"><span class="tbc">Konfirmo formulimin</span></span></div>
+      <div class="tc">0:42</div><div><q>Nuk është faji juaj. Tani e dini. Ruajeni dhe dërgojani dikujt që rri shumë me fëmijën: gjyshes, babait, edukatores.</q></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Plan mesatar + 3 pamje top-down të duarve në tavolinë.</p></div>
+      <div><h4>B-roll</h4><p>Gotë uji, kuba, libër. Dora e një stafi si “prind”.</p></div>
+      <div><h4>Teksti në ekran</h4><p>“✕ / ✓” për secilin, me ngjyrat semantike të markës.</p></div>
+      <div><h4>Caption</h4><p>Lista me 3 alternativat (që të ruhet). Pyetje në fund: “Cilën nga këto e bëni më shpesh?”</p></div>
+      <div><h4>CTA</h4><p>Ruaje · Dërgoja dikujt që rri me fëmijën.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>3 gjëra <i>me qëllim të mirë</i> që e ngadalësojnë të folurin</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R3 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 3 · E Martë 10 Nëntor · Format A (shpjegues)</p>
+      <h3>Çfarë do të thotë “protokolli italian”</h3>
+      <div class="reel-meta"><span class="pill">Lidhja italiane</span><span class="pill">Serxhio ose drejtuesi</span><span class="pill">45–60 s</span><span class="pill med">Mesatare</span></div>
+      <p class="hook">“Kur themi ‘vlerësim sipas protokollit italian’, nuk e themi për marketing. Ja çfarë do të thotë konkretisht.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Materialet</span></div><div class="t">Protokolli <i>italian</i>, i shpjeguar</div><div class="tag">Don Orione · Romë</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> E kthen etiketën “klinikë italiane” në diçka konkrete. Ky Reel bëhet lidhja e përhershme në highlight-in “Don Orione”.</p>
+    <div class="callout"><h4>Para filmimit</h4><p class="small">Ky skript ka nevojë për informacion që nuk e kemi: emrat e testeve, kush merr pjesë në vlerësim, çfarë merr prindi në fund. Pikat më poshtë janë strukturë. Përmbajtjen e jep klinika.</p></div>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Kur themi “vlerësim sipas protokollit italian”, nuk e themi për marketing. Ja çfarë do të thotë.</q></div>
+      <div class="tc">0:06</div><div><q>Një: përdorim teste të standardizuara, të njëjtat që përdoren në Itali, të përshtatura për fëmijët shqiptarë.</q><span class="dir">B-roll: materialet e testit në tavolinë. <span class="tbc">Konfirmo emrat e testeve</span></span></div>
+      <div class="tc">0:18</div><div><q>Dy: fëmija nuk vlerësohet me përshtypje. Matet, dhe rezultati krahasohet me fëmijë të së njëjtës moshë.</q></div>
+      <div class="tc">0:28</div><div><q>Tre: [kush merr pjesë: logoped, psikolog, neuropediatër].</q><span class="dir"><span class="tbc">Konfirmo</span></span></div>
+      <div class="tc">0:36</div><div><q>Katër: disa herë në vit, specialistët e Don Orione nga Roma vijnë në klinikë dhe vlerësojnë bashkë me ne.</q><span class="dir">B-roll: foto/video nga një ditë e kaluar (me leje).</span></div>
+      <div class="tc">0:46</div><div><q>Në fund, prindi merr [raport me shkrim + plan]. Që të dini saktë ku është fëmija, jo të hamendësoni.</q><span class="dir"><span class="tbc">Konfirmo</span></span></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Plan mesatar në zyrë. Close-up i materialeve dhe dosjes (pa të dhëna pacientësh).</p></div>
+      <div><h4>B-roll</h4><p>Teste, manuale italisht, logo/materiale Don Orione me leje, foto arkivi.</p></div>
+      <div><h4>Teksti në ekran</h4><p>“Teste të standardizuara” · “Matje, jo përshtypje” · “Don Orione, Romë” · “1200+ pacientë”.</p></div>
+      <div><h4>Caption</h4><p>4 pikat si listë. Pa mbiemra. Mbyll me “Pyesni çdo klinikë si e vlerëson fëmijën tuaj.”</p></div>
+      <div><h4>CTA</h4><p>Shiko highlight-in “Don Orione” · Na shkruaj për vlerësimin.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>Protokolli <i>italian</i>, i shpjeguar në 45 sekonda</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R4 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 4 · E Premte 13 Nëntor · Format B</p>
+      <h3>Tre gjëra që ju thonë të afërmit</h3>
+      <div class="reel-meta"><span class="pill">Edukim</span><span class="pill">Serxhio ose Loreta</span><span class="pill">35–45 s</span><span class="pill easy">E lehtë</span></div>
+      <p class="hook">“‘Djemtë flasin më vonë, mos u merakos.’ E keni dëgjuar? Është e vërtetë vetëm pjesërisht.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Karta MIT</span></div><div class="t">“Djemtë flasin <i>më vonë</i>”</div><div class="tag">Mit apo fakt</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Thyen tre fraza familjare që e shtyjnë vizitën. Shumë i shpërndarshëm, sepse prindi ia dërgon atij që ia tha.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>“Djemtë flasin më vonë, mos u merakos.”</q><span class="dir">Karta MIT në dorë.</span></div>
+      <div class="tc">0:04</div><div><q>Pjesërisht e vërtetë. Mesatarisht, djemtë mund të nisin pak më vonë. Por diferenca është e vogël, dhe shenjat paralajmëruese janë të njëjta për djem dhe vajza.</q><span class="dir"><span class="tbc">Konfirmo</span></span></div>
+      <div class="tc">0:15</div><div><q>“Edhe babai yt foli vonë.”</q></div>
+      <div class="tc">0:18</div><div><q>Historia e familjes është arsye për ta kontrolluar më herët, jo për të pritur.</q></div>
+      <div class="tc">0:25</div><div><q>“Po e çove te logopedi, do i ngjitet emri.”</q></div>
+      <div class="tc">0:29</div><div><q>Një vlerësim nuk është etiketë. Është hartë. Ju tregon nga të nisni.</q></div>
+      <div class="tc">0:36</div><div><q>Dërgojani këtë atij që jua tha. Me dashuri.</q><span class="dir">Buzëqeshje. Disclaimer.</span></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Plan mesatar. Close-up i kartës MIT / FAKT. Një kornizë, pa lëvizje kamere.</p></div>
+      <div><h4>B-roll</h4><p>Asnjë. Fokusi te specialisti dhe teksti.</p></div>
+      <div><h4>Teksti në ekran</h4><p>Çdo mit në thonjëza, në kuti Salvia. Përgjigjja në kuti Albicocca.</p></div>
+      <div><h4>Caption</h4><p>“Cilën nga këto ju kanë thënë më shpesh? 1, 2 apo 3?” Pyetja nxit komente.</p></div>
+      <div><h4>CTA</h4><p>Dërgoja atij që ta tha · Komento numrin.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>“Djemtë flasin <i>më vonë</i>.” Mit apo fakt?</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R5 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 5 · E Martë 17 Nëntor · Format H</p>
+      <h3>Vizita e parë, parë nga lartësia e një fëmije</h3>
+      <div class="reel-meta"><span class="pill">Vizita e parë</span><span class="pill">Recepsioni + Serxhio</span><span class="pill">30–40 s</span><span class="pill med">Mesatare</span></div>
+      <p class="hook">“Ja si duket vizita e parë në Umano Felice, parë nga lartësia e një fëmije 3 vjeç.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>POV · dera</span></div><div class="t">Vizita e parë, <i>hap pas hapi</i></div><div class="tag">Vizita e parë</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Heq frikën nga e panjohura. Prindi sheh ambientin, fytyrat dhe çfarë ndodh, pa pasur nevojë të pyesë.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Ja si duket vizita e parë, parë nga lartësia e një fëmije 3 vjeç.</q><span class="dir">POV në 1 m: dera e klinikës në Rrugën Babë Rexha. Zë i recepsionistes.</span></div>
+      <div class="tc">0:04</div><div><q>Ju pret [emri] në recepsion. Pa radhë të gjata, me orar të caktuar.</q><span class="dir">Recepsionistja përkulet në lartësinë e kamerës dhe përshëndet. <span class="tbc">Konfirmo</span></span></div>
+      <div class="tc">0:10</div><div><q>Fillimisht flasim me ju. Ju e njihni fëmijën më mirë se kushdo.</q><span class="dir">Prindi (staf) nga shpina, përballë specialistit.</span></div>
+      <div class="tc">0:17</div><div><q>Pastaj luajmë. Shumica e vlerësimit duket si lojë, dhe fëmija nuk e ndjen si provim.</q><span class="dir">Duar me karta, kuba, pasqyrë.</span></div>
+      <div class="tc">0:26</div><div><q>Në fund ju shpjegojmë çfarë pamë dhe hapat e ardhshëm. Zgjat rreth [X] minuta.</q><span class="dir"><span class="tbc">Konfirmo kohëzgjatjen</span></span></div>
+      <div class="tc">0:33</div><div><q>Rezervimi bëhet në WhatsApp. Lidhja është në bio.</q></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Gimbal në 1 m: hyrja, korridori, dhoma e pritjes, dhoma e terapisë. Close-up duarsh. Një pamje e gjerë e dhomës.</p></div>
+      <div><h4>B-roll</h4><p>Tabela në derë, lodrat në pritje, materialet.</p></div>
+      <div><h4>Teksti në ekran</h4><p>Hapat me numër: “1 Recepsioni · 2 Biseda me ju · 3 Loja · 4 Plani”.</p></div>
+      <div><h4>Caption</h4><p>4 hapat + “çfarë të sillni” (raporte të mëparshme, librezë, një video e shkurtër e fëmijës në shtëpi). <span class="tbc">Konfirmo</span></p></div>
+      <div><h4>CTA</h4><p>Rezervo në WhatsApp · Shiko highlight-in “Vizita e parë”.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>Vizita e parë, <i>hap pas hapi</i></p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R6 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 6 · E Premte 20 Nëntor · Dita Botërore e Fëmijëve · Format G</p>
+      <h3>“Çfarë do t'u thonit prindërve që po presin?”</h3>
+      <div class="reel-meta"><span class="pill">Specialistët</span><span class="pill">4–6 specialistë</span><span class="pill">30–40 s</span><span class="pill med">Mesatare</span></div>
+      <p class="hook">“Për Ditën Botërore të Fëmijëve, i bëmë specialistëve tanë një pyetje të vetme.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover" style="background:#C9DCE6;color:#1B2623"><div class="photo" style="background:linear-gradient(160deg,#fff 0%,#a9bfae 90%)"><span>Ekipi</span></div><div class="t" style="color:#23463F">Një pyetje, <i style="color:#23463F">6 specialistë</i></div><div class="tag" style="color:#5C6B66">20 Nëntor</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Fytyrat e ekipit në një video, me rastin e 20 Nëntorit. Lidhje njerëzore, pa shitje. Bëhet referenca e highlight-it “Ekipi”.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Për Ditën Botërore të Fëmijëve, i bëmë specialistëve tanë një pyetje: çfarë do t'u thonit prindërve që po presin?</q><span class="dir">Teksti i pyetjes mbi një pamje të gjerë të klinikës.</span></div>
+      <div class="tc">0:05</div><div>Çdo specialist, 4–5 sekonda, një fjali e tyre. Shembuj për t'i ndihmuar (jo për t'i lexuar): <q>Pyetja juaj nuk është e tepërt.</q> · <q>Fëmija juaj nuk është një diagnozë.</q> · <q>Ju e njihni më mirë se kushdo, ne thjesht matim.</q><span class="dir">E njëjta kornizë për të gjithë. Lower third: emri · roli.</span></div>
+      <div class="tc">0:30</div><div><q>Gëzuar Ditën e Fëmijëve.</q><span class="dir">Ekipi bashkë, i qeshur, pamje e gjerë.</span></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Plan mesatar identik për çdo person, një pamje grupi.</p></div>
+      <div><h4>B-roll</h4><p>Nuk nevojitet.</p></div>
+      <div><h4>Teksti në ekran</h4><p>Pyetja lart gjatë gjithë kohës. Emri dhe roli për secilin.</p></div>
+      <div><h4>Caption</h4><p>Një paragraf i ngrohtë për 20 Nëntorin + emrat e specialistëve me rolet. Pa ofertë.</p></div>
+      <div><h4>CTA</h4><p>Cila fjali ju preku më shumë? · Na ndiq.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>Një pyetje, <i>6 specialistë</i></p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R7 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 7 · E Martë 24 Nëntor · Format C</p>
+      <h3>Tantrumet çdo ditë: kur janë normale?</h3>
+      <div class="reel-meta"><span class="pill">Specialistët</span><span class="pill">Msc. Loreta Boçi</span><span class="pill">45–60 s</span><span class="pill easy">E lehtë</span></div>
+      <p class="hook">“Një nënë na shkroi: ‘Djali im 4 vjeç ka shpërthime çdo ditë. A është normale?’”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Loreta</span></div><div class="t">Tantrumet: kur <i>janë normale</i>?</div><div class="tag">Psikologji</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> E zgjeron klinikën përtej logopedisë dhe e prezanton Loretën me një pyetje që prindërit e kërkojnë realisht.</p>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Një nënë na shkroi: “Djali im 4 vjeç ka shpërthime çdo ditë. A është normale?”</q><span class="dir">Mesazhi i rikrijuar si bubble (pa emër, pa foto).</span></div>
+      <div class="tc">0:05</div><div><q>Unë jam Loreta, psikologe klinike. Përgjigjja e shkurtër: shpesh po. Shpërthimet janë mënyra si fëmija i vogël menaxhon emocione që ende nuk di t'i thotë me fjalë.</q></div>
+      <div class="tc">0:17</div><div><q>Por ka disa shenja që ia vlen t'i diskutoni me një specialist:</q></div>
+      <div class="tc">0:21</div><div><q>Kur zgjasin shumë dhe ndodhin disa herë në ditë. Kur fëmija lëndon veten ose të tjerët. Kur nuk qetësohet dot, pavarësisht çfarë bëni. Kur ndikojnë seriozisht në kopsht ose në familje.</q><span class="dir">Teksti si listë me 4 pika. <span class="tbc">Konfirmo pragjet me Loretën</span></span></div>
+      <div class="tc">0:40</div><div><q>Dhe nëse jeni të lodhur, kjo nuk ju bën prind të keq. Ju bën prind.</q></div>
+      <div class="tc">0:46</div><div><q>Keni një pyetje për sjelljen e fëmijës? Shkruajeni në komente. Do të përgjigjem në një video tjetër.</q></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Loreta ulur në kolltuk, plan mesatar, dritë e ngrohtë. 2 punch-in.</p></div>
+      <div><h4>B-roll</h4><p>Telefon me mesazhin, lodra të shpërndara, duar që përqafojnë (pa fytyrë).</p></div>
+      <div><h4>Teksti në ekran</h4><p>Pyetja lart · 4 shenjat · “Ju bën prind.” në Bodoni.</p></div>
+      <div><h4>Caption</h4><p>Pyetja e nënës, përgjigjja e shkurtër, 4 shenjat. Kujtesë: pyetjet personale përgjigjen në privat.</p></div>
+      <div><h4>CTA</h4><p>Bëj një pyetje në komente.</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>Tantrumet çdo ditë: <i>kur janë normale</i>?</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- R8 -->
+<article class="reel">
+  <div class="reel-top">
+    <div>
+      <p class="eyebrow">Reel 8 · E Premte 27 Nëntor · Format F</p>
+      <h3>Një ditë me specialistët nga Roma</h3>
+      <div class="reel-meta"><span class="pill">Lidhja italiane · Konvertim</span><span class="pill">Ekipi + mjeku italian</span><span class="pill">30–45 s</span><span class="pill hard">E vështirë</span></div>
+      <p class="hook">“Sot në Tiranë kemi specialistët e Don Orione nga Roma. Ja si duket dita, nga ora 8 deri në mbyllje.”</p>
+    </div>
+    <div class="fx r916 mk-reel mini-cover"><div class="photo"><span>Mjeku italian</span></div><div class="t">Roma, <i>në Tiranë</i></div><div class="tag">Dita e vlerësimit</div></div>
+  </div>
+  <div class="reel-body">
+    <p><b>Ideja:</b> Mbyllja e kampanjës. Bën të dukshëm diferencuesin më të fortë dhe hap rezervimet për ditën e ardhshme të vlerësimit.</p>
+    <div class="callout"><h4>Varet nga data</h4><p class="small">Nëse në Nëntor nuk ka ditë vlerësimi, filmoni versionin “Si përgatitemi për ditën e vlerësimit” me ekipin vendas dhe arkivin, dhe njoftoni datën e ardhshme. <span class="tbc">Konfirmo datën</span> Filmimi bëhet ditën e eventit, jo në ditën e prodhimit.</p></div>
+    <div class="script">
+      <div class="tc">0:00</div><div><q>Sot në Tiranë kemi specialistët e Don Orione nga Roma.</q><span class="dir">Mbërritja, “08:15” në cep.</span></div>
+      <div class="tc">0:04</div><div>Montazh: kafeja e mëngjesit, dosjet, briefing-u i ekipit, dera e dhomës së vlerësimit që mbyllet. <span class="dir">Pa fytyra fëmijësh. Prindër vetëm nga shpina.</span></div>
+      <div class="tc">0:18</div><div>Mjeku italian, 1 fjali në italisht me titra shqip: <q>[p.sh. “Ajo që na bën përshtypje këtu është…”]</q><span class="dir">Lower third: emri · Don Orione, Romë.</span></div>
+      <div class="tc">0:26</div><div>Serxhio: <q>Për ne, kjo do të thotë që çdo vlerësim ka dy palë sy: tanët dhe të tyret.</q></div>
+      <div class="tc">0:33</div><div><q>Dita e ardhshme e vlerësimit është më [data]. Numri i vizitave është i kufizuar. Rezervoni në WhatsApp.</q><span class="dir">Teksti me datën në Albicocca. Pa numërim mbrapsht të rremë.</span></div>
+    </div>
+    <div class="cols-4">
+      <div><h4>Pamjet</h4><p>Gimbal/dorë, stil vlog. 10–15 klipe të shkurtra gjatë gjithë ditës.</p></div>
+      <div><h4>B-roll</h4><p>Ora, dosjet, hyrja, ekipi bashkë, materialet italisht.</p></div>
+      <div><h4>Teksti në ekran</h4><p>Ora në cep · titra IT→SQ · data e ardhshme.</p></div>
+      <div><h4>Caption</h4><p>Si funksionon dita e vlerësimit (3 rreshta), kush mund të rezervojë, si. Pa urgjencë artificiale.</p></div>
+      <div><h4>CTA</h4><p>Rezervo në WhatsApp për [data].</p></div>
+      <div><h4>Teksti i kopertinës</h4><p>Roma, <i>në Tiranë</i>: një ditë vlerësimi</p></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.slides{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.7rem;counter-reset:s}
+.slides li{counter-increment:s;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:.85rem .9rem;font-size:.88rem;line-height:1.45;display:flex;flex-direction:column;gap:.35rem}
+.slides li::before{content:"Slide " counter(s);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.slides li.cta{background:var(--accent-soft);border-color:transparent}
+.slides li.cta::before{content:"CTA · Slide " counter(s)}
+.slides li b{font-family:var(--f-display);font-weight:600;font-size:1.02rem;line-height:1.25}
+.car{display:flex;flex-direction:column;gap:1.1rem}
+.car-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.car-head h3{font-size:var(--step-2)}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.6rem}
+@media (max-width:900px){.week{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.week{grid-template-columns:minmax(0,1fr)}}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.9rem;display:flex;flex-direction:column;gap:.45rem;font-size:.84rem;line-height:1.45}
+.day .d{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.day h4{font-family:var(--f-display);font-size:1.08rem;font-weight:600}
+.day.light{background:var(--surface-2)}
+.hooks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media (max-width:760px){.hooks{grid-template-columns:minmax(0,1fr)}}
+.hookset{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.hookset h4{font-family:var(--f-display);font-size:1.2rem;font-weight:600;display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.hookset h4 span{font-family:var(--f-body);font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.06em}
+.hookset ol{margin:0;padding-left:1.6rem;display:flex;flex-direction:column;gap:.15rem}
+.hookset li{font-size:.92rem;line-height:1.45;font-variant-numeric:tabular-nums}
+.hookset li::marker{color:var(--muted);font-size:.8rem}
+button.cp{all:unset;cursor:pointer;display:block;padding:.35rem .5rem;margin-left:-.5rem;border-radius:8px}
+button.cp:hover{background:var(--surface-2)}
+button.cp:focus-visible{outline:2px solid var(--accent)}
+button.cp.done{background:var(--ok-soft)}
+.note{font-size:.76rem;color:var(--muted);display:block;margin-top:.1rem}
+</style>
+
+<!-- 05 -->
+<section class="ch" id="karuselet">
+  <div class="ch-head">
+    <span class="ch-num">05</span>
+    <h2>Karusel playbook</h2>
+    <p>Karuseli është formati i ruajtjes. Reel-i sjell njerëz të rinj, karuseli i jep arsye ta ruajnë postimin dhe të kthehen. Çdo karusel duhet të jetë diçka që prindi do t'ia dërgonte partnerit ose grupit të prindërve të kopshtit.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card stack">
+      <p class="eyebrow">Struktura standarde · 7 slide, 1080×1350</p>
+      <dl class="kv">
+        <dt>Slide 1</dt><dd>Hook-u. Maksimumi 10 fjalë në Bodoni, një fjalë e theksuar. Premtim konkret (“12 muaj → 4 vjeç”), jo temë e përgjithshme. Shigjetë e vogël “→” poshtë djathtas.</dd>
+        <dt>Slide 2</dt><dd>Konteksti ose pika e parë, që hook-u të ketë vlerë. Instagram ia rishfaq slide-in 2 kujt nuk ndaloi te 1-shi, prandaj duhet të funksionojë edhe si hook i dytë.</dd>
+        <dt>Slide 3–6</dt><dd>Një ide për slide. Titull 4–8 fjalë + maksimumi 30 fjalë tekst. Numri “3 / 7” në çdo slide.</dd>
+        <dt>Slide 7</dt><dd>CTA: përmbledhje 1 rresht + një veprim + disclaimer + logo.</dd>
+        <dt>Hierarkia</dt><dd>Numri (Bodoni italic, Albicocca) → titulli (Bodoni, Cipresso) → teksti (Jakarta, Inchiostro) → burimi (Jakarta 22 px, Ulivo).</dd>
+      </dl>
+    </div>
+    <div class="card stack">
+      <p class="eyebrow">Si i mbajmë deri në fund</p>
+      <ul class="clean small">
+        <li><b>Lak i hapur në slide 1:</b> “Mosha e 3-të është ajo që shumë prindër e anashkalojnë.”</li>
+        <li><b>Progres i dukshëm:</b> numri i slide-it dhe një vijë progresi poshtë.</li>
+        <li><b>Çdo slide përfundon me arsye për të vazhduar</b> (“Po në 2 vjeç?”).</li>
+        <li><b>Gjëja më e vlefshme nuk shkon në fund.</b> Slide 4–5 mbajnë pikën më të fortë, ndërsa fundi ka CTA-në.</li>
+        <li><b>Ritëm vizual:</b> çdo slide e tretë ndryshon sfond (Marmo → Cielo) që gishti të ndiejë lëvizje.</li>
+        <li><b>Burimet shkruhen</b> në slide-in përkatës: rrisin besimin dhe ruajtjet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>4 karusele për muajin e parë</h3>
+    <div class="stack-lg">
+
+      <article class="card car">
+        <div class="car-head"><div><p class="eyebrow">Karusel 1 · E Diel 8 Nëntor · Edukim</p><h3>Fjalët e para, sipas moshës</h3></div><span class="pill">Ruajtje · Shpërndarje</span></div>
+        <ol class="slides">
+          <li><b>Fëmija juaj flet “mjaftueshëm” për moshën?</b>Një hartë e thjeshtë nga 12 muaj në 4 vjeç. Ruajeni.</li>
+          <li><b>12 muaj</b>Thërret “mama”, “baba” ose një emër të veçantë për ju. Tund dorën “mirupafshim”. Kupton “jo”.</li>
+          <li><b>18 muaj</b>Përpiqet të thotë 3 ose më shumë fjalë përveç “mama/baba”. Ndjek një udhëzim të thjeshtë pa gjeste (“Ma jep”).</li>
+          <li><b>2 vjeç</b>Bashkon dy fjalë: “jep ujë”, “mami ik”. Tregon me gisht gjërat në libër kur e pyesni.</li>
+          <li><b>30 muaj</b>Thotë rreth 50 fjalë. Bashkon dy fjalë ku njëra është veprim: “qeni vrapon”.</li>
+          <li><b>3 dhe 4 vjeç</b>3 vjeç: bisedon me ju me të paktën dy shkëmbime. 4 vjeç: thotë fjali me 4 ose më shumë fjalë. <i>Në çdo moshë: humbja e fjalëve që i thoshte më parë është arsye për vlerësim.</i></li>
+          <li class="cta"><b>Ky është orientim, jo diagnozë.</b>Nëse fëmija nuk i bën këto për moshën e tij, na shkruani në WhatsApp ose shkruani “UDHËZUES” për versionin e plotë 0–6 vjeç.</li>
+        </ol>
+        <dl class="kv">
+          <dt>Caption</dt><dd>“Ruajeni këtë dhe kthehuni sa herë fëmija mbush një moshë të re. Pikat janë nga udhëzimet e CDC (SHBA, 2022), të rishikuara nga logopedi ynë Serxhio Pecaku. Çdo fëmijë ka ritmin e vet. Nëse keni një shqetësim, mos prisni moshën tjetër për ta pyetur.” + CTA.</dd>
+          <dt>Dizajni</dt><dd>Sfond Marmo. Mosha si numër i madh Bodoni italic Albicocca (“18 muaj”). Një ikonë e vogël me vijë për moshë (biberon, kubë, libër). Burimi në fund të çdo slide-i. <span class="tbc">Serxhio konfirmon çdo pikë</span></dd>
+        </dl>
+      </article>
+
+      <article class="card car">
+        <div class="car-head"><div><p class="eyebrow">Karusel 2 · E Diel 15 Nëntor · Vizita e parë &amp; shërbimet</p><h3>Logoped, psikolog apo neuropediatër?</h3></div><span class="pill">Shpërndarje · DM</span></div>
+        <ol class="slides">
+          <li><b>Nuk e dini nga t'ia nisni?</b>Kë specialist të takoni, sipas asaj që ju shqetëson.</li>
+          <li><b>Logopedi</b>Kur shqetësimi është të folurit: fëmija flet pak, nuk shqipton qartë, belbëzon ose nuk kupton udhëzimet.</li>
+          <li><b>Psikologu</b>Kur shqetësimi është sjellja ose emocionet: shpërthime të forta, ankth, vështirësi me fëmijët e tjerë, vëmendja.</li>
+          <li><b>Neuropediatri</b>Kur ka dyshim për zhvillimin në tërësi, kur fëmija humb aftësi që i kishte, ose kur nevojitet vlerësim mjekësor. <span class="tbc">Konfirmo emërtimin e shërbimit</span></li>
+          <li><b>Fizioterapeuti</b>Kur shqetësimi është lëvizja: ecja, qëndrimi, koordinimi, ecja në majë të gishtave.</li>
+          <li><b>Shpesh shqetësimet ndërthuren.</b>Prandaj vlerësimi fillestar shikon fëmijën në tërësi dhe ju orienton te specialisti i duhur. Nuk keni pse ta dini ju.</li>
+          <li class="cta"><b>Na tregoni moshën dhe shqetësimin.</b>Në WhatsApp ju themi kë të takoni. Pa detyrim. Lidhja në bio.</li>
+        </ol>
+        <dl class="kv">
+          <dt>Caption</dt><dd>“Pyetja që na bëhet më shpesh në telefon nuk është ‘sa kushton’, por ‘kë duhet të takoj?’ Ja një udhëzues i shkurtër. Dërgojani një prindi që e ka këtë pyetje.” <span class="tbc">Verifiko që kjo është vërtet pyetja më e shpeshtë</span></dd>
+          <dt>Dizajni</dt><dd>Sfond Salvia. Çdo specialist me ikonën e vet me vijë dhe një foto të vogël në hark të specialistit përkatës (nëse ka foto). Slide 6 në Cielo për ndryshim ritmi.</dd>
+        </dl>
+      </article>
+
+      <article class="card car">
+        <div class="car-head"><div><p class="eyebrow">Karusel 3 · E Diel 22 Nëntor · Vizita e parë</p><h3>Vizita e parë, hap pas hapi</h3></div><span class="pill">Konvertim</span></div>
+        <ol class="slides">
+          <li><b>Ankthi para vizitës së parë është normal.</b>Ja saktësisht çfarë ndodh, nga mesazhi i parë deri te plani.</li>
+          <li><b>1 · Rezervimi</b>Na shkruani në WhatsApp moshën dhe shqetësimin. Ju propozojmë orar dhe specialist. <span class="tbc">Numri</span></li>
+          <li><b>2 · Përgatitja e fëmijës</b>Thojini që do të luajë me dikë të ri. Sillni lodrën e preferuar. Zgjidhni një orë kur nuk është i lodhur ose i uritur.</li>
+          <li><b>3 · Çfarë të sillni</b>Raporte ose vizita të mëparshme, librezën, dhe nëse mundeni një video të shkurtër të fëmijës në shtëpi. <span class="tbc">Konfirmo</span></li>
+          <li><b>4 · Gjatë vizitës</b>Fillimisht flasim me ju. Pastaj vëzhgojmë dhe vlerësojmë fëmijën përmes lojës. Zgjat rreth [X] minuta. <span class="tbc">Konfirmo</span></li>
+          <li><b>5 · Pas vizitës</b>Ju shpjegojmë çfarë pamë, me fjalë të thjeshta, dhe hapat e ardhshëm. [Raport me shkrim?] <span class="tbc">Konfirmo</span></li>
+          <li class="cta"><b>Gati për hapin e parë?</b>Rezervoni në WhatsApp. Tiranë: Rruga Babë Rexha, ish Parku i Autobusëve · Elbasan: [adresa].</li>
+        </ol>
+        <dl class="kv">
+          <dt>Caption</dt><dd>“Shumë prindër na thonë që pjesa më e vështirë ishte mesazhi i parë. Ja çfarë ndodh pas tij, hap pas hapi.” + oraret + CTA. Fiksohet (pin) në profil pas publikimit.</dd>
+          <dt>Dizajni</dt><dd>Sfond Salvia. Një vijë e hollë që lidh numrat 1→5 nga një slide te tjetri (rruga). Foto reale të recepsionit dhe dhomës në hark.</dd>
+        </dl>
+      </article>
+
+      <article class="card car">
+        <div class="car-head"><div><p class="eyebrow">Karusel 4 · E Hënë 30 Nëntor · Specialistët / autoritet</p><h3>5 pyetje për çdo klinikë para se të nisni terapinë</h3></div><span class="pill">Ruajtje · Diferencim</span></div>
+        <ol class="slides">
+          <li><b>Para se të nisni terapinë, bëjini klinikës këto 5 pyetje.</b>Çdo klinikë serioze do t'i presë me kënaqësi.</li>
+          <li><b>1 · “Me çfarë testesh e vlerësoni fëmijën?”</b>Teste të standardizuara apo përshtypje? Përgjigjja e mirë ka emra testesh.</li>
+          <li><b>2 · “Kush e bën vlerësimin dhe çfarë formimi ka?”</b>Keni të drejtë të dini emrin dhe formimin e specialistit.</li>
+          <li><b>3 · “A më jepni plan me objektiva?”</b>Terapia ka nevojë për synime të qarta, jo vetëm për “seanca”.</li>
+          <li><b>4 · “Si e matim progresin, dhe kur e rishikojmë planin?”</b>Pa matje, nuk e dini nëse po funksionon.</li>
+          <li><b>5 · “Çfarë mund të bëj unë në shtëpi?”</b>Prindi është pjesa më e rëndësishme e terapisë.</li>
+          <li class="cta"><b>Këto pyetje na i bëni edhe neve.</b>Në Umano Felice punojmë me protokollin italian dhe ju i shpjegojmë të gjitha. Na shkruani në WhatsApp.</li>
+        </ol>
+        <dl class="kv">
+          <dt>Caption</dt><dd>“Nuk po ju themi të vini te ne. Po ju themi si të zgjidhni mirë, kudo që të shkoni. Ruajeni për ditën kur do ju duhet.”</dd>
+          <dt>Dizajni</dt><dd>Sfond Cipresso me tekst të bardhë (seri autoriteti). Pyetjet në Bodoni italic si citate. Slide-i i fundit në Marmo me logo. <span class="tbc">Konfirmo që klinika jep plan me shkrim dhe rishikim progresi</span>, përndryshe CTA-ja nuk qëndron.</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="ch" id="stories">
+  <div class="ch-head">
+    <span class="ch-num">06</span>
+    <h2>Stories playbook</h2>
+    <p>Stories janë vendi ku ndjekësit kthehen në pacientë. Postimet sjellin vëmendje, ndërsa Stories ndërtojnë raportin e përditshëm dhe e çojnë prindin në WhatsApp. Ritmi: 6 ditë në javë, 3–6 korniza në ditë, të përgatitura në grup çdo të hënë.</p>
+  </div>
+
+  <div class="week">
+    <div class="day"><span class="d">E Hënë</span><h4>Pyetja e javës</h4><p>Kutia e pyetjeve: “Çfarë ju shqetëson për të folurit ose sjelljen e fëmijës?” + 1 kornizë edukative nga karuseli i djeshëm.</p></div>
+    <div class="day"><span class="d">E Martë</span><h4>Amplifikimi i Reel-it</h4><p>Teaser 5 s → Reel-i i ndarë me “E re” → sondazh mbi temën (“E njihni këtë shenjë?”).</p></div>
+    <div class="day"><span class="d">E Mërkurë</span><h4>Prapaskenë &amp; ekipi</h4><p>“Specialisti i javës”, mëngjesi në klinikë, materialet e reja, Elbasani.</p></div>
+    <div class="day"><span class="d">E Enjte</span><h4>Kuiz edukativ</h4><p>Kuiz “Normale apo jo?” me 3 korniza: pyetja → përgjigjja → shpjegimi nga specialisti.</p></div>
+    <div class="day"><span class="d">E Premte</span><h4>Reel + FAQ</h4><p>Reel-i i ri + 2–3 përgjigje me video nga kutia e së hënës (15 s secila).</p></div>
+    <div class="day"><span class="d">E Shtunë</span><h4>Besim &amp; rezervim</h4><p>Vlerësim Google (me leje), oraret e javës tjetër, “si rezervohet në 2 minuta”, link WhatsApp.</p></div>
+    <div class="day light"><span class="d">E Diel</span><h4>Karuseli</h4><p>Vetëm ndarja e karuselit me sticker “Ruaje për më vonë”. Ditë e lehtë.</p></div>
+  </div>
+
+  <div class="sub">
+    <h3>Llojet e Stories <small>Shabllon për secilin</small></h3>
+    <div class="tw">
+      <table class="wide">
+        <thead><tr><th>Lloji</th><th>Si duket</th><th>Sticker / veprim</th><th>Burimi</th></tr></thead>
+        <tbody>
+          <tr><td>Edukim</td><td>3 korniza: pyetje → përgjigje e shkurtër → “më shumë në postim”</td><td>Link sticker te postimi</td><td>Karuselet, caption-et</td></tr>
+          <tr><td>Prapaskenë</td><td>Video 5–10 s, zë natyral, tekst 1 rresht</td><td>Emoji slider “Si ju duket?”</td><td>Banka e klipeve nga dita e filmimit</td></tr>
+          <tr><td>Sondazh</td><td>Pyetje me 2 opsione mbi temën e Reel-it</td><td>Poll</td><td>Reel-i i javës</td></tr>
+          <tr><td>Pyetje</td><td>Specialisti në kornizë + kutia</td><td>Question box</td><td>E hëna, çdo javë</td></tr>
+          <tr><td>Kuiz</td><td>“Në cilën moshë bashkon dy fjalë?” A/B/C</td><td>Quiz</td><td>Karusel 1</td></tr>
+          <tr><td>FAQ</td><td>Përgjigje me video 15 s ose tekst në Cielo</td><td>Asnjë, ose link WhatsApp</td><td>Pyetjet e recepsionit</td></tr>
+          <tr><td>Ekipi</td><td>“Specialisti i javës”: foto, formimi, 1 fjali</td><td>Mention / link te highlight</td><td>Seria Ekipi</td></tr>
+          <tr><td>Prova sociale</td><td>Screenshot vlerësimi Google, emri i shkurtuar, me leje</td><td>Link te Google Reviews</td><td>Recepsioni</td></tr>
+          <tr><td>Shërbimet</td><td>1 shërbim në 2 korniza: për kë është, si funksionon</td><td>Link WhatsApp</td><td>Highlight “Shërbimet”</td></tr>
+          <tr><td>Rezervim</td><td>Oraret e lira të javës (pa çmime), hapat e rezervimit</td><td>Link WhatsApp</td><td>Recepsioni, çdo të shtunë</td></tr>
+          <tr><td>Jeta e klinikës</td><td>Mëngjesi, kafeja, materialet, moti nga dritarja</td><td>Asnjë</td><td>Telefoni i stafit</td></tr>
+          <tr><td>Ripërdorim i Reels</td><td>Klipi më i fortë 5 s + “shikoje të plotë”</td><td>Ndarje e Reel-it</td><td>Çdo Reel</td></tr>
+          <tr><td>Ripërdorim i karuseleve</td><td>Slide-i 2 ose 4 si kornizë e veçantë + kuiz</td><td>Ndarje + Quiz</td><td>Çdo karusel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout sky"><h4>Kush i bën Stories e përditshme</h4><p class="small">Agjencia përgatit të hënën shabllonet dhe planin e javës. Klinika cakton një person (recepsioni) që dërgon çdo ditë 2–3 klipe të shkurtra nga jeta e klinikës në një grup WhatsApp. Pa këtë, Stories mbeten vetëm grafika dhe humbin anën njerëzore. <span class="tbc">Konfirmo personin</span></p></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="ch" id="hooks">
+  <div class="ch-head">
+    <span class="ch-num">07</span>
+    <h2>Libraria e hook-eve</h2>
+    <p>34 hook-e të shkruara për prindërit shqiptarë dhe për faktet e Umano Felice. Klikoni një hook për ta kopjuar. Hook-et me ✱ kërkojnë një histori ose leje reale para përdorimit.</p>
+  </div>
+  <div class="hooks">
+    <div class="hookset"><h4>Kureshtje <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="Kjo lodër e thjeshtë na tregon shumë për mënyrën si flet fëmija juaj.">Kjo lodër e thjeshtë na tregon shumë për mënyrën si flet fëmija juaj.</button></li>
+      <li><button class="cp" data-copy="Në vlerësim nuk numërojmë vetëm sa fjalë thotë fëmija. Shohim edhe këtë.">Në vlerësim nuk numërojmë vetëm sa fjalë thotë fëmija. Shohim edhe këtë.</button></li>
+      <li><button class="cp" data-copy="Një pyetje që ua bëjmë të gjithë prindërve në vizitën e parë.">Një pyetje që ua bëjmë të gjithë prindërve në vizitën e parë.</button></li>
+      <li><button class="cp" data-copy="Pse karriget në dhomën e terapisë janë kaq të vogla?">Pse karriget në dhomën e terapisë janë kaq të vogla?</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Edukative <span>5</span></h4><ol>
+      <li><button class="cp" data-copy="Në 2 vjeç, fëmija bashkon dy fjalë. Ja si duket kjo në praktikë.">Në 2 vjeç, fëmija bashkon dy fjalë. Ja si duket kjo në praktikë.</button></li>
+      <li><button class="cp" data-copy="Tri shenja te fëmija 18 muajsh që ia vlen t'ia tregoni një specialisti.">Tri shenja te fëmija 18 muajsh që ia vlen t'ia tregoni një specialisti.</button></li>
+      <li><button class="cp" data-copy="Belbëzimi në 3 vjeç: kur është fazë dhe kur jo.">Belbëzimi në 3 vjeç: kur është fazë dhe kur jo.</button></li>
+      <li><button class="cp" data-copy="Ky ushtrim 5-sekondësh e ndihmon fëmijën të kërkojë me fjalë, jo me të qarë.">Ky ushtrim 5-sekondësh e ndihmon fëmijën të kërkojë me fjalë, jo me të qarë.</button></li>
+      <li><button class="cp" data-copy="Ecja në majë të gishtave pas moshës 2 vjeç: çfarë duhet të dini.">Ecja në majë të gishtave pas moshës 2 vjeç: çfarë duhet të dini.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Problem <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="Fëmija kupton gjithçka, por nuk flet? Kjo video është për ju.">Fëmija kupton gjithçka, por nuk flet? Kjo video është për ju.</button></li>
+      <li><button class="cp" data-copy="Kopshti ju tha “ta shikojë një specialist”? Mos u trembni. Ja çfarë do të thotë.">Kopshti ju tha “ta shikojë një specialist”? Mos u trembni. Ja çfarë do të thotë.</button></li>
+      <li><button class="cp" data-copy="Fëmija nuk rri ulur as 2 minuta? Para se të mendoni për ADHD, dëgjoni këtë.">Fëmija nuk rri ulur as 2 minuta? Para se të mendoni për ADHD, dëgjoni këtë.</button></li>
+      <li><button class="cp" data-copy="Të gjithë ju thonë “prit, do flasë”. Ja kur ka kuptim të prisni dhe kur jo.">Të gjithë ju thonë “prit, do flasë”. Ja kur ka kuptim të prisni dhe kur jo.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Thyerje mitesh <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="“Djemtë flasin më vonë.” Pjesërisht e vërtetë. Ja pjesa që nuk jua thotë njeri.">“Djemtë flasin më vonë.” Pjesërisht e vërtetë. Ja pjesa që nuk jua thotë njeri.</button></li>
+      <li><button class="cp" data-copy="“Dy gjuhë në shtëpi e ngatërrojnë fëmijën.” Jo. Ja çfarë thotë kërkimi.">“Dy gjuhë në shtëpi e ngatërrojnë fëmijën.” Jo. Ja çfarë thotë kërkimi.</button><span class="note">E fortë për familjet që flasin italisht ose në diasporë.</span></li>
+      <li><button class="cp" data-copy="“Logopedi është vetëm për fëmijët që nuk flasin fare.” As afër.">“Logopedi është vetëm për fëmijët që nuk flasin fare.” As afër.</button></li>
+      <li><button class="cp" data-copy="“Po e çove te psikologu, do i ngjitet emri.” Le ta sqarojmë një herë e mirë.">“Po e çove te psikologu, do i ngjitet emri.” Le ta sqarojmë një herë e mirë.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Autoritet <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="Pas mbi 1200 pacientësh, kjo është pyetja që dëgjojmë më shpesh.">Pas mbi 1200 pacientësh, kjo është pyetja që dëgjojmë më shpesh.</button></li>
+      <li><button class="cp" data-copy="Në Don Orione, në Romë, vlerësimi i fëmijës nis kështu. Tani e bëjmë njësoj në Tiranë.">Në Don Orione, në Romë, vlerësimi i fëmijës nis kështu. Tani e bëjmë njësoj në Tiranë.</button></li>
+      <li><button class="cp" data-copy="Studiova Neurologji në Romë. Ja çfarë do të doja ta dinte çdo prind shqiptar.">Studiova Neurologji në Romë. Ja çfarë do të doja ta dinte çdo prind shqiptar.</button><span class="note">Serxhio Pecaku</span></li>
+      <li><button class="cp" data-copy="Në ditën e vlerësimit me stafin nga Roma, kjo është gjëja e parë që kontrollojmë.">Në ditën e vlerësimit me stafin nga Roma, kjo është gjëja e parë që kontrollojmë.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Emocionale <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="Nëse po e shihni këtë natën vonë sepse nuk ju zë gjumi nga meraku, kjo është për ju.">Nëse po e shihni këtë natën vonë sepse nuk ju zë gjumi nga meraku, kjo është për ju.</button></li>
+      <li><button class="cp" data-copy="Nuk është faji juaj. Le ta themi këtë që në fillim.">Nuk është faji juaj. Le ta themi këtë që në fillim.</button></li>
+      <li><button class="cp" data-copy="Mami, nuk e ke tepruar që pyet.">Mami, nuk e ke tepruar që pyet.</button></li>
+      <li><button class="cp" data-copy="Lodhja që ndjeni nuk ju bën prind të keq. Ju bën prind.">Lodhja që ndjeni nuk ju bën prind të keq. Ju bën prind.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Histori <span>4</span></h4><ol>
+      <li><button class="cp" data-copy="Një nënë na shkroi në mesnatë: “A është normale që…” Ja çfarë iu përgjigjëm.">Një nënë na shkroi në mesnatë: “A është normale që…” Ja çfarë iu përgjigjëm. ✱</button></li>
+      <li><button class="cp" data-copy="Kur isha student në Romë, një profesor më tha diçka që nuk e kam harruar kurrë.">Kur isha student në Romë, një profesor më tha diçka që nuk e kam harruar kurrë. ✱</button></li>
+      <li><button class="cp" data-copy="Ja si duket 1 orë me një logoped, parë nga lartësia e një fëmije 3 vjeç.">Ja si duket 1 orë me një logoped, parë nga lartësia e një fëmije 3 vjeç.</button></li>
+      <li><button class="cp" data-copy="Ishte dita e vlerësimit në Elbasan, kur një gjysh hyri me nipin dhe na tha…">Ishte dita e vlerësimit në Elbasan, kur një gjysh hyri me nipin dhe na tha… ✱</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Konvertim <span>5</span></h4><ol>
+      <li><button class="cp" data-copy="Dita e ardhshme e vlerësimit me specialistët nga Roma është më [data]. Ja si rezervoni.">Dita e ardhshme e vlerësimit me specialistët nga Roma është më [data]. Ja si rezervoni.</button></li>
+      <li><button class="cp" data-copy="E shtyni vizitën prej muajsh? Ja çfarë ndodh realisht në vizitën e parë.">E shtyni vizitën prej muajsh? Ja çfarë ndodh realisht në vizitën e parë.</button></li>
+      <li><button class="cp" data-copy="Rezervimi zgjat 2 minuta në WhatsApp. Ja çfarë do t'ju pyesim.">Rezervimi zgjat 2 minuta në WhatsApp. Ja çfarë do t'ju pyesim.</button></li>
+      <li><button class="cp" data-copy="Nuk e dini kë specialist të takoni? Na shkruani një fjali dhe ju orientojmë.">Nuk e dini kë specialist të takoni? Na shkruani një fjali dhe ju orientojmë.</button></li>
+      <li><button class="cp" data-copy="Nga Elbasani? Nuk keni pse vini në Tiranë. Ja çfarë ofrojmë te qendra jonë atje.">Nga Elbasani? Nuk keni pse vini në Tiranë. Ja çfarë ofrojmë te qendra jonë atje.</button><span class="note"><span class="tbc">Konfirmo shërbimet në Elbasan</span></span></li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="ch" id="cta">
+  <div class="ch-head">
+    <span class="ch-num">08</span>
+    <h2>Libraria e CTA-ve</h2>
+    <p>Një CTA për postim. Tonin e zgjedhim sipas objektivit: postimet edukative kërkojnë ruajtje ose shpërndarje, kurrë rezervim të menjëhershëm. Klikoni për ta kopjuar.</p>
+  </div>
+  <div class="hooks">
+    <div class="hookset"><h4>Rezervim</h4><ol>
+      <li><button class="cp" data-copy="Rezervoni një vlerësim në WhatsApp. Lidhja është në bio.">Rezervoni një vlerësim në WhatsApp. Lidhja është në bio.</button></li>
+      <li><button class="cp" data-copy="Na shkruani moshën e fëmijës dhe çfarë ju shqetëson. Ju propozojmë orarin dhe specialistin.">Na shkruani moshën e fëmijës dhe çfarë ju shqetëson. Ju propozojmë orarin dhe specialistin.</button></li>
+      <li><button class="cp" data-copy="Vendet për ditën e vlerësimit me stafin nga Roma hapen sot. Rezervoni në WhatsApp.">Vendet për ditën e vlerësimit me stafin nga Roma hapen sot. Rezervoni në WhatsApp.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Mesazh privat (DM)</h4><ol>
+      <li><button class="cp" data-copy="Shkruani “UDHËZUES” në komente dhe ju dërgojmë në mesazh shenjat e zhvillimit sipas moshës, 0–6 vjeç.">Shkruani “UDHËZUES” në komente dhe ju dërgojmë në mesazh shenjat e zhvillimit sipas moshës, 0–6 vjeç.</button><span class="note">Vetëm me paketën Rritje + Reklama</span></li>
+      <li><button class="cp" data-copy="Pyetjet për fëmijën tuaj i diskutojmë në privat. Na dërgoni mesazh.">Pyetjet për fëmijën tuaj i diskutojmë në privat. Na dërgoni mesazh.</button></li>
+      <li><button class="cp" data-copy="Na dërgoni një mesazh me fjalën “VIZITË” dhe ju tregojmë oraret e lira këtë javë.">Na dërgoni një mesazh me fjalën “VIZITË” dhe ju tregojmë oraret e lira këtë javë.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Bëni një pyetje</h4><ol>
+      <li><button class="cp" data-copy="Çfarë do të donit të pyesnit një logoped? Shkruajeni në komente. Përgjigjemi me video.">Çfarë do të donit të pyesnit një logoped? Shkruajeni në komente. Përgjigjemi me video.</button></li>
+      <li><button class="cp" data-copy="Cilën nga këto e keni dëgjuar më shpesh? Shkruani numrin.">Cilën nga këto e keni dëgjuar më shpesh? Shkruani numrin.</button></li>
+      <li><button class="cp" data-copy="Ka ndonjë temë që doni ta shpjegojmë? Na e thoni dhe e bëjmë video.">Ka ndonjë temë që doni ta shpjegojmë? Na e thoni dhe e bëjmë video.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Ruani postimin</h4><ol>
+      <li><button class="cp" data-copy="Ruajeni këtë. Do t'ju duhet kur fëmija të mbushë moshën tjetër.">Ruajeni këtë. Do t'ju duhet kur fëmija të mbushë moshën tjetër.</button></li>
+      <li><button class="cp" data-copy="Ruajeni për herën tjetër që dikush ju thotë “prit, do flasë”.">Ruajeni për herën tjetër që dikush ju thotë “prit, do flasë”.</button></li>
+      <li><button class="cp" data-copy="Ruajeni dhe provojeni sot në darkë, 10 minuta.">Ruajeni dhe provojeni sot në darkë, 10 minuta.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Shpërndani</h4><ol>
+      <li><button class="cp" data-copy="Dërgojani dikujt që ka një fëmijë 1–4 vjeç.">Dërgojani dikujt që ka një fëmijë 1–4 vjeç.</button></li>
+      <li><button class="cp" data-copy="Ndajeni në grupin e prindërve të kopshtit. Dikush mund ta ketë pikërisht këtë pyetje.">Ndajeni në grupin e prindërve të kopshtit. Dikush mund ta ketë pikërisht këtë pyetje.</button></li>
+      <li><button class="cp" data-copy="Dërgojani gjyshes ose babait. Edhe ata rrinë shumë me fëmijën.">Dërgojani gjyshes ose babait. Edhe ata rrinë shumë me fëmijën.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Na ndiqni</h4><ol>
+      <li><button class="cp" data-copy="Na ndiqni për një këshillë të qartë nga specialistët çdo javë, pa panik.">Na ndiqni për një këshillë të qartë nga specialistët çdo javë, pa panik.</button></li>
+      <li><button class="cp" data-copy="Të martën dhe të premten, specialistët tanë u përgjigjen pyetjeve tuaja. Na ndiqni që të mos i humbisni.">Të martën dhe të premten, specialistët tanë u përgjigjen pyetjeve tuaja. Na ndiqni që të mos i humbisni.</button></li>
+    </ol></div>
+    <div class="hookset"><h4>Na vizitoni</h4><ol>
+      <li><button class="cp" data-copy="Na gjeni në Tiranë, Rruga Babë Rexha, ish Parku i Autobusëve, dhe në Elbasan. Lokacionet te highlight-i “Tiranë / Elbasan”.">Na gjeni në Tiranë, Rruga Babë Rexha, ish Parku i Autobusëve, dhe në Elbasan. Lokacionet te highlight-i “Tiranë / Elbasan”.</button></li>
+      <li><button class="cp" data-copy="Kaloni për një kafe dhe njihuni me ekipin para vizitës. Na shkruani kur vini.">Kaloni për një kafe dhe njihuni me ekipin para vizitës. Na shkruani kur vini.</button><span class="note"><span class="tbc">Vetëm nëse klinika e pranon</span></span></li>
+    </ol></div>
+    <div class="hookset"><h4>Mësoni për një shërbim</h4><ol>
+      <li><button class="cp" data-copy="Si funksionon vlerësimi sipas protokollit italian? E shpjegojmë te highlight-i “Don Orione”.">Si funksionon vlerësimi sipas protokollit italian? E shpjegojmë te highlight-i “Don Orione”.</button></li>
+      <li><button class="cp" data-copy="Të gjitha shërbimet, një për slide, te highlight-i “Shërbimet”.">Të gjitha shërbimet, një për slide, te highlight-i “Shërbimet”.</button></li>
+      <li><button class="cp" data-copy="Doni të dini nëse ky shërbim është për fëmijën tuaj? Na shkruani një fjali.">Doni të dini nëse ky shërbim është për fëmijën tuaj? Na shkruani një fjali.</button></li>
+    </ol></div>
+  </div>
+</section>
+
+<style>
+.cal-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:720px}
+.cal .h{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:.6rem .7rem;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.cal .c{min-height:118px;padding:.5rem .55rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:.3rem;font-size:.72rem;line-height:1.3}
+.cal .c:nth-child(7n){border-right:0}
+.cal .c.x{background:var(--bg)}
+.cal .n{font-variant-numeric:tabular-nums;font-weight:700;font-size:.8rem;color:var(--muted)}
+.ev{border-radius:7px;padding:.28rem .4rem;font-weight:600}
+.ev.r{background:var(--b-cipresso);color:#fff}
+.ev.k{background:var(--b-albicocca);color:var(--b-inchiostro)}
+.ev.s{background:var(--sky-soft);color:var(--fg);font-weight:500}
+.ev.f{background:var(--accent-soft);color:var(--accent-ink);font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.phase{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+@media (max-width:760px){.phase{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.phase{grid-template-columns:minmax(0,1fr)}}
+.phase div{border-top:3px solid var(--primary);padding-top:.7rem;display:flex;flex-direction:column;gap:.25rem}
+.phase div:nth-child(4){border-color:var(--accent)}
+.phase b{font-family:var(--f-display);font-size:1.15rem;font-weight:600}
+.phase span{font-size:.85rem;color:var(--muted)}
+.qc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media (max-width:760px){.qc{grid-template-columns:minmax(0,1fr)}}
+.qc fieldset{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);padding:1rem 1.2rem 1.1rem;margin:0;min-width:0}
+.qc legend{font-family:var(--f-display);font-size:1.2rem;font-weight:600;padding:0 .4rem}
+.qc label{display:grid;grid-template-columns:1.3rem minmax(0,1fr);gap:.6rem;align-items:start;padding:.42rem 0;font-size:.92rem;line-height:1.45;cursor:pointer;border-bottom:1px dashed var(--line)}
+.qc label:last-child{border-bottom:0}
+.qc input{width:1.05rem;height:1.05rem;margin-top:.18rem;accent-color:var(--b-cipresso)}
+.qc input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+.qc-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:.9rem 1.2rem}
+.qc-bar .prog{flex:1;min-width:160px;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.qc-bar .prog i{display:block;height:100%;width:0;background:var(--b-cipresso);transition:width .25s}
+.btn{font:inherit;font-size:.85rem;font-weight:700;border:1px solid var(--line-strong);background:var(--surface);color:var(--fg);padding:.5rem 1rem;border-radius:999px;cursor:pointer}
+.btn:hover{background:var(--surface-2)}
+.dd td:nth-child(2){background:color-mix(in srgb,var(--ok-soft) 55%,transparent)}
+.dd td:nth-child(3){background:color-mix(in srgb,var(--no-soft) 55%,transparent)}
+.dd td{font-weight:400}
+.dd td:first-child{font-weight:700}
+.cheat{background:var(--cover-bg);color:var(--cover-fg);border-radius:var(--r-lg);padding:clamp(1.3rem,4vw,2.4rem);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem 2rem}
+@media (max-width:860px){.cheat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cheat{grid-template-columns:minmax(0,1fr)}}
+.cheat>div{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.cheat h4{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--b-albicocca);font-weight:800}
+.cheat p,.cheat li{font-size:.9rem;line-height:1.5}
+.cheat ul{margin:0;padding-left:1rem}
+.cheat .wide{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.16);padding-top:1.2rem}
+.cheat .wide p{font-family:var(--f-display);font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.3}
+.dots{display:flex;flex-wrap:wrap;gap:.35rem}
+.dots span{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-variant-numeric:tabular-nums}
+.dots i{width:14px;height:14px;border-radius:4px;display:inline-block;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+footer.end{padding-block:2rem 0;font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:3rem}
+</style>
+
+<!-- 09 -->
+<section class="ch" id="prodhimi">
+  <div class="ch-head">
+    <span class="ch-num">09</span>
+    <h2>Sistemi i prodhimit</h2>
+    <p>Një cikël mujor me afate fikse. <b>T</b> është dita e parë e publikimit të muajit. E gjithë përmbajtja e muajit filmohet në një ditë, miratohet në dy raunde dhe planifikohet para se të nisë muaji.</p>
+  </div>
+
+  <div class="tw">
+    <table class="wide">
+      <thead><tr><th>Hapi</th><th>Kush</th><th>Kur</th><th>Si / çfarë del</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Kërkimi</td><td>Strategu</td><td class="tnum">T−24 → T−21</td><td>Pyetjet nga komentet, DM-të dhe recepsioni (lista mujore nga klinika), kërkime Google në shqip, Insights i muajit të kaluar, 3 llogari konkurrente/referencë. <i>Del: lista me 25 ide.</i></td></tr>
+        <tr><td>2 · Zgjedhja e temave</td><td>Strategu</td><td class="tnum">T−21</td><td>12 tema + 4 rezervë, të shpërndara sipas peshave të shtyllave dhe harkut të muajit. Çdo temë ka shtyllën, objektivin dhe CTA-në.</td></tr>
+        <tr><td>3 · Skriptet</td><td>Copywriter</td><td class="tnum">T−20 → T−16</td><td>Shablloni i skriptit (hook, kodet e kohës, pamjet, teksti në ekran). Për specialistët: pika, jo tekst fjalë për fjalë.</td></tr>
+        <tr><td>4 · Miratimi i klientit</td><td>Klinika + specialisti</td><td class="tnum">T−15 → T−12</td><td>Specialisti përkatës kontrollon saktësinë mjekësore. Një raund komentesh në një dokument të vetëm. Miratim me shkrim (email ose WhatsApp).</td></tr>
+        <tr><td>5 · Filmimi</td><td>Videografi + specialistët</td><td class="tnum">T−10</td><td>Dita e prodhimit (shih më poshtë). Fletë pëlqimi të nënshkruara për çdo person në kamerë.</td></tr>
+        <tr><td>6 · Editimi</td><td>Editori</td><td class="tnum">T−9 → T−5</td><td>CapCut ose Premiere, me shablon titrash të ruajtur. v1 i të gjitha Reels brenda 4 ditësh.</td></tr>
+        <tr><td>7 · Kopertinat</td><td>Dizajneri</td><td class="tnum">T−6</td><td>Shabllon Canva me zonën 3:4. Kopertinat kontrollohen në pamjen e grid-it para miratimit.</td></tr>
+        <tr><td>8 · Caption-et</td><td>Copywriter</td><td class="tnum">T−6</td><td>Rreshti i parë = hook i dytë. Strukturë: ndjenjë → vlerë → CTA → disclaimer → 3–5 hashtag lokale.</td></tr>
+        <tr><td>9 · Miratimi final</td><td>Klinika</td><td class="tnum">T−4 → T−3</td><td>Të 12 postimet në një link të vetëm rishikimi. Maksimumi 1 raund ndryshimesh të vogla.</td></tr>
+        <tr><td>10 · Planifikimi</td><td>SMM</td><td class="tnum">T−2</td><td>Meta Business Suite. Reels: E Martë dhe E Premte 20:30. Karuselet: E Diel 20:00 (orar fillestar, rregullohet sipas Insights pas muajit të parë).</td></tr>
+        <tr><td>11 · Publikimi</td><td>SMM</td><td>Ditën e postimit</td><td>Kontroll pas publikimit (kopertina, titrat, link-u). 60 minutat e para: përgjigje çdo komenti. Pyetjet mjekësore personale kalojnë në privat.</td></tr>
+        <tr><td>12 · Stories</td><td>SMM + recepsioni</td><td>Çdo ditë</td><td>Plani javor (kapitulli 06). Shabllonet përgatiten të hënën, klipet e jetës së klinikës vijnë nga recepsioni.</td></tr>
+        <tr><td>13 · Analiza</td><td>Strategu</td><td>Java 2 dhe fundi i muajit</td><td>Kontroll në mes të muajit + raport mujor (më poshtë). Vendim: çfarë përsërisim, çfarë ndalojmë.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <h3>Dita e prodhimit <small>8 Reels + material për Stories, në rreth 7 orë</small></h3>
+    <div class="tw">
+      <table class="wide">
+        <thead><tr><th>Ora</th><th>Çfarë</th><th>Kush</th><th>Del</th></tr></thead>
+        <tbody>
+          <tr><td class="tnum">08:30</td><td>Ngritja e dy seteve: (A) dhoma e terapisë pranë dritares, (B) kolltuku në zyrë. Kontroll zëri dhe drite.</td><td>Videografi</td><td>—</td></tr>
+          <tr><td class="tnum">09:00</td><td>Serxhio: R1, R2, R4 + 3 hook-e rezervë dhe 4 përgjigje 15 s për Stories</td><td>Serxhio</td><td>3 Reels</td></tr>
+          <tr><td class="tnum">10:45</td><td>B-roll në dhomën e terapisë: duar, karta, lodra, top-down, POV në 1 m</td><td>Videografi + staf (duar)</td><td>B-roll për R1, R2, R5</td></tr>
+          <tr><td class="tnum">11:30</td><td>R3 Protokolli italian + B-roll i materialeve të testimit</td><td>Serxhio ose drejtuesi</td><td>1 Reel</td></tr>
+          <tr><td class="tnum">12:15</td><td>Loreta: R7 + 4 përgjigje 15 s për Stories + 2 hook-e rezervë</td><td>Loreta</td><td>1 Reel</td></tr>
+          <tr><td class="tnum">13:00</td><td>Pushim</td><td>—</td><td>—</td></tr>
+          <tr><td class="tnum">13:45</td><td>R5 Vizita e parë (POV me gimbal, nga dera te dhoma)</td><td>Recepsioni + Serxhio</td><td>1 Reel</td></tr>
+          <tr><td class="tnum">14:45</td><td>R6 Ekipi: 10 minuta për çdo specialist, e njëjta kornizë</td><td>4–6 specialistë</td><td>1 Reel</td></tr>
+          <tr><td class="tnum">15:45</td><td>Banka e Stories: 20 klipe vertikale (hyrja, tabela, mëngjesi, kafeja, materialet) + foto në hark për karuselet</td><td>Videografi</td><td>Material për 4 javë</td></tr>
+          <tr><td class="tnum">16:30</td><td>Mbyllja, backup në dy vende, emërtimi i skedarëve (R1_hook_v1…)</td><td>Videografi</td><td>—</td></tr>
+          <tr><td>Veçmas</td><td>R8 filmohet ditën e vlerësimit me stafin nga Roma, rreth 1 orë me telefon</td><td>Videografi</td><td>1 Reel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid-2">
+      <div class="card stack">
+        <p class="eyebrow">Para ditës së filmimit</p>
+        <ul class="clean small">
+          <li>Specialistët marrin skriptet 5 ditë më parë dhe i praktikojnë me zë.</li>
+          <li>Veshja: uniforma e klinikës ose ngjyra të plota neutrale. Pa vija të holla, pa logo të tjera.</li>
+          <li>Dhoma pastrohet nga kabllo, letra dhe dokumente me të dhëna pacientësh.</li>
+          <li>Asnjë pacient në klinikë gjatë orëve të filmimit, ose zona e filmimit e ndarë.</li>
+          <li>Elbasani filmohet një herë në tremujor, në një ditë të veçantë.</li>
+        </ul>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow">Raporti mujor · katër numrat nga auditimi</p>
+        <dl class="kv">
+          <dt>Rezervime</dt><dd>Nga Instagram, në muaj. Recepsioni pyet çdo pacient të ri “Si na gjetët?”</dd>
+          <dt>Kërkesa</dt><dd>DM + WhatsApp nga Instagram</dd>
+          <dt>Reach</dt><dd>Te jo-ndjekësit</dd>
+          <dt>Vlerësime</dt><dd>Të reja në Google/Facebook</dd>
+        </dl>
+        <p class="small muted">Diagnostikimi i përmbajtjes: mbajtja në 3 sekondat e para (hook-u), koha mesatare e shikimit, ruajtje dhe shpërndarje për 1000 reach. Objektivat vendosen pas muajit të parë, mbi pikën reale të nisjes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="ch" id="kalendari">
+  <div class="ch-head">
+    <span class="ch-num">10</span>
+    <h2>Kalendari 30-ditor</h2>
+    <p>Shembull për Nëntorin 2026. Nëse fillimi zhvendoset, zhvendoset i gjithë kalendari bashkë me harkun. Dy data reale e ankorojnë muajin: <b>20 Nëntori</b> (Dita Botërore e Fëmijëve) dhe <b>28–29 Nëntori</b> (festat kombëtare, ku nuk publikojmë asgjë promocionale).</p>
+  </div>
+
+  <div class="phase">
+    <div><b>Java 1 · Njih shenjat</b><span>Edukim. Prindi e njeh veten. Objektivi: reach dhe ruajtje.</span></div>
+    <div><b>Java 2 · Kush jemi</b><span>Protokolli italian dhe mitet. Objektivi: besim dhe shpërndarje.</span></div>
+    <div><b>Java 3 · Pa frikë</b><span>Vizita e parë dhe ekipi. Objektivi: ulja e pengesave.</span></div>
+    <div><b>Java 4 · Hapi i parë</b><span>Ditët italiane dhe rezervimi. Objektivi: kërkesa në WhatsApp.</span></div>
+  </div>
+
+  <div class="legend" style="margin-top:1.4rem"><span><i style="background:var(--b-cipresso)"></i>Reel</span><span><i style="background:var(--b-albicocca)"></i>Karusel</span><span><i style="background:var(--sky-soft);box-shadow:0 0 0 1px var(--line)"></i>Stories</span><span><i style="background:var(--accent-soft);box-shadow:0 0 0 1px var(--line)"></i>Datë e veçantë</span></div>
+  <div class="cal-wrap" style="margin-top:.7rem">
+    <div class="cal" aria-label="Kalendari i Nëntorit 2026">
+      <div class="h">E Hënë</div><div class="h">E Martë</div><div class="h">E Mërkurë</div><div class="h">E Enjte</div><div class="h">E Premte</div><div class="h">E Shtunë</div><div class="h">E Diel</div>
+      <div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div>
+      <div class="c"><span class="n">1</span><span class="ev s">Bio + highlights të reja</span></div>
+      <div class="c"><span class="n">2</span><span class="ev s">Pyetja e javës</span></div>
+      <div class="c"><span class="n">3</span><span class="ev r">R1 · 2 vjeç, dy fjalë</span><span class="ev s">Sondazh</span></div>
+      <div class="c"><span class="n">4</span><span class="ev s">Njihuni me Serxhion</span></div>
+      <div class="c"><span class="n">5</span><span class="ev s">Kuiz: moshat</span></div>
+      <div class="c"><span class="n">6</span><span class="ev r">R2 · 3 gjëra</span><span class="ev s">FAQ</span></div>
+      <div class="c"><span class="n">7</span><span class="ev s">Rezervimi</span></div>
+      <div class="c"><span class="n">8</span><span class="ev k">K1 · Fjalët sipas moshës</span></div>
+      <div class="c"><span class="n">9</span><span class="ev s">Pyetja e javës</span></div>
+      <div class="c"><span class="n">10</span><span class="ev r">R3 · Protokolli italian</span><span class="ev s">Sondazh</span></div>
+      <div class="c"><span class="n">11</span><span class="ev s">Prapaskenë: materialet</span></div>
+      <div class="c"><span class="n">12</span><span class="ev s">Kuiz: mit apo fakt</span></div>
+      <div class="c"><span class="n">13</span><span class="ev r">R4 · Mitet</span><span class="ev s">FAQ</span></div>
+      <div class="c"><span class="n">14</span><span class="ev s">Partneritetet</span></div>
+      <div class="c"><span class="n">15</span><span class="ev k">K2 · Kë të takoj?</span></div>
+      <div class="c"><span class="n">16</span><span class="ev s">Pyetja e javës</span></div>
+      <div class="c"><span class="n">17</span><span class="ev r">R5 · Vizita e parë</span><span class="ev s">Tur i klinikës</span></div>
+      <div class="c"><span class="n">18</span><span class="ev s">Njihuni me Loretën</span></div>
+      <div class="c"><span class="n">19</span><span class="ev s">Kuiz: specialistët</span></div>
+      <div class="c"><span class="n">20</span><span class="ev f">Dita e Fëmijëve</span><span class="ev r">R6 · Ekipi</span></div>
+      <div class="c"><span class="n">21</span><span class="ev s">Vlerësime Google</span></div>
+      <div class="c"><span class="n">22</span><span class="ev k">K3 · Vizita e parë</span></div>
+      <div class="c"><span class="n">23</span><span class="ev s">Pyetje për Loretën</span></div>
+      <div class="c"><span class="n">24</span><span class="ev r">R7 · Tantrumet</span><span class="ev s">Sondazh</span></div>
+      <div class="c"><span class="n">25</span><span class="ev s">Numërim: dita italiane</span></div>
+      <div class="c"><span class="n">26</span><span class="ev s">Kuiz: protokolli</span></div>
+      <div class="c"><span class="n">27</span><span class="ev r">R8 · Roma në Tiranë</span><span class="ev s">Data + rezervimi</span></div>
+      <div class="c"><span class="n">28</span><span class="ev f">Dita e Flamurit</span><span class="ev s">1 kornizë urimi</span></div>
+      <div class="c"><span class="n">29</span><span class="ev f">Dita e Çlirimit</span><span class="ev s">Pushim</span></div>
+      <div class="c"><span class="n">30</span><span class="ev k">K4 · 5 pyetje</span><span class="ev s">Rezervimi</span></div>
+      <div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div><div class="c x"></div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3>Detajet e çdo postimi</h3>
+    <div class="tw">
+      <table class="wide">
+        <thead><tr><th>Data</th><th>Formati</th><th>Tema</th><th>Shtylla</th><th>Objektivi</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td class="tnum">Di 1 Nën</td><td>Profili</td><td>Bio e re, 7 highlights, emri dhe numri i unifikuar</td><td>—</td><td>Gati për trafik</td><td>Link WhatsApp në bio</td></tr>
+          <tr><td class="tnum">Ma 3 Nën</td><td>Reel</td><td>R1 · 2 vjeç dhe nuk bashkon dy fjalë</td><td>Edukim</td><td>Reach te jo-ndjekësit</td><td>UDHËZUES / WhatsApp + Ruaje</td></tr>
+          <tr><td class="tnum">Pr 6 Nën</td><td>Reel</td><td>R2 · 3 gjëra me qëllim të mirë</td><td>Edukim</td><td>Ruajtje, shpërndarje</td><td>Dërgoja dikujt</td></tr>
+          <tr><td class="tnum">Di 8 Nën</td><td>Karusel</td><td>K1 · Fjalët e para sipas moshës</td><td>Edukim</td><td>Ruajtje</td><td>Ruaje + WhatsApp</td></tr>
+          <tr><td>Java 1</td><td>Stories</td><td>Kutia “Çfarë ju shqetëson?”, sondazh R1, Serxhio në Stories, kuiz moshash, rezervimi</td><td>Edukim, Specialistët</td><td>Pyetje për Reels e ardhshme</td><td>Question box, WhatsApp</td></tr>
+          <tr><td class="tnum">Ma 10 Nën</td><td>Reel</td><td>R3 · Çfarë është protokolli italian</td><td>Lidhja italiane</td><td>Diferencim</td><td>Highlight “Don Orione”</td></tr>
+          <tr><td class="tnum">Pr 13 Nën</td><td>Reel</td><td>R4 · Tre gjëra që ju thonë të afërmit</td><td>Edukim</td><td>Shpërndarje</td><td>Dërgoja atij që ta tha</td></tr>
+          <tr><td class="tnum">Di 15 Nën</td><td>Karusel</td><td>K2 · Logoped, psikolog apo neuropediatër?</td><td>Vizita e parë</td><td>Kërkesa në DM</td><td>Na shkruaj moshën dhe shqetësimin</td></tr>
+          <tr><td>Java 2</td><td>Stories</td><td>Prapaskenë nga materialet italiane, kuiz mit/fakt, partneritetet (kopshtet, Bashkia, FF Elbasan)</td><td>Lidhja italiane, Dëshmi</td><td>Besim</td><td>Link te R3</td></tr>
+          <tr><td class="tnum">Ma 17 Nën</td><td>Reel</td><td>R5 · Vizita e parë, nga lartësia e fëmijës</td><td>Vizita e parë</td><td>Ulja e frikës</td><td>Rezervo në WhatsApp</td></tr>
+          <tr><td class="tnum">Pr 20 Nën</td><td>Reel</td><td>R6 · Një pyetje, 6 specialistë (Dita e Fëmijëve)</td><td>Specialistët</td><td>Lidhje njerëzore</td><td>Na ndiq</td></tr>
+          <tr><td class="tnum">Di 22 Nën</td><td>Karusel</td><td>K3 · Vizita e parë, hap pas hapi (pin në profil)</td><td>Vizita e parë</td><td>Konvertim</td><td>Rezervo në WhatsApp</td></tr>
+          <tr><td>Java 3</td><td>Stories</td><td>Tur i klinikës, Loreta në Stories, kuiz specialistësh, vlerësimet e para Google</td><td>Vizita e parë, Dëshmi</td><td>Kërkesa</td><td>WhatsApp</td></tr>
+          <tr><td class="tnum">Ma 24 Nën</td><td>Reel</td><td>R7 · Tantrumet çdo ditë</td><td>Specialistët</td><td>Komente, reach</td><td>Bëj një pyetje</td></tr>
+          <tr><td class="tnum">Pr 27 Nën</td><td>Reel</td><td>R8 · Një ditë me specialistët nga Roma</td><td>Lidhja italiane</td><td>Rezervime</td><td>Rezervo për [data]</td></tr>
+          <tr><td class="tnum">Hë 30 Nën</td><td>Karusel</td><td>K4 · 5 pyetje për çdo klinikë</td><td>Specialistët</td><td>Ruajtje, diferencim</td><td>Na shkruaj në WhatsApp</td></tr>
+          <tr><td>Java 4</td><td>Stories</td><td>Numërim për ditën e vlerësimit, pyetje për Loretën, 28–29 Nëntor vetëm urime, rezervimi</td><td>Lidhja italiane, Vizita e parë</td><td>Rezervime</td><td>Link WhatsApp</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="ch" id="kontrolli">
+  <div class="ch-head">
+    <span class="ch-num">11</span>
+    <h2>Kontrolli i cilësisë</h2>
+    <p>Kalojeni për çdo postim para miratimit final. Një “jo” te seksioni “Shëndeti” e ndalon publikimin. Shenjat ruhen vetëm në këtë shfletues.</p>
+  </div>
+  <div class="qc-bar"><span class="small"><b id="qcCount" class="tnum">0</b> nga <span id="qcTotal" class="tnum">0</span> pika</span><div class="prog"><i id="qcProg"></i></div><button class="btn" id="qcReset" type="button">Pastro për postimin tjetër</button></div>
+  <form class="qc" id="qc" style="margin-top:1rem" onsubmit="return false">
+    <fieldset><legend>Brandi</legend>
+      <label><input type="checkbox" id="q1"><span>Duket si Umano Felice edhe pa logo (ngjyrat e shtyllës, Bodoni, harku).</span></label>
+      <label><input type="checkbox" id="q2"><span>Ngjyrat janë nga paleta. Albicocca zë maksimumi 10%.</span></label>
+      <label><input type="checkbox" id="q3"><span>Fontet janë vetëm Bodoni Moda, Plus Jakarta Sans, Montserrat (titra).</span></label>
+      <label><input type="checkbox" id="q4"><span>Emri, numri dhe adresa janë në versionin zyrtar të unifikuar.</span></label>
+      <label><input type="checkbox" id="q5"><span>Zëri: i qetë, i qartë, pa anglicizma, me ë dhe ç të sakta.</span></label>
+    </fieldset>
+    <fieldset><legend>Përmbajtja</legend>
+      <label><input type="checkbox" id="q6"><span>Hook-u përmend prindin ose fëmijën në 1,5 sekondat e para.</span></label>
+      <label><input type="checkbox" id="q7"><span>Prindi mëson diçka që mund ta përdorë sot.</span></label>
+      <label><input type="checkbox" id="q8"><span>Një postim = një ide. Mund ta përmbledh në një fjali.</span></label>
+      <label><input type="checkbox" id="q9"><span>Postimi i shërben një shtylle dhe një objektivi të vetëm.</span></label>
+    </fieldset>
+    <fieldset><legend>Shëndeti dhe etika</legend>
+      <label><input type="checkbox" id="q10"><span>Specialisti përkatës e ka miratuar me shkrim përmbajtjen mjekësore.</span></label>
+      <label><input type="checkbox" id="q11"><span>Asnjë premtim rezultati apo afati (“flet brenda 1 muaji”, “shërojmë”).</span></label>
+      <label><input type="checkbox" id="q12"><span>Asnjë fytyrë fëmije pa pëlqim me shkrim. Asnjë emër, diagnozë apo detaj identifikues.</span></label>
+      <label><input type="checkbox" id="q13"><span>Dëshmitë kanë pëlqim me shkrim dhe nuk paraqesin një rast si rezultat të garantuar.</span></label>
+      <label><input type="checkbox" id="q14"><span>Pa “para/pas” vizuale të fëmijëve.</span></label>
+      <label><input type="checkbox" id="q15"><span>Disclaimer-i “Çdo fëmijë është ndryshe…” është në video ose në caption.</span></label>
+      <label><input type="checkbox" id="q16"><span>Burimi përmendet kur japim mosha, shifra apo kërkime.</span></label>
+    </fieldset>
+    <fieldset><legend>Konvertimi</legend>
+      <label><input type="checkbox" id="q17"><span>Ka një hap të vetëm të qartë në fund.</span></label>
+      <label><input type="checkbox" id="q18"><span>CTA-ja përputhet me objektivin (edukim → ruaj/shpërndaj, vizita e parë → WhatsApp).</span></label>
+      <label><input type="checkbox" id="q19"><span>Link-u WhatsApp në bio funksionon dhe recepsioni e di që po vjen trafik.</span></label>
+    </fieldset>
+    <fieldset><legend>Instagram</legend>
+      <label><input type="checkbox" id="q20"><span>Teksti lexohet në telefon me shkëlqim të ulët (minimumi 42 px në 1080).</span></label>
+      <label><input type="checkbox" id="q21"><span>Korniza e parë e Reel-it ka tekst dhe lëvizje, jo logo.</span></label>
+      <label><input type="checkbox" id="q22"><span>Kopertina lexohet brenda prerjes 3:4 të grid-it.</span></label>
+      <label><input type="checkbox" id="q23"><span>Teksti nuk mbulohet nga butonat e Instagram-it (zonat e sigurta).</span></label>
+      <label><input type="checkbox" id="q24"><span>Karuseli ka numër slide-i dhe një arsye për të kaluar te slide-i tjetër.</span></label>
+      <label><input type="checkbox" id="q25"><span>Titrat janë pa gabime drejtshkrimore.</span></label>
+    </fieldset>
+  </form>
+</section>
+
+<!-- 12 -->
+<section class="ch" id="doDont">
+  <div class="ch-head">
+    <span class="ch-num">12</span>
+    <h2>Do / Don't</h2>
+    <p>Kur ka dyshim, ky tabelë vendos.</p>
+  </div>
+  <div class="tw">
+    <table class="wide dd">
+      <thead><tr><th style="width:16%">Fusha</th><th>DO</th><th>DON'T</th></tr></thead>
+      <tbody>
+        <tr><td>Gjuha</td><td>Shqip i thjeshtë, “ju”, fjali të shkurtra. Terminologji e shpjeguar menjëherë. Italishtja vetëm si element brandi.</td><td>Anglicizma (“book now”, “DM”), zhargon klinik pa shpjegim, shenja pikësimi të shumëfishta, CAPS LOCK.</td></tr>
+        <tr><td>Vizualet</td><td>Foto reale të klinikës, dritë natyrale, harku, ngjyra sipas shtyllës, duar dhe lodra.</td><td>Foto stock me mjekë që buzëqeshin, stetoskopë si dekor, imazhe truri 3D, clipart fëminor.</td></tr>
+        <tr><td>Stilet e përmbajtjes</td><td>Specialisti në kamerë, pyetje reale, prapaskenë, shenja sipas moshës.</td><td>Grafika me tekst të gjatë, “Gëzuar Ditën e…” për çdo festë, postime vetëm me listën e shërbimeve.</td></tr>
+        <tr><td>Mesazhi</td><td>Fakte të provueshme: Don Orione, protokolli, 1200+, emrat e specialistëve. Proces, jo garanci.</td><td>“Profesionalizëm, cilësi, përkushtim.” Mbiemra pa prova. Krahasime me klinika të tjera me emër.</td></tr>
+        <tr><td>Pretendimet</td><td>“Mund të ndihmojë”, “ia vlen një vlerësim”, “çdo fëmijë është ndryshe”.</td><td>“Shërojmë autizmin”, “flet brenda 1 muaji”, “rezultate të garantuara”, “metoda nr. 1 në Shqipëri”.</td></tr>
+        <tr><td>CTA</td><td>Një veprim i qartë, i butë dhe i përshtatur me objektivin. WhatsApp për rezervime.</td><td>Urgjencë e rreme (“vetëm sot!”, “mos humbni kohë”), tre CTA në një postim, kërkesë rezervimi në çdo postim edukativ.</td></tr>
+        <tr><td>Humori</td><td>I ngrohtë, për situata të përditshme të prindit dhe të stafit (kafeja, lodrat kudo).</td><td>Humor për diagnoza, për sjelljen e një fëmije konkret, ose për prindërit.</td></tr>
+        <tr><td>Trendet</td><td>Maksimumi 1 në muaj, i përshtatur me një mesazh të vlefshëm.</td><td>Vallëzime në uniformë, audio me tekst të papërshtatshëm, trende pa lidhje me prindërit.</td></tr>
+        <tr><td>Stilet e dizajnit</td><td>Shumë hapësirë bosh, tekst majtas, hierarki e qartë, një theks për kornizë.</td><td>Gradiente vjollcë/blu, neon, 5 ngjyra në një slide, tekst i qendërzuar në paragrafë, korniza dhe hije kudo.</td></tr>
+        <tr><td>Klishetë e marketingut</td><td>Fjalia konkrete: “Teste të njëjta me ato në Romë.”</td><td>“Shëndeti juaj është prioriteti ynë”, “Ne kujdesemi për ju”, “Ekipi më i mirë”, “A e dinit që…?”</td></tr>
+        <tr><td>Formatet</td><td>Reels 30–60 s me titra, karusele 7-slide, Stories ndërvepruese.</td><td>Reels pa titra, video horizontale, slideshow me foto dhe muzikë, flyer të printuar të hedhur në Instagram.</td></tr>
+        <tr><td>Sjelljet</td><td>Përgjigje brenda 1 ore në orar pune. Pyetjet personale në privat. Faleminderit për çdo vlerësim.</td><td>Diagnozë në komente, fshirje e kritikave, debat publik, publikim i mesazheve pa leje, blerje ndjekësish.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="ch" id="cheatsheet">
+  <div class="ch-head">
+    <span class="ch-num">13</span>
+    <h2>Cheat sheet</h2>
+    <p>Mbajeni hapur ndërsa punoni.</p>
+  </div>
+  <div class="cheat">
+    <div><h4>Brandi</h4><p>Umano Felice – Klinika Italiane. Klinika italiane për zhvillimin e fëmijës. Tiranë &amp; Elbasan, partner i Don Orione, Romë.</p></div>
+    <div><h4>Audienca</h4><p>Nëna 25–45 vjeç me fëmijë 1,5–8 vjeç dhe një shqetësim: të folurit, vëmendja, sjellja, lëvizja. Kërkon natën, i duhet besim para mesazhit të parë.</p></div>
+    <div><h4>Pozicionimi</h4><p>Vlerësim sipas protokollit italian, me specialistë me emër dhe fytyrë, pa udhëtuar në Itali. Fakte, jo mbiemra.</p></div>
+    <div><h4>Zëri</h4><p>Specialisti i qetë në karrigen e vogël pranë prindit. I ngrohtë, i qartë, i saktë. Proces, jo garanci. Pa anglicizma.</p></div>
+    <div><h4>Ngjyrat</h4>
+      <div class="dots">
+        <span><i style="background:#23463F"></i>#23463F</span><span><i style="background:#A9BFAE"></i>#A9BFAE</span><span><i style="background:#C9DCE6"></i>#C9DCE6</span><span><i style="background:#F29E6D"></i>#F29E6D</span><span><i style="background:#FCE6D8"></i>#FCE6D8</span><span><i style="background:#F4F5F1"></i>#F4F5F1</span><span><i style="background:#1B2623"></i>#1B2623</span><span><i style="background:#5C6B66"></i>#5C6B66</span>
+      </div></div>
+    <div><h4>Fontet</h4><p>Tituj: Bodoni Moda (italic për theksin) · Trupi dhe CTA: Plus Jakarta Sans · Titrat: Montserrat ExtraBold</p></div>
+    <div><h4>Shtyllat</h4><ul><li>Edukim 35%</li><li>Specialistët 25%</li><li>Lidhja italiane 15%</li><li>Vizita e parë &amp; shërbimet 15%</li><li>Dëshmi 10%</li></ul></div>
+    <div><h4>Reels</h4><ul><li>Specialisti përgjigjet</li><li>Mit apo fakt</li><li>Pyetja e prindit</li><li>Si duket një seancë</li><li>Ditët italiane</li><li>Ekipi</li></ul></div>
+    <div><h4>Karusele &amp; Stories</h4><ul><li>Shenja sipas moshës · Kë të takoj · Hap pas hapi · Pyetje për çdo klinikë</li><li>Stories: pyetja e javës, Reel + sondazh, prapaskenë, kuiz, FAQ, rezervimi</li></ul></div>
+    <div><h4>Do</h4><ul><li>Specialist në kamerë + titra</li><li>Fakte të provueshme</li><li>Një ide, një CTA</li><li>Duar, jo fytyra fëmijësh</li><li>Miratim mjekësor me shkrim</li></ul></div>
+    <div><h4>Don't</h4><ul><li>Premtime rezultatesh</li><li>Foto stock</li><li>Urgjencë e rreme</li><li>Diagnozë në komente</li><li>“Profesionalizëm dhe përkushtim”</li></ul></div>
+    <div><h4>Ritmi</h4><p>Reels: E Martë &amp; E Premte 20:30 · Karusele: E Diel 20:00 · Stories 6 ditë/javë · 1 ditë filmimi në muaj</p></div>
+    <div class="wide"><h4>Mesazhi kryesor</h4><p>Standardi italian i vlerësimit të fëmijës, tani në Tiranë dhe Elbasan.</p></div>
+    <div class="wide" style="border-top:0;padding-top:0"><h4>Qëllimi i përmbajtjes</h4><p>Që një prind i shqetësuar të kalojë nga “a po e teproj?” te një mesazh në WhatsApp, sepse na njeh dhe na beson para se të na takojë.</p></div>
+  </div>
+
+  <footer class="end"><span>Umano Felice · Brand Guideline &amp; Content Playbook v1.0 · Rritje Sade, Tetor 2026</span><a href="#top">Kthehu në fillim ↑</a></footer>
+</section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  // copy buttons
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-copy]'); if(!b) return;
+    var t=b.getAttribute('data-copy');
+    var ok=function(){b.classList.add('done');var o=b.getAttribute('aria-label');b.setAttribute('aria-label','U kopjua');setTimeout(function(){b.classList.remove('done');if(o)b.setAttribute('aria-label',o);else b.removeAttribute('aria-label');},1200)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(b);var s=getSelection();s.removeAllRanges();s.addRange(r)};
+    try{navigator.clipboard.writeText(t).then(ok,fallback)}catch(err){fallback()}
+  });
+  // QC checklist
+  var KEY='uf-qc-v1', boxes=[].slice.call(document.querySelectorAll('#qc input[type=checkbox]'));
+  var cnt=document.getElementById('qcCount'), tot=document.getElementById('qcTotal'), pr=document.getElementById('qcProg');
+  tot.textContent=boxes.length;
+  var state={}; try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  boxes.forEach(function(b){ if(state[b.id]) b.checked=true; });
+  function upd(){var n=boxes.filter(function(b){return b.checked}).length;cnt.textContent=n;pr.style.width=(n/boxes.length*100)+'%';
+    var s={};boxes.forEach(function(b){if(b.checked)s[b.id]=1});try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
+  boxes.forEach(function(b){b.addEventListener('change',upd)}); upd();
+  document.getElementById('qcReset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false});upd()});
+  // TOC highlight
+  var links=[].slice.call(document.querySelectorAll('.toc a')), map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.remove('on')});var a=map[en.target.id];if(a)a.classList.add('on')}})},{rootMargin:'-20% 0px -70% 0px'});
+    document.querySelectorAll('section.ch').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
