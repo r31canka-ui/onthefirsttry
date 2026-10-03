@@ -17,7 +17,25 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 RAW = f"{ROOT}/raw.mp4"
-VAD = json.load(open(f"{ROOT}/asr/raw.vad.json"))
+
+def speech_runs(thr=-40.0, hop=0.02, min_gap=0.12):
+    """Speech regions from 20 ms energy; quiet gaps shorter than min_gap are bridged."""
+    import soundfile as sf
+    x, sr = sf.read(f"{ROOT}/asr/raw16.wav")
+    h = int(hop * sr); n = len(x) // h
+    db = 20 * np.log10(np.sqrt((x[:n * h].reshape(n, h) ** 2).mean(1)) + 1e-9)
+    sp = db >= thr
+    runs, i = [], 0
+    while i < n:
+        if sp[i]:
+            j = i
+            while j < n and sp[j]: j += 1
+            if runs and (i - runs[-1][1]) * hop < min_gap: runs[-1][1] = j
+            else: runs.append([i, j])
+            i = j
+        else: i += 1
+    return [[a * hop, b * hop] for a, b in runs if (b - a) * hop >= 0.06]
+VAD = speech_runs()
 OUT_W, OUT_H, FPS = 1080, 1920, 30
 SRC_W, SRC_H, SRC_FPS = 480, 854, 24
 
@@ -26,33 +44,33 @@ SRC_W, SRC_H, SRC_FPS = 480, 854, 24
 #    "sec": starts a new section -> whoosh + zoom-blur whip transition
 #    "pill": show the Instagram follow pill at that caption word index
 # ----------------------------------------------------------------------------
-EDL = [
-    dict(a=0.88, b=5.10, sec=True, impact=True,
+EDL = [   # edges sit on measured quiet points (never inside a word)
+    dict(a=0.86, b=5.50, sec=True, impact=True,
          text="Do ju listoj 10 arsye se përse ia vlen të merrni pjesë në grupet e dobësimit me Ledjanën.",
          pill="Ledjanën."),
-    dict(a=5.70, b=11.90, sec=True,
+    dict(a=5.70, b=11.86, sec=True,
          text="E para është eksperienca. Unë kam mbi 6 vite që bëj trajnime online, dhe këtë vit bëj 5 vite me grupe dobësimi."),
-    dict(a=12.14, b=14.72, sec=True, ding="8",
+    dict(a=12.10, b=14.76, sec=True, ding="8", punch=True,
          text="E dyta, humbisni deri në 8 kilogramë brenda muajit."),
-    dict(a=17.58, b=24.56, sec=True,
+    dict(a=17.55, b=24.50, sec=True,
          text="E treta, në grup ju paguani 50% më lirë. Pra çmimet e grupeve janë ekstremisht super ekonomike."),
-    dict(a=34.80, b=40.56, sec=True,
+    dict(a=34.78, b=40.54, sec=True,
          text="Gjithashtu, grupi ndiqet vetëm nga unë, nuk ka staf për trajnimet, por gjithçka e nis dhe e përfundoj vetë."),
-    dict(a=42.92, b=47.96, sec=True,
+    dict(a=42.84, b=48.02, sec=True,
          text="Grupi përbëhet nga një numër i limituar vajzash dhe grash, që të kem mundësi t'i ndjek të gjitha mesazhet."),
-    dict(a=51.90, b=57.19, sec=True,
+    dict(a=51.88, b=57.22, sec=True,
          text="Grupi ka llogaridhënie: çdo ditë ju më dërgoni vaktet me foto, edhe hapat tuaj ditorë."),
-    dict(a=75.39, b=81.60, sec=True,
+    dict(a=75.36, b=82.00, sec=True,
          text="Grupi përfshin seanca stërvitore që mund t'i kryeni në shtëpi ose në palestër, me video të regjistruara, në çdo shtet të botës."),
-    dict(a=113.34, b=121.54, sec=True,
+    dict(a=113.34, b=121.56, sec=True,
          text="Ekziston vetëm një problem me grupet tona të dobësimit: ju vini vetëm për një qëllim, dhe dilni akoma më mirë se sa e kishit menduar."),
-    dict(a=121.57, b=127.50, sec=False, final=True,
-         text="Brenda një muaji do ta shihni që grupet tona të dobësimit funksionojnë, dhe do doni të bëheni pjesë e jona përjetë.",
-         pill="përjetë."),
+    dict(a=121.56, b=125.40, sec=False, final=True,
+         text="Brenda më pak se një muaj do ta shihni që grupet tona të dobësimit funksionojnë.",
+         pill="funksionojnë."),
 ]
 
-GAP_KEEP = 0.07      # padding kept on each side of a removed pause
-GAP_MIN = 0.22       # pauses longer than this are cut
+GAP_KEEP = 0.10      # padding kept on each side of a removed pause
+GAP_MIN = 0.30       # only real pauses longer than this are cut
 
 # ----------------------------------------------------------------------------
 # 2. Build clips (src in/out) and word timings
@@ -83,8 +101,8 @@ for ri, r in enumerate(EDL):
             pieces[-1][1] = e
         else:
             pieces.append([s, e])
-    pieces[0][0] = max(r["a"], pieces[0][0] - GAP_KEEP)
-    pieces[-1][1] = min(r["b"], pieces[-1][1] + GAP_KEEP)
+    pieces[0][0] = r["a"]
+    pieces[-1][1] = r["b"]
     for p in pieces[1:]:
         p[0] -= GAP_KEEP
     for p in pieces[:-1]:
@@ -122,36 +140,18 @@ for ri, r in enumerate(EDL):
 TOTAL = t_out
 print(f"total {TOTAL:.2f}s, {len(clips)} clips")
 
-# zoom plan: split long clips into framing beats (no source jump), then
-# alternate wide / punch-in on every cut or beat, like the references
-ZW, ZT = 1.18, 1.55          # wide / tight
+# zoom plan (matches the references): one steady chest-up framing, a subtle
+# ~6% framing shift on each real jump cut, a clear punch-in only on the
+# results line, and a slow push-in on the closing line.
+ZB, ZJ, ZP = 1.22, 1.30, 1.45
 FACE_Y = 380                 # face centre in source px
-SENT_BREAKS = [w["e"] for w in words if re.search(r"[.,:]$", w["w"])]
-beats = []
-for c in clips:
-    dur = c["b"] - c["a"]
-    cuts = [c["t"]]
-    if dur > 3.0:
-        cands = [x for x in SENT_BREAKS + [w["s"] for w in words] if c["t"] + 1.2 < x < c["t"] + dur - 1.2]
-        n = int(dur // 2.6)
-        for k in range(1, n + 1):
-            target = c["t"] + dur * k / (n + 1)
-            if cands:
-                best = min(cands, key=lambda x: abs(x - target) - (0.4 if x in SENT_BREAKS else 0))
-                if all(abs(best - y) > 1.0 for y in cuts):
-                    cuts.append(best)
-    cuts.sort()
-    for j, ct in enumerate(cuts):
-        end = cuts[j + 1] if j + 1 < len(cuts) else c["t"] + dur
-        beats.append(dict(c, a=c["a"] + (ct - c["t"]), b=c["a"] + (end - c["t"]), t=ct, first=c["first"] and j == 0))
-clips = beats
 for i, c in enumerate(clips):
-    c["z"] = ZW if i % 2 == 0 else ZT
+    c["z"] = ZB if i % 2 == 0 else ZJ
     c["push"] = 0.0
-for c in clips:
-    if EDL[c["r"]].get("ding") or EDL[c["r"]].get("final"):
-        c["push"] = 0.06
-print(len(clips), "beats")
+    if EDL[c["r"]].get("punch"):
+        c["z"] = ZP
+    if EDL[c["r"]].get("final"):
+        c["z"], c["push"] = ZB, 0.08
 
 # ----------------------------------------------------------------------------
 # 3. Captions (ASS)
@@ -209,7 +209,7 @@ for r_i, r in enumerate(EDL):
     if r.get("pill"):
         w = [x for x in words if x["r"] == r_i and x["w"] == r["pill"]][0]
         sec_end = sections[r_i + 1] if r_i + 1 < len(sections) else TOTAL
-        pills.append((w["s"], min(sec_end - 0.05, w["s"] + 1.6)))
+        pills.append((w["s"], min(sec_end + 0.5, w["s"] + 1.4, TOTAL - 0.05)))
 
 # ----------------------------------------------------------------------------
 # 4. Video render
@@ -229,7 +229,7 @@ if not ONLY_AUDIO:
         W, H = 300 * s, 84 * s
         im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle([0, 0, W - 1, H - 1], radius=H // 2, fill=(255, 255, 255, 245))
+        d.rounded_rectangle([0, 0, W - 1, H - 1], radius=H // 2, fill=(236, 236, 236, 205))
         # gradient app-icon square
         ic = 60 * s
         grad = Image.new("RGBA", (ic, ic))
@@ -255,7 +255,7 @@ if not ONLY_AUDIO:
         sh.paste((0, 0, 0, 90), (20, 26), im.split()[3])
         sh = sh.filter(ImageFilter.GaussianBlur(10))
         sh.alpha_composite(im, (20, 20))
-        return sh.resize((int(sh.width * 1.35), int(sh.height * 1.35)), Image.LANCZOS)
+        return sh.resize((int(sh.width * 1.8), int(sh.height * 1.8)), Image.LANCZOS)
 
     PILL = make_pill()
 
@@ -268,7 +268,7 @@ if not ONLY_AUDIO:
     def ease_out(x):
         return 1 - (1 - x) ** 3
 
-    WHIP = 0.22   # seconds of zoom-blur at a section start
+    INTRO = 0.5   # seconds of the opening zoom
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
                             "-s", f"{OUT_W}x{OUT_H}", "-r", str(FPS), "-i", "-",
                             "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
@@ -286,11 +286,11 @@ if not ONLY_AUDIO:
         img = Image.fromarray(FR[fi])
         dur = c["b"] - c["a"]
         z = c["z"] * (1 + c["push"] * min(1, lt / max(dur, 0.01)))
-        sec_start = c["first"] and (EDL[c["r"]].get("sec"))
-        if sec_start and lt < WHIP:
-            k = ease_out(lt / WHIP)
-            zz = z * (1.45 - 0.45 * k)
-            samples = [crop_zoom(img, zz * (1 + 0.05 * j * (1 - k)), FACE_Y) for j in range(4)]
+        if t < INTRO:   # opening zoom-out, as in reference 1 (only at the very start)
+            k = ease_out(t / INTRO)
+            zz = z * (1.5 - 0.5 * k)
+            blur = max(0.0, 1 - t / 0.2)
+            samples = [crop_zoom(img, zz * (1 + 0.04 * j * blur), FACE_Y) for j in range(4)]
             arr = np.mean([np.asarray(s, dtype=np.float32) for s in samples], axis=0)
             out = Image.fromarray(arr.astype(np.uint8))
         else:
@@ -304,7 +304,7 @@ if not ONLY_AUDIO:
                 if sc > 0.02:
                     p = PILL.resize((max(1, int(PILL.width * sc)), max(1, int(PILL.height * sc))), Image.LANCZOS)
                     o = out.convert("RGBA")
-                    o.alpha_composite(p, (OUT_W // 2 - p.width // 2, int(OUT_H * 0.585) - p.height // 2))
+                    o.alpha_composite(p, (OUT_W // 2 - p.width // 2, int(OUT_H * 0.62) - p.height // 2))
                     out = o.convert("RGB")
         enc.stdin.write(out.tobytes())
     enc.stdin.close(); enc.wait()
@@ -312,66 +312,67 @@ if not ONLY_AUDIO:
 
 # ----------------------------------------------------------------------------
 # 5. Audio
+#    Two passes with static gain. (loudnorm inside a split/sidechain graph
+#    swallowed its last 3 s look-ahead buffer -> voice missing at the end.)
 # ----------------------------------------------------------------------------
 SFX = f"{ROOT}/sfx"
-inputs = ["-i", RAW]
-fc = []
-vlabels = []
-XF = 0.012
-aclips = []  # merge framing-only beats back into continuous audio
-for c in clips:
-    if aclips and abs(aclips[-1]["b"] - c["a"]) < 1e-6:
-        aclips[-1] = dict(aclips[-1], b=c["b"])
-    else:
-        aclips.append(dict(c))
-for i, c in enumerate(aclips):
+XF = 0.02
+
+def ff(*args):
+    subprocess.run(["ffmpeg", "-v", "error", "-y", *args], check=True)
+
+def lufs(path):
+    r = subprocess.run(["ffmpeg", "-i", path, "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True).stderr
+    return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r)[-1])
+
+# pass 1: voice only
+fc, vl = [], ""
+for i, c in enumerate(clips):
     d = c["b"] - c["a"]
     fc.append(f"[0:a]atrim={c['a']:.3f}:{c['b']:.3f},asetpts=PTS-STARTPTS,aresample=44100,"
               f"afade=t=in:d={XF}:curve=tri,afade=t=out:st={d - XF:.3f}:d={XF}:curve=tri[v{i}]")
-    vlabels.append(f"[v{i}]")
-fc.append("".join(vlabels) + f"concat=n={len(aclips)}:v=0:a=1,"
+    vl += f"[v{i}]"
+fc.append(vl + f"concat=n={len(clips)}:v=0:a=1,"
           "highpass=f=80,equalizer=f=3000:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1:g=-1.5,"
-          "acompressor=threshold=-22dB:ratio=3:attack=8:release=120:makeup=4,"
-          "loudnorm=I=-11:TP=-1.5:LRA=7[voice]")
+          "acompressor=threshold=-22dB:ratio=3:attack=8:release=120:makeup=4[o]")
+ff("-i", RAW, "-filter_complex", ";".join(fc), "-map", "[o]", "-c:a", "pcm_f32le", f"{HERE}/voice_raw.wav")
+g = -12.0 - lufs(f"{HERE}/voice_raw.wav")
+ff("-i", f"{HERE}/voice_raw.wav", "-af", f"volume={g:.2f}dB", "-c:a", "pcm_f32le", f"{HERE}/voice.wav")
 
+# SFX events
 sfx_events = []  # (file, time, gain_db)
 for ri, s in enumerate(sections):
     r = EDL[ri]
     if r.get("impact"):
-        sfx_events.append(("impact.wav", 0.0, -9))
-        sfx_events.append(("whoosh.wav", 0.0, -14))
+        sfx_events.append(("impact.wav", 0.0, -13))
+        sfx_events.append(("whoosh.wav", 0.0, -18))
     elif r.get("sec"):
-        sfx_events.append(("whoosh.wav", max(0, s - 0.24), -13))
+        sfx_events.append(("whoosh.wav", max(0, s - 0.26), -20))
 for ri, r in enumerate(EDL):
     if r.get("ding"):
         w = [x for x in words if x["r"] == ri and x["w"] == r["ding"]][0]
         sfx_events.append(("ding.wav", w["s"], -20))
 for ps, pe in pills:
     sfx_events.append(("pop.wav", ps, -12))
-    sfx_events.append(("pop.wav", pe - 0.12, -20))
-sfx_events.append(("whoosh_short.wav", TOTAL - 0.35, -16))
-# subtle pop on the non-section punch-ins (every 3rd cut) like the reference tick sounds
-for i, c in enumerate(clips):
-    if not c["first"] and i % 3 == 0:
-        sfx_events.append(("whoosh_short.wav", max(0, c["t"] - 0.12), -24))
 
-slabels = []
-for j, (f, t, g) in enumerate(sfx_events):
+# pass 2: mix (voice + ducked music + sfx), then static gain + limiter
+inputs = ["-i", f"{HERE}/voice.wav"]
+fc, sl = [], ""
+for j, (f, t, gdb) in enumerate(sfx_events):
     inputs += ["-i", f"{SFX}/{f}"]
-    k = j + 1
-    fc.append(f"[{k}:a]aresample=44100,volume={g}dB,adelay={int(t * 1000)}|{int(t * 1000)},apad=whole_dur={TOTAL:.3f}[s{j}]")
-    slabels.append(f"[s{j}]")
+    fc.append(f"[{j + 1}:a]aresample=44100,volume={gdb}dB,adelay={int(t * 1000)}|{int(t * 1000)},apad=whole_dur={TOTAL:.3f}[s{j}]")
+    sl += f"[s{j}]"
 mi = len(sfx_events) + 1
 inputs += ["-i", f"{SFX}/music.wav"]
-fc.append(f"[{mi}:a]atrim=0:{TOTAL + 0.5:.2f},volume=-27dB,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.2:.2f}:d=1.2[mus]")
-fc.append(f"[voice]asplit=2[vo][vsc]")
-fc.append(f"[vsc]apad=whole_dur={TOTAL:.3f}[vsc2];[mus][vsc2]sidechaincompress=threshold=0.05:ratio=3:attack=30:release=350[musd]")
-fc.append("[vo][musd]" + "".join(slabels) +
-          f"amix=inputs={2 + len(slabels)}:normalize=0:duration=longest,"
-          f"loudnorm=I=-9.5:TP=-1.0:LRA=8,atrim=0:{TOTAL:.3f}[aout]")
+fc.append(f"[{mi}:a]atrim=0:{TOTAL:.3f},volume=-27dB,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.0:.2f}:d=1.0[mus]")
+fc.append(f"[0:a]aformat=sample_rates=44100:channel_layouts=stereo,apad=whole_dur={TOTAL:.3f},asplit=2[vo][vsc]")
+fc.append("[mus][vsc]sidechaincompress=threshold=0.05:ratio=3:attack=30:release=350[musd]")
+fc.append(f"[vo][musd]{sl}amix=inputs={2 + len(sfx_events)}:normalize=0:duration=longest,atrim=0:{TOTAL:.3f}[aout]")
 open(f"{HERE}/audio_graph.txt", "w").write(";\n".join(fc))
-subprocess.run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", ";".join(fc),
-                "-map", "[aout]", "-ar", "44100", "-c:a", "pcm_s16le", f"{HERE}/audio.wav"], check=True)
+ff(*inputs, "-filter_complex", ";".join(fc), "-map", "[aout]", "-c:a", "pcm_f32le", f"{HERE}/mix_raw.wav")
+g2 = -10.0 - lufs(f"{HERE}/mix_raw.wav")
+ff("-i", f"{HERE}/mix_raw.wav", "-af", f"volume={g2:.2f}dB,alimiter=limit=0.79:attack=3:release=60:level=disabled",
+   "-ar", "44100", "-c:a", "pcm_s16le", f"{HERE}/audio.wav")
 
 # ----------------------------------------------------------------------------
 # 6. Burn captions + mux
