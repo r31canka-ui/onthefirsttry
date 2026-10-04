@@ -1,0 +1,161 @@
+/* Document mode for the PDF: plain A4 report in the style of the earlier Rritje Sade documents. */
+@page{size:A4;margin:22mm 18mm 20mm}
+@page :first{margin:0}
+html.doc{--fg:#1B2623;--muted:#5A6661;--line:#C9D1CC;--surface:#fff;--surface-2:#EEF2EF;--bg:#fff;--primary:#23463F;--accent:#9A7642;--accent-ink:#7A5A2C;--accent-soft:#F4EEE4;--sage-soft:#EEF2EF;--sky-soft:#EEF2EF;--ok-soft:#E8F1EB;--no-soft:#F6E9E5}
+html.doc body{background:#fff;color:#1B2623;font-family:"Carlito",Calibri,"Liberation Sans",sans-serif;font-size:11pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html.doc *{box-shadow:none!important;text-shadow:none!important}
+html.doc h1,html.doc h2,html.doc h3,html.doc h4{font-family:"Carlito",Calibri,sans-serif;letter-spacing:0}
+
+/* cover */
+html.doc .cover{background:#fff;color:#1B2623;min-height:297mm;padding:0 24mm;display:flex;align-items:stretch;break-after:page}
+html.doc .cover-in{display:flex;flex-direction:column;width:100%;max-width:none;padding:34mm 0 24mm;gap:0}
+html.doc .cover-in>div:first-child{order:2}
+html.doc .arch-art{order:1;position:static;align-self:flex-start;width:58mm;max-width:none;aspect-ratio:auto;margin:0 0 22mm;justify-self:auto}
+html.doc .arch-art .a1,html.doc .arch-art .a2,html.doc .arch-art .sun{display:none}
+html.doc .arch-art .cap-logo{position:static;color:#23463F}
+html.doc .cover .eyebrow{color:#5A6661;font-size:12pt;letter-spacing:0;text-transform:none;font-weight:400}
+html.doc .cover h1{font-family:"Carlito",Calibri,sans-serif;font-weight:700;font-size:34pt;line-height:1.1;margin-top:3mm;color:#23463F}
+html.doc .cover h1 i{font-style:normal;color:#23463F}
+html.doc .cover .lede{color:#1B2623;font-size:13pt;max-width:120mm;margin-top:5mm}
+html.doc .cover .meta{display:grid;grid-template-columns:auto 1fr;gap:1.6mm 8mm;margin-top:14mm;padding-top:6mm;border-top:1.5pt solid #23463F;font-size:10.5pt;color:#5A6661;max-width:130mm}
+html.doc .cover .meta span{display:contents}
+html.doc .cover .meta b{color:#1B2623;font-weight:700}
+html.doc .cover-quote{order:3;margin-top:auto;border-top:.5pt solid #C9D1CC;padding-top:5mm;display:block}
+html.doc .cover-quote .eyebrow{display:block;font-size:9.5pt;margin-bottom:1.5mm}
+html.doc .cover-quote q{font-family:"Carlito",Calibri,sans-serif;font-style:italic;font-size:13pt;color:#23463F}
+
+/* contents page */
+html.doc .shell{display:block;max-width:none;padding:0}
+html.doc .toc{position:static;max-height:none;border:0;background:none;padding:0;break-after:page}
+html.doc .toc>.eyebrow{font-size:20pt;font-weight:700;color:#23463F;text-transform:none;letter-spacing:0;padding-bottom:3mm;border-bottom:1pt solid #23463F;margin-bottom:5mm}
+html.doc .toc ol{display:block}
+html.doc .toc li{border-bottom:.5pt dotted #C9D1CC}
+html.doc .toc a{display:grid;grid-template-columns:12mm 1fr;padding:2.6mm 0;font-size:12pt;color:#1B2623;border-radius:0;background:none}
+html.doc .toc a span{font-family:"Carlito",Calibri,sans-serif;font-style:normal;color:#23463F;font-weight:700}
+
+/* chapters */
+html.doc section.ch{break-before:page;padding:0;border:0}
+html.doc .ch-head{display:block;margin:0 0 6mm;padding-bottom:3mm;border-bottom:1pt solid #23463F}
+html.doc .ch-num{font-family:"Carlito",Calibri,sans-serif;font-style:normal;font-weight:700;font-size:20pt;line-height:1.2;color:#23463F;margin-right:3mm}
+html.doc .ch-head h2{display:inline;font-size:20pt;font-weight:700;color:#23463F}
+html.doc .ch-head p{font-size:11pt;color:#1B2623;margin-top:3mm;line-height:1.45;max-width:none}
+html.doc .sub{margin-top:8mm;gap:3mm}
+html.doc h3,html.doc .sub>h3{font-size:13.5pt;font-weight:700;color:#23463F;display:block;line-height:1.25}
+html.doc .sub>h3 small{display:inline;font-size:10.5pt;font-weight:400;color:#5A6661;letter-spacing:0;text-transform:none;margin-left:2mm}
+html.doc h4{font-size:11pt;font-weight:700}
+html.doc .eyebrow{font-size:10.5pt;font-weight:700;letter-spacing:0;text-transform:none;color:#23463F}
+html.doc .muted{color:#5A6661}
+html.doc .small{font-size:10pt}
+html.doc .prose,html.doc .ch-head p{max-width:none}
+
+/* boxes: flat, square, thin rules */
+html.doc .card{background:#fff;border:.5pt solid #C9D1CC;border-radius:0;padding:4mm 4.5mm}
+html.doc .statement{background:#fff;border:0;border-left:3pt solid #23463F;border-radius:0;padding:1mm 0 1mm 5mm}
+html.doc .statement::after{display:none}
+html.doc .statement p.big{font-family:"Carlito",Calibri,sans-serif;font-size:13pt;line-height:1.45;max-width:none}
+html.doc .callout,html.doc .callout.sky{background:#F3F5F3;border:0;border-left:3pt solid #23463F;border-radius:0;padding:3.5mm 4.5mm}
+html.doc .callout h4,html.doc .callout.sky h4{color:#23463F}
+html.doc .tbc{background:none;color:#7A5A2C;padding:0;border-radius:0;font-size:9pt;letter-spacing:0;text-transform:none;font-weight:700}
+html.doc .tbc::before{content:"["} html.doc .tbc::after{content:"]"}
+html.doc .pill{background:none!important;color:#5A6661!important;padding:0;border-radius:0;font-size:9.5pt;font-weight:400;letter-spacing:0}
+html.doc .pill+.pill::before{content:"· ";color:#9AA59F}
+html.doc .rule{border-top:1pt solid #23463F}
+html.doc ul.clean li::before{background:#23463F;width:1.4mm;height:1.4mm;top:.62em}
+html.doc ul.dash li::before{background:#23463F;width:2.4mm;height:.4mm;top:.72em;border-radius:0}
+
+/* tables: dark header row like the audit */
+html.doc .tw{border:0;border-radius:0;background:none;overflow:visible}
+html.doc table{font-size:10pt;border:.5pt solid #C9D1CC}
+html.doc table.wide{min-width:0}
+html.doc th,html.doc td{border:.5pt solid #C9D1CC;padding:2mm 2.6mm}
+html.doc thead th{background:#23463F;color:#fff;font-size:10pt;letter-spacing:0;text-transform:none;font-weight:700}
+html.doc tbody tr:nth-child(even) td{background:#F3F5F3}
+html.doc .dd tbody tr td:nth-child(2),html.doc .dd tbody tr td:nth-child(3){background:none}
+
+/* voice */
+html.doc .vs{border:.5pt solid #C9D1CC;border-radius:0}
+html.doc .vs h4{letter-spacing:0;text-transform:none;font-size:11pt}
+html.doc .track{border-radius:0;height:2mm;background:#E3E8E5}
+html.doc .track i{width:3.4mm;height:3.4mm;border:0;background:#23463F}
+
+/* colour + type specimens */
+html.doc .swatches{grid-template-columns:repeat(4,minmax(0,1fr));gap:3mm}
+html.doc .sw{border-radius:0;border:.5pt solid #C9D1CC}
+html.doc .sw .chip{aspect-ratio:auto;height:22mm;font-size:8pt;letter-spacing:0;text-transform:none}
+html.doc .sw .chip b{font-family:"Carlito",Calibri,sans-serif;font-style:normal;font-weight:700;font-size:12pt}
+html.doc .sw .info{font-size:9pt}
+html.doc .sw button.hex{font-family:"Carlito",Calibri,sans-serif;color:#1B2623}
+html.doc .ratio{border-radius:0}
+html.doc .spec{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+html.doc .spec .sample-c{border-radius:2mm}
+html.doc dl.kv{font-size:10pt;grid-template-columns:28mm minmax(0,1fr)}
+html.doc dl.kv dt{color:#23463F;font-weight:700}
+html.doc .frames{grid-template-columns:repeat(3,minmax(0,1fr))}
+html.doc .fx{border-radius:2mm}
+html.doc .frame figcaption{font-size:9pt}
+html.doc .hl .c{box-shadow:none}
+html.doc .logo-card{grid-template-columns:70mm 1fr}
+html.doc .logo-tiles div{border-radius:0}
+html.doc figure.mock-fig img{border-radius:0}
+html.doc .stat{border-radius:0}
+html.doc .stat b{font-family:"Carlito",Calibri,sans-serif;font-weight:700;font-size:18pt}
+html.doc .bar .t,html.doc .bar .t i{border-radius:0}
+
+/* grids that collapse at A4 width: keep them as on screen */
+html.doc .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:4mm}
+html.doc .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));gap:4mm}
+html.doc .fmt-grid{grid-template-columns:minmax(0,1fr);gap:4mm}
+html.doc .fmt dl.kv{grid-template-columns:26mm minmax(0,1fr);font-size:9.5pt}
+html.doc .fmt h4{font-family:"Carlito",Calibri,sans-serif;font-size:12pt;color:#23463F}
+
+/* reels */
+html.doc .reel{border:.5pt solid #C9D1CC;border-radius:0;break-inside:auto}
+html.doc .reel-top{display:block;padding:4mm 4.5mm;background:#F3F5F3}
+html.doc .reel-top .fx{display:none}
+html.doc .reel-top h3{font-size:14pt}
+html.doc .reel-body{padding:4mm 4.5mm}
+html.doc .hook{font-family:"Carlito",Calibri,sans-serif;font-size:11.5pt;border-left:3pt solid #9A7642}
+html.doc .script{border-radius:0;font-size:10pt}
+html.doc .script .tc{background:#EEF2EF;color:#23463F}
+html.doc .cols-4 h4{letter-spacing:0;text-transform:none;font-size:10pt;color:#23463F}
+html.doc .cols-4 p{font-size:10pt}
+
+/* carousels, stories, hooks */
+html.doc .slides{grid-template-columns:repeat(4,minmax(0,1fr))}
+html.doc .slides li{border-radius:0;background:#fff;font-size:9.5pt}
+html.doc .slides li::before{letter-spacing:0;text-transform:none;color:#23463F;font-size:9pt}
+html.doc .slides li.cta{background:#F4EEE4}
+html.doc .slides li b{font-family:"Carlito",Calibri,sans-serif;font-size:10.5pt}
+html.doc .week{grid-template-columns:repeat(4,minmax(0,1fr))}
+html.doc .day{border-radius:0}
+html.doc .day h4{font-family:"Carlito",Calibri,sans-serif;font-size:11pt;color:#23463F}
+html.doc .hookset{border-radius:0}
+html.doc .hookset h4{font-family:"Carlito",Calibri,sans-serif;font-size:12pt;color:#23463F}
+html.doc button.cp{padding:.6mm 0;margin:0}
+
+/* calendar */
+html.doc .cal-wrap{border-radius:0;overflow:visible}
+html.doc .cal{min-width:0}
+html.doc .cal .c{min-height:22mm;font-size:8pt}
+html.doc .cal .h{letter-spacing:0;text-transform:none;background:#23463F;color:#fff;font-size:9pt}
+html.doc .ev{border-radius:1mm}
+html.doc .phase div{border-top-width:1.5pt}
+html.doc .phase b{font-family:"Carlito",Calibri,sans-serif;font-size:11pt}
+
+/* checklist */
+html.doc .qc fieldset{border-radius:0}
+html.doc .qc legend{font-family:"Carlito",Calibri,sans-serif;font-size:12pt;color:#23463F;font-weight:700}
+html.doc .qc-bar{display:none}
+
+/* cheat sheet: white, not brown */
+html.doc .cheat{background:#fff;color:#1B2623;border:1pt solid #23463F;border-radius:0}
+html.doc .cheat h4{color:#23463F;letter-spacing:0;text-transform:none;font-size:10.5pt}
+html.doc .cheat p,html.doc .cheat li{font-size:10pt}
+html.doc .cheat .wide{border-top:.5pt solid #C9D1CC}
+html.doc .cheat .wide p{font-family:"Carlito",Calibri,sans-serif;font-size:13pt;color:#23463F;font-weight:700}
+html.doc .dots i{box-shadow:0 0 0 .5pt #C9D1CC!important;border-radius:0}
+html.doc footer.end{display:none}
+
+/* keep things together */
+html.doc .card,html.doc .sw,html.doc .rule,html.doc .fmt,html.doc .reel-top,html.doc .script>div,html.doc tr,html.doc figure,html.doc .callout,html.doc .statement,html.doc .hookset,html.doc .day,html.doc .qc fieldset,html.doc .phase>div,html.doc .vs,html.doc .stat,html.doc .spec,html.doc .frames,html.doc .slides li,html.doc .cols-4>div,html.doc .swatches{break-inside:avoid}
+html.doc .ch-head,html.doc h3,html.doc h4,html.doc .eyebrow{break-after:avoid}
