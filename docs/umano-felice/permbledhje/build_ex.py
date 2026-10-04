@@ -1,6 +1,13 @@
 s=open('guide.html').read()
 mark=open('mark.svg').read()
 s=s.replace('%%LOGO%%','').replace('%%MARK%%',mark)
+import re as _re
+_full=open('logo_full.svg').read()
+_c=[0]
+def _lf(m):
+    _c[0]+=1
+    return _full.replace('glyph-','g%d-'%_c[0])
+s=_re.sub('%%LOGOFULL%%',_lf,s)
 pillars=[('Edukim për prindërit',35,'“Fëmija 2 vjeç nuk bashkon dy fjalë”','#23463F'),
 ('Specialistët',25,'“Tantrumet çdo ditë: kur janë normale?”','#23463F'),
 ('Lidhja italiane',15,'“Pse Roma?” me CEO-n','#2B2420'),
