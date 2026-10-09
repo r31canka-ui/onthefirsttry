@@ -34,17 +34,15 @@ while d<=D(2026,11,7):
         week+=1
         rows.append(f'<tr class="wk"><td colspan="4">Java {week}</td></tr>')
     f=feed.get(d)
-    fhtml=f'<span class="tag {f[0]}">{"Reel" if f[0]=="reel" else "Karusel"}</span> {f[1].split(" · ")[0]} <span class="t">{f[1].split(" · ")[1]}</span>'+(f' <span class="done">{f[2]}</span>' if f[2] else '') if f else '<span class="none">Vetëm Stories</span>'
+    fhtml=f'<span class="tag {f[0]}">{"Reel" if f[0]=="reel" else "Karusel"}</span> {f[1].split(" · ")[0]} <span class="t">{f[1].split(" · ")[1]}</span>'+(f' <span class="done">✓</span>' if f[2] else '') if f else '<span class="none">—</span>'
     st=stories(d)
     if d==D(2026,10,8): st=[('21:30','Ndarje e Reel 1 + sondazh')]
     if morning_after(d) and d!=D(2026,10,9): st=[('09:00','Rikujtim i Reel-it të djeshëm')]+st
     if d==D(2026,10,9): st=[('09:00','Rikujtim i Reel 1'),('19:00','Prapaskenë nga klinika')]
-    shtml=''.join(f'<div class="s"><b>{t}</b> {x}</div>' for t,x in st)
-    extra=''
-    if d in special: extra+=f'<div class="sp">{special[d]}</div>'
-    if d in work: extra+=f'<div class="wk2">⚙ {work[d]}</div>'
+    shtml=' · '.join(t.split(' ')[0] for t,x in st)
+    extra='Filmim' if d in (D(2026,10,21),D(2026,11,4)) else ''
     cls=' class="hasfeed"' if f else ''
-    rows.append(f'<tr{cls}><td class="date"><b>{d.day} {mon[d.month-1]}</b><span>{days[d.weekday()]}</span></td><td>{fhtml}</td><td>{shtml}</td><td>{extra}</td></tr>')
+    rows.append(f'<tr{cls}><td class="date"><b>{d.day} {mon[d.month-1]}</b><span>{days[d.weekday()]}</span></td><td>{fhtml}</td><td class="st">{shtml}</td><td>{extra}</td></tr>')
     d+=dt.timedelta(days=1)
 mark=open('mark.svg').read()
 html=f'''<!doctype html><html lang="sq"><head><meta charset="utf-8"><title>Plani i postimeve</title>
@@ -67,12 +65,12 @@ body{{font-family:"Plus Jakarta Sans",sans-serif;color:#1A1A1A;font-size:10pt;li
 .legend{{font-size:9pt;color:#555;margin-bottom:4mm}}
 table{{width:100%;border-collapse:collapse}}
 thead th{{background:#231F20;color:#fff;font-size:9pt;text-align:left;padding:2mm 2.5mm;font-weight:700}}
-td{{border-bottom:.5pt solid #D0D0D0;padding:2mm 2.5mm;vertical-align:top}}
+td{{border-bottom:.5pt solid #D0D0D0;padding:1.5mm 2.5mm;vertical-align:middle}}
 tr{{break-inside:avoid}}
 tr.wk td{{background:#EDEDED;font-weight:800;font-size:9.5pt;letter-spacing:.04em;text-transform:uppercase;padding:1.6mm 2.5mm;border-bottom:0}}
 tr.hasfeed td{{background:#FAFAFA}}
-td.date{{width:22mm}} td.date b{{display:block;font-size:11pt}} td.date span{{font-size:8.5pt;color:#666}}
-td:nth-child(2){{width:46mm}} td:nth-child(4){{width:40mm;font-size:8.8pt}}
+td.date{{width:28mm}} td.date b{{display:block;font-size:10.5pt;line-height:1.15}} td.date span{{display:block;font-size:8.5pt;color:#666;white-space:nowrap}}
+td:nth-child(2){{width:62mm}} td:nth-child(4){{width:22mm;font-size:9pt;font-weight:700}} td.st{{font-variant-numeric:tabular-nums;font-size:9.5pt}}
 .tag{{display:inline-block;font-size:7.5pt;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.6mm 2mm;border-radius:99px;margin-right:1mm}}
 .tag.reel{{background:#231F20;color:#fff}} .tag.car{{border:1px solid #231F20}}
 .t{{color:#666;font-size:9pt}} .done{{font-size:8pt;color:#666}} .none{{color:#999;font-size:9pt}}
@@ -85,18 +83,7 @@ h2{{font-family:"Bodoni Moda",serif;font-weight:500;font-size:20pt;margin:7mm 0 
 .foot{{margin-top:6mm;font-size:8.5pt;color:#777;border-top:.5pt solid #ccc;padding-top:2mm}}
 </style></head><body>
 <div class="head"><div><h1>Plani i postimeve <i>8 Tetor – 7 Nëntor</i></h1><p>Umano Felice · @klinika_umano_felice · Përgatitur nga Rritje Sade</p></div><div class="logo">{mark}</div></div>
-<div class="sum"><div class="dark"><b>8</b><span>Reels · e martë dhe e premte, 20:30</span></div><div><b>4</b><span>Karusele · e diel, 20:00</span></div><div><b>31</b><span>ditë me Stories, asnjë ditë pa postim</span></div><div><b>2</b><span>ditë filmimi · 21 Tetor dhe 4 Nëntor</span></div></div>
-<p class="legend">Çdo ditë ka të paktën 2 Stories në orët e treguara. Ditët me Reel ose karusel kanë edhe postimin në feed. Kolona e fundit tregon afatet e punës dhe datat e veçanta.</p>
-<table><thead><tr><th>Data</th><th>Feed</th><th>Stories</th><th>Shënim</th></tr></thead><tbody>{''.join(rows)}</tbody></table>
-<h2>Rregullat për rezultatin maksimal</h2>
-<div class="rules">
-<div><b>Collab me specialistët</b><p>Në çdo Reel shtohet specialisti si "Collaborator". Postimi del në të dy profilet dhe arrin edhe ndjekësit e tij.</p></div>
-<div><b>60 minutat e para</b><p>Pas çdo postimi, përgjigje çdo komenti. Instagram e shpërndan më shumë videon që merr aktivitet menjëherë.</p></div>
-<div><b>Mesazhet brenda 1 ore</b><p>DM, WhatsApp dhe "Message requests" kontrollohen çdo ditë dhe marrin përgjigje brenda 1 ore në orar pune.</p></div>
-<div><b>Link WhatsApp-i çdo të shtunë</b><p>Stories e së shtunës kanë gjithmonë link për rezervim. Aty ndjekësit kthehen në pacientë.</p></div>
-<div><b>"Si na gjetët?"</b><p>Recepsioni e pyet çdo pacient të ri dhe e shënon. Pa këtë nuk e matim dot sa klientë sjell Instagram.</p></div>
-<div><b>Kontrolli në mes të muajit</b><p>Më 22 Tetor shohim Insights dhe e rregullojmë orarin nëse audienca është më aktive në orë tjetër.</p></div>
-</div>
-<p class="foot">Oraret janë pika fillestare dhe përshtaten pas dy javësh sipas të dhënave reale të llogarisë.</p>
+<div class="sum"><div class="dark"><b>8</b><span>Reels · e martë dhe e premte, 20:30</span></div><div><b>4</b><span>Karusele · e diel, 20:00</span></div><div><b>31</b><span>ditë me Stories</span></div><div><b>2</b><span>ditë filmimi · 21 Tetor dhe 4 Nëntor</span></div></div>
+<table><thead><tr><th>Data</th><th>Feed</th><th>Stories</th><th>Filmim</th></tr></thead><tbody>{''.join(rows)}</tbody></table>
 </body></html>'''
 open('plan.html','w').write(html)
